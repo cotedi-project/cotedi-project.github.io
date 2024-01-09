@@ -1,0 +1,16 @@
+{
+    "extends": "stylelint-config-standard-scss",
+    "rules": {
+        "color-no-invalid-hex": true,
+        "color-named": "never",
+        "color-hex-length": "long",
+        "declaration-block-no-redundant-longhand-properties": [ 
+            true, 
+            {
+                "ignoreShorthands": ["grid-template", "grid-row", "grid-col"]
+            }
+        ],
+        "shorthand-property-no-redundant-values": null,
+        "scss/at-extend-no-missing-placeholder": null
+    }    
+}

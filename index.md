@@ -1,3 +1,0 @@
- # CoTEDI Projekt
-
- Coming soon
