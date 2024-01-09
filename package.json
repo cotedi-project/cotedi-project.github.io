@@ -7,8 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "lint": "eslint site/js ; stylelint scss/*.scss",
-    "quickfix": "eslint site/js --fix ; stylelint scss/*.scss --fix",
+    "lint": "eslint src/ ; stylelint scss/*.scss",
+    "quickfix": "eslint src/ --fix ; stylelint scss/*.scss --fix",
     "css-compile": "sass --load-path node_modules --style compressed --source-map scss:assets/css/",
     "css-prefix": "postcss --replace assets/css/main.css --use autoprefixer --map",
     "css": "npm-run-all css-compile css-prefix",
