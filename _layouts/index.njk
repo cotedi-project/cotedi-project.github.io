@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>CoTEDI Project</title>
-        <link rel="stylesheet" href="/assets/css/main.css">
-    </head>
-<body>
-  <!-- <h1>The CoTEDI Project</h1> -->
-  <main>
-    {{ content | safe }}
-  </main>
-</body>
+<html lang="{{ meta.lang or site.lang }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ site.title }} - {{ title or meta.title }}</title>
+
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}" />
+
+  </head>
+
+  <body>
+    <!-- skiplinks -->
+    <a href="#main" class="visually-hidden-focusable">Skip to main content</a>
+
+    {% include "header.njk" %}
+
+    <main id="main">
+      <div class="container py-4">
+        {{ content | safe }}
+      </div>
+    </main>
+  </body>
 </html>

@@ -8,6 +8,7 @@ module.exports = config => {
       dir: {
         input: 'docs',
         includes: '../_layouts',
+        data: '../_data',
       }
     };
   };

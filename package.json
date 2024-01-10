@@ -12,7 +12,7 @@
     "css-compile": "sass --load-path node_modules --style compressed --source-map scss:assets/css/",
     "css-prefix": "postcss --replace assets/css/main.css --use autoprefixer --map",
     "css": "npm-run-all css-compile css-prefix",
-    "fetch-fonts": "mkdir -p assets/css/fonts && cp -r node_modules/bootstrap-icons/font/fonts assets/css/fonts",
+    "fetch-fonts": "mkdir -p assets/css/fonts && cp -r node_modules/bootstrap-icons/font/fonts assets/css/",
     "render": "eleventy",
     "all": "npm-run-all css fetch-fonts render",
     "test": "echo \"Error: no test specified\" && exit 1"
