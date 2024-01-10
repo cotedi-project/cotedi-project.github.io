@@ -1,5 +1,9 @@
+const yaml = require("yaml");
+
 module.exports = config => {
     config.addPassthroughCopy('./assets/');
+
+    config.addDataExtension("yaml", contents => yaml.parse(contents));
 
     return {
       markdownTemplateEngine: 'njk',
