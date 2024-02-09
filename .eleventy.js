@@ -2,6 +2,7 @@ const yaml = require("yaml");
 
 module.exports = config => {
     config.addPassthroughCopy('./assets/');
+    config.addPassthroughCopy("./images/");
 
     config.addDataExtension("yaml", contents => yaml.parse(contents));
 
