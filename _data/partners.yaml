@@ -1,0 +1,29 @@
+research:
+  - name: Open University of the Netherlands
+    acronym: OUNL
+    country: NL
+    url: https://www.ou.nl/
+  - name: University Rey Juan Carlos
+    acronym: URJC
+    country: ES
+    url: https://www.urjc.es/
+
+  - name: Cologne Game Lab
+    acronym: CGL
+    country: de
+    url: https://www.colognegamelab.de/
+  - name: Linnéuniversitetet
+    acronym: LNU
+    country: SE
+    url: https://lnu.se/
+  - name: treetree2 
+    acronym: treetree2
+    country: PT
+    url: https://www.treetree2.org/
+  - name: Zurich University of Applied Sciences
+    acronym: ZHAW
+    country: CH
+    url: https://www.zhaw.ch/
+    logo: zhaw_logo.svg
+
+schools: []

@@ -1,0 +1,15 @@
+- name: eTwinning
+  url: https://www.etwinning.net/
+  logo: etwinning
+- name: ERASMUS+ Project Results
+  url: https://ec.europa.eu/programmes/erasmus-plus/projects/eplus-projects-compendium/
+  logo: erasmus
+- name: LinkedIn
+  url: https://www.linkedin.com/
+  logo: linkedin
+- name: Instagram
+  url: https://www.instagram.com/
+  logo: instagram
+- name: Contact
+  url: /contact/
+  logo: contact

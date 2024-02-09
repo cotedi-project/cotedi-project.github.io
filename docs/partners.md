@@ -1,6 +1,0 @@
-- Open University of the Netherlands (OUNL)
-- University Rey Juan Carlos (URJC)
-- Cologne Game Lab (CGL)
-- Linnéuniversitetet (LNU)
-- treetree2 
-- Zurich University of Applied Sciences (ZHAW)
