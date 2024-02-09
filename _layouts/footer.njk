@@ -1,0 +1,41 @@
+<!--
+<footer class="contact">
+<ul>
+{% for link in links %}
+<li><a class="{{ link.logo }}" href="{{ link.url }}">{{ link.name }}</a></li>
+{% endfor %}
+</ul>    
+</footer>
+
+<footer class="partners">
+Reseach Partners
+    <ul class="universities">
+    {% for partner in partners.research %}
+    <li class="partner {{ partner.acronym }}"><a href="{{ partner.url }}">
+    {%if partner.logo %}
+        <img alt="{{ partner.name }} ({{ partner.acronym }})" src="/images/partners/{{partner.logo}}" class="logo">
+    {% else %}
+        {{ partner.name }} ({{ partner.acronym }})
+    {% endif %}
+    </a></li>
+    {% endfor %}
+    </ul>
+
+    <ul class="schools">
+    {% for partner in partners.schools %}
+    <li class="partner {{ partner.acronym }}"><a href="{{ partner.url }}">{{ partner.name }} ({{ partner.acronym }}) </a></li>
+    {% endfor %}
+    </ul>
+</footer>
+-->
+
+<footer class="sponsors">
+<p>
+This project is funded by:
+</p>
+    <ul>
+    {% for sponsor in sponsors %}
+    <li class="sponsor"><a href="{{ sponsor.url }}"><img class="logo" src="/images/sponsors/{{ sponsor.logo }}" alt="{{ sponsor.name }}"></a></li>
+    {% endfor %}
+    </ul>
+</footer>
