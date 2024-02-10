@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="{{ meta.lang or site.lang }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ site.title }} - {{ title or meta.title }}</title>
+
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}" />
+
+  </head>
+
+  <body>
+    <!-- skiplinks -->
+    <a href="#main" class="visually-hidden-focusable">Skip to main content</a>
+
+    {% include "header.njk" %}
+
+    
+    <main id="main">
+    <div class="container py-4">
+        <h1>{{ title }}</h1>
+      {% set posts = collections.post | reverse %}
+     
+      {% if limit %}
+        {% set posts = posts | entryLimit(limit) %}
+      {% endif %}
+
+      {% for post in posts %}
+        <article>
+          <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
+            <p>{{ post.data.date | readableDate }} by {{ post.data.author }}</p>       
+            <div class="partner">
+            {% for rpartner in partners.research %}
+                {% if rpartner.acronym == post.data.partner %}
+              <a href="{{ rpartner.url }}" target="_blank" rel="noopener"><img class="partner logo" src="/images/partners/{{rpartner.logo | url }}" alt="{{ rpartner.name }}"></a>
+                {% endif %}
+            {% endfor %}
+            {% for spartner in partners.schools %}
+                {% if spartner.acronym == post.data.partner %}
+              <a href="/images/partners/{{ spartner.url }}" target="_blank" rel="noopener">{{ spartner.name }}</a>
+              {% endif %}
+            {% endfor %}
+        </div>
+          <p>{{ post.data.description }}</p>
+
+          <a href="{{ post.url | url }}">Read more</a>
+        </article>
+      {% endfor %}
+
+      {% if limit and posts | length > limit %}
+        <p><a href="{{ '/archive' | url }}">More posts...</a></p>        
+      {% endif %}
+
+      </div>
+    </main>
+
+    {% include "footer.njk" %}
+
+  </body>
+</html>

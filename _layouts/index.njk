@@ -13,8 +13,14 @@
     <!-- skiplinks -->
     <a href="#main" class="visually-hidden-focusable">Skip to main content</a>
 
-    {% include "header.njk" %}
+    {% include "header.njk" %}  
 
+    <header class="page-header">
+      <div class="container">
+       <a class="link" href="{{ '/news' | url }}"><i class="bi bi-rss"></i> Project News</a>
+       <a class="link" href="{{ '/events' | url }}"><i class="bi bi-calendar3"></i> Upcoming Events</a>
+      </div>
+    </header>
     <main id="main">
       <div class="container py-4">
         {{ content | safe }}
