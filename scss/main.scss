@@ -13,7 +13,6 @@
 
 footer {
     background-color: #f8f9fa;
-    padding: 2rem 100px;
 
     &.sponsors {
         background-color: #f3f4f2;
@@ -28,5 +27,6 @@ footer {
     li {
         list-style: none;
         display: inline-block;
+        text-align: center;
     }
 }

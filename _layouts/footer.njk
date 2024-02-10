@@ -30,12 +30,16 @@ Reseach Partners
 -->
 
 <footer class="sponsors">
-<p>
-This project is funded by:
-</p>
+<div class="container py-4">
+<div class="container-fluid">
+    <p>
+    This project is funded by:
+    </p>
     <ul>
     {% for sponsor in sponsors %}
     <li class="sponsor"><a href="{{ sponsor.url }}"><img class="logo" src="/images/sponsors/{{ sponsor.logo }}" alt="{{ sponsor.name }}"></a></li>
     {% endfor %}
     </ul>
+</div>
+<div>
 </footer>
