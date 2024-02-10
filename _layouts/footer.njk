@@ -1,13 +1,19 @@
 <!--
 <footer class="contact">
+<div class="container py-4">
+<div class="container-fluid">
 <ul>
 {% for link in links %}
 <li><a class="{{ link.logo }}" href="{{ link.url }}">{{ link.name }}</a></li>
 {% endfor %}
 </ul>    
+</div>
+</div>
 </footer>
 
 <footer class="partners">
+<div class="container py-4">
+<div class="container-fluid">
 Reseach Partners
     <ul class="universities">
     {% for partner in partners.research %}
@@ -26,6 +32,8 @@ Reseach Partners
     <li class="partner {{ partner.acronym }}"><a href="{{ partner.url }}">{{ partner.name }} ({{ partner.acronym }}) </a></li>
     {% endfor %}
     </ul>
+</div>
+</div>
 </footer>
 -->
 
@@ -41,5 +49,5 @@ Reseach Partners
     {% endfor %}
     </ul>
 </div>
-<div>
+</div>
 </footer>
