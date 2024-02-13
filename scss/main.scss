@@ -81,9 +81,14 @@ main {
         }
     }
 
+    h1 {
+        font-weight: bolder;
+    }
+
     ul.events {
         li {
             list-style: none;
+            font-size: 1.2em;
             
             &::before {
                 font-family: bootstrap-icons, sans-serif;
@@ -111,6 +116,44 @@ main {
             i.bi {
                 color: $primary-color;
             }
+        }
+    }
+
+    article {
+        @extend .px-5;
+        // @extend .py-3;
+
+        margin-top: 1em;
+
+        a {
+            color: $primary-color;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        h1, h2 a {
+            color: #000000;
+            // font-weight: bold;
+            // font-style: italic;
+            text-decoration: none;
+
+            &::before {
+                font-family: bootstrap-icons, sans-serif;
+                content: "\F521";
+                margin-right: .5em;
+                text-decoration: none;
+            }
+            
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        p {
+            
         }
     }
 }
