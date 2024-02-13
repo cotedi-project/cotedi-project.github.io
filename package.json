@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Site Generator for the CoTEDI Project",
   "main": "",
+  "type": "module",
   "directories": {
     "doc": "docs"
   },
