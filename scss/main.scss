@@ -16,70 +16,10 @@ $primary-fg-color: #ffffff;
 $secondary-color: #3966b5;
 $tertiary-color: #B539A4;
 $quaternary-color: #B58839;
-
 $footer-grey-400: #f8f9fa;
 $footer-grey-600: darken($color: $footer-grey-400, $amount: 5%);
 
-.partners {
 
-    .logo {
-    height: 60px;
-    margin-top: 2em;
-    margin-right: 1.5em;
-
-    &.zhaw {
-        width: 60px;    
-    }
-  
-    &.ounl {
-        width: 168px;
-    } 
-
-    &.urjc {
-        width: 168px;
-    }
-
-    &.cgl, &.thk {
-        width: 111;
-    }
-
-    &.lnu {
-        width: 370px;
-    }
-
-    &.piwgroep {
-        height: 60px;
-        width: 231px;
-    }
-
-    &.treetree2 {
-        height: 40px;
-        width: 216px;    
-    }
-
-    &.swalmenroer {
-        height: 50px;
-        width: 180px;    
-    }
-
-    &.colegioatlantico {
-        width: 81px;
-    }
-
-    &.kodcentrum {
-        width: 152px;
-    }
-
-    &.aeffl {
-        width: 96px;
-    }
-    }
-
-    a {
-        text-decoration: none;
-        color: $primary-color;
-    }
-}
 
 .sponsor .logo {
     width: 275px;
@@ -121,6 +61,7 @@ footer {
     li {
         list-style: none;
         display: inline-block;
+
         // text-align: center;
     }
     
@@ -207,6 +148,7 @@ main {
 
     article {
         @extend .px-5;
+
         // @extend .py-3;
 
         margin-top: 1em;
@@ -222,6 +164,7 @@ main {
 
         h1, h2 a {
             color: #000000;
+
             // font-weight: bold;
             // font-style: italic;
             text-decoration: none;
@@ -237,9 +180,65 @@ main {
                 text-decoration: none;
             }
         }
+    }
+}
 
-        p {
-            
-        }
+.partners {
+    .logo {
+    height: 60px;
+    margin-top: 2em;
+    margin-right: 1.5em;
+
+    &.zhaw {
+        width: 60px;    
+    }
+  
+    &.ounl {
+        width: 168px;
+    } 
+
+    &.urjc {
+        width: 168px;
+    }
+
+    &.cgl, &.thk {
+        width: 111;
+    }
+
+    &.lnu {
+        width: 370px;
+    }
+
+    &.piwgroep {
+        height: 60px;
+        width: 231px;
+    }
+
+    &.treetree2 {
+        height: 40px;
+        width: 216px;    
+    }
+
+    &.swalmenroer {
+        height: 50px;
+        width: 180px;    
+    }
+
+    &.colegioatlantico {
+        width: 81px;
+    }
+
+    &.kodcentrum {
+        width: 152px;
+    }
+
+    &.aeffl {
+        width: 96px;
+    }
+    }
+
+    a {
+        text-decoration: none;
+        color: $primary-color;
     }
 }
