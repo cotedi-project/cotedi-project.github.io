@@ -27,23 +27,12 @@
 
       {% for post in posts %}
         <article>
-          <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
-            <p>{{ post.data.date | readableDate }} by {{ post.data.author }}</p>       
-            <div class="partner">
-            {% for rpartner in partners.research %}
-                {% if rpartner.acronym == post.data.partner %}
-              <a href="{{ rpartner.url }}" target="_blank" rel="noopener"><img class="partner logo" src="/images/partners/{{rpartner.logo | url }}" alt="{{ rpartner.name }}"></a>
-                {% endif %}
-            {% endfor %}
-            {% for spartner in partners.schools %}
-                {% if spartner.acronym == post.data.partner %}
-              <a href="/images/partners/{{ spartner.url }}" target="_blank" rel="noopener">{{ spartner.name }}</a>
-              {% endif %}
-            {% endfor %}
-        </div>
-          <p>{{ post.data.description }}</p>
+            <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
+            <p><time datetime="{{ page.date | htmlDateString }}">{{ post.date | readableDate }}<time> by {{ post.data.author }}</p>       
+            <div class="partner"></div>
+            <p>{{ post.data.description }}  <a class="bi bi-box-arrow-up-right" href="{{ post.url | url }}"> Read more</a></p>
 
-          <a href="{{ post.url | url }}">Read more</a>
+         
         </article>
       {% endfor %}
 

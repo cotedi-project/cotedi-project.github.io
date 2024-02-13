@@ -17,9 +17,10 @@
 
     <main id="main">
       <div class="container py-4">
+        <article>
         <h1>{{ title }}</h1>
         <p class="meta">
-          <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+          <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
           {% if author %}
             <span class="author">by {{ author }}</span>
           {% endif %}
@@ -49,7 +50,10 @@
               {% endif %}
             {% endfor %}
         </div>
-
+        </article>
+        <div class="back">
+          <a type="button" class="btn btn-primary" href="{{ '/news/' | url }}">Read more news</a>
+        </div>
       </div>
     </main>
 
