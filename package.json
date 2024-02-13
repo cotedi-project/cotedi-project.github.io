@@ -10,6 +10,7 @@
     "lint": "eslint src/ ; stylelint scss/*.scss",
     "quickfix": "eslint src/ --fix ; stylelint scss/*.scss --fix",
     "css-compile": "sass --load-path node_modules --style compressed --source-map scss:assets/css/",
+    "watch:css": "sass --watch --load-path node_modules --style compressed --source-map scss:assets/css/",
     "css-prefix": "postcss --replace assets/css/main.css --use autoprefixer --map",
     "css": "npm-run-all css-compile css-prefix",
     "fetch-fonts": "mkdir -p assets/css/fonts && cp -r node_modules/bootstrap-icons/font/fonts assets/css/",
