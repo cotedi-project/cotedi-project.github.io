@@ -1,15 +1,32 @@
+Community:
 - name: eTwinning
   url: https://www.etwinning.net/
+  target: _blank
   logo: etwinning
-- name: ERASMUS+ Project Results
-  url: https://ec.europa.eu/programmes/erasmus-plus/projects/eplus-projects-compendium/
-  logo: erasmus
 - name: LinkedIn
   url: https://www.linkedin.com/
   logo: linkedin
+  target: _blank
 - name: Instagram
   url: https://www.instagram.com/
   logo: instagram
+  target: _blank
+
+Resources:
+- name: For Teachers
+  url: /pages/for-teachers/
+- name: For Parents
+  url: /pages/for-parents/
+- name: For Developers
+  url: /pages/for-developers/
+
+Project:
 - name: Contact
-  url: /contact/
-  logo: contact
+  url: /pages/contact/
+- name: Project Results
+  url: https://ec.europa.eu/programmes/erasmus-plus/projects/eplus-projects-compendium/
+  target: _blank
+- name: Partners
+  url: /pages/partners/
+- name: Privacy Policy
+  url: /pages/privacy/
