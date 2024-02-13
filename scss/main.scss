@@ -17,9 +17,68 @@ $secondary-color: #3966b5;
 $tertiary-color: #B539A4;
 $quaternary-color: #B58839;
 
-.partners .logo {
-  width: 60px;
-  height: 60px;
+$footer-grey-400: #f8f9fa;
+$footer-grey-600: darken($color: $footer-grey-400, $amount: 5%);
+
+.partners {
+
+    .logo {
+    height: 60px;
+    margin-top: 2em;
+    margin-right: 1.5em;
+
+    &.zhaw {
+        width: 60px;    
+    }
+  
+    &.ounl {
+        width: 168px;
+    } 
+
+    &.urjc {
+        width: 168px;
+    }
+
+    &.cgl, &.thk {
+        width: 111;
+    }
+
+    &.lnu {
+        width: 370px;
+    }
+
+    &.piwgroep {
+        height: 60px;
+        width: 231px;
+    }
+
+    &.treetree2 {
+        height: 40px;
+        width: 216px;    
+    }
+
+    &.swalmenroer {
+        height: 50px;
+        width: 180px;    
+    }
+
+    &.colegioatlantico {
+        width: 81px;
+    }
+
+    &.kodcentrum {
+        width: 152px;
+    }
+
+    &.aeffl {
+        width: 96px;
+    }
+    }
+
+    a {
+        text-decoration: none;
+        color: $primary-color;
+    }
 }
 
 .sponsor .logo {
@@ -47,10 +106,10 @@ header.news {
 }
 
 footer {
-    background-color: #f8f9fa;
+    background-color: $footer-grey-600;
 
     &.sponsors {
-        background-color: #f3f4f2;
+        background-color: $footer-grey-400;
 
     }
 
@@ -62,7 +121,34 @@ footer {
     li {
         list-style: none;
         display: inline-block;
-        text-align: center;
+        // text-align: center;
+    }
+    
+    p, h3 {
+        color: darken($color: #f8f9fa, $amount: 40%)
+    }
+
+    h3 {
+        font-size: 1em;
+    }
+
+    &.contact {
+        padding: 1em;
+
+        li {
+          display: block;
+          font-size: 0.8em;
+
+          a {
+            color: darken($color: $primary, $amount: 10%);
+            text-decoration: none;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+
     }
 }
 
@@ -146,7 +232,7 @@ main {
                 margin-right: .5em;
                 text-decoration: none;
             }
-            
+
             &:hover {
                 text-decoration: none;
             }
