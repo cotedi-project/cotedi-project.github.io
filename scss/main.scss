@@ -1,5 +1,22 @@
 @use "bootstrap-icons/font/bootstrap-icons";
-@use "bootstrap/scss/bootstrap";
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+
+$primary: #39B54A;
+
+$theme-colors: map-merge($theme-colors, (
+  "primary": $primary
+));
+
+
+@import "bootstrap/scss/bootstrap";
+
+
+$primary-color: $primary;
+$secondary-color: #3966b5;
+$tertiary-color: #B539A4;
+$quaternary-color: #B58839;
 
 .partners .logo {
   width: 60px;
@@ -9,6 +26,24 @@
 .sponsor .logo {
     width: 275px;
     height: 80px;
+}
+
+
+header.news {
+    background-color: $primary-color; 
+
+    div {
+        text-align: right;
+        .btn.btn-link {
+            color: white;
+            text-decoration: none;
+
+            &:hover {
+                color: white;
+                text-decoration: underline;
+            }
+        }
+    }
 }
 
 footer {
@@ -31,8 +66,50 @@ footer {
     }
 }
 
-main .partner.logo {
-    align-content: right;
-    width: 60px;
-    height: 60px;   
+main {
+    .partner.logo {
+        align-content: right;
+        width: 60px;
+        height: 60px;   
+    }
+
+    .back {
+        text-align: center;
+
+        .btn {
+            color: white;
+        }
+    }
+
+    ul.events {
+        li {
+            list-style: none;
+            
+            &:before {
+                font-family: bootstrap-icons;
+                content: "\F214";
+                // font-size: 1.2em;
+                margin-right: .5em;
+                color: $primary-color;
+            }
+
+            a {
+                font-weight: bolder;
+                color: $primary-color;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .event-date::after {
+                content: ": ";
+            }
+
+            i.bi {
+                color: $primary-color;
+            }
+        }
+    }
 }
