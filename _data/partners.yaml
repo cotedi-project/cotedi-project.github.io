@@ -3,27 +3,127 @@ research:
     acronym: OUNL
     country: NL
     url: https://www.ou.nl/
+    logo: OUNL_logo.svg
+    team: 
+    - name: Nardie Fanchamps
+      url: https://www.ou.nl/web/leren-en-ict/medewerkers
+
   - name: University Rey Juan Carlos
     acronym: URJC
     country: ES
+    logo: URJ_logo_Color_POS.svg
     url: https://www.urjc.es/
+    team:
+    - name: Maria Zapata Cacéres
+      url: https://www.urjc.es/
+    - name: Estefanía Martín Barroso
+      url: https://www.urjc.es/
 
   - name: Cologne Game Lab
     acronym: CGL
-    country: de
+    country: DE
+    logo: logo_cgl.svg
     url: https://www.colognegamelab.de/
+    team:
+    - name: Roland Klemke
+      url: https://www.colognegamelab.de/
+
+  - name: Technische Hochschule Köln
+    ignore: true
+    acronym: THK
+    country: DE
+    logo: logo_th.svg
+    url: https://www.colognegamelab.de/
+
   - name: Linnéuniversitetet
     acronym: LNU
     country: SE
     url: https://lnu.se/
+    logo: lnu_logo.png
+    team:
+    - name: Marcelo Milrad
+      url: https://lnu.se/
+    
   - name: treetree2 
     acronym: treetree2
     country: PT
+    logo: treetree2_logo.webp
     url: https://www.treetree2.org/
+    team:
+    - name: Pedro Marcelino
+      url: https://www.treetree2.org/
+    - name: João Rico
+      url: https://www.treetree2.org/
+
   - name: Zurich University of Applied Sciences
     acronym: ZHAW
     country: CH
     url: https://www.zhaw.ch/
     logo: zhaw_logo.svg
+    team: 
+    - name: Christian Glahn
+      url: https://www.zhaw.ch/de/ueber-uns/person/glah/
 
-schools: []
+schools:
+  - name: CP Pedro Duque
+    acronym: cppd
+    country: ES
+    url: 
+    logo: Imagen_PedroDuque2.png
+    team: 
+  - name: Stichting MIK & PIW Groep
+    acronym: piwgroep
+    country: NL
+    url: https://www.mik-piwgroep.nl/
+    logo: piw-logo.png
+    team:   
+  - name: Stichting Swalm & Roer voor Onderwijs en Opvoeding
+    acronym: swalmenroer
+    country: NL
+    url: https://www.swalmenroer.nl/
+    logo: logo_swalmenroer.png
+    team: 
+  - name: Agrupamento de Escolas de Nisa
+    acronym: aenisa
+    country: PT
+    url: http://www.escolasdenisa.org.pt
+    logo: 
+    team: 
+  - name: Colégio Atlântico
+    acronym: colegioatlantico
+    country: PT
+    url: https://www.colegioatlantico.pt/
+    logo: logo_colegioatlantico.jpeg
+    team: 
+  - name: Agrupamento de Escolas Dr. Francisco Fernandes Lopes
+    acronym: aeffl
+    country: PT
+    url: https://www.aeffl.pt
+    logo: logo_aeffl.png
+    team: 
+  - name: Agrupamento de Escolas Professor Armando de Lucena
+    acronym: aealucena
+    country: PT
+    url: https://www.aealucena.pt
+    logo: 
+    team: 
+  - name: Agrupamento de Escolas de Fornos de Algodres
+    acronym:
+    country: PT
+    url: https://www.ae-fa.pt
+    logo: Logo_AEFA.png
+    team: 
+  - name: Kodcentrum
+    acronym: Kodcentrum
+    country: SE
+    url: https://www.kodcentrum.se/
+    logo: Kodcentrum+logga+med+robotar.png
+    team: 
+  - name: Agrupamento de Escolas de Vila Verde
+    acronym: aevv
+    country: PT
+    url: https://aevv.edu.pt/
+    logo: logo_aevv.png
+    team: 
+  
+  
