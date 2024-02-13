@@ -1,5 +1,13 @@
 const yaml = require("yaml");
 const { DateTime } = require("luxon");
+const markdownIt = require('markdown-it')
+const markdownItAttrs = require('markdown-it-attrs')
+
+const markdownItOptions = {
+    html: true,
+    breaks: true,
+    linkify: true
+  };
 
 module.exports = config => {
 
@@ -34,6 +42,8 @@ module.exports = config => {
 	});
 
     config.addFilter("entryLimit", (arr, limit) => arr.slice(0, limit));
+
+    config.setLibrary('md', markdownIt(markdownItOptions).use(markdownItAttrs))
 
     return {
       markdownTemplateEngine: 'njk',
