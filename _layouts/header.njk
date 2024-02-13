@@ -1,11 +1,26 @@
 <div class="container py-4">
-  <header class="pb-3 mb-4 border-bottom">
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container-fluid">
-        <a href="{{ '/' | url }}" class="d-flex align-items-center text-dark text-decoration-none">
+  <header class="title">
+    <a href="{{ '/' | url }}" class="d-flex align-items-center text-dark text-decoration-none">
           <img src="{{ site.logo_large | url }}" alt="logo {{ site.title }}" class="img-fluid" style="margin-right: 2em; width: 120px; height: 65px;"> <span class="fs-4">{{ site.long_title }}</span>
-        </a>
-      </div>
-    </nav>
+    </a>
   </header>
 </div>
+
+<header class="news" style="background-color: #39B54A;">
+  <div class="container">
+
+   {% set latestPost %}{%if collections.post | reverse | first%}{{ (collections.post | reverse | first).date | dateYear }}{% endif %}{% endset %}
+   {% set latestEvent %}{%if collections.event | reverse | first%}{{ (collections.event | reverse | first).date | htmlDateString }}{% endif %}{% endset %}
+   {% set presentYr %}{% thisYear %}{% endset %}
+   {% set presentDate %}{% thisDate %}{% endset %}
+
+   {% if latestPost == presentYr %}
+   <a class="btn btn-link" href="{{ '/news' | url }}"><i class="bi bi-rss"></i> Project News</a>
+   {% endif %}
+   
+   {% if (latestEvent | length ) and (latestEvent >= presentDate) %}
+   <a class="btn btn-link" href="{{ '/events' | url }}"><i class="bi bi-calendar3"></i> Upcoming Events</a>
+   {% endif %}
+  </div>
+</header>
+   
