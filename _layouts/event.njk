@@ -36,18 +36,20 @@
             {% endfor %}
           </ul>
         </div>
+        {% if page.data.partner %}
         <div class="partner">
             {% for rpartner in partners.research %}
-                {% if rpartner.acronym == partner %}
+                {% if rpartner.acronym == page.data.partner %}
               <a href="{{ rpartner.url }}" target="_blank" rel="noopener"><img class="partner logo" src="/images/partners/{{rpartner.logo | url }}" alt="{{ rpartner.name }}"></a>
                 {% endif %}
             {% endfor %}
             {% for spartner in partners.schools %}
-                {% if spartner.acronym == partner %}
+                {% if spartner.acronym == page.data.partner %}
               <a href="/images/partners/{{ spartner.url }}" target="_blank" rel="noopener">{{ spartner.name }}</a>
               {% endif %}
             {% endfor %}
         </div>
+        {% endif %}
         <div class="back">
           <a type="button" class="btn btn-primary" href="{{ '/events/' | url }}">Find more events</a>
       </div>
