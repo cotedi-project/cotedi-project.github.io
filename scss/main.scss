@@ -288,7 +288,7 @@ main {
                 font-weight: 300;
                 font-size: 0.9em;
                 color: darken($footer-grey-400, 30);
-                margin-bottom: 0em;
+                margin-bottom: 0;
 
                 &::before {
                     content: "Other members";
