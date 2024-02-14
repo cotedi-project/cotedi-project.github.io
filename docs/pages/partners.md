@@ -12,9 +12,9 @@ hero_image:
 <card class="partner">
 <div class="partnerlogo">
 {%if partner.logo -%}
-        {% for logo in partner.logo -%}
+        <a href="{{ partner.url }}" target="_blank">{% for logo in partner.logo -%}
         <img alt="{{ partner.name }} ({{ partner.acronym }})" src="/images/partners/{{logo}}" class="logo {{ partner.acronym | lower }}">
-        {%- endfor %}
+        {%- endfor %}</a>
 {%- endif %}
 </div>
 <div class="partnerinfo">

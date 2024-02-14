@@ -7,7 +7,7 @@ research:
     - OUNL_logo.svg
     team: 
     - name: Dr. Nardie Fanchamps
-      url: https://www.ou.nl/web/leren-en-ict/medewerkers
+      url: https://research.ou.nl/en/persons/nardie-fanchamps-2
 
   - name: University Rey Juan Carlos
     acronym: URJC
@@ -17,9 +17,9 @@ research:
     url: https://www.urjc.es/
     team:
     - name: Dr. Maria Zapata Cacéres
-      url: https://www.urjc.es/
+      url: https://gestion2.urjc.es/pdi/ver/maria.zapata
     - name: Prof.  Estefanía Martín Barroso
-      url: https://www.urjc.es/
+      url: https://gestion2.urjc.es/pdi/ver/estefania.martin
 
   - name: Cologne Game Lab
     acronym: CGL
@@ -30,14 +30,7 @@ research:
     url: https://www.colognegamelab.de/
     team:
     - name: Prof. Roland Klemke
-      url: https://www.colognegamelab.de/
-
-  # - name: Technische Hochschule Köln
-  #   ignore: true
-  #   acronym: THK
-  #   country: DE
-  #   logo: 
-  #   url: https://www.colognegamelab.de/
+      url: https://colognegamelab.de/about/faculty-staff/professors/prof-dr-roland-klemke/
 
   - name: Linnéuniversitetet
     acronym: LNU
