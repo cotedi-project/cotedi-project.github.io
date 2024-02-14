@@ -200,8 +200,8 @@ main {
         }
 
         .partnerlogo {
-            @extend .col;
-
+            @extend .col-md-5;
+            
             object-fit: contain;
             text-align: center;
 
@@ -217,18 +217,26 @@ main {
                 }
 
                 &.lnu {
-                    height: 56px;
-                    width: 347px;
+                    height: min(56px, auto);
+                    width: min(347px, 90%);
                 }
 
                 &.treetree2 {
-                    height: 38px;
-                    width: 290px;
+                    height: min(38px, auto);
+                    width: min(290px, 90%);
+                }
+
+                &.piwgroep {
+                    height: min(90px, auto);
+                    width: min(90%, 347px);
+
                 }
 
                 &.swalmenroer {
                     background-color: #000000;
                     padding: 5px;
+                    height: min(90px, auto);
+                    width: min(80%, 298px);
                 }
 
                 &.aevv {
@@ -240,7 +248,8 @@ main {
         }
 
         .partnerinfo {
-            @extend .col-7;
+            @extend .col-md-7;
+            @extend .col-sm-12;
 
             text-align: left;
 
