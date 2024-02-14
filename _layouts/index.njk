@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ meta.lang or site.lang }}">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ site.title }} - {{ title or meta.title }}</title>
-
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}" />
-
-  </head>
+  {% include "blocks/html_head.njk" %}
 
   <body>
     <!-- skiplinks -->

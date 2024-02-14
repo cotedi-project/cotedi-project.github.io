@@ -1,0 +1,12 @@
+---
+layout: index
+---
+
+{% if title -%}
+<div class="container py-4">
+        <h1>{{ title or meta.title }}</h1>
+</div>
+{%- endif %}
+<div class="container py-4">
+    {{ content | safe }}
+</div>

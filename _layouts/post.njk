@@ -1,21 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ meta.lang or site.lang }}">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ site.title }} - {{ title or meta.title }}</title>
-
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}" />
-
-  </head>
-
-  <body>
-    <!-- skiplinks -->
-    <a href="#main" class="visually-hidden-focusable">Skip to main content</a>
-
-    {% include "header.njk" %}
-
-    <main id="main">
+---
+layout: index
+---
       <div class="container py-4">
         <article>
         <h1>{{ title }}</h1>
@@ -55,9 +40,3 @@
           <a type="button" class="btn btn-primary" href="{{ '/news/' | url }}">Read more news</a>
         </div>
       </div>
-    </main>
-
-    {% include "footer.njk" %}
-
-  </body>
-</html>
