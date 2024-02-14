@@ -94,6 +94,20 @@ footer {
 }
 
 main {
+    a {
+        color: $primary-color;
+        text-decoration: none;
+
+        &.external::after {
+            font-family: bootstrap-icons, sans-serif;
+            content: " \F1c5";
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
     .partner.logo {
         align-content: right;
         width: 60px;
