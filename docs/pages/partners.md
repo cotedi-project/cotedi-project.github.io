@@ -1,6 +1,6 @@
 ---
 title: Partners
-long_title: 16 institutions from six countries are driving the CoTEDI project. 
+long_title: 16 institutions from six countries drive the CoTEDI project
 hero_image: 
 ---
 
