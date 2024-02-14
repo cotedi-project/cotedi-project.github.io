@@ -6,7 +6,7 @@ research:
     logo: 
     - OUNL_logo.svg
     team: 
-    - name: Nardie Fanchamps
+    - name: Dr. Nardie Fanchamps
       url: https://www.ou.nl/web/leren-en-ict/medewerkers
 
   - name: University Rey Juan Carlos
@@ -16,9 +16,9 @@ research:
     - URJ_logo_Color_POS.svg
     url: https://www.urjc.es/
     team:
-    - name: Maria Zapata Cacéres
+    - name: Dr. Maria Zapata Cacéres
       url: https://www.urjc.es/
-    - name: Estefanía Martín Barroso
+    - name: Prof.  Estefanía Martín Barroso
       url: https://www.urjc.es/
 
   - name: Cologne Game Lab
@@ -29,7 +29,7 @@ research:
     - logo_th.svg
     url: https://www.colognegamelab.de/
     team:
-    - name: Roland Klemke
+    - name: Prof. Roland Klemke
       url: https://www.colognegamelab.de/
 
   # - name: Technische Hochschule Köln
@@ -47,8 +47,9 @@ research:
     logo: 
     - lnu_logo.png
     team:
-    - name: Marcelo Milrad
+    - name: Prof. Marcelo Milrad
       url: https://lnu.se/en/staff/marcelo.milrad/
+    - name: Katrin Lindwall
     
   - name: treetree2 
     acronym: treetree2
@@ -69,7 +70,7 @@ research:
     logo: 
     - zhaw_logo.svg
     team: 
-    - name: Christian Glahn
+    - name: Dr. Christian Glahn
       url: https://www.zhaw.ch/de/ueber-uns/person/glah/
 
 schools:
