@@ -187,13 +187,11 @@ main {
         
         min-height: 10em;
         align-items: center;
-
         margin-bottom: 3em;
 
         // border: 1px solid #000000;
         border-radius: 5px;
-
-        box-shadow: darken(#f8f9fa, 5) 0px 15px 10px 0px;  
+        box-shadow: darken(#f8f9fa, 5) 0 15px 10px 0;  
 
 
         div {
@@ -203,8 +201,8 @@ main {
 
         .partnerlogo {
             @extend .col;
-            object-fit: contain;
 
+            object-fit: contain;
             text-align: center;
 
             .logo {
@@ -222,6 +220,7 @@ main {
                     height: 56px;
                     width: 347px;
                 }
+
                 &.treetree2 {
                     height: 38px;
                     width: 290px;
@@ -242,6 +241,7 @@ main {
 
         .partnerinfo {
             @extend .col-7;
+
             text-align: left;
 
             h3 {
@@ -335,7 +335,9 @@ main {
 
     &.swalmenroer {
         height: 50px;
-        width: 180px;    
+        width: 180px;
+        background-color: #000000;
+        padding: 5px;
     }
 
     &.colegioatlantico {
@@ -352,11 +354,6 @@ main {
 
     &.aevv {
         background-color: #21a9de;
-        padding: 5px;
-    }
-
-    &.swalmenroer {
-        background-color: #000000;
         padding: 5px;
     }
 
