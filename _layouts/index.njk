@@ -3,21 +3,13 @@
   {% include "blocks/html_head.njk" %}
 
   <body>
-    <!-- skiplinks -->
-    <a href="#main" class="visually-hidden-focusable">Skip to main content</a>
+    {% include "blocks/header.njk" %}  
 
-    {% include "header.njk" %}  
-
-    <main id="main">
-      {% if title %}<div class="container py-4">
-        <h1>{{ title or meta.title }}</h1>
-      </div>{% endif %}
-      <div class="container py-4">
+    <main id="main">     
         {{ content | safe }}
-      </div>
     </main>
 
-    {% include "footer.njk" %}
+    {% include "blocks/footer.njk" %}
 
   </body>
 </html>
