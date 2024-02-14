@@ -5,7 +5,7 @@ const markdownItAttrs = require('markdown-it-attrs')
 
 const markdownItOptions = {
     html: true,
-    breaks: true,
+    breaks: false,
     linkify: true
   };
 
