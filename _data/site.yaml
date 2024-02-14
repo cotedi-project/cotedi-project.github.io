@@ -1,3 +1,10 @@
 title: CoTEDI
 long_title: Computational Thinking Education for Diversity and Inclusion
 logo_large: /images/CoTEDIlogo.svg
+countries:
+  ES: Spain
+  CH: Switzerland
+  DE: Germany
+  PT: Portugal
+  SE: Sweden
+  NL: The Netherlands
