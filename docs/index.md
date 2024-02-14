@@ -1,5 +1,5 @@
 --- 
-layout: index.njk
+layout: page
 --- 
 
 CoTEDI aims to identify, develop and implement a new common methodology for the application of computational thinking (CT) in a variety of educational settings with a focus on teacher professionalisation and student empowerment. Special attention will be paid to inclusion criteria, special educational needs and diversity issues, viewing differences in (special) educational needs, capacities and (im)possibilities as a focused opportunity and a rich starting point. 
