@@ -182,7 +182,7 @@ main {
         }
     }
 
-    h3 {
+    h3.herotext {
         font-weight: 300;
         text-align: center;
         margin-bottom: 2em;
@@ -260,6 +260,7 @@ main {
             text-align: left;
 
             h3 {
+                text-align: left;
                 font-weight: 600;
                 font-size: 1.6em;
             }

@@ -4,7 +4,7 @@ long_title: 16 institutions from six countries are driving the CoTEDI project.
 hero_image: 
 ---
 
-<h3>{{ long_title }}</h3>
+<h3 class="herotext">{{ long_title }}</h3>
 {% set allpartners = partners.research %}
 {% set allpartners = allpartners.concat(partners.schools) %}
 
