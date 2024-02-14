@@ -1,5 +1,5 @@
 --- 
-layout: news.njk
+layout: news
 title: Project News Archive
 --- 
 

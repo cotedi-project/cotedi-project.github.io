@@ -1,21 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ meta.lang or site.lang }}">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ site.title }} - {{ title or meta.title }}</title>
-
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}" />
-
-  </head>
-
-  <body>
-    <!-- skiplinks -->
-    <a href="#main" class="visually-hidden-focusable">Skip to main content</a>
-
-    {% include "header.njk" %}
-
-    <main id="main">
+---
+layout: index
+---
       <div class="container py-4">
         <article>
         <h1>{{ title }}</h1>
@@ -38,26 +23,8 @@
             {% endfor %}
           </ul>
         </div>
-        <div class="partner">
-            {% for rpartner in partners.research %}
-                {% if rpartner.acronym == partner %}
-              <a href="{{ rpartner.url }}" target="_blank" rel="noopener"><img class="partner logo" src="/images/partners/{{rpartner.logo | url }}" alt="{{ rpartner.name }}"></a>
-                {% endif %}
-            {% endfor %}
-            {% for spartner in partners.schools %}
-                {% if spartner.acronym == partner %}
-              <a href="/images/partners/{{ spartner.url }}" target="_blank" rel="noopener">{{ spartner.name }}</a>
-              {% endif %}
-            {% endfor %}
-        </div>
         </article>
         <div class="back">
           <a type="button" class="btn btn-primary" href="{{ '/news/' | url }}">Read more news</a>
         </div>
       </div>
-    </main>
-
-    {% include "footer.njk" %}
-
-  </body>
-</html>

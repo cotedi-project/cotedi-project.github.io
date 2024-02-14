@@ -1,5 +1,5 @@
 --- 
-layout: index.njk
+layout: page
 title: Upcoming Events
 limit: 10
 --- 

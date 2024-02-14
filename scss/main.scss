@@ -181,13 +181,142 @@ main {
             }
         }
     }
+
+    h3 {
+        font-weight: 300;
+        text-align: center;
+        margin-bottom: 2em;
+    }
+
+   card.partner {
+        @extend .row;
+        
+        min-height: 10em;
+        align-items: center;
+        margin-bottom: 3em;
+
+        // border: 1px solid #000000;
+        border-radius: 5px;
+        box-shadow: darken(#f8f9fa, 5) 0 15px 10px 0;  
+
+
+        div {
+            // border: #000000 1px solid;
+            padding: 1em;
+        }
+
+        .partnerlogo {
+            @extend .col-md-5;
+            
+            object-fit: contain;
+            text-align: center;
+
+            .logo {
+                object-fit: contain;
+                margin-right: 1em;
+                margin-bottom: 1em;
+                height: 90px;
+
+                &:first-child:last-child {
+                    margin-right: 0;
+                    margin-bottom: 0;
+                }
+
+                &.lnu {
+                    height: min(56px, auto);
+                    width: min(347px, 90%);
+                }
+
+                &.treetree2 {
+                    height: min(38px, auto);
+                    width: min(290px, 90%);
+                }
+
+                &.piwgroep {
+                    height: min(90px, auto);
+                    width: min(90%, 347px);
+
+                }
+
+                &.swalmenroer {
+                    background-color: #000000;
+                    padding: 5px;
+                    height: min(90px, auto);
+                    width: min(80%, 298px);
+                }
+
+                &.aevv {
+                    background-color: #21a9de;
+                    padding: 5px;
+                }
+            
+            }
+        }
+
+        .partnerinfo {
+            @extend .col-md-7;
+            @extend .col-sm-12;
+
+            text-align: left;
+
+            h3 {
+                font-weight: 600;
+                font-size: 1.6em;
+            }
+
+            .country {
+                font-weight: 300;
+                font-size: 1.2em;
+                font-style: oblique;
+
+            }
+
+            .teamlead {
+                font-size: 1.2em;
+
+                a {
+                    color: $primary-color;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .contributors {
+                font-weight: 300;
+                font-size: 0.9em;
+                color: darken($footer-grey-400, 30);
+                margin-bottom: 0em;
+
+                &::before {
+                    content: "Other members";
+                }
+            }
+
+            ul {
+                padding: 0;
+                margin: 0;
+            }
+
+            li {
+                list-style: none;
+                font-size: 1em;
+                
+            }
+        }
+   }
 }
 
 .partners {
+    object-fit: contain;
+
     .logo {
     height: 60px;
     margin-top: 2em;
     margin-right: 1.5em;
+    object-fit: contain;
 
     &.zhaw {
         width: 60px;    
@@ -206,7 +335,8 @@ main {
     }
 
     &.lnu {
-        width: 370px;
+        object-fit: contain;
+        height: 50px
     }
 
     &.piwgroep {
@@ -221,7 +351,9 @@ main {
 
     &.swalmenroer {
         height: 50px;
-        width: 180px;    
+        width: 180px;
+        background-color: #000000;
+        padding: 5px;
     }
 
     &.colegioatlantico {
@@ -235,10 +367,18 @@ main {
     &.aeffl {
         width: 96px;
     }
+
+    &.aevv {
+        background-color: #21a9de;
+        padding: 5px;
+    }
+
     }
 
     a {
         text-decoration: none;
         color: $primary-color;
+        display: inline-block;
+        max-width: 20em;
     }
 }
