@@ -20,6 +20,8 @@ module.exports = config => {
     config.addPassthroughCopy("**/*.png");
     config.addPassthroughCopy("**/*.svg");
     config.addPassthroughCopy("**/*.pdf");
+    config.addPassthroughCopy("**/*.webp");
+    config.addPassthroughCopy("**/*.ico");
     
     config.addDataExtension("yaml", contents => yaml.parse(contents));
 
