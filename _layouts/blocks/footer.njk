@@ -22,7 +22,7 @@
     <p>Partners</p>
     <ul class="universities">
     {% for partner in allpartners %}
-    <li class="partner {{ partner.acronym }}"><a href="{{ partner.url }}">
+    <li class="partner {{ partner.acronym }}"><a href="{{ partner.url }}" target="_blank">
     {%if partner.logo -%}
         {% for logo in partner.logo -%}
         <img alt="{{ partner.name }} ({{ partner.acronym }})" src="/images/partners/{{logo}}" class="logo {{ partner.acronym | lower }}">
