@@ -1,0 +1,20 @@
+{
+    "name": "CoTEDI",
+    "short_name": "CoTEDI",
+    "icons": [
+        {
+            "src": "/images/favicons/CoTEDIlogo-sq-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/favicons/CoTEDIlogo-sq-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/",
+    "theme_color": "#39B54A",
+    "background_color": "#39B54A",
+    "display": "standalone"
+}
