@@ -45,13 +45,13 @@ You may opt-out of access-tracking by using your web-browser's
 feature. If you have activated this feature, CoTEDI will not collect any
 personal data about you at all. 
 
-### Privacy and Events
+## Privacy and Events
 
 If you participate in CoTEDI events you may appear in media material, such as photos, video recordings and alike. This applies online and physical events alike. By registering to our Events you will have to consent by agreeing to our **media policy**.
 
 We also keep records of event participation for reporting purposes. The registration records are not made public, but are provided to our funding bodies and their partners for evaluating the success of the project.
 
-### Studies and School Projects
+## Studies and School Projects
 
 CoTEDI studies and school projects and studies **do not** count as CoTEDI 
 events. Before you or your child can participate in a CoTEDI 
@@ -76,7 +76,7 @@ created during a study or school project will be documented and can be used in
 public presentations. In this case we carefully remove any connection between 
 the artifact and you or your child.
 
-### What we use your data for?
+## What we use your data for?
 
 The "Personal Data" is used by the CoTEDI Project for reporting purposes, only. 
 As this project is funded by Erasmus+ and Movetia, we need to account for our 
@@ -85,20 +85,16 @@ report how our web-site was used. These reports include the number of
 visitors from different countries per month. These reports do not include
 anything that can be linked to your visits to this web-site. 
 
-### What we will not use your data for?
+## What we will not use your data for?
 
 - We do not generate personal profiles. 
 - We do not use data for personalisation.
 
 ## GitHub and GitHub Pages
 
-This web-site relies on [GitHub.com](https://github.com){.external} and is hosted on 
-[GitHub Pages](https://pages.github.com/){.external}. Therefore and for technical 
-purposes, the content of this web-site might be hosted partly or fully on servers
-outside of the European Union. By accessing any content of this web-site 
-some information about the requested content is generated on GitHub's 
-servers, which is used by GitHub for maintaining the technical 
-availability of this web-site. 
+This web-site relies on [GitHub.com](https://github.com){.external} and is hosted on [GitHub Pages](https://pages.github.com/){.external}. Therefore and
+for technical reasons outside of our control, the content of this web-site might 
+be hosted partly or fully on servers outside of the European Union or Switzerland. By accessing any content of this web-site some information about the requested content is collected by GitHub's servers. GitHub uses this information for maintaining the technical availability of this web-site. 
 
 For the underlying technical services for this web-site the 
 [GitHub General Privacy Policy](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement){.external} 
