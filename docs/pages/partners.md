@@ -9,7 +9,7 @@ hero_image:
 {% set allpartners = allpartners.concat(partners.schools) %}
 
 {% for partner in allpartners %}{% if not partner.ignore -%}
-<card class="partner">
+<card class="partner" id="{{ partner.acronym | lower }}">
 <div class="partnerlogo">
 {%if partner.logo -%}
         <a href="{{ partner.url }}" target="_blank">{% for logo in partner.logo -%}

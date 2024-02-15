@@ -202,6 +202,13 @@ main {
         margin-bottom: 2em;
     }
 
+    blockquote {
+        @extend .mx-5;
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
    card.partner {
         @extend .row;
         

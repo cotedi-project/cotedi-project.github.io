@@ -2,3 +2,45 @@
 title: Contact
 ---
 
+> [Get in touch](https://github.com/cotedi-project/cotedi-project.github.io/issues/new/choose){.btn .btn-lg .btn-primary .text-white target=_blank} {.text-center}
+
+For questions and technical remarks related to the web-site please file an [issue on our GitHub project](https://github.com/cotedi-project/cotedi-project.github.io/issues/new/choose){.external}. We use these GitHub Issues for technical correspondence.
+
+> You need a GitHub Account to create issues and get in touch with us.
+> 
+> All requests are handled publicly. Please do not provide confidential information. {.alert .alert-warning}
+
+<!-- 
+
+> [Join us on eTwinning](){.btn .btn-secondary} {.text-center} 
+
+> [Join us on LinkedIn](){.btn .btn-secondary} {.text-center} 
+
+-->
+
+## Responsibilities
+
+CoTEDI is coordinated by the [Open University of The Netherlands (OUNL)](/pages/partners/#ounl). OUNL holds the legal and financial responsibility for the CoTEDI Project. Please contact the project coordinator directly on these matters.
+
+The web-pages are managed by the [Linnæus University](/pages/partners/#lnu) and [Zurich University of Applied Sciences (ZHAW)](/pages/partners/#zhaw).
+
+## Disclaimer
+
+### Liability
+
+The CoTEDI Project will not be liable for any obvious errors or mistakes in the content of its communications. If you have any doubts about the content, please contact the project team or send an email to the coordinator. The CoTEDI Project does not guarantee that its website are error-free or that it will be provided without interruption.
+
+### Copyright
+
+Copyrights to the content of the CoTEDI Project are vested in the [CoTEDI Project Consortium](/pages/partners). This content is protected by copyrights, trademarks or other intellectual property rights. The intellectual property rights and other property rights vested in the Project Consortium will not be transferred to third parties under any circumstances. 
+
+All content of the CoTEDI website is published under a [Creative Commons Attribution-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/){.external}. This does not extend to pre-existing copyrights, trademarks or other intellectual property rights of any of the [CoTEDI consortium partners](/pages/partners), by the project sponsors, or of any thrid-party service used by the CoTEDI Project.
+
+If visitors to the CoTEDI Project's websites upload content, they will be personally liable for the infringement of copyrights or other intellectual property rights.
+
+### Hyperlinks
+
+The CoTEDI website may contain hyperlinks to the websites of third parties. The CoTEDI Project cannot be held liable for the content of these websites, nor will it be liable for the privacy policy of or cookie use on these websites, any services that might be offered on them or, for any damage or loss caused by the use of external links.
+
+### Changes to this disclaimer
+The CoTEDI Project reserves the right to make changes to this disclaimer. Updated versions of this disclaimer will be posted on this page.
