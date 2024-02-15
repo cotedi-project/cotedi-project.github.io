@@ -204,6 +204,7 @@ main {
 
     blockquote {
         @extend .mx-5;
+        
         p:last-child {
             margin-bottom: 0;
         }
