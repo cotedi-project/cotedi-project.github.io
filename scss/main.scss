@@ -75,7 +75,7 @@ footer {
     }
 
     p {
-        margin-bottom: 0px;
+        margin-bottom: 0;
     }
 
     &.contact {
@@ -87,7 +87,6 @@ footer {
 
         li {
           display: block;
-
           margin-top: 1rem;
 
           a {
@@ -129,7 +128,6 @@ footer {
 }
 
 main {
-    
     .container {
         margin-top: 1em;
     }
@@ -200,7 +198,6 @@ main {
     }
 
     article {
-
         margin-top: 1em;
 
         a {
@@ -388,7 +385,6 @@ main {
 
         .fineprint {
             color: darken($footer-grey-600, 40);
-
             font-size: .8em;
 
             h1, h2 {
@@ -497,6 +493,7 @@ main {
             ul.events {
                 font-size: calc(1.2rem + .3vw);
             }
+
             .btn-lg {
                 font-size: calc(1.2rem + .3vw);
             }
