@@ -7,9 +7,7 @@ $theme-colors: map-merge($theme-colors, (
   "primary": $primary
 ));
 
-
 @import "bootstrap/scss/bootstrap";
-
 
 $primary-color: $primary;
 $primary-fg-color: #ffffff;
@@ -19,13 +17,10 @@ $quaternary-color: #B58839;
 $footer-grey-400: #f8f9fa;
 $footer-grey-600: darken($color: $footer-grey-400, $amount: 5%);
 
-
-
 .sponsor .logo {
     width: 275px;
     height: 80px;
 }
-
 
 header.news {
     background-color: $primary-color; 
@@ -47,10 +42,16 @@ header.news {
 
 footer {
     background-color: $footer-grey-600;
+    font-size: 1.2rem; // calc(1.2rem + 1vw);
+    
+    .container {
+        padding-top: 1em;
+    }
+
 
     &.sponsors {
         background-color: $footer-grey-400;
-
+        padding-bottom: 1rem;
     }
 
     ul {
@@ -70,15 +71,24 @@ footer {
     }
 
     h3 {
-        font-size: 1em;
+        font-size: calc(1em + .2vw);
+    }
+
+    p {
+        margin-bottom: 0px;
     }
 
     &.contact {
         padding: 1em;
 
+        .col-sm-12 {
+            margin-top: 3rem;
+        }
+
         li {
           display: block;
-          font-size: 0.8em;
+
+          margin-top: 1rem;
 
           a {
             color: darken($color: $primary, $amount: 10%);
@@ -93,7 +103,37 @@ footer {
     }
 }
 
+@include media-breakpoint-up(md) {
+    footer {
+        font-size: calc(1rem + .1vw);
+
+        h3 {
+            font-size: 1.1em;
+            font-weight: normal;
+        }
+
+        &.contact {
+            font-size: calc(1rem + .1vw);
+
+            .col-md-4 {
+                padding-top: 0;
+                padding-right: 2rem;
+                padding-left: 2rem;
+            }
+
+            li {
+                margin: 0;
+            }
+        }
+    }
+}
+
 main {
+    
+    .container {
+        margin-top: 1em;
+    }
+
     a {
         color: $primary-color;
         text-decoration: none;
@@ -129,7 +169,6 @@ main {
     ul.events {
         li {
             list-style: none;
-            font-size: 1.2em;
             
             &::before {
                 font-family: bootstrap-icons, sans-serif;
@@ -161,9 +200,6 @@ main {
     }
 
     article {
-        @extend .px-5;
-
-        // @extend .py-3;
 
         margin-top: 1em;
 
@@ -335,16 +371,55 @@ main {
                 
             }
         }
-   }
+    }
+
+    .rsf-text {
+        ul {
+            padding-left: 0;
+        }
+
+        li, p {
+            font-size: calc(1rem + .5vw);
+        }
+
+        .btn-lg {
+            font-size: calc(1.2rem + .5vw);
+        }
+
+        .fineprint {
+            color: darken($footer-grey-600, 40);
+
+            font-size: .8em;
+
+            h1, h2 {
+                font-size: 1.5em;
+            }
+
+            h1 {
+                font-style: italic;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+        }
+    }
 }
 
 .partners {
     object-fit: contain;
 
+    .partner {
+        margin-top: 1em;
+        margin-right: 1.5em;
+    }
+
     .logo {
     height: 60px;
-    margin-top: 2em;
-    margin-right: 1.5em;
     object-fit: contain;
 
     &.zhaw {
@@ -409,5 +484,32 @@ main {
         color: $primary-color;
         display: inline-block;
         max-width: 20em;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    main {
+        .rsf-text {
+            li, p {
+                font-size: calc(1rem + .3vw);
+            }
+    
+            ul.events {
+                font-size: calc(1.2rem + .3vw);
+            }
+            .btn-lg {
+                font-size: calc(1.2rem + .3vw);
+            }
+
+            .fineprint {
+                padding-left: calc(1em * 3 + 1em);
+                padding-right: calc(1em * 3 + 1em);
+                font-size: 0.9em;
+            }
+
+            ul {
+                padding-left: 2rem;
+            }
+        }
     }
 }
