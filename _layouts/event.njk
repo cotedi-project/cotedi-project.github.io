@@ -1,7 +1,7 @@
 ---
 layout: index
 ---
-    <div class="container py-4">
+    <div class="container rsf-text">
         <h1>{{ title }}</h1>
         <p class="meta">
           When: <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
@@ -22,16 +22,13 @@ layout: index
           </ul>
         </div>
 {% if page.data.partner -%}
+{% set allpartners = partners.research %}
+{% set allpartners = allpartners.concat(partners.schools) %}
 <div class="partner">
-    {% for rpartner in partners.research %}
+    {% for rpartner in allpartners %}
         {% if rpartner.acronym == page.data.partner %}
       <a href="{{ rpartner.url }}" target="_blank" rel="noopener"><img class="partner logo" src="/images/partners/{{rpartner.logo | url }}" alt="{{ rpartner.name }}"></a>
         {% endif %}
-    {% endfor %}
-    {% for spartner in partners.schools %}
-        {% if spartner.acronym == page.data.partner %}
-      <a href="/images/partners/{{ spartner.url }}" target="_blank" rel="noopener">{{ spartner.name }}</a>
-      {% endif %}
     {% endfor %}
 </div>
 {%- endif %}

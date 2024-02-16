@@ -3,10 +3,10 @@ layout: index
 ---
 
 {% if title -%}
-<div class="container py-4">
+<div class="container rsf-text">
         <h1>{{ title or meta.title }}</h1>
 </div>
 {%- endif %}
-<div class="container py-4">
+<div class="container rsf-text">
     {{ content | safe }}
 </div>
