@@ -236,8 +236,6 @@ main {
     }
 
     blockquote {
-        @extend .mx-5;
-        
         p:last-child {
             margin-bottom: 0;
         }
@@ -499,6 +497,8 @@ main {
             }
 
             .fineprint {
+                margin-top: 4rem;
+                margin-bottom: 4rem;
                 padding-left: calc(1em * 3 + 1em);
                 padding-right: calc(1em * 3 + 1em);
                 font-size: 0.9em;
@@ -506,6 +506,15 @@ main {
 
             ul {
                 padding-left: 2rem;
+            }
+
+            blockquote {
+                margin-left: calc(1rem*3 + .5vw);
+                margin-right: calc(1rem*3 + .5vw);
+
+                p {
+                    font-size: calc(.9rem + .3vw);
+                }
             }
         }
     }
