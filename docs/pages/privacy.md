@@ -103,3 +103,8 @@ apply additionally to this privacy statement.
 ## Questions
 
 If you have questions or concerns about your privacy on our web-site, feel free [to contact us](/pages/contact/).
+
+## Changes to this privacy statement
+
+The CoTEDI Project reserves the right to make changes to this privacy statement. Updated versions of this privacy statement will be posted on this page.
+
