@@ -2,11 +2,9 @@
 {% set allpartners = allpartners.concat(partners.schools) %}
 
 <footer class="sponsors">
-<div class="container py-4">
+<div class="container">
 <div class="container-fluid">
-    <p>
-    This project is funded by:
-    </p>
+    <p>Sponsors</p>
     <ul>
     {% for sponsor in sponsors %}
     <li class="sponsor"><a href="{{ sponsor.url }}" target="_blank"><img class="logo" src="/images/sponsors/{{ sponsor.logo }}" alt="{{ sponsor.name }}"></a></li>
@@ -17,7 +15,7 @@
 </footer>
 
 <footer class="partners">
-<div class="container py-4">
+<div class="container">
 <div class="container-fluid">
     <p>Partners</p>
     <ul class="universities">
@@ -39,9 +37,9 @@
 
 
 <footer class="contact">
-<div class="container py-4">
+<div class="container">
 <div class="row">
-<div class="col">
+<div class="col-md-4 col-sm-12">
     <h3>Community</h3>
     <ul>
     {% for link in links.Community %}
@@ -50,7 +48,7 @@
     </ul>    
 </div>
 
-<div class="col">
+<div class="col-md-4  col-sm-12">
     <h3>Resources</h3>
     <ul>
     {% for link in links.Resources %}
@@ -59,7 +57,7 @@
     </ul>    
 </div>
 
-<div class="col">
+<div class="col-md-4  col-sm-12">
     <h3>Project</h3>
     <ul>
     {% for link in links.Project %}
