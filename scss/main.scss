@@ -406,8 +406,16 @@ main {
     }
 
     .logo {
-    height: 60px;
-    object-fit: contain;
+        height: 60px;
+        object-fit: contain;
+
+        &:last-child {
+            margin-left: .5em;
+        }
+
+        &:first-child:last-child {
+            margin-left: 0;
+        }
 
         &.zhaw {
             width: auto;    
@@ -419,10 +427,6 @@ main {
 
         &.urjc {
             width: 168px;
-        }
-
-        &.cgl, &.thk {
-            width: 111;
         }
 
         &.lnu {
