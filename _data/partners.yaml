@@ -88,7 +88,7 @@ schools:
     country: NL
     url: https://www.swalmenroer.nl/
     logo: 
-    - logo_swalmenroer.png
+    - logo_swalmenroer.svg
     team: 
   - name: Agrupamento de Escolas de Nisa
     acronym: aenisa
