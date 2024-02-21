@@ -37,10 +37,11 @@ body:
       label: link to the source file 
       description: the link to the source media (will build a separate media player)
       placeholder:
-    - type: dropdown
+  - type: dropdown
     id: language
     attributes:
       label: spoken language of the media?
+      default: 1
       options:
         - Dutch
         - English
@@ -48,4 +49,5 @@ body:
         - Portuguese
         - Spanish
         - Swedish
+
 ---
