@@ -98,7 +98,7 @@ body:
         - Portuguese
         - Spanish
         - Swedish
-    default: 1
+      default: 1
 
   - type: markdown
     attributes:
