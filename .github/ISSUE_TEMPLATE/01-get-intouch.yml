@@ -8,9 +8,11 @@ labels:
 body:
   - type: textarea
     id: message
-    description: Why you want to get in touch with us.
-    placeholder: |
-      A clear and concise description of what the bug is.
+    attributes:
+      label: Your message
+      description: Why you want to get in touch with us.
+      placeholder: |
+        A clear and concise description of what the bug is.
         
   - type: dropdown
     id: category
