@@ -1,3 +1,4 @@
+--- 
 name: Get in touch
 about: Use this form to get in touch with the project team.
 title: "[Short description of your request]"
@@ -11,4 +12,25 @@ body:
       value: |
         **Please place your message here.**
         A clear and concise description why you want to get in touch with us.
-  
+  - type: dropdown
+    id: category
+    attributes:
+      label: What is your request about?
+      description: Your full name
+      options:
+        - General Inquiry
+        - Media Inquiry
+        - Event Inquiry
+        - Technical Inquiry
+  - type: dropdown
+    id: language
+    attributes:
+      label: What is your preferred language?
+      options:
+        - Dutch
+        - English
+        - German
+        - Portuguese
+        - Spanish
+        - Swedish
+---
