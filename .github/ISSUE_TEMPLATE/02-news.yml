@@ -36,4 +36,12 @@ body:
         - Spanish
         - Swedish
       default: 1
+  - type: textarea
+    id: partners
+    attributes:
+      label: Project partners
+      description: Add all project partners involved in the event
+      placeholder: |
+        Leave empty if it is just you (or your team).
+        Use a list for each partner involved
 --- 
