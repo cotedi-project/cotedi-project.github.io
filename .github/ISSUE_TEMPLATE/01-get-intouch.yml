@@ -18,7 +18,6 @@ body:
     id: category
     attributes:
       label: What is your request about?
-      description: Type of your message
       options:
         - General Inquiry
         - Media Inquiry (interviews)
@@ -29,6 +28,7 @@ body:
     id: language
     attributes:
       label: What is your preferred language?
+      description: Tell us which language you communicate best in.
       options:
         - Dutch
         - English
