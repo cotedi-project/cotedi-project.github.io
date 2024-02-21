@@ -1,5 +1,5 @@
 ---
-name: News entry
+name: Event
 description: Use this form to add an article or blog post to the news section.
 title: "[Title of the event]"
 projects: 
