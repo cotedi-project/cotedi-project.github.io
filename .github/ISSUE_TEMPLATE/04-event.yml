@@ -72,21 +72,15 @@ body:
       label: Event Type
       description: Choose the type of the event
       multiple: true
+      default: 6
       options:
-        - label: Conference
-          value: conference
-        - label: Workshop
-          value: workshop
-        - label: Webinar
-          value: webinar
-        - label: Hackathon
-          value: hackathon
-        - label: Meetup
-          value: meetup
-        - label: Training
-          value: training
-        - label: Other
-          value: other
+        - Conference
+        - Workshop
+        - Training
+        - Webinar
+        - Hackathon
+        - Meeting
+        - Other
   - type: dropdown
     id: language
     attributes:
