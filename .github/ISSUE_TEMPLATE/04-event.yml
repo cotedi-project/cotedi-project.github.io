@@ -11,13 +11,13 @@ body:
     id: startdate
     attributes:
       label: Start Date
-      description: The date of the event
+      description: The date of the event  (YYYY-MM-DD), e.g., 2024-01-06
       placeholder:
   - type: input
     id: enddate
     attributes:
       label: End Date
-      description: For multi day events, add the last date of the event
+      description: For multi day events, add the last date of the event  (YYYY-MM-DD), e.g., 2024-01-06
       placeholder:
   - type: textarea
     attributes:
