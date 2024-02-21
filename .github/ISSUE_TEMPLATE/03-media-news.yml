@@ -28,19 +28,19 @@ body:
   - type: input
     id: mediaplayer
     attributes:
-      label: embed code of a mediaplayer 
+      label: Embed code of a mediaplayer 
       description: the link to the source (optional)
       placeholder:
   - type: input
     id: mediaurl  
     attributes:
-      label: link to the source file 
+      label: Link to the source file 
       description: the link to the source media (will build a separate media player)
       placeholder:
   - type: dropdown
     id: language
     attributes:
-      label: spoken language of the media?
+      label: Language of the media?
       default: 1
       options:
         - Dutch
