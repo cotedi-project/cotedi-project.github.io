@@ -1,7 +1,7 @@
 ---
 name: Technical Changes
 description: Use this template for requesting new technical features.
-title: "[BUG]: [FEATURE NAME]"
+title: "[BUG]: "
 labels: 
   - technical
   - bug
@@ -16,15 +16,16 @@ body:
 - type: dropdown 
   id: category
   attributes:
-    label: technical category
+    label: Category
+    description: What type of problem are you experiencing?
     multiple: false
     options:
       - Logos
       - Typos
       - Links
       - Images
-      - Layout (css)
-      - JavaScript
+      - Layout (css or html)
+      - Interaction (JavaScript)
       - Organisation
       - Automation
       - Other
