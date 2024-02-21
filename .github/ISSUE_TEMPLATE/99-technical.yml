@@ -11,16 +11,26 @@ body:
     value: |
       **Please place a short description here.**
       A clear and concise description what needs to be changed.
+- type: textarea
+  id: description
+  attributes:
+    label: Detailed description
+    description: A clear and concise description of what the bug is.
+    placeholder: |
+      A clear and concise description of what the bug is.
 - type: dropdown 
   id: category
   attributes:
     label: technical category
     multiple: false
     options:
-      - logos
-      - typos
-      - layout (css)
+      - Logos
+      - Typos
+      - Links
+      - Images
+      - Layout (css)
       - JavaScript
       - Organisation
-      - Timing
+      - Automation
+      - Other
 ---
