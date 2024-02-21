@@ -1,0 +1,154 @@
+---
+name: Event Report
+description: Use this form to report about an event, that will be added to the news section.
+title: "[Title of the event]"
+projects: 
+  - Community
+labels: 
+  - 📅 Event
+  - 📢 news
+body:
+  - type: input
+    id: eventlink
+    attributes:
+      label: Link to the event announcement
+      description: Will reuse the information about the event.
+      placeholder:
+  - type: textarea
+    attributes:
+      label: Please place a description of the event.
+      placeholder: |
+        Everything here will become the content of the news article.
+        Add any images here, too. 
+  - type: textarea 
+    id: heroimage
+    attributes:
+      label: Banner Image
+      description: The image that will be displayed on top of the news page
+      placeholder:
+  - type: input
+    id: startdate
+    attributes:
+      label: Start Date
+      description: The date of the event
+      placeholder:
+  - type: input
+    id: enddate
+    attributes:
+      label: End Date
+      description: For multi day events, add the last date of the event
+      placeholder:
+  - type: input
+    id: url
+    attributes:
+      label: Main Link of the Event
+      description: the link to the event
+      placeholder:
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: The location of the event
+      placeholder:
+  - type: input
+    id: country
+    attributes:
+      label: Country
+      description: In which country the event took place
+      placeholder:
+  - type: textarea
+    id: partners
+    attributes:
+      label: Project partners
+      description: Add all project partners involved in the event
+      placeholder: |
+        Leave empty if it is just you (or your team).
+        Use a list for each partner involved
+  - type: dropdown
+    id: eventtype
+    attributes:
+      label: Event Type
+      description: Choose the type of the event
+      multiple: true
+      options:
+        - label: Conference
+          value: conference
+        - label: Workshop
+          value: workshop
+        - label: Webinar
+          value: webinar
+        - label: Hackathon
+          value: hackathon
+        - label: Meetup
+          value: meetup
+        - label: Training
+          value: training
+        - label: School Event
+          value: schoolevent
+        - label: Other
+          value: other
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language of the event?
+      options:
+        - Dutch
+        - English
+        - German
+        - Portuguese
+        - Spanish
+        - Swedish
+    default: 1
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Event Report
+        Please fill in the details of the event. Only fill in the fields that are relevant to the event.
+  - type: input
+    id: numParticipants
+    attributes:
+      label: Number of All Participants
+  - type: input
+    id: numPupils
+    attributes:
+      label: Number of Pupils
+  - type: input
+    id: numPupilsDisadvantaged
+    attributes:
+      label: Number of Pupils with Disadvantages
+      description: E.g. low income, social disadvantages, etc.
+  - type: input
+    id: numPupilsDisabled
+    attributes:
+      label: Number of Pupils with Disabilities
+      description: E.g. physical, mental, ADHS, etc.
+  - type: input
+    id: agePupilsMin
+    attributes:
+      label: Age of the youngest Pupil
+  - type: input
+    id: agePupilsMax
+    attributes:
+      label: Age of the oldest Pupil
+  - type: input
+    id: numTeachers
+    attributes:
+      label: Number of Teachers
+  - type: input
+    id: numParents
+    attributes:
+      label: Number of Parents
+  - type: input
+    id: numResearchers
+    attributes:
+      label: Number of Researchers
+  - type: input
+    id: numDevelopers
+    attributes:
+      label: Number of Developers
+  - type: input
+    id: numPolicymakers
+    attributes:
+      label: Number of Policymakers
+---
