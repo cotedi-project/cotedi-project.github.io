@@ -24,6 +24,7 @@ body:
         - Media Inquiry
         - Event Inquiry
         - Technical Inquiry
+      default: 0
   - type: dropdown
     id: language
     attributes:
@@ -35,3 +36,4 @@ body:
         - Portuguese
         - Spanish
         - Swedish
+      default: 1
