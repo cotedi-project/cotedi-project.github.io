@@ -1,5 +1,5 @@
 name: News entry
-about: Use this form to add an article or blog post to the news section.
+description: Use this form to add an article or blog post to the news section.
 title: "[Title of the news entry]"
 projects: 
   - Community
@@ -24,4 +24,14 @@ body:
       label: External Link
       description: the link to the source (optional)
       placeholder:
-  
+  - type: dropdown
+    id: language
+    attributes:
+      label: language of the article?
+      options:
+        - Dutch
+        - English
+        - German
+        - Portuguese
+        - Spanish
+        - Swedish
