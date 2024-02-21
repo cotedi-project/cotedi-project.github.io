@@ -1,0 +1,39 @@
+name: News entry
+about: Use this form to add an article or blog post to the news section.
+title: "[Title of the news entry]"
+projects: 
+  - Community
+labels: 
+- 🎥 media news
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Please place a short description here.**
+        A clear and concise description why you want to get in touch with us.
+        Add any images here, too.
+  - type: markdown 
+    id: heroimage
+    attributes:
+      label: Banner Image
+      description: This image will be used as a placeholder before the video is actually loaded 
+      placeholder:
+  - type: input
+    id: url
+    attributes:
+      label: External Link
+      description: the link to the source (optional)
+      placeholder:
+  - type: input
+    id: mediaplayer
+    attributes:
+      label: embed code of a mediaplayer 
+      description: the link to the source (optional)
+      placeholder:
+  - type: input
+    id: mediaurl  
+    attributes:
+      label: link to the source file 
+      description: the link to the source media (will build a separate media player)
+      placeholder:
+  

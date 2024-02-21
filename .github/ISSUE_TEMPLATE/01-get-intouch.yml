@@ -1,0 +1,14 @@
+name: Get in touch
+about: Use this form to get in touch with the project team.
+title: "[Short description of your request]"
+projects: 
+  - Community
+labels: 
+- Get in touch
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Please place your message here.**
+        A clear and concise description why you want to get in touch with us.
+  

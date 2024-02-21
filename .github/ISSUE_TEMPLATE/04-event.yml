@@ -1,0 +1,84 @@
+name: News entry
+about: Use this form to add an article or blog post to the news section.
+title: "[Title of the event]"
+projects: 
+  - Community
+labels: 
+- 📅 Event
+body:
+  - type: input
+    id: startdate
+    attributes:
+      label: Start Date
+      description: The date of the event
+      placeholder:
+  - type: input
+    id: enddate
+    attributes:
+      label: End Date
+      description: For multi day events, add the last date of the event
+      placeholder:
+  - type: markdown
+    attributes:
+      value: |
+        **Please place a short description here.**
+        Add any images here, too.
+  - type: markdown 
+    id: heroimage
+    attributes:
+      label: Banner Image
+      description: The image that will be displayed on top of the news page
+      placeholder:
+  - type: input
+    id: url
+    attributes:
+      label: Main Link of the Event
+      description: the link to the event
+      placeholder:
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: The location of the event
+      placeholder:
+  - type: input
+    id: country
+    attributes:
+      label: Country
+      description: In which country the event takes place
+      placeholder:
+  - type: textarea
+    id: partners
+    attributes:
+      label: Project partners
+      description: Add all project partners involved in the event
+      placeholder: Leave empty if it is just you (your team)
+  - type: checkboxes
+    id: is_internal
+    attributes:
+      label: Internal Event
+      description: Check 
+      options:
+        - label: Internal Event
+          required: false
+  - type: dropdown
+    id: eventtype
+    attributes:
+      label: Event Type
+      description: Choose the type of the event
+      options:
+        - label: Conference
+          value: conference
+        - label: Workshop
+          value: workshop
+        - label: Webinar
+          value: webinar
+        - label: Hackathon
+          value: hackathon
+        - label: Meetup
+          value: meetup
+        - label: Training
+          value: training
+        - label: Other
+          value: other
+  
