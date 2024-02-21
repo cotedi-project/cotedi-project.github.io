@@ -1,6 +1,8 @@
+---
 name: Technical Changes
-about: Use this template for requesting new technical features.
+description: Use this template for requesting new technical features.
 title: "[BUG]: [FEATURE NAME]"
 labels: 
-- technical
-- bug
+  - technical
+  - bug
+---
