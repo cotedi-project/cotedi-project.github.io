@@ -5,30 +5,29 @@ title: "[Title of the news entry]"
 projects: 
   - Community
 labels: 
-- 📢 news
+  - 📢 news
 body:
-  - type: markdown
+  - type: textarea
     attributes:
-      value: |
-        **Please place a short description here.**
-        A clear and concise description why you want to get in touch with us.
-        Add any images here, too.
-  - type: markdown 
+      label: Please place a short description here.
+      placeholder: |
+        Please place the announcement here. It will be added as content of the news entry.
+  - type: textarea 
     id: heroimage
     attributes:
       label: Banner Image
       description: The image that will be displayed on top of the news page
-      placeholder:
+
   - type: input
     id: url
     attributes:
       label: External Link
-      description: the link to the source (optional)
-      placeholder:
+      description: The link to the source (optional)
   - type: dropdown
     id: language
     attributes:
-      label: language of the article?
+      label: Language
+      description: The language of the news entry
       options:
         - Dutch
         - English
@@ -36,4 +35,5 @@ body:
         - Portuguese
         - Spanish
         - Swedish
+      default: 1
 --- 

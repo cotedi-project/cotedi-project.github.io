@@ -5,15 +5,15 @@ title: "[Title of the news entry]"
 projects: 
   - Community
 labels: 
-- 🎥 media news
+  - 🎥 media news
 body:
-  - type: markdown
+  - type: textarea
     attributes:
-      value: |
-        **Please place a short description here.**
-        A clear and concise description why you want to get in touch with us.
+      label: Please place a short description here.
+      placeholder: |
+        Please place the announcement of the media file here
         Add any images here, too.
-  - type: markdown 
+  - type: textarea 
     id: heroimage
     attributes:
       label: Banner Image

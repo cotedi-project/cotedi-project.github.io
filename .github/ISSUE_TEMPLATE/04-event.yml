@@ -5,7 +5,7 @@ title: "[Title of the event]"
 projects: 
   - Community
 labels: 
-- 📅 Event
+  - 📅 Event
 body:
   - type: input
     id: startdate
@@ -19,12 +19,13 @@ body:
       label: End Date
       description: For multi day events, add the last date of the event
       placeholder:
-  - type: markdown
+  - type: textarea
     attributes:
-      value: |
-        **Please place a short description here.**
+      label: Please place a description of the event.
+      placeholder: |
+        Everything here will become the content of the news article.
         Add any images here, too.
-  - type: markdown 
+  - type: textarea 
     id: heroimage
     attributes:
       label: Banner Image
@@ -53,7 +54,10 @@ body:
     attributes:
       label: Project partners
       description: Add all project partners involved in the event
-      placeholder: Leave empty if it is just you (your team)
+      placeholder: |
+        Leave empty if it is just you (or your team).
+        Use a list for each partner involved
+     
   - type: checkboxes
     id: is_internal
     attributes:
