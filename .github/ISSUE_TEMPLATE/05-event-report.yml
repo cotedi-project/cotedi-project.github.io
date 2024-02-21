@@ -1,6 +1,6 @@
 ---
 name: Event Report
-description: Use this form to report about an event, that will be added to the news section.
+description: Use this form to report about an event, that will be added to the news section and in the overall reporting.
 title: "[Title of the event]"
 projects: 
   - cotedi-project/1
