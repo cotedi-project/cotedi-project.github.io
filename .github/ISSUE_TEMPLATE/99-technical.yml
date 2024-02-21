@@ -6,11 +6,6 @@ labels:
   - technical
   - bug
 body:
-- type: markdown
-  attributes:
-    value: |
-      **Please place a short description here.**
-      A clear and concise description what needs to be changed.
 - type: textarea
   id: description
   attributes:
