@@ -1,5 +1,6 @@
+---
 name: News entry
-about: Use this form to add an article or blog post to the news section.
+description: Use this form to add an article or blog post to the news section.
 title: "[Title of the event]"
 projects: 
   - Community
@@ -57,7 +58,7 @@ body:
     id: is_internal
     attributes:
       label: Internal Event
-      description: Check 
+      description: Check if the event is an internal event
       options:
         - label: Internal Event
           required: false
@@ -66,6 +67,7 @@ body:
     attributes:
       label: Event Type
       description: Choose the type of the event
+      multiple: true
       options:
         - label: Conference
           value: conference
@@ -81,4 +83,15 @@ body:
           value: training
         - label: Other
           value: other
-  
+  - type: dropdown
+    id: language
+    attributes:
+      label: language of the event?
+      options:
+        - Dutch
+        - English
+        - German
+        - Portuguese
+        - Spanish
+        - Swedish
+---
