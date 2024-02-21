@@ -18,10 +18,10 @@ body:
     id: category
     attributes:
       label: What is your request about?
-      description: Your full name
+      description: Type of your message
       options:
         - General Inquiry
-        - Media Inquiry
+        - Media Inquiry (interviews)
         - Event Inquiry
         - Technical Inquiry
       default: 0
