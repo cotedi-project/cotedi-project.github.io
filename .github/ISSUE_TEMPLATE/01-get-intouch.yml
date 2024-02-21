@@ -6,6 +6,15 @@ projects:
 labels: 
   - Get in touch
 body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Get in touch
+        Use this form to get in touch with the project team. We will get back to you as soon as possible.
+
+        If you want to get in touch with us in a different language, please let us know in the language dropdown.
+
+        If you have clicked on this template by accident, please head back to the [CoTEDI website](https://cotedi.eu/pages/contact).
   - type: textarea
     id: message
     attributes:
