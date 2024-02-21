@@ -2,7 +2,7 @@ name: Get in touch
 description: Use this form to get in touch with the project team.
 title: "[Short description of your request]"
 projects: 
-  - Community
+  - cotedi-project/1
 labels: 
   - Get in touch
 body:
