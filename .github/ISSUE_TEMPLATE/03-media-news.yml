@@ -3,7 +3,7 @@ name: Media News entry
 description: Use this form to add Media file to the news section.
 title: "[Title of the news entry]"
 projects: 
-  - Community
+  - cotedi-project/1
 labels: 
   - 🎥 media news
 body:

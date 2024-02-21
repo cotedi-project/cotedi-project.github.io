@@ -3,7 +3,7 @@ name: News entry
 description: Use this form to add an article or blog post to the news section.
 title: "[Title of the news entry]"
 projects: 
-  - Community
+  - cotedi-project/1
 labels: 
   - 📢 news
 body:

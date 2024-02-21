@@ -3,7 +3,7 @@ name: Event
 description: Use this form to add an entry to the upcoming events section.
 title: "[Title of the event]"
 projects: 
-  - Community
+  - cotedi-project/1
 labels: 
   - 📅 Event
 body:
