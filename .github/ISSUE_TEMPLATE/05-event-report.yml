@@ -17,9 +17,12 @@ body:
   - type: textarea
     attributes:
       label: Please place a description of the event.
-      placeholder: |
-        Everything here will become the content of the news article.
-        Add any images here, too. 
+      description: |
+        Everything here will become the content of the news article AND in the event reporting.
+        Add any images here, too.
+
+        Only upload images for which you have obtained the rights to use them publicly.
+      
   - type: textarea 
     id: heroimage
     attributes:
@@ -146,7 +149,8 @@ body:
   - type: input
     id: numDevelopers
     attributes:
-      label: Number of Developers
+      label: Number of Developers and Engineers
+      description: E.g. software developers, engineers, etc. incl. university students
   - type: input
     id: numPolicymakers
     attributes:

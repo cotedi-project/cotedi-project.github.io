@@ -1,6 +1,6 @@
 ---
 name: Event
-description: Use this form to add an article or blog post to the news section.
+description: Use this form to add an entry to the upcoming events section.
 title: "[Title of the event]"
 projects: 
   - Community
