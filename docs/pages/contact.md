@@ -2,9 +2,9 @@
 title: Contact
 ---
 
-> [Get in touch](https://github.com/cotedi-project/cotedi-project.github.io/issues/new/choose){.btn .btn-lg .btn-primary .text-white target=_blank} {.text-center}
+> [Get in touch](https://github.com/cotedi-project/cotedi-project.github.io/issues/new?template=01-get-intouch.yml){.btn .btn-lg .btn-primary .text-white target=_blank} {.text-center}
 
-For questions and technical remarks related to the web-site please file an [issue on our GitHub project](https://github.com/cotedi-project/cotedi-project.github.io/issues/new/choose){.external}. We use these GitHub Issues for technical correspondence.
+For questions and technical remarks related to the web-site please file an [issue on our GitHub project](https://github.com/cotedi-project/cotedi-project.github.io/issues/new?template=99-technical.yml){.external}. We use these GitHub Issues for technical and non-technical correspondence.
 
 > You need a GitHub Account to create issues and get in touch with us.
 > 

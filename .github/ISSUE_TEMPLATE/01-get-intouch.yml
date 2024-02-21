@@ -1,6 +1,6 @@
 name: Get in touch
 description: Use this form to get in touch with the project team.
-title: "[Short description of your request]"
+title: "[Short title of your request]"
 projects: 
   - cotedi-project/1
 labels: 
@@ -10,9 +10,9 @@ body:
     id: message
     attributes:
       label: Your message
-      description: Why you want to get in touch with us.
+      description: Why you want to get in touch with us?
       placeholder: |
-        A clear and concise description of what the bug is.
+        A clear and concise description for us. You don't have to use English. We speak many languages (see below).
         
   - type: dropdown
     id: category
