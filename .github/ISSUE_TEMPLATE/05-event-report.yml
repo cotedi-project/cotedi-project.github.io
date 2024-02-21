@@ -73,7 +73,6 @@ body:
       label: Event Type
       description: Choose the type of the event
       multiple: true
-      default: 6
       options:
         - Conference
         - Workshop
@@ -104,6 +103,10 @@ body:
     id: numParticipants
     attributes:
       label: Number of All Participants
+  - type: input
+    id: numParticipantsOnline
+    attributes:
+      label: Number of Online Participants
   - type: input
     id: numPupils
     attributes:
