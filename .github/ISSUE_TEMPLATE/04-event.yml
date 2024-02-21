@@ -35,7 +35,7 @@ body:
     id: url
     attributes:
       label: Main Link of the Event
-      description: the link to the event
+      description: The link to the event registration or announcement
       placeholder:
   - type: input
     id: location
@@ -85,6 +85,7 @@ body:
     id: language
     attributes:
       label: language of the event?
+      default: 1
       options:
         - Dutch
         - English
