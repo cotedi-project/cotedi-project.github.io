@@ -11,4 +11,16 @@ body:
     value: |
       **Please place a short description here.**
       A clear and concise description what needs to be changed.
+- type: dropdown 
+  id: category
+  attributes:
+    label: technical category
+    mutliple: false
+    options:
+      - logos
+      - typos
+      - layout (css)
+      - JavaScript
+      - Organisation
+      - Timing
 ---
