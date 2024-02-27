@@ -3,13 +3,17 @@ Community:
 #   url: https://www.etwinning.net/
 #   target: _blank
 #   logo: etwinning
-# - name: LinkedIn
-#   url: https://www.linkedin.com/
-#   logo: linkedin
-#   target: _blank
+- name: LinkedIn
+  url: https://www.linkedin.com/company/cotedi-project/
+  logo: linkedin
+  target: _blank
 # - name: Instagram
 #   url: https://www.instagram.com/
 #   logo: instagram
+#   target: _blank
+# - name: FaceBook
+#   url: https://www.facebook.com/
+#   logo: facebook
 #   target: _blank
 - name: GitHub
   url: https://github.com/cotedi-project
