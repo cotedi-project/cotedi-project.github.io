@@ -9,6 +9,10 @@ countries:
   SE: Sweden
   NL: The Netherlands
 
+# language code mapping is not used by the web site directly but is used by the issue-to-page action
+# to assign issues to team members based on the language of the issue body
+#
+# the language mapping should be done by partner capabilities and not by country
 languages:
   Spanish:
   - ES
