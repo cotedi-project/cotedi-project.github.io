@@ -1,0 +1,74 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  issues:
+  - opened
+  - labeled
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+    
+      - name: check news issue
+      # issue action  that load the issue author, body and all related images
+        uses: phish108/issue-to-page@v1
+        id: news.issue
+        with:
+          label: 📢 News
+          target: ./docs/news
+
+      - name: check event issue
+      # issue action  that loads the issue author, body and all related images
+        uses: phish108/issue-to-page@v1
+        id: event.issue
+        with:
+          label: 📅 Event
+          target: ./docs/events
+        
+      - name: assign by language
+      # issue action that assignes the issue to a team member based on the language of the issue body
+        uses: phish108/assign-by-language@v1
+        with:
+          label: Get in touch
+          team: ./_data/partners.yaml
+
+      - name: commit if changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: setup dependencies
+        run: npm ci
+      - name: Build site assets
+        run: npm run all
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: './_site/'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

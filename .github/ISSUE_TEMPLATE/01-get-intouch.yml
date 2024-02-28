@@ -10,18 +10,15 @@ body:
     attributes:
       value: |
         ## Get in touch
-        Use this form to get in touch with the project team. We will get back to you as soon as possible.
-
-        If you want to get in touch with us in a different language, please let us know in the language dropdown.
-
-        If you have clicked on this template by accident, please head back to the [CoTEDI website](https://cotedi.eu/pages/contact).
   - type: textarea
     id: message
     attributes:
       label: Your message
       description: Why you want to get in touch with us?
       placeholder: |
-        A clear and concise description for us. You don't have to use English. We speak many languages (see below).
+        Why do you want to get in touch with the CoTEDI project team. You don't have to use English. We speak many languages (see below).
+
+        If you want to get in touch with us in a different language, please let us know in the language dropdown.
         
   - type: dropdown
     id: category
