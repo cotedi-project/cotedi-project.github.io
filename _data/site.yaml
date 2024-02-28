@@ -8,3 +8,23 @@ countries:
   PT: Portugal
   SE: Sweden
   NL: The Netherlands
+
+languages:
+  Spanish:
+  - ES
+  German:
+  - DE
+  - CH
+  - AT
+  Dutch: 
+  - NL
+  - BE
+  Portuguese:
+  - PT
+  Swedish:
+  - SE
+  English:
+  - GB
+  - US
+  - CH
+  - SE
