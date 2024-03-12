@@ -5,7 +5,7 @@ date: 2024-03-12
 tags: 
 hero: 20240306_131852.jpeg
 link: 
-partners: 
+partner: 
 language: English
 ---
 
