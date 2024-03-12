@@ -39,6 +39,14 @@ header.news {
     }
 }
 
+.heroimage {
+    background-size: cover;
+    width: 100%;
+    height: 25em;
+    background-position-y: center;
+    margin-bottom: 1.5em;
+}
+
 footer {
     background-color: $footer-grey-600;
     font-size: 1.2rem; // calc(1.2rem + 1vw);
@@ -153,6 +161,8 @@ main {
 
     .back {
         text-align: center;
+        margin-top: 2.5em;
+        margin-bottom: 2.5em;
 
         .btn {
             color: $primary-fg-color;
@@ -198,6 +208,11 @@ main {
 
     article {
         margin-top: 1em;
+
+        &:not(:last-of-type) {
+            border-bottom: 1px solid $primary-color;
+            margin-bottom: 2em;
+        }
 
         a {
             color: $primary-color;
