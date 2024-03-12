@@ -9,13 +9,23 @@ layout: index
         {% set posts = posts | entryLimit(limit) %}
       {% endif %}
 
+      {% set allpartners = partners.research %}
+      {% set allpartners = allpartners.concat(partners.schools) %}
+
       {% for post in posts %}
         <article>
             {% if post.data.hero %}
             <div class="heroimage" style="background-image: url({{ post.url | url }}{{ post.data.hero | url }})"></div>
             {% endif %}
             <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
-            <p><time datetime="{{ page.date | htmlDateString }}">{{ post.date | readableDate }}<time> by {{ post.data.author }}</p>       
+            <p><time datetime="{{ page.date | htmlDateString }}">{{ post.date | readableDate }}<time> by 
+            {% for partner in allpartners -%}
+            {% for member in partner.team -%}
+            {% if member.login == post.data.author -%}            
+        <span class="author">{{ member.name }}</span>
+            {%- endif %}
+            {%- endfor %}
+        {%- endfor %}</p>       
             <div class="partner"></div>
             <p>{{ post.data.description }}  <a class="bi bi-box-arrow-up-right" href="{{ post.url | url }}"> Read more</a></p>
        

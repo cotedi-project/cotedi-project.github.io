@@ -4,14 +4,24 @@ layout: index
     {% if hero %}
         <div style="background-image: url({{ hero | url }});" class="heroimage text-center"></div>
     {% endif %}
+
+    {% set allpartners = partners.research %}
+    {% set allpartners = allpartners.concat(partners.schools) %}
+
       <div class="container rsf-text">
         <article>
         <h1>{{ title }}</h1>
         <p class="meta">
           <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
-          {% if author %}
-            <span class="author">by {{ author }}</span>
-          {% endif %}
+          
+        {% for partner in allpartners -%}
+            {% for member in partner.team -%}
+            {% if member.login == author -%}            
+        <span class="author">by {{ member.name }}</span>
+            {%- endif %}
+            {%- endfor %}
+        {%- endfor %}
+
         <p class="lead">{{ description }}</p>
         
         <div class="content">
