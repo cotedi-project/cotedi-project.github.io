@@ -4,7 +4,7 @@ author: {{ author }}
 date: {{ date }}
 tags: {% for tag in tags %}
 - {{tag}}{% endfor %}
-hero: {{ heroimage }}
+hero: {{ heroimage.url }}
 link: {{ external_url }}
 partners: {% for partner in partners %}
 - {{ partner }}{% endfor %}
@@ -13,8 +13,8 @@ country: {{ country }}
 location: {{ location }}
 eventtype: {{ eventtype }}
 internal: {% if is_internal.flag == "X"%}yes{% else %}no{% endif %}
-startdate: {{ startdate }}
-enddate: {% if enddate | length %}{{ enddate }}{% else %}{{ startdate }}{% endif %}
+startdate: {{ startdate.date }}
+{% if enddate.date | length %}enddate: {{ enddate.date }}{% endif %}
 report:
   num_developers: {{ num_developers }}
   num_participants: {{ num_participants }}
