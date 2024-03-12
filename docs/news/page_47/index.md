@@ -3,7 +3,7 @@ title: CoTEDI at Zuyd University Technology Experience Day 20024
 author: phish108
 date: 2024-03-12
 tags: 
-hero: [object Object]
+hero: 20240306_131852.jpeg
 link: 
 partners: 
 language: English
