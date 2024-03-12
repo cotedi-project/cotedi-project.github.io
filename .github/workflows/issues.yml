@@ -7,40 +7,23 @@ on:
       - opened
       - labeled
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
   # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  publish:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-    
+      - uses: actions/checkout@v4
+      
       - name: check news issue
       # issue action  that load the issue author, body and all related images
         uses: phish108/issue-to-page@main
         id: news_issue
         with:
-          label: 📢 News
-          target-folder: ./docs/news
-          template: ./_system/form_templates/news.njk
-          formhints: ./_system/forms/news.yaml
+          label: '📢 News'
+          target-folder: 'docs/news'
+          template: '_system/form_templates/news.njk'
+          formhints: '_system/forms/news.yaml'
 
       - name: check event announcement
       # issue action  that loads the issue author, body and all related images
@@ -48,9 +31,9 @@ jobs:
         id: event_issue
         with:
           label: 📅 Event
-          target: docs/events
-          template: ./_system/form_templates/event.njk
-          formhints: ./_system/forms/event.yaml
+          target-folder: docs/events
+          template: _system/form_templates/event.njk
+          formhints: _system/forms/event.yaml
 
       - name: check media coverage
       # issue action  that loads the issue author, body and all related images
@@ -58,9 +41,9 @@ jobs:
         id: media_issue
         with:
           label: 🎥 media news
-          target: docs/news
-          template: ./_system/form_templates/media_news.njk
-          formhints: ./_system/forms/media_news.yaml
+          target-folder: docs/news
+          template: _system/form_templates/media_news.njk
+          formhints: _system/forms/media_news.yaml
 
       - name: check event report 
       # issue action  that loads the issue author, body and all related images
@@ -68,9 +51,9 @@ jobs:
         id: report_issue
         with:
           label: 📅 Event Report
-          target: docs/reports
-          template: ./_system/form_templates/event_report.njk
-          formhints: ./_system/forms/event_report.yaml
+          target-folder: docs/reports
+          template: _system/form_templates/event_report.njk
+          formhints: _system/forms/event_report.yaml
 
       # - name: assign by language
       # # issue action that assignes the issue to a team member based on the language of the issue body
@@ -79,7 +62,7 @@ jobs:
       #     label: Get in touch
       #     team: ./_data/partners.yaml
 
-      - name: commit if changes
+      - name: commit any new files
         uses: stefanzweifel/git-auto-commit-action@v5
 
       # - uses: actions/setup-node@v4
