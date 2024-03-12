@@ -13,15 +13,23 @@ module.exports = config => {
     // the following line is required for stylesheet development
     // config.setServerPassthroughCopyBehavior("passthrough");
 
-    config.addPassthroughCopy("./assets/");
-    config.addPassthroughCopy("./images/");
-    config.addPassthroughCopy("**/*.jpg");
-    config.addPassthroughCopy("**/*.jpeg");
-    config.addPassthroughCopy("**/*.png");
-    config.addPassthroughCopy("**/*.svg");
-    config.addPassthroughCopy("**/*.pdf");
-    config.addPassthroughCopy("**/*.webp");
-    config.addPassthroughCopy("**/*.ico");
+    config.ignores.add("_system/**");
+    config.ignores.add(".devcontainer/**");
+    config.ignores.add("**/node_modules/**");
+    config.ignores.add("**/scss/**");
+    config.ignores.add("_site/**");
+
+    config.addPassthroughCopy("./assets/**");
+    config.addPassthroughCopy("./images/**");
+
+    config.addPassthroughCopy("docs/**/*.jpg");
+    config.addPassthroughCopy("docs/**/*.jpeg");
+    config.addPassthroughCopy("docs/**/*.png");
+    config.addPassthroughCopy("docs/**/*.svg");
+    config.addPassthroughCopy("docs/**/*.pdf");
+    config.addPassthroughCopy("docs/**/*.webp");
+    config.addPassthroughCopy("docs/**/*.ico");
+    config.addPassthroughCopy("docs/**/*.zip");
 
     config.addDataExtension("yaml", contents => yaml.parse(contents));
 
