@@ -58,18 +58,18 @@ jobs:
       - name: commit if changes
         uses: stefanzweifel/git-auto-commit-action@v5
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: setup dependencies
-        run: npm ci
-      - name: Build site assets
-        run: npm run all
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload entire repository
-          path: './_site/'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      # - uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 20
+      # - name: setup dependencies
+      #   run: npm ci
+      # - name: Build site assets
+      #   run: npm run all
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v3
+      #   with:
+      #     # Upload entire repository
+      #     path: './_site/'
+      # - name: Deploy to GitHub Pages
+      #   id: deployment
+      #   uses: actions/deploy-pages@v4
