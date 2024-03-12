@@ -11,11 +11,12 @@ const markdownItOptions = {
 
 module.exports = config => {
     // the following line is required for stylesheet development
-    config.setServerPassthroughCopyBehavior("passthrough");
+    // config.setServerPassthroughCopyBehavior("passthrough");
 
     config.addPassthroughCopy("./assets/");
     config.addPassthroughCopy("./images/");
     config.addPassthroughCopy("**/*.jpg");
+    config.addPassthroughCopy("**/*.jpeg");
     config.addPassthroughCopy("**/*.png");
     config.addPassthroughCopy("**/*.svg");
     config.addPassthroughCopy("**/*.pdf");
