@@ -8,6 +8,7 @@ research:
     team: 
     - name: Dr. Nardie Fanchamps
       url: https://research.ou.nl/en/persons/nardie-fanchamps-2
+      login: Nardie-Fanchamps
 
   - name: University Rey Juan Carlos
     acronym: URJC
@@ -18,6 +19,7 @@ research:
     team:
     - name: Dr. Maria Zapata Cacéres
       url: https://gestion2.urjc.es/pdi/ver/maria.zapata
+      login: mariazapatac
     - name: Prof.  Estefanía Martín Barroso
       url: https://gestion2.urjc.es/pdi/ver/estefania.martin
 
@@ -67,6 +69,7 @@ research:
     team: 
     - name: Dr. Christian Glahn
       url: https://www.zhaw.ch/en/about-us/person/glah/
+      login: phish108
 
 schools:
   - name: CP Pedro Duque
