@@ -11,12 +11,14 @@ layout: index
 
       {% for post in posts %}
         <article>
+            {% if post.data.hero %}
+            <div class="heroimage" style="background-image: url({{ post.url | url }}{{ post.data.hero | url }})"></div>
+            {% endif %}
             <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
             <p><time datetime="{{ page.date | htmlDateString }}">{{ post.date | readableDate }}<time> by {{ post.data.author }}</p>       
             <div class="partner"></div>
             <p>{{ post.data.description }}  <a class="bi bi-box-arrow-up-right" href="{{ post.url | url }}"> Read more</a></p>
-
-         
+       
         </article>
       {% endfor %}
 
@@ -24,5 +26,5 @@ layout: index
         <p><a href="{{ '/archive' | url }}">More posts...</a></p>        
       {% endif %}
 
-      </div>
+</div>
       

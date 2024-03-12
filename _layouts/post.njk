@@ -1,6 +1,9 @@
 ---
 layout: index
 ---
+    {% if hero %}
+        <div style="background-image: url({{ hero | url }});" class="heroimage text-center"></div>
+    {% endif %}
       <div class="container rsf-text">
         <article>
         <h1>{{ title }}</h1>
