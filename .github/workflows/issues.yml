@@ -35,7 +35,7 @@ jobs:
       - name: check news issue
       # issue action  that load the issue author, body and all related images
         uses: phish108/issue-to-page@main
-        id: news.issue
+        id: news_issue
         with:
           label: 📢 News
           target-folder: ./docs/news
@@ -45,7 +45,7 @@ jobs:
       - name: check event announcement
       # issue action  that loads the issue author, body and all related images
         uses: phish108/issue-to-page@main
-        id: event.issue
+        id: event_issue
         with:
           label: 📅 Event
           target: docs/events
@@ -55,7 +55,7 @@ jobs:
       - name: check media coverage
       # issue action  that loads the issue author, body and all related images
         uses: phish108/issue-to-page@main
-        id: media.issue
+        id: media_issue
         with:
           label: 🎥 media news
           target: docs/news
@@ -65,7 +65,7 @@ jobs:
       - name: check event report 
       # issue action  that loads the issue author, body and all related images
         uses: phish108/issue-to-page@main
-        id: report.issue
+        id: report_issue
         with:
           label: 📅 Event Report
           target: docs/reports
