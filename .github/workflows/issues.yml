@@ -7,6 +7,10 @@ on:
       - opened
       - labeled
 
+permissions:
+  contents: write
+  issues: write
+
 jobs:
   # Single deploy job since we're just deploying
   publish:
