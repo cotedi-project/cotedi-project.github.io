@@ -1,7 +1,7 @@
 ---
 name: Event
 description: Use this form to add an entry to the upcoming events section.
-title: "[Title of the event]"
+title: "[Event] "
 projects: 
   - cotedi-project/1
 labels: 
