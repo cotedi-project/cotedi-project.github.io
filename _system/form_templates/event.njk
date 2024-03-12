@@ -5,7 +5,16 @@ date: {{ date }}
 tags: {% for tag in tags %}
 - {{tag}}{% endfor %}
 hero: {{ heroimage }}
-link: {{ link }}
+link: {{ external_url }}
+partners: {% for partner in partners %}
+- {{ partner }}{% endfor %}
+language: {{ language }}
+country: {{ country }}
+location: {{ location }}
+eventtype: {{ eventtype }}
+internal: {% if is_internal.flag == "X"%}yes{% else %}no{% endif %}
+startdate: {{ startdate }}
+enddate: {% if enddate | length %}{{ enddate }}{% else %}{{ startdate }}{% endif %}
 ---
 
 {{ body }}

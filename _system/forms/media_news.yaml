@@ -1,6 +1,7 @@
 extras:
   tags: 
   - news
+  - media
 prefix: "[In the Media] "
 body:
 - label: Announcement

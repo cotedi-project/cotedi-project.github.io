@@ -5,7 +5,29 @@ date: {{ date }}
 tags: {% for tag in tags %}
 - {{tag}}{% endfor %}
 hero: {{ heroimage }}
-link: {{ link }}
+link: {{ external_url }}
+partners: {% for partner in partners %}
+- {{ partner }}{% endfor %}
+language: {{ language }}
+country: {{ country }}
+location: {{ location }}
+eventtype: {{ eventtype }}
+internal: {% if is_internal.flag == "X"%}yes{% else %}no{% endif %}
+startdate: {{ startdate }}
+enddate: {% if enddate | length %}{{ enddate }}{% else %}{{ startdate }}{% endif %}
+report:
+  num_developers: {{ num_developers }}
+  num_participants: {{ num_participants }}
+  num_participants_online: {{ num_participants_online }}
+  num_pupils: {{ num_pupils }}
+  num_teachers: {{ num_teachers }}
+  num_researchers: {{ num_researchers }}
+  num_parents: {{ num_parents }}
+  num_policymakers: {{ num_policymakers }}
+  num_pupils_disabled: {{ num_pupils_disabled }}
+  num_pupils_disadvantaged: {{ num_pupils_disadvantaged }}
+  age_pupil_max: {{ age_pupil_max }}
+  age_pupil_min: {{ age_pupil }}
 ---
 
 {{ body }}

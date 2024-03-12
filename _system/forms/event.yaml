@@ -1,6 +1,6 @@
 extras:
   tags: 
-  - news
+  - event
 prefix: "[Event] "
 body:
 - id: is_internal

@@ -16,7 +16,7 @@ body:
       placeholder:
   - type: textarea
     attributes:
-      label: Announcement
+      label: Report
       description: |
         Everything here will become the content of the news article AND in the event reporting.
         Add any images here, too.

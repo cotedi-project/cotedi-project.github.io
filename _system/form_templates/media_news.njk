@@ -5,7 +5,15 @@ date: {{ date }}
 tags: {% for tag in tags %}
 - {{tag}}{% endfor %}
 hero: {{ heroimage }}
-link: {{ link }}
+link: {{ external_url }}
+partners: {% for partner in partners %}
+- {{ partner }}{% endfor %}
+language: {{ language }}
+mediaurl: {{ mediaurl }}
 ---
 
-{{ body }}
+{{ body }} 
+
+{% if mediaplayer | length %}
+{{ mediaplayer }}
+{% endif %}

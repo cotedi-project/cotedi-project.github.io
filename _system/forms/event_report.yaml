@@ -1,6 +1,8 @@
 extras:
   tags: 
   - news
+  - event
+  - report
 prefix: "[Event Report] "
 body:
 - id: event_id
@@ -16,7 +18,7 @@ body:
 - id: language
   label: Language of the event?
 
-- id: body
+- id : body
   label: Report
   
 - id: heroimage
