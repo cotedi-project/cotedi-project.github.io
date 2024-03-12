@@ -1,0 +1,42 @@
+extras:
+  tags: 
+  - news
+prefix: "[Event] "
+body:
+- id: is_internal
+  label: Internal Event
+  type: flag
+
+- id: eventtype
+  label: Event Type
+
+- id: language
+  label: Language of the event?
+
+- id: body
+  label: Announcement
+  
+- id: heroimage
+  label: Banner Image
+  type: image
+
+- id: external_url
+  label: Main Link of the Event
+
+- id: partners
+  label: Project partners
+  type: list
+
+- id: location
+  label: Location
+
+- id: country
+  label: Country
+
+- id: startdate
+  label: Start date
+  type: date
+
+- id: enddate
+  label: End date
+  type: date

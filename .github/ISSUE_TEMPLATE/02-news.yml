@@ -9,7 +9,7 @@ labels:
 body:
   - type: textarea
     attributes:
-      label: Please place a short description here.
+      label: Announcement
       placeholder: |
         Please place the announcement here. It will be added as content of the news entry.
   - type: textarea 

@@ -1,0 +1,84 @@
+extras:
+  tags: 
+  - news
+prefix: "[Event Report] "
+body:
+- id: event_id
+  label: Number of the Event Announcement
+
+- id: is_internal
+  label: Internal Event
+  type: flag
+
+- id: eventtype
+  label: Event Type
+
+- id: language
+  label: Language of the event?
+
+- id: body
+  label: Report
+  
+- id: heroimage
+  label: Banner Image
+  type: image
+
+- id: external_url
+  label: Main Link of the Event
+
+- id: partners
+  label: Project partners
+  type: list
+
+- id: location
+  label: Location
+
+- id: country
+  label: Country
+
+- id: startdate
+  label: Start date
+  type: date
+
+- id: enddate
+  label: End date
+  type: date
+
+# report statistics
+
+- id: num_participants
+  label: Number of All Participants
+
+- id: num_participants_online
+  label: Number of Online Participants
+
+- id: num_pupils
+  label: Number of Pupils
+
+- id: num_developers
+  label: Number of Developers
+
+- id: num_researchers
+  label: Number of Researchers
+
+- id: num_teachers
+  label: Number of Teachers
+
+- id: num_parents
+  label: Number of Parents
+
+- id: num_policymakers
+  label: Number of Policymakers
+
+- id: age_pupil_min
+  label: Age of the youngest Pupil
+
+- id: age_pupil_max
+  label: Age of the oldes Pupil
+
+- id: num_pupils_disadvantaged
+  label: Number of Pupils with Disadvantages
+
+- id: num_pupils_disabled
+  label: Number of Pupils with Disabilities
+

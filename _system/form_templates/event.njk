@@ -1,0 +1,11 @@
+---
+title: {{ title }}
+author: {{ author }}
+date: {{ date }}
+tags: {% for tag in tags %}
+- {{tag}}{% endfor %}
+hero: {{ heroimage }}
+link: {{ link }}
+---
+
+{{ body }}

@@ -11,12 +11,12 @@ body:
   - type: input
     id: eventlink
     attributes:
-      label: Link to the event announcement
+      label: Number of the Event Announcement
       description: Will reuse the information about the event.
       placeholder:
   - type: textarea
     attributes:
-      label: Please place a description of the event.
+      label: Announcement
       description: |
         Everything here will become the content of the news article AND in the event reporting.
         Add any images here, too.

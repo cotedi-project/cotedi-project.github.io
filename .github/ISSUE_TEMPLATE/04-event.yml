@@ -21,7 +21,7 @@ body:
       placeholder:
   - type: textarea
     attributes:
-      label: Please place a description of the event.
+      label: Announcement
       placeholder: |
         Everything here will become the content of the news article.
         Add any images here, too.
@@ -49,6 +49,7 @@ body:
       label: Country
       description: In which country the event takes place
       placeholder:
+
   - type: textarea
     id: partners
     attributes:
@@ -66,6 +67,7 @@ body:
       options:
         - label: Internal Event
           required: false
+
   - type: dropdown
     id: eventtype
     attributes:
@@ -83,7 +85,7 @@ body:
   - type: dropdown
     id: language
     attributes:
-      label: language of the event?
+      label: Language of the event?
       default: 1
       options:
         - Dutch
