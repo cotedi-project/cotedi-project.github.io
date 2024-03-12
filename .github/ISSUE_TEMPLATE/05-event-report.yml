@@ -5,8 +5,7 @@ title: "[Event Report]"
 projects: 
   - cotedi-project/1
 labels: 
-  - 📅 Event
-  - 📢 news
+  - 📅 Event Report
 body:
   - type: input
     id: eventlink

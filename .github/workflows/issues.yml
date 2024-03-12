@@ -34,20 +34,44 @@ jobs:
     
       - name: check news issue
       # issue action  that load the issue author, body and all related images
-        uses: phish108/issue-to-page@v1
+        uses: phish108/issue-to-page@main
         id: news.issue
         with:
           label: 📢 News
-          target: ./docs/news
+          target-folder: ./docs/news
+          template: ./_system/form_templates/news.njk
+          formhints: ./_system/forms/news.yaml
 
-      - name: check event issue
+      - name: check event announcement
       # issue action  that loads the issue author, body and all related images
-        uses: phish108/issue-to-page@v1
+        uses: phish108/issue-to-page@main
         id: event.issue
         with:
           label: 📅 Event
           target: docs/events
-        
+          template: ./_system/form_templates/event.njk
+          formhints: ./_system/forms/event.yaml
+
+      - name: check media coverage
+      # issue action  that loads the issue author, body and all related images
+        uses: phish108/issue-to-page@main
+        id: media.issue
+        with:
+          label: 🎥 media news
+          target: docs/news
+          template: ./_system/form_templates/media_news.njk
+          formhints: ./_system/forms/media_news.yaml
+
+      - name: check event report 
+      # issue action  that loads the issue author, body and all related images
+        uses: phish108/issue-to-page@main
+        id: report.issue
+        with:
+          label: 📅 Event Report
+          target: docs/reports
+          template: ./_system/form_templates/event_report.njk
+          formhints: ./_system/forms/event_report.yaml
+
       # - name: assign by language
       # # issue action that assignes the issue to a team member based on the language of the issue body
       #   uses: phish108/assign-by-language@v1
