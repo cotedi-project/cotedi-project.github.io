@@ -3,6 +3,8 @@ const { DateTime } = require("luxon");
 const markdownIt = require("markdown-it");
 const markdownItAttrs = require("markdown-it-attrs");
 
+const Image = require("@11ty/eleventy-img");
+
 const markdownItOptions = {
     html: true,
     breaks: false,
@@ -19,8 +21,8 @@ module.exports = config => {
     config.ignores.add("**/scss/**");
     config.ignores.add("_site/**");
 
-    config.addPassthroughCopy("./assets/**");
-    config.addPassthroughCopy("./images/**");
+    config.addPassthroughCopy("assets/**");
+    config.addPassthroughCopy("docs/images/**");
 
     config.addPassthroughCopy("docs/**/*.jpg");
     config.addPassthroughCopy("docs/**/*.jpeg");
@@ -30,6 +32,28 @@ module.exports = config => {
     config.addPassthroughCopy("docs/**/*.webp");
     config.addPassthroughCopy("docs/**/*.ico");
     config.addPassthroughCopy("docs/**/*.zip");
+
+    config.addPlugin(Image.eleventyImageTransformPlugin, {
+        // which file extensions to process
+        extensions: "html",
+
+        // Add any other Image utility options here:
+
+        // optional, output image formats
+        formats: ["webp", "jpeg","svg"],
+        // formats: ["auto"],
+
+        svgShortCircuit: "size",
+
+        // optional, output image widths
+        widths: [200, 400, 800, 1920, "auto"],
+
+        // optional, attributes assigned on <img> override these values.
+        defaultAttributes: {
+            loading: "lazy",
+            decoding: "async",
+        }
+    });
 
     config.addDataExtension("yaml", contents => yaml.parse(contents));
 
