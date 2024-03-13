@@ -2,7 +2,9 @@
 layout: index
 ---
     {% if hero %}
-        <div style="background-image: url({{ hero | url }});" class="heroimage text-center"></div>
+        <div class="heroimage text-center">
+        <img src="{{ hero }}" alt="{{ title }} teaser image" sizes="200w,400w,800w,1920w">
+        </div>
     {% endif %}
 
     {% set allpartners = partners.research %}

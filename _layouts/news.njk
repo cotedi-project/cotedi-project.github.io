@@ -15,7 +15,9 @@ layout: index
       {% for post in posts %}
         <article>
             {% if post.data.hero %}
-            <div class="heroimage" style="background-image: url({{ post.url | url }}{{ post.data.hero | url }})"></div>
+            <div class="heroimage"><a href="{{ post.url | url }}">
+            <img src="{{ post.url | url }}{{ post.data.hero | url }}" alt="{{ post.data.title }} teaser image" sizes="200w,400w,800w,1920w"></a>
+            </div>
             {% endif %}
             <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
             <p><time datetime="{{ page.date | htmlDateString }}">{{ post.date | readableDate }}<time> by 
