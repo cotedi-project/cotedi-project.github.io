@@ -17,7 +17,7 @@
     "watch:css": "sass --watch --load-path node_modules --style compressed --source-map scss:assets/css/",
     "watch:web": "eleventy --serve --watch",
     "watch:all": "npm-run-all -p watch:css watch:web",
-    "all": "npm-run-all css css:fonts render",
+    "all": "npm-run-all css css:fonts build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
