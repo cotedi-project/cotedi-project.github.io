@@ -40,12 +40,16 @@ header.news {
 }
 
 .heroimage {
-    background-size: cover;
     width: 100%;
     height: 25em;
-    background-position-y: center;
-    background-position-x: center;
     margin-bottom: 1.5em;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
 }
 
 footer {
