@@ -40,13 +40,13 @@ module.exports = config => {
         // Add any other Image utility options here:
 
         // optional, output image formats
-        formats: ["webp", "jpeg","svg"],
-        // formats: ["auto"],
+        // formats: ["webp", "jpeg","svg"],
+        formats: ["auto"],
 
         svgShortCircuit: "size",
 
         // optional, output image widths
-        widths: [200, 400, 800, 1920, "auto"],
+        widths: [200, 400, 800, 1920, 2400, "auto"],
 
         // optional, attributes assigned on <img> override these values.
         defaultAttributes: {
