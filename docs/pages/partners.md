@@ -13,7 +13,7 @@ hero_image:
 <div class="partnerlogo">
 {%if partner.logo -%}
         <a href="{{ partner.url }}" target="_blank">{% for logo in partner.logo -%}
-        <img alt="{{ partner.name }} ({{ partner.acronym }})" src="/images/partners/{{logo}}" class="logo {{ partner.acronym | lower }}">
+        <img alt="{{ partner.name }} ({{ partner.acronym }})" src="/images/partners/{{logo}}" class="logo {{ partner.acronym | lower }}" eleventy:ignore>
         {%- endfor %}</a>
 {%- endif %}
 </div>
