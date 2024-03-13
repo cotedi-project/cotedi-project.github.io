@@ -13,7 +13,7 @@
     "css:prefix": "postcss --replace assets/css/main.css --use autoprefixer --map",
     "css": "npm-run-all css:compile css:prefix",
     "css:fonts": "mkdir -p assets/css/fonts && cp -r node_modules/bootstrap-icons/font/fonts assets/css/",
-    "render": "eleventy",
+    "build": "eleventy",
     "watch:css": "sass --watch --load-path node_modules --style compressed --source-map scss:assets/css/",
     "watch:web": "eleventy --serve --watch",
     "watch:all": "npm-run-all -p watch:css watch:web",
@@ -24,7 +24,8 @@
   "author": "CoTEDI Project and Contributors",
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "2.0.1",
+    "@11ty/eleventy": "3.0.0-alpha.5",
+    "@11ty/eleventy-img": "4.0.2",
     "@eslint/js": "8.57.0",
     "autoprefixer": "10.4.18",
     "eslint": "8.57.0",
@@ -41,6 +42,6 @@
   "dependencies": {
     "bootstrap": "5.3.3",
     "bootstrap-icons": "1.11.3",
-    "markdown-it-attrs": "^4.1.6"
+    "markdown-it-attrs": "4.1.6"
   }
 }
