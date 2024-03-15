@@ -7,22 +7,23 @@ projects:
 labels: 
   - 📢 news
 body:
-  - type: textarea
-    attributes:
-      label: Announcement
-      placeholder: |
-        Please place the announcement here. It will be added as content of the news entry.
   - type: textarea 
     id: heroimage
     attributes:
       label: Banner Image
-      description: The image that will be displayed on top of the news page
+      description: The image that will be displayed on top of the news page. Only the first image will be used. All text is ignored. 
+
+  - type: textarea
+    attributes:
+      label: Announcement
+      placeholder: |
+        Please place the announcement here. It will be added as content of the news entry. You can drag and drop images into this field, too. These images will appear as part of the content.
 
   - type: input
     id: url
     attributes:
       label: External Link
-      description: The link to the source (optional)
+      placeholder: The link to the source (optional)
   - type: dropdown
     id: language
     attributes:
@@ -40,7 +41,7 @@ body:
     id: partners
     attributes:
       label: Project partners
-      description: Add all project partners involved in the event
+      description: Add all additional project partners who ar involved in the event
       placeholder: |
         Leave empty if it is just you (or your team).
         Use a list for each partner involved

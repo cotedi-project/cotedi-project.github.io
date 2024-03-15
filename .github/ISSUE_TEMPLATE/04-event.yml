@@ -7,6 +7,13 @@ projects:
 labels: 
   - 📅 Event
 body:
+  - type: textarea 
+    id: heroimage
+    attributes:
+      label: Banner Image
+      description: The image that will be displayed on top of the news page
+      placeholder:
+      
   - type: input
     id: startdate
     attributes:
@@ -25,12 +32,7 @@ body:
       placeholder: |
         Everything here will become the content of the news article.
         Add any images here, too.
-  - type: textarea 
-    id: heroimage
-    attributes:
-      label: Banner Image
-      description: The image that will be displayed on top of the news page
-      placeholder:
+ 
   - type: input
     id: url
     attributes:

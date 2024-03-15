@@ -7,6 +7,13 @@ projects:
 labels: 
   - 📅 Event Report
 body:
+  - type: textarea 
+    id: heroimage
+    attributes:
+      label: Banner Image
+      description: The image that will be displayed on top of the news page
+      placeholder:
+
   - type: input
     id: eventlink
     attributes:
@@ -21,13 +28,7 @@ body:
         Add any images here, too.
 
         Only upload images for which you have obtained the rights to use them publicly.
-      
-  - type: textarea 
-    id: heroimage
-    attributes:
-      label: Banner Image
-      description: The image that will be displayed on top of the news page
-      placeholder:
+  
   - type: input
     id: startdate
     attributes:

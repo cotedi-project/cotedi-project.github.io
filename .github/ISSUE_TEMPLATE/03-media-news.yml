@@ -7,18 +7,20 @@ projects:
 labels: 
   - 🎥 media news
 body:
+  - type: textarea 
+    id: heroimage
+    attributes:
+      label: Banner Image
+      description: |
+        The image that will be displayed on top of the news page. Only the first image will be used. All text is ignored.  
+
   - type: textarea
     attributes:
       label: Announcemenbt
       placeholder: |
         Please place the announcement of the media file here
         Add any images here, too.
-  - type: textarea 
-    id: heroimage
-    attributes:
-      label: Banner Image
-      description: This image will be used as a placeholder before the video is actually loaded 
-      placeholder:
+  
   - type: input
     id: url
     attributes:
