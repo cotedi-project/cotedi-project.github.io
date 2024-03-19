@@ -22,6 +22,7 @@ research:
       login: mariazapatac
     - name: Prof.  Estefanía Martín Barroso
       url: https://gestion2.urjc.es/pdi/ver/estefania.martin
+      login: emburjc
 
   - name: Cologne Game Lab
     acronym: CGL
@@ -33,7 +34,9 @@ research:
     team:
     - name: Prof. Roland Klemke
       url: https://colognegamelab.de/about/faculty-staff/professors/prof-dr-roland-klemke/
+      login: rklemke
     - name: Carlos Andres Giraldo Navarro
+      login: Nabalrog
 
 
   - name: Linnéuniversitetet
@@ -47,6 +50,7 @@ research:
     - name: Prof. Marcelo Milrad
       url: https://lnu.se/en/staff/marcelo.milrad/
     - name: Katrin Lindwall
+      login: KatrinLnu
     
   - name: treetree2 
     acronym: treetree2
