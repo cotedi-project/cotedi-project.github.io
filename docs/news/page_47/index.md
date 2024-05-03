@@ -17,6 +17,6 @@ As part of the Technology Experience Day (TED) as organised by Zuyd University o
 
 [Download Nardie's poster here](Poster_TED_Research_Group_06-03-2024.pdf)
 
-![impressions from ZYD TED](20240306_10144_resized.jpg)
+![impressions from ZYD TED](20240306_101446_resized.jpg)
 
 
