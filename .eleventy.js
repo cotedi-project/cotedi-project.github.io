@@ -52,6 +52,7 @@ module.exports = config => {
         defaultAttributes: {
             loading: "lazy",
             decoding: "async",
+            sizes: [200, 400, 800, 1920, 2400, "auto"],
         }
     });
 
