@@ -7,7 +7,7 @@ tags:
 hero: hero.png
 link: https://ea-tel.eu/jtelss24
 partner: 
-- Roland Klemke
+- rklemke
 language: English
 ---
 
