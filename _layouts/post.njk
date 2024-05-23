@@ -20,7 +20,7 @@ layout: index
             {% for member in partner.team -%}
             {% if member.login == author -%}            
         <span class="author">by {{ member.name }}</span>
-            {% else -%}
+            {%  elif member.name == author -%}
         <span class="author">by {{ author }}</span>
             {%- endif %}
             {%- endfor %}
