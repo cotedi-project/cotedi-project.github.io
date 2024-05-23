@@ -25,6 +25,8 @@ layout: index
             {% for member in partner.team -%}
             {% if member.login == post.data.author -%}            
         <span class="author">{{ member.name }}</span>
+             {% else -%}
+             <span class="author">{{ post.data.author }}</span>
             {%- endif %}
             {%- endfor %}
         {%- endfor %}</p>       
