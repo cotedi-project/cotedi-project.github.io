@@ -43,7 +43,7 @@ The final activity asked each two teams rebuild their robots so they collaborate
 
 The Grove Zero bundles different robot components into kits. In order to allow for more playful interactions ZHAW has combined the [Grove Zero Starter Kit](https://www.seeedstudio.com/Grove-Zero-Starter-Kit-V2-0-p-4352.html) and the [Grove Zero Car Kit](https://www.seeedstudio.com/Grove-Zero-Car-Kit-V2-0-p-4351.html) into a custom kit tailored to a wider range of educational objectives as found at different levels. At a cost of less than 200€ per kit this offers a stepwise transition from tangible interactions via block based programming all the way to advanced sensor-actuator-programming. 
 
-![ZHAW_ActUp_StarterKit](docs/news/page_83/ZHAW_ActUp_StarterKit.png)
+![ZHAW_ActUp_StarterKit](ZHAW_ActUp_StarterKit.png)
 
 Different to other approaches and systems, the Grove Zero approach minimizes initial building complexity and allows for immediate successes through pre-build software logic build into the components. While this initial logic is limited, it can be completely replaced by using the [Scratch Language](https://scratch.mit.edu/). As Grove Zero builds on a Arduino-compliant microcontroller, advanced students can write complex solutions as they would with Arduino boards, BBC Microbits, or the Raspberry PI Pico. This flexibility allows for creating tailored solutions for specific inclass learning objectives that allow pupils to focus on their robot interactions. Combined with the intuitive magnetic connectors we find that this approach particularly useful for working with diverse classes at primary school level. 
 
@@ -51,11 +51,11 @@ Different to other approaches and systems, the Grove Zero approach minimizes ini
 
 The Grove Zero Framework was new to all participants, but were otherwise knowledgable in at least one programming language. After a brief exploration of the provided kits, it became clear that the participants needed to overcome dissonances between their intentions and expectations, on the one hand, and the acutal functions of the robots, on the other. Some of these dissonances required supportive interventions by the moderator. As the interactions with the robot kit are simple, it was only required to ask reflection questions to the participants so they can develop their own solutions.  
 
-![exploring_robot_functions](docs/news/page_83/exploring_robot_functions.png)
+![exploring_robot_functions](exploring_robot_functions.png)
 
 It showed that the ease of reconfigurability of the robots was a vital factor for the immersive experience of the participants. This helped the participants to extend and remove functions of their robots, quickly. In this turn one group observed that turn-taking is important to work around the eagerness of some individuals in a team. This is particularly important when working with "larger" groups of 4 to 5 persons. 
 
-![developing_the_racetrack](docs/news/page_83/developing_the_racetrack.png)
+![developing_the_racetrack](developing_the_racetrack.png)
 
 The participants observed several high-level computational thinking concepts. This perspective is interesting and important because in CoTEDI we want to provide guidance about the granularity of the underpinning concepts and skills.
 
