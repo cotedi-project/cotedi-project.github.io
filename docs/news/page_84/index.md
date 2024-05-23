@@ -4,7 +4,7 @@ author: Marcelo Milrad
 date: 2024-05-23
 tags: 
 - news
-hero: https://cotedi.eu/images/stock/bookshelf.png
+hero: bookshelf.png
 link: 
 partner: 
 language: English
