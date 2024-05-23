@@ -1,5 +1,5 @@
 ---
-title: New Book on Computational thinking
+title: New Book on Computational Thinking
 author: Prof. Marcelo Milrad
 date: 2024-05-23
 tags: 
