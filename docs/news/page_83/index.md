@@ -21,7 +21,7 @@ The workshop centered around experiencing creative exploration of computational 
 
 In schools we observed that this tangible interactions suported students to engage with computational logic who were otherwise distracted by the semantics of the programming language taught. In this workshop, we were interested in the computational concepts the paperticipants observered and how they balanced their intentions with the robot's capabilities. 
 
-### Workshop Outline and Material 
+### Workshop Outline and Material 
 
 With less than three hours available, the workshop focused only on the tangible concepts of computational thinking. The workshop slides are [available for download](20240517_jtelss_robots_computational_thinking.pdf).
 
@@ -47,7 +47,7 @@ The Grove Zero bundles different robot components into kits. In order to allow f
 
 Different to other approaches and systems, the Grove Zero approach minimizes initial building complexity and allows for immediate successes through pre-build software logic build into the components. While this initial logic is limited, it can be completely replaced by using the [Scratch Language](https://scratch.mit.edu/). As Grove Zero builds on a Arduino-compliant microcontroller, advanced students can write complex solutions as they would with Arduino boards, BBC Microbits, or the Raspberry PI Pico. This flexibility allows for creating tailored solutions for specific inclass learning objectives that allow pupils to focus on their robot interactions. Combined with the intuitive magnetic connectors we find that this approach particularly useful for working with diverse classes at primary school level. 
 
-### Participant Solutions
+### Participant Solutions
 
 The Grove Zero Framework was new to all participants, but were otherwise knowledgable in at least one programming language. After a brief exploration of the provided kits, it became clear that the participants needed to overcome dissonances between their intentions and expectations, on the one hand, and the acutal functions of the robots, on the other. Some of these dissonances required supportive interventions by the moderator. As the interactions with the robot kit are simple, it was only required to ask reflection questions to the participants so they can develop their own solutions.  
 
