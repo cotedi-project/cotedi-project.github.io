@@ -7,8 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "lint": "eslint src/ ; stylelint scss/*.scss",
-    "lint:fix": "eslint src/ --fix ; stylelint scss/*.scss --fix",
+    "lint": "eslint src/ --no-error-on-unmatched-pattern; stylelint scss/*.scss",
+    "lint:fix": "eslint src/ --fix --no-error-on-unmatched-pattern; stylelint scss/*.scss --fix",
     "css:compile": "sass --load-path node_modules --style compressed --source-map scss:assets/css/",
     "css:prefix": "postcss --replace assets/css/main.css --use autoprefixer --map",
     "css": "npm-run-all css:compile css:prefix",
