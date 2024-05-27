@@ -21,15 +21,15 @@ layout: index
             {% endif %}
             <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
             <p><time datetime="{{ page.date | htmlDateString }}">{{ post.date | readableDate }}<time> by 
-            {% for partner in allpartners -%}
-            {% for member in partner.team -%}
-            {% if member.login == post.data.author -%}            
+            {%- for partner in allpartners -%}
+            {%- for member in partner.team -%}
+            {%- if member.login == post.data.author -%}            
         <span class="author">{{ member.name }}</span>
-             {% elif member.name == post.data.author -%}
+             {%- elif member.name == post.data.author -%}
              <span class="author">{{ post.data.author }}</span>
-            {%- endif %}
-            {%- endfor %}
-        {%- endfor %}</p>       
+            {%- endif -%}
+            {%- endfor -%}
+        {%- endfor -%}</p>       
             <div class="partner"></div>
             <p>{{ post.data.description | safe }}  <a class="bi bi-box-arrow-up-right" href="{{ post.url | url }}"> Read more</a></p>
         </article>

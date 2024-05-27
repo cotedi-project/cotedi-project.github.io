@@ -20,10 +20,29 @@
     {%- set ogimage = ogimage | replace(".jpeg", "-1260.jpeg") -%}
     {%- set ogimage = ogimage | replace(".gif", "-1260.gif") -%}
     {%- set ogimage = ogimage | replace(".webp", "-1260.webp") -%}
+
+    {%- set authorname = author -%}
+    {%- set allpartners = partners.research -%}
+    {%- set allpartners = allpartners.concat(partners.schools) -%}
+    {%- set theauthors = [] -%}
+   
+    {%- for partner in allpartners -%}
+        {%- for member in partner.team -%}
+            {%- if member.login == author -%}            
+              {%- set theauthors = theauthors.concat( member.name ) -%}
+            {%- elif member.name == author -%}
+              {%- set theauthors = theauthors.concat( member.name ) -%}
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endfor -%}
+
     <meta property="og:title" content="{{ title or site.long_title or meta.title }}" />
     <meta property="og:description" content="{{ description or site.description or meta.description }}" />
     <meta property="og:image" content="{{ site.url }}{{ page.url }}{{ ogimage | url }}" />
     <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <meta property="og:published_time" content="{{ page.date | htmlDateString }}" />
+    <meta property="og:author" content="{{ theauthors | join(", ") }}" />
+
     <meta property="og:type" content="website" />
    
 </head>
