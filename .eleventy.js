@@ -50,13 +50,13 @@ module.exports = (eleventyConfig) => {
         svgShortCircuit: "size",
 
         // optional, output image widths
-        widths: [200, 400, 800, 1280, 1920, 2400, "auto"],
+        widths: [200, 400, 800, 1260, 1920, 2400, "auto"],
 
         // optional, attributes assigned on <img> override these values.
         defaultAttributes: {
             loading: "lazy",
             decoding: "async",
-            sizes: [200, 400, 800, 1280, 1920, 2400, "auto"],
+            sizes: [200, 400, 800, 1260, 1920, 2400, "auto"],
         },
 
         filenameFormat: function (id, src, width, format, options) {
