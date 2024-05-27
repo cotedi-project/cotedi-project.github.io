@@ -26,7 +26,10 @@ layout: index
             {%- endfor %}
         {%- endfor %}
 
-        <p class="lead">{{ description }}</p>
+        <p class="lead">{{ description | safe }}</p>
+        <p class="lead_link">
+            <a class="bi bi-box-arrow-up-right" href="{{ link }}" target="_blank"> Related Link</a>
+        </p>
         
         <div class="content">
         {{ content | safe }}

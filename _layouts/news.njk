@@ -31,7 +31,7 @@ layout: index
             {%- endfor %}
         {%- endfor %}</p>       
             <div class="partner"></div>
-            <p>{{ post.data.description }}  <a class="bi bi-box-arrow-up-right" href="{{ post.url | url }}"> Read more</a></p>
+            <p>{{ post.data.description | safe }}  <a class="bi bi-box-arrow-up-right" href="{{ post.url | url }}"> Read more</a></p>
         </article>
       {% endfor %}
 
