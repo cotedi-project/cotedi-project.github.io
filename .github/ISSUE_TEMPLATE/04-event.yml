@@ -26,6 +26,13 @@ body:
       label: End Date
       description: For multi day events, add the last date of the event  (YYYY-MM-DD), e.g., 2024-01-06
       placeholder:
+
+  - type: textarea
+    attributes:
+      label: Description
+      placeholder: |
+        Please add a few words to start your article with. This will be displayed on the news overview page and on social media. No markdown allowed.
+
   - type: textarea
     attributes:
       label: Announcement

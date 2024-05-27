@@ -5,6 +5,8 @@ prefix: "[News] "
 body:
 - label: Announcement
   id: body
+- label: Description
+  id: body
 - id: heroimage
   label: Banner Image
   type: "image"

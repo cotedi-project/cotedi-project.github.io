@@ -15,6 +15,7 @@ eventtype: {{ eventtype }}
 internal: {% if is_internal.flag == "X"%}yes{% else %}no{% endif %}
 startdate: {{ startdate.date }}
 {% if enddate.date | length %}enddate: {{ enddate.date }}{% endif %}
+description: {{ description }}
 ---
 
 {{ body }}

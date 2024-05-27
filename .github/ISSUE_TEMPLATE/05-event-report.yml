@@ -20,6 +20,13 @@ body:
       label: Number of the Event Announcement
       description: Will reuse the information about the event.
       placeholder:
+
+  - type: textarea
+    attributes:
+      label: Description
+      placeholder: |
+        Please add a few words to start your article with. This will be displayed on the news overview page and on social media. No markdown allowed.
+
   - type: textarea
     attributes:
       label: Report

@@ -20,7 +20,10 @@ body:
 
 - id : body
   label: Report
-  
+
+- label: Description
+  id: body
+
 - id: heroimage
   label: Banner Image
   type: image

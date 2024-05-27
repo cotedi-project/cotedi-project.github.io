@@ -20,3 +20,5 @@ body:
 - id: partners
   label: Project partners
   type: list
+- label: Description
+  id: body

@@ -15,6 +15,13 @@ body:
 
   - type: textarea
     attributes:
+      label: Description
+      placeholder: |
+        Please add a few words to start your article with. This will be displayed on the news overview page and on social media. No markdown allowed.
+
+
+  - type: textarea
+    attributes:
       label: Announcement
       placeholder: |
         Please place the announcement here. It will be added as content of the news entry. You can drag and drop images into this field, too. These images will appear as part of the content.
