@@ -29,9 +29,9 @@
     {%- for partner in allpartners -%}
         {%- for member in partner.team -%}
             {%- if member.login == author -%}            
-              {%- set theauthors = theauthors.concat( member.name ) -%}
+                <meta name="author" property="article:author" content="{{ member.name }}" />
             {%- elif member.name == author -%}
-              {%- set theauthors = theauthors.concat( member.name ) -%}
+                <meta name="author" property="article:author" content="{{ member.name }}" />
             {%- endif -%}
         {%- endfor -%}
     {%- endfor -%}
@@ -40,8 +40,7 @@
     <meta property="og:description" content="{{ description or site.description or meta.description }}" />
     <meta property="og:image" content="{{ site.url }}{{ page.url }}{{ ogimage | url }}" />
     <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
-    <meta property="og:published_time" content="{{ page.date | htmlDateString }}" />
-    <meta name="author" property="article:author" content="{{ theauthors | join(", ") }}" />
+    <meta property="article:published_time" content="{{ page.date | htmlDateString }}" />
 
     <meta property="og:type" content="article" />
    
