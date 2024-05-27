@@ -1,9 +1,13 @@
 const yaml = require("yaml");
 const { DateTime } = require("luxon");
-const markdownIt = require("markdown-it");
-const markdownItAttrs = require("markdown-it-attrs");
 
+const path = require("node:path");
 const Image = require("@11ty/eleventy-img");
+
+const markdownit = require("markdown-it");
+
+// markdown-it-attrs uses commonJs modules and is a showstopper for modernizing the codebase
+const markdownItAttrs = require("markdown-it-attrs");
 
 const markdownItOptions = {
     html: true,
@@ -11,29 +15,29 @@ const markdownItOptions = {
     linkify: true
 };
 
-module.exports = config => {
+module.exports = (eleventyConfig) => {
     // the following line is required for stylesheet development
     // config.setServerPassthroughCopyBehavior("passthrough");
 
-    config.ignores.add("_system/**");
-    config.ignores.add(".devcontainer/**");
-    config.ignores.add("**/node_modules/**");
-    config.ignores.add("**/scss/**");
-    config.ignores.add("_site/**");
+    eleventyConfig.ignores.add("_system/**");
+    eleventyConfig.ignores.add(".devcontainer/**");
+    eleventyConfig.ignores.add("**/node_modules/**");
+    eleventyConfig.ignores.add("**/scss/**");
+    eleventyConfig.ignores.add("_site/**");
 
-    config.addPassthroughCopy("assets/**");
-    config.addPassthroughCopy("docs/images/**");
+    eleventyConfig.addPassthroughCopy("assets/**");
+    eleventyConfig.addPassthroughCopy("docs/images/**");
 
-    config.addPassthroughCopy("docs/**/*.jpg");
-    config.addPassthroughCopy("docs/**/*.jpeg");
-    config.addPassthroughCopy("docs/**/*.png");
-    config.addPassthroughCopy("docs/**/*.svg");
-    config.addPassthroughCopy("docs/**/*.pdf");
-    config.addPassthroughCopy("docs/**/*.webp");
-    config.addPassthroughCopy("docs/**/*.ico");
-    config.addPassthroughCopy("docs/**/*.zip");
+    eleventyConfig.addPassthroughCopy("docs/**/*.jpg");
+    eleventyConfig.addPassthroughCopy("docs/**/*.jpeg");
+    eleventyConfig.addPassthroughCopy("docs/**/*.png");
+    eleventyConfig.addPassthroughCopy("docs/**/*.svg");
+    eleventyConfig.addPassthroughCopy("docs/**/*.pdf");
+    eleventyConfig.addPassthroughCopy("docs/**/*.webp");
+    eleventyConfig.addPassthroughCopy("docs/**/*.ico");
+    eleventyConfig.addPassthroughCopy("docs/**/*.zip");
 
-    config.addPlugin(Image.eleventyImageTransformPlugin, {
+    eleventyConfig.addPlugin(Image.eleventyImageTransformPlugin, {
         // which file extensions to process
         extensions: "html",
 
@@ -46,39 +50,51 @@ module.exports = config => {
         svgShortCircuit: "size",
 
         // optional, output image widths
-        widths: [200, 400, 800, 1920, 2400, "auto"],
+        widths: [200, 400, 800, 1280, 1920, 2400, "auto"],
 
         // optional, attributes assigned on <img> override these values.
         defaultAttributes: {
             loading: "lazy",
             decoding: "async",
-            sizes: [200, 400, 800, 1920, 2400, "auto"],
+            sizes: [200, 400, 800, 1280, 1920, 2400, "auto"],
+        },
+
+        filenameFormat: function (id, src, width, format, options) {
+            // id: hash of the original image
+            // src: original image path
+            // width: current width in px
+            // format: current file format
+            // options: set of options passed to the Image call
+            const ext = path.extname(src);
+            const filename = path.basename(src, ext);
+
+            return `${filename}-${width}.${format}`;
         }
     });
 
-    config.addDataExtension("yaml", contents => yaml.parse(contents));
+    eleventyConfig.addDataExtension("yaml", contents => yaml.parse(contents));
 
-    config.addShortcode("thisYear", () => DateTime.now().setZone("Europe/Amsterdam").toFormat("yyyy"));
-    config.addShortcode("thisDate", () => DateTime.now().setZone("Europe/Amsterdam").toFormat("yyyy-LL-dd"));
+    eleventyConfig.addShortcode("thisYear", () => DateTime.now().setZone("Europe/Amsterdam").toFormat("yyyy"));
+    eleventyConfig.addShortcode("thisDate", () => DateTime.now().setZone("Europe/Amsterdam").toFormat("yyyy-LL-dd"));
 
-    config.addFilter("dateYear", (dateObj) => {
+    eleventyConfig.addFilter("dateYear", (dateObj) => {
         // dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
         return `${DateTime.fromJSDate(dateObj, {zone: "Europe/Amsterdam"}).toFormat("yyyy")}`;
     });
 
-    config.addFilter("htmlDateString", (dateObj) => {
+    eleventyConfig.addFilter("htmlDateString", (dateObj) => {
         // dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
         return `${DateTime.fromJSDate(dateObj, {zone: "Europe/Amsterdam"}).toFormat("yyyy-LL-dd")}`;
     });
 
-    config.addFilter("readableDate", (dateObj) => {
+    eleventyConfig.addFilter("readableDate", (dateObj) => {
         // dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
         return DateTime.fromJSDate(dateObj, {zone: "Europe/Amsterdam"}).toFormat("dd LLLL yyyy");
     });
 
-    config.addFilter("entryLimit", (arr, limit) => arr.slice(0, limit));
+    eleventyConfig.addFilter("entryLimit", (arr, limit) => arr.slice(0, limit));
 
-    config.setLibrary("md", markdownIt(markdownItOptions).use(markdownItAttrs));
+    eleventyConfig.setLibrary("md", markdownit(markdownItOptions).use(markdownItAttrs));
 
     return {
         markdownTemplateEngine: "njk",
