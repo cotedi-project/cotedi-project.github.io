@@ -14,9 +14,15 @@
     <link rel="icon" href="/images/favicons/favicon.ico">
     
     <!-- linkedin meta tags -->
+    {% set ogimage = hero | url -%}
+    {%- set ogimage = ogimage | replace(".png", "-1260.png") -%}
+    {%- set ogimage = ogimage | replace(".jpg", "-1260.jpg") -%}
+    {%- set ogimage = ogimage | replace(".jpeg", "-1260.jpeg") -%}
+    {%- set ogimage = ogimage | replace(".gif", "-1260.gif") -%}
+    {%- set ogimage = ogimage | replace(".webp", "-1260.webp") -%}
     <meta property="og:title" content="{{ title or site.long_title or meta.title }}" />
     <meta property="og:description" content="{{ description or site.description or meta.description }}" />
-    <meta property="og:image" content="{{ site.url }}{{ page.url }}{{ hero | url }}" />
+    <meta property="og:image" content="{{ site.url }}{{ page.url }}{{ ogimage | url }}" />
     <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
     <meta property="og:type" content="website" />
    
