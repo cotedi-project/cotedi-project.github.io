@@ -5,12 +5,13 @@ date: 2024-05-23
 tags: 
 - news
 hero: bookshelf.png
-link: 
+link: https://www.routledge.com/Assessing-Computational-Thinking-An-Overview-of-the-Field/Weintrop-Rutstein-Bienkowski-McGee/p/book/9781032555300
 partner: 
 language: English
+description: "The book &quot;Assessing Computational Thinking: An Overview of the Field&quot; recently published by Routledge offers interesting insights and valuable perspectives to the CoTeDI project, which aims to develop a common methodology for applying computational thinking (CT) in educational settings. Here’s an analysis of how the book aligns with and supports the CoTeDI project. Among the interesting aspects that could be highlighted, we have identified the points below."
+
 ---
 
-The book &quot;[Assessing Computational Thinking: An Overview of the Field](https://www.routledge.com/Assessing-Computational-Thinking-An-Overview-of-the-Field/Weintrop-Rutstein-Bienkowski-McGee/p/book/9781032555300)&quot; recently published by Routledge offers interesting insights and valuable perspectives to the CoTeDI project, which aims to develop a common methodology for applying computational thinking (CT) in educational settings. Here’s an analysis of how the book aligns with and supports the CoTeDI project. Among the interesting aspects that could be highlighted, we have identified the points below.
 
 1. Comprehensive Overview of CT Assessment:
    The book provides a detailed exploration of the various methods and contexts in which CT is assessed, reflecting the diversity of approaches needed for effective CT education. This aligns with CoTeDI’s goal to create a variety of activities and materials for CT learning and assessment.

@@ -9,9 +9,9 @@ link: https://ea-tel.eu/jtelss24
 partner: 
 - rklemke
 language: English
----
+description: CoTEDI's Christian Glahn and Roland Klemke moderated a workshop on using robots to learn and teach with robots at the JTEL Summer School 2024 in Gabicce Mare, Pesaro, Italy on 18th May 2024. 20 Ph.D.-candidates from the field of technology-enhanced learning learned and engaged with Grove Zero Robots for contextual tangible computational thinking.
 
-CoTEDI&#39;s Christian Glahn and Roland Klemke moderated a workshop on using robots to learn and teach with robots at the [JTEL Summer School 2024](https://ea-tel.eu/jtelss24) in Gabicce Mare, Pesaro, Italy on 18th May 2024. 20 Ph.D.-candidates from the field of technology-enhanced learning learned and engaged with [Grove Zero Robots](https://www.seeedstudio.com/TinkerGen-Grove-Zero-c-1984.html) and explored [ZHAW&#39;s](https://dxi.ai/2021/08/22/memn/) ideas on *contextual tangible computational thinking without code*.
+---
 
 ### Concept of the workshop 
 
@@ -23,7 +23,7 @@ In schools we observed that this tangible interactions suported students to enga
 
 ### Workshop Outline and Material 
 
-With less than three hours available, the workshop focused only on the tangible concepts of computational thinking. The workshop slides are [available for download](20240517_jtelss_robots_computational_thinking.pdf).
+With less than three hours available, the workshop focused only on the tangible concepts of computational thinking. The workshop slides are [available for download](20240517_jtelss_robots_computational_thinking.pdf). The workshop was organised around [Grove Zero Robots](https://www.seeedstudio.com/TinkerGen-Grove-Zero-c-1984.html) and explored [ZHAW&#39;s](https://dxi.ai/2021/08/22/memn/) ideas on *contextual tangible computational thinking without code*.
 
 #### Objectives and Tasks
 
