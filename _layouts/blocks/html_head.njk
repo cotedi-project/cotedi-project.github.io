@@ -41,8 +41,8 @@
     <meta property="og:image" content="{{ site.url }}{{ page.url }}{{ ogimage | url }}" />
     <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
     <meta property="og:published_time" content="{{ page.date | htmlDateString }}" />
-    <meta property="og:author" content="{{ theauthors | join(", ") }}" />
+    <meta name="author" property="article:author" content="{{ theauthors | join(", ") }}" />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="article" />
    
 </head>
