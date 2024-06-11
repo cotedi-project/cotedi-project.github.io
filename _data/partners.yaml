@@ -100,8 +100,9 @@ schools:
   - name: Agrupamento de Escolas de Nisa
     acronym: aenisa
     country: PT
-    url: http://www.escolasdenisa.org.pt
-    logo:
+    url: https://agrupamentonisa.edu.gov.pt/site/
+    logo: 
+    - logo_aenisa.jpeg
     team: 
   - name: Colégio Atlântico
     acronym: colegioatlantico
@@ -120,8 +121,9 @@ schools:
   - name: Agrupamento de Escolas Professor Armando de Lucena
     acronym: aealucena
     country: PT
-    url: https://www.aealucena.pt
+    url: https://sites.google.com/aealucena.pt/aepal/
     logo: 
+    - logo_lucena.jpeg
     team: 
   - name: Agrupamento de Escolas de Fornos de Algodres
     acronym:
