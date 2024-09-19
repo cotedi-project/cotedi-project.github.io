@@ -1,0 +1,27 @@
+---
+layout: index
+---
+<div class="container pub-text">
+
+      <h1>{{ title }}</h1>
+      {% set posts = collections.publication | reverse %}
+     
+      {% if limit %}
+        {% set posts = posts | entryLimit(limit) %}
+      {% endif %}
+
+      {% for post in posts %}
+        <article class="publication {% for tag in post.data.tags %}
+                {%- if tag != 'publication' -%}
+                    {{ tag }}
+                {%- endif -%}
+            {% endfor %}">{{ post.content | safe }} 
+        </article>
+      {% endfor %}
+
+      {% if limit and posts | length > limit %}
+        <p><a href="{{ '/archive' | url }}">More publications...</a></p>        
+      {% endif %}
+
+</div>
+      
