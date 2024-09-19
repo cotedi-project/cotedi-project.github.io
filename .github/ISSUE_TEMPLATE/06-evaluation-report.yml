@@ -1,0 +1,153 @@
+---
+name: Evaluation Report
+description: Use this form to report about an evaluation event, that will be added to the news section and in the overall reporting.
+title: "[Evaluation Report]"
+projects: 
+  - cotedi-project/1
+labels: 
+  - 📅 Event Report
+body:
+  - type: textarea 
+    id: heroimage
+    attributes:
+      label: Banner Image
+      description: The image that will be displayed on top of the news page
+      placeholder:
+
+  - type: input
+    id: eventlink
+    attributes:
+      label: Number of the Event Announcement
+      description: Will reuse the information about the event.
+      placeholder:
+
+  - type: textarea
+    attributes:
+      label: Description
+      placeholder: |
+        Please add a few words to start your article with. This will be displayed on the news overview page and on social media. No markdown allowed.
+
+  - type: textarea
+    attributes:
+      label: Report
+      description: |
+        Everything here will become the content of the news article AND in the event reporting.
+        Add any images here, too.
+
+        Only upload images for which you have obtained the rights to use them publicly.
+  
+  - type: input
+    id: startdate
+    attributes:
+      label: Start Date
+      description: The date of the event (YYYY-MM-DD), e.g., 2024-01-06
+      placeholder:
+      
+  - type: input
+    id: enddate
+    attributes:
+      label: End Date
+      description: For multi day events, add the last date of the event (YYYY-MM-DD), e.g., 2024-01-06
+      placeholder:
+
+  - type: input
+    id: url
+    attributes:
+      label: Main Link of the Event
+      description: the link to the event
+      placeholder:
+
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: The location of the event
+      placeholder:
+
+  - type: input
+    id: country
+    attributes:
+      label: Country
+      description: In which country the event took place
+      placeholder:
+
+  - type: textarea
+    id: partners
+    attributes:
+      label: Project partners
+      description: Add all project partners involved in the event
+      placeholder: |
+        Leave empty if it is just you (or your team).
+        Use a list for each partner involved
+  
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language of the event?
+      options:
+        - Dutch
+        - English
+        - German
+        - Portuguese
+        - Spanish
+        - Swedish
+      default: 1
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Event Report
+        Please fill in the details of the event. Only fill in the fields that are relevant to the event.
+
+  - type: input
+    id: numParticipants
+    attributes:
+      label: Number of All Participants
+  - type: input
+    id: numParticipantsOnline
+    attributes:
+      label: Number of Online Participants
+  - type: input
+    id: numPupils
+    attributes:
+      label: Number of Pupils
+  - type: input
+    id: numPupilsDisadvantaged
+    attributes:
+      label: Number of Pupils with Disadvantages
+      description: E.g. low income, social disadvantages, etc.
+  - type: input
+    id: numPupilsDisabled
+    attributes:
+      label: Number of Pupils with Disabilities
+      description: E.g. physical, mental, ADHS, etc.
+  - type: input
+    id: agePupilsMin
+    attributes:
+      label: Age of the youngest Pupil
+  - type: input
+    id: agePupilsMax
+    attributes:
+      label: Age of the oldest Pupil
+  - type: input
+    id: numTeachers
+    attributes:
+      label: Number of Teachers
+  - type: input
+    id: numParents
+    attributes:
+      label: Number of Parents
+  - type: input
+    id: numResearchers
+    attributes:
+      label: Number of Researchers
+  - type: input
+    id: numDevelopers
+    attributes:
+      label: Number of Developers and Engineers
+      description: E.g. software developers, engineers, etc. incl. university students
+  - type: input
+    id: numPolicymakers
+    attributes:
+      label: Number of Policymakers
+---

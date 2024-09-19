@@ -3,7 +3,7 @@ extra:
   - news
   - event
   - report
-prefix: "[Event Report] "
+prefix: "[Evaluation Report] "
 body:
 - id: event_id
   label: Number of the Event Announcement
