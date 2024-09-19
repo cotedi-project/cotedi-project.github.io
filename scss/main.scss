@@ -537,3 +537,28 @@ main {
         }
     }
 }
+
+
+.publication {
+    font-size: 1.2em;
+    
+    &.book p::before {
+        content: "[Book] ";
+    }
+
+    &.journal p::before {
+        content: "[Journal] ";
+    }
+
+    &.conference p::before {
+        content: "[Conference] ";
+    }
+
+    &.workshop p::before {
+        content: "[Workshop] ";
+    }
+    
+    &.poster p::before {
+        content: "[Poster] ";
+    }
+}
