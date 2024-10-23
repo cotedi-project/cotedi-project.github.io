@@ -1,0 +1,27 @@
+---
+title: {{ title }}
+author: {{ author }}
+date: {{ date }}
+tags: {% for tag in tags %}
+- {{tag}}{% endfor %}
+hero: {{ heroimage.url }}
+link: {{ external_url }}
+partner: {% for partner in partners %}
+- {{ partner }}{% endfor %}
+language: {{ language }}
+country: {{ country }}
+location: {{ location }}
+eventtype: {{ eventtype }}
+internal: {% if is_internal.flag == "X"%}yes{% else %}no{% endif %}
+startdate: {{ startdate.date }}
+{% if enddate.date | length %}enddate: {{ enddate.date }}{% endif %}
+description: "{{ description }}"
+pupils: {% for row in pupilstats %}
+- {% for label, value in row %}
+  {{ label }}: value{% endfor %}{% endfor %}
+statistics: {% for row in stats %}
+- {% for label, value in row %}
+  {{ label }}: value{% endfor %}{% endfor %}
+---
+
+{{ body }}
