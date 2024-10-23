@@ -5,21 +5,19 @@ title: "[Evaluation Report]"
 projects: 
   - cotedi-project/1
 labels: 
-  - 📅 Event Report
+  - 📅 Evaluation Report
 body:
   - type: textarea 
     id: heroimage
     attributes:
       label: Banner Image
       description: The image that will be displayed on top of the news page
-      placeholder:
 
   - type: input
     id: eventlink
     attributes:
       label: Number of the Event Announcement
       description: Will reuse the information about the event.
-      placeholder:
 
   - type: textarea
     attributes:

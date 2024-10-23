@@ -59,6 +59,17 @@ jobs:
           template: _system/form_templates/event_report.njk
           formhints: _system/forms/event_report.yaml
 
+
+      - name: check evaluation report 
+      # issue action  that loads the issue author, body and all related images
+        uses: phish108/issue-to-page@main
+        id: evaluation_issue
+        with:
+          label: 📅 Evaluation Report
+          target-folder: docs/reports
+          template: _system/form_templates/evaluation_report.njk
+          formhints: _system/forms/evaluation_report.yaml
+
       # - name: assign by language
       # # issue action that assignes the issue to a team member based on the language of the issue body
       #   uses: phish108/assign-by-language@v1
