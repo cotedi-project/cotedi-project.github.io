@@ -51,8 +51,12 @@ body:
 
 # report statistics
 
+- id: pupilstats
+  label: Pupil Statistics
+  type: table
+
 - id: stats
-  label: Event Statistics
+  label: Adult Statistics
   type: table
 
 # - id: num_participants

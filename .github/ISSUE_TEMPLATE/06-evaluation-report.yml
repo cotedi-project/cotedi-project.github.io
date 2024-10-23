@@ -97,7 +97,45 @@ body:
     attributes:
       value: |
         ## Event Report
-        Please fill in the details of the event. Only fill in the fields that are relevant to the event.
+
+        Please fill in the participation numbers of the event. Only fill in the fields that are relevant to the event.
+        If you report about multiple classes, please add the numbers for each class separately and replace the country accordingly.
+
+        Please remove all lines that are not relevant to your event.
+
+  - type: textarea
+    id: pupilstats
+    attributes:
+      label: PupilStatistics
+      value: |
+        |ID/Class|Country|total|socially disadvantaged|cognitive disabilites|physical disabilities| min age | max age |
+        |---|---|---|---|---|---|---|---|
+        |-|Total|0|0|0|0|0|0|
+        |1|Germany|0|0|0|0|0|0|
+        |2|The Netherlands|0|0|0|0|0|0|
+        |3|Portugal|0|0|0|0|0|0|
+        |4|Spain|0|0|0|0|0|0|
+        |5|Sweden|0|0|0|0|0|0|
+        |6|Switzerland|0|0|0|0|0|0|
+        |7|Other EU/EWR|0|0|0|0|0|0|
+        |8|Other non-EU/EWR|0|0|0|0|0|0|
+
+  - type: textarea
+    id: stats
+    attributes:
+      label: EduStatistics
+      value: |
+        |Country|total|teachers| educators/child care | parents |researchers |developers|policymakers| students | other |
+        |---|---|---|---|---|---|---|---|---|---|
+        |Total|0|0|0|0|0|0|0|0|0|
+        |Germany|0|0|0|0|0|0|0|0|0|
+        |The Netherlands|0|0|0|0|0|0|0|0|0|
+        |Portugal|0|0|0|0|0|0|0|0|0|
+        |Spain|0|0|0|0|0|0|0|0|0|
+        |Sweden|0|0|0|0|0|0|0|0|0|
+        |Switzerland|0|0|0|0|0|0|0|0|0|
+        |Other EU/EWR|0|0|0|0|0|0|0|0|0|
+        |Other non-EU/EWR|0|0|0|0|0|0|0|0|0|
 
   - type: input
     id: numParticipants

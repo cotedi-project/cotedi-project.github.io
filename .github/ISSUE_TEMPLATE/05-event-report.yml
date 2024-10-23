@@ -104,57 +104,22 @@ body:
   - type: markdown
     attributes:
       value: |
-        ## Event Report
-        Please fill in the details of the event. Only fill in the fields that are relevant to the event.
-  - type: input
-    id: numParticipants
+        ## Event Details
+        Please fill in the numbers of the event participants. Only fill in the fields that are relevant to the event.
+  - type: textarea
+    id: stats
     attributes:
-      label: Number of All Participants
-  - type: input
-    id: numParticipantsOnline
-    attributes:
-      label: Number of Online Participants
-  - type: input
-    id: numPupils
-    attributes:
-      label: Number of Pupils
-  - type: input
-    id: numPupilsDisadvantaged
-    attributes:
-      label: Number of Pupils with Disadvantages
-      description: E.g. low income, social disadvantages, etc.
-  - type: input
-    id: numPupilsDisabled
-    attributes:
-      label: Number of Pupils with Disabilities
-      description: E.g. physical, mental, ADHS, etc.
-  - type: input
-    id: agePupilsMin
-    attributes:
-      label: Age of the youngest Pupil
-  - type: input
-    id: agePupilsMax
-    attributes:
-      label: Age of the oldest Pupil
-  - type: input
-    id: numTeachers
-    attributes:
-      label: Number of Teachers
-  - type: input
-    id: numParents
-    attributes:
-      label: Number of Parents
-  - type: input
-    id: numResearchers
-    attributes:
-      label: Number of Researchers
-  - type: input
-    id: numDevelopers
-    attributes:
-      label: Number of Developers and Engineers
-      description: E.g. software developers, engineers, etc. incl. university students
-  - type: input
-    id: numPolicymakers
-    attributes:
-      label: Number of Policymakers
+      label: Statistics
+      value: |
+      |Country|total participants|online|teachers|parents|researchers|developers|policymakers| students|pupils|other|
+      |---|---|---|---|---|---|---|---|---|---|---|
+      |Total|0|0|0|0|0|0|0|0|0|0|
+      |Germany|0|0|0|0|0|0|0|0|0|0|
+      |The Netherlands|0|0|0|0|0|0|0|0|0|0|
+      |Portugal|0|0|0|0|0|0|0|0|0|0|
+      |Spain|0|0|0|0|0|0|0|0|0|0|
+      |Sweden|0|0|0|0|0|0|0|0|0|0|
+      |Switzerland|0|0|0|0|0|0|0|0|0|0|
+      |Other EU/EWR|0|0|0|0|0|0|0|0|0|0|
+      |Other non-EU/EWR|0|0|0|0|0|0|0|0|0|0|
 ---

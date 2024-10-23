@@ -16,19 +16,9 @@ internal: {% if is_internal.flag == "X"%}yes{% else %}no{% endif %}
 startdate: {{ startdate.date }}
 {% if enddate.date | length %}enddate: {{ enddate.date }}{% endif %}
 description: "{{ description }}"
-report:
-  num_developers: {{ num_developers }}
-  num_participants: {{ num_participants }}
-  num_participants_online: {{ num_participants_online }}
-  num_pupils: {{ num_pupils }}
-  num_teachers: {{ num_teachers }}
-  num_researchers: {{ num_researchers }}
-  num_parents: {{ num_parents }}
-  num_policymakers: {{ num_policymakers }}
-  num_pupils_disabled: {{ num_pupils_disabled }}
-  num_pupils_disadvantaged: {{ num_pupils_disadvantaged }}
-  age_pupil_max: {{ age_pupil_max }}
-  age_pupil_min: {{ age_pupil }}
+statistics: {% for row in stats %}
+- {% for label, value in row %}
+  {{ label }}: value{% endfor %}{% endfor %}
 ---
 
 {{ body }}
