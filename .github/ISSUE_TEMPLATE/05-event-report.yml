@@ -111,15 +111,15 @@ body:
     attributes:
       label: Statistics
       value: |
-      |Country|total participants|online|teachers|parents|researchers|developers|policymakers| students|pupils|other|
-      |---|---|---|---|---|---|---|---|---|---|---|
-      |Total|0|0|0|0|0|0|0|0|0|0|
-      |Germany|0|0|0|0|0|0|0|0|0|0|
-      |The Netherlands|0|0|0|0|0|0|0|0|0|0|
-      |Portugal|0|0|0|0|0|0|0|0|0|0|
-      |Spain|0|0|0|0|0|0|0|0|0|0|
-      |Sweden|0|0|0|0|0|0|0|0|0|0|
-      |Switzerland|0|0|0|0|0|0|0|0|0|0|
-      |Other EU/EWR|0|0|0|0|0|0|0|0|0|0|
-      |Other non-EU/EWR|0|0|0|0|0|0|0|0|0|0|
+        |Country|total participants|online|teachers|parents|researchers|developers|policymakers| students|pupils|other|
+        |---|---|---|---|---|---|---|---|---|---|---|
+        |Total|0|0|0|0|0|0|0|0|0|0|
+        |Germany|0|0|0|0|0|0|0|0|0|0|
+        |The Netherlands|0|0|0|0|0|0|0|0|0|0|
+        |Portugal|0|0|0|0|0|0|0|0|0|0|
+        |Spain|0|0|0|0|0|0|0|0|0|0|
+        |Sweden|0|0|0|0|0|0|0|0|0|0|
+        |Switzerland|0|0|0|0|0|0|0|0|0|0|
+        |Other EU/EWR|0|0|0|0|0|0|0|0|0|0|
+        |Other non-EU/EWR|0|0|0|0|0|0|0|0|0|0|
 ---
