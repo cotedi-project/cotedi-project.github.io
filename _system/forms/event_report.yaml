@@ -52,7 +52,7 @@ body:
 # report statistics
 
 - id: stats
-  label: Event Statistics
+  label: Statistics
   type: table
 
 # - id: num_participants
