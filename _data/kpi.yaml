@@ -1,0 +1,61 @@
+participants: 
+  title: Participants
+  Columns:
+  - title: Country
+    id: Country
+  - title: Total Participants
+    id: total participants
+    type: number
+  - title: Online Participants
+    id: online
+    type: number
+  - title: Reachers
+    id: teachers
+    type: number
+  - title: Parents
+    id: parents
+    type: number
+  - title: Researchers
+    id: researchers
+    type: number
+  - title: Students & Teachers in Training
+    id: students
+    type: number
+  - title: Policymakers
+    id: policymakers
+    type: number
+  - title: Pupils
+    id: pupils
+    type: number
+  - title: Others
+    id: other
+    type: number
+
+pupils: 
+  title: Pupils
+  Columns:
+  - title: Country
+    id: Country
+  - title: Class
+    id: class 
+  - title: Total Pupils
+    id: total
+    type: number
+  - title: Socially Disadvantaged
+    id: socially disadvantaged
+    type: number
+  - title: Cognitive Disabilities
+    id: cognitive disabilities
+    type: number
+  - title: Physical Disabilities
+    id: physical disabilities
+    type: number
+  - title: Minimum Age
+    id: min age
+    type: number
+  - title: Maximum Age  
+    id: max age
+    type: number
+  - title: Mean Age
+    id: mean age
+    type: number
