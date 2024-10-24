@@ -9,6 +9,7 @@ research:
     - name: Dr. Nardie Fanchamps
       url: https://research.ou.nl/en/persons/nardie-fanchamps-2
       login: Nardie-Fanchamps
+      alias: Nardie Fanchamps
 
   - name: University Rey Juan Carlos
     acronym: URJC
@@ -20,9 +21,11 @@ research:
     - name: Dr. Maria Zapata Cacéres
       url: https://gestion2.urjc.es/pdi/ver/maria.zapata
       login: mariazapatac
+      alias: Maria Zapata
     - name: Prof.  Estefanía Martín Barroso
       url: https://gestion2.urjc.es/pdi/ver/estefania.martin
       login: emburjc
+      alias: Estefania Martin
 
   - name: Cologne Game Lab
     acronym: CGL
@@ -33,11 +36,16 @@ research:
     url: https://www.colognegamelab.de/
     team:
     - name: Prof. Roland Klemke
+      alias: Roland Klemke
       url: https://colognegamelab.de/about/faculty-staff/professors/prof-dr-roland-klemke/
       login: rklemke
-    - name: Carlos Andres Giraldo Navarro
-      login: Nabalrog
-
+    - name: Daniel Majonica
+      login: daniel-majonica
+      url: https://colognegamelab.de/about/faculty-staff/lecturers-researchers/daniel-majonica/
+    - name: Khaleel Asyraaf Mat Sanusi
+      alias: Khaleel Asyraaf
+      login: 
+      url: https://colognegamelab.de/about/faculty-staff/lecturers-researchers/khaleel-asyraaf/
 
   - name: Linnéuniversitetet
     acronym: LNU
@@ -48,6 +56,7 @@ research:
     - lnu_logo.png
     team:
     - name: Prof. Marcelo Milrad
+      alias: Marcelo Milrad
       url: https://lnu.se/en/staff/marcelo.milrad/
     - name: Katrin Lindwall
       login: KatrinLnu
@@ -72,6 +81,7 @@ research:
     - zhaw_logo.svg
     team: 
     - name: Dr. Christian Glahn
+      alias: Christian Glahn
       url: https://www.zhaw.ch/en/about-us/person/glah/
       login: phish108
 
