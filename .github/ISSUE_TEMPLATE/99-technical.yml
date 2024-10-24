@@ -10,14 +10,14 @@ body:
   id: present
   attributes:
     label: Present behaviour
-    description: ""
+    description:
     placeholder: |
       A clear and concise description of what is happening.
 - type: textarea
   id: expected
   attributes:
     label: Expected behaviour
-    description: ""
+    description:
     placeholder: |
       A clear and concise description of what should be happening.
 - type: textarea

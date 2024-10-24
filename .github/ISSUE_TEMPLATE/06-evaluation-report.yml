@@ -107,17 +107,17 @@ body:
     attributes:
       label: PupilStatistics
       value: |
-        |ID/Class|Country|total|socially disadvantaged|cognitive disabilites|physical disabilities| min age | max age |
-        |---|---|---|---|---|---|---|---|
-        |-|Total|0|0|0|0|0|0|
-        |1|Germany|0|0|0|0|0|0|
-        |2|The Netherlands|0|0|0|0|0|0|
-        |3|Portugal|0|0|0|0|0|0|
-        |4|Spain|0|0|0|0|0|0|
-        |5|Sweden|0|0|0|0|0|0|
-        |6|Switzerland|0|0|0|0|0|0|
-        |7|Other EU/EWR|0|0|0|0|0|0|
-        |8|Other non-EU/EWR|0|0|0|0|0|0|
+        |ID/Class|Country|total|socially disadvantaged|cognitive disabilites|physical disabilities| min age | max age | mean age |
+        |---|---|---|---|---|---|---|---|---|
+        |-|Total|0|0|0|0|0|0|0|
+        |1|Germany|0|0|0|0|0|0|0|
+        |2|The Netherlands|0|0|0|0|0|0|0|
+        |3|Portugal|0|0|0|0|0|0|0|
+        |4|Spain|0|0|0|0|0|0|0|
+        |5|Sweden|0|0|0|0|0|0|0|
+        |6|Switzerland|0|0|0|0|0|0|0|
+        |7|Other EU/EWR|0|0|0|0|0|0|0|
+        |8|Other non-EU/EWR|0|0|0|0|0|0|0|
 
   - type: textarea
     id: stats
