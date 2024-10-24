@@ -1,3 +1,4 @@
+--- 
 name: Event
 description: Use this form to add an entry to the upcoming events section.
 title: "[Event] "
@@ -102,3 +103,4 @@ body:
         - Portuguese
         - Spanish
         - Swedish
+--- 

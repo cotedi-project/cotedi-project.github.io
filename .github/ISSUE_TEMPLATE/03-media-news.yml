@@ -1,3 +1,4 @@
+--- 
 name: Media News entry
 description: Use this form to add Media file to the news section.
 title: "[In the Media]"
@@ -64,3 +65,4 @@ body:
       placeholder: |
         Leave empty if it is just you (or your team).
         Use a list for each partner involved
+--- 
