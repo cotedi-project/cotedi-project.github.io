@@ -1,7 +1,6 @@
 extra:
   tags: 
-  - news
-  - event
+  - evaluation
   - report
 prefix: "[Evaluation Report] "
 body:
@@ -55,7 +54,7 @@ body:
   label: Pupil Statistics
   type: table
 
-- id: stats
+- id: statistics
   label: Adult Statistics
   type: table
 

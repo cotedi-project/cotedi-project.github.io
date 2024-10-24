@@ -1,6 +1,5 @@
 extra:
   tags: 
-  - news
   - event
   - report
 prefix: "[Event Report] "
