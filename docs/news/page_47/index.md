@@ -1,5 +1,5 @@
 ---
-title: CoTEDI at Zuyd University Technology Experience Day 20024
+title: CoTEDI at Zuyd University Technology Experience Day 2024
 author: phish108
 date: 2024-03-12
 tags: 
