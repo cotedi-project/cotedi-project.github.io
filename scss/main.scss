@@ -398,6 +398,19 @@ main {
             font-size: calc(1rem + .5vw);
         }
 
+        p.meta {
+            margin-top: 0;
+            margin-bottom: 0;
+
+            .author:not(:last-child)::after {
+                content: ", ";
+            }
+
+            .author:last-child::before {
+                content: " and ";
+            }
+        }
+
         .btn-lg {
             font-size: calc(1.2rem + .5vw);
         }
@@ -560,5 +573,15 @@ main {
     
     &.poster p::before {
         content: "[Poster] ";
+    }
+}
+
+.container.stats table{
+    td, th {
+        font-size: .7em;
+
+        &.number {
+            text-align: center;
+        }   
     }
 }
