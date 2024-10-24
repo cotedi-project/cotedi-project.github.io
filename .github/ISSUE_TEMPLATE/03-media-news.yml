@@ -32,13 +32,11 @@ body:
     attributes:
       label: External Link
       description: the link to the source (optional)
-      placeholder: ""
   - type: input
     id: mediaplayer
     attributes:
       label: Embed code of a mediaplayer 
       description: the link to the source (optional)
-      placeholder: ""
   - type: input
     id: mediaurl  
     attributes:

@@ -12,20 +12,20 @@ body:
     attributes:
       label: Banner Image
       description: The image that will be displayed on top of the news page
-      placeholder: ""
+      
       
   - type: input
     id: startdate
     attributes:
       label: Start Date
       description: The date of the event  (YYYY-MM-DD), e.g., 2024-01-06
-      placeholder: ""
+      
   - type: input
     id: enddate
     attributes:
       label: End Date
       description: For multi day events, add the last date of the event  (YYYY-MM-DD), e.g., 2024-01-06
-      placeholder: ""
+      
 
   - type: textarea
     attributes:
@@ -45,19 +45,19 @@ body:
     attributes:
       label: Main Link of the Event
       description: The link to the event registration or announcement
-      placeholder: ""
+      
   - type: input
     id: location
     attributes:
       label: Location
       description: The location of the event
-      placeholder: ""
+      
   - type: input
     id: country
     attributes:
       label: Country
       description: In which country the event takes place
-      placeholder: ""
+      
 
   - type: textarea
     id: partners
