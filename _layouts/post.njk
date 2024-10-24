@@ -19,12 +19,29 @@ layout: index
         {% for partner in allpartners -%}
             {% for member in partner.team -%}
             {% if member.login == author -%}            
-        <span class="author">by {{ member.name }}</span>
-            {%  elif member.name == author -%}
-        <span class="author">by {{ author }}</span>
+        <span class="author">by {{ member.name }} ({{ partner.acronym }})</span>
+         {%  elif member.alias == author -%}
+        <span class="author">{{  member.name }} ({{ partner.acronym }})</span>
+           {%  elif member.name == author -%}
+        <span class="author">by {{ author }}  ({{ partner.acronym }})</span>
             {%- endif %}
             {%- endfor %}
         {%- endfor %}
+
+        {% for collaborator in partner -%}
+        {% for partner in allpartners -%}
+            {% for member in partner.team -%}
+            {% if member.login == collaborator -%}            
+        <span class="author">{{ member.name }} ({{ partner.acronym }})</span>
+        {%  elif member.alias == collaborator -%}
+        <span class="author">{{  member.name }} ({{ partner.acronym }})</span>
+            {%  elif member.name == collaborator -%}
+        <span class="author">{{  member.name }} ({{ partner.acronym }})</span>
+            {%- endif %}
+            {%- endfor %}
+        {%- endfor %}
+        {%- endfor %}
+        </p>
 
         <p class="lead">{{ description | safe }}</p>
         <p class="lead-link">

@@ -1,0 +1,128 @@
+---
+layout: index
+---
+
+
+{% if hero %}
+    <div style="background-image: url({{ hero | url }});" class="heroimage text-center"></div>
+{% endif %}
+
+
+{% set mtags = [] %}
+
+{% for tag in tags %}
+    {% if tag != 'report' %}
+        {% set mtags = mtags.concat(tag | capitalize) %}
+    {% endif %}
+{% endfor %}
+
+{% set allpartners = partners.research %}
+{% set allpartners = allpartners.concat(partners.schools) %}
+
+{% if title -%}
+<div class="container rsf-text">
+        <p class="badge bg-primary rounded-pill">{{ mtags }} Report</p>
+        <h1>{{ title or meta.title }}</h1>
+
+        <p class="meta">
+        By {{" "}} 
+        {% for partner in allpartners -%}
+            {% for member in partner.team -%}
+            {% if member.login == author -%}            
+        <span class="author">{{ member.name }} ({{ partner.acronym }})</span>
+        {%  elif member.alias == author -%}
+        <span class="author">{{  member.name }} ({{ partner.acronym }})</span>
+            {%  elif member.name == author -%}
+        <span class="author">{{ member.name }} ({{ partner.acronym }})</span>
+            {%- endif %}
+            {%- endfor %}
+        {%- endfor %}
+
+        {% for collaborator in partner -%}
+        {% for partner in allpartners -%}
+            {% for member in partner.team -%}
+            {% if member.login == collaborator -%}            
+        <span class="author">{{ member.name }} ({{ partner.acronym }})</span>
+        {%  elif member.alias == collaborator -%}
+        <span class="author">{{  member.name }} ({{ partner.acronym }})</span>
+            {%  elif member.name == collaborator -%}
+        <span class="author">{{  member.name }} ({{ partner.acronym }})</span>       
+            {%- endif %}
+            {%- endfor %}
+        {%- endfor %}
+        {%- endfor %}
+        </p>
+
+        <p class="meta">
+          <b>Location</b>: {{ location }}
+        </p><p class="meta">
+          <b>Country</b>: {{ country }}
+        </p>  
+        <p class="meta">
+          <b>Date</b>: <time datetime="{{ startdate | htmlDateString }}">{{ startdate | readableDate }}</time>
+          {% if enddate -%}
+            - <time datetime="{{ enddate | htmlDateString }}">{{ enddate | readableDate }}</time>
+          {%- endif %}
+        </p>
+</div>
+{%- endif %}
+
+<div class="container rsf-text">
+   <p>{{ description | safe }}</p>
+
+    {{ content | safe }}
+</div>
+
+
+<div class="container stats">
+   <h4>Indicator Numbers</p>
+
+    {% if pupilstats %}
+   <h5>Pupils</h5>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            {% for col in kpi.pupils.Columns %}
+                <th scope="col" class="{{ col.type }}">{{ col.title }}</th>
+            {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for stat in pupilstats %}
+                <tr>
+                {% for col in kpi.pupils.Columns %}
+                    <td class="{{ col.type }}">{{ stat[col.id] }}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+   {% endif %}
+
+   {% if statistics %}
+   <h5>Participants</h5>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            {% for col in kpi.participants.Columns %}
+                <th scope="col" class="{{ col.type }}">{{ col.title }}</th>
+            {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for stat in statistics %}
+                <tr>
+                {% for col in kpi.participants.Columns %}
+                    <td class="{{ col.type }}">{{ stat[col.id] }}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+   {% endif %}
+</div>
+
+
+<div class="back">
+          <a type="button" class="btn btn-primary" href="{{ '/reports/' | url }}">Get more reports</a>
+</div>
