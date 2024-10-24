@@ -15,8 +15,10 @@ body:
 
 - id: body
   label: Announcement
+  fix_heading: yes
+  
 - label: Description
-  id: body
+  id: description
   
 - id: heroimage
   label: Banner Image

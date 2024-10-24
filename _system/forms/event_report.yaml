@@ -20,9 +20,10 @@ body:
 
 - id : body
   label: Report
+  fix_heading: yes
 
 - label: Description
-  id: body
+  id: description
 
 - id: heroimage
   label: Banner Image
