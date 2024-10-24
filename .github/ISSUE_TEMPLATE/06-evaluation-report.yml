@@ -1,4 +1,3 @@
----
 name: Evaluation Report
 description: Use this form to report about an evaluation event, that will be added to the news section and in the overall reporting.
 title: "[Evaluation Report]"
@@ -39,35 +38,35 @@ body:
     attributes:
       label: Start Date
       description: The date of the event (YYYY-MM-DD), e.g., 2024-01-06
-      placeholder:
+      placeholder: ""
       
   - type: input
     id: enddate
     attributes:
       label: End Date
       description: For multi day events, add the last date of the event (YYYY-MM-DD), e.g., 2024-01-06
-      placeholder:
+      placeholder: ""
 
   - type: input
     id: url
     attributes:
       label: Main Link of the Event
       description: the link to the event
-      placeholder:
+      placeholder: ""
 
   - type: input
     id: location
     attributes:
       label: Location
       description: The location of the event
-      placeholder:
+      placeholder: ""
 
   - type: input
     id: country
     attributes:
       label: Country
       description: In which country the event took place
-      placeholder:
+      placeholder: ""
 
   - type: textarea
     id: partners
@@ -134,5 +133,3 @@ body:
         |Switzerland|0|0|0|0|0|0|0|0|0|
         |Other EU/EWR|0|0|0|0|0|0|0|0|0|
         |Other non-EU/EWR|0|0|0|0|0|0|0|0|0|
-
----

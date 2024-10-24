@@ -1,4 +1,3 @@
---- 
 name: Media News entry
 description: Use this form to add Media file to the news section.
 title: "[In the Media]"
@@ -32,13 +31,13 @@ body:
     attributes:
       label: External Link
       description: the link to the source (optional)
-      placeholder:
+      placeholder: ""
   - type: input
     id: mediaplayer
     attributes:
       label: Embed code of a mediaplayer 
       description: the link to the source (optional)
-      placeholder:
+      placeholder: ""
   - type: input
     id: mediaurl  
     attributes:
@@ -65,5 +64,3 @@ body:
       placeholder: |
         Leave empty if it is just you (or your team).
         Use a list for each partner involved
-
----

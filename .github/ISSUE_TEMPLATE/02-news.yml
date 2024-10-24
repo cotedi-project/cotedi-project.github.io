@@ -1,4 +1,3 @@
----
 name: News entry
 description: Use this form to add an article or blog post to the news section.
 title: "[News] "
@@ -52,4 +51,3 @@ body:
       placeholder: |
         Leave empty if it is just you (or your team).
         Use a list for each partner involved
---- 
