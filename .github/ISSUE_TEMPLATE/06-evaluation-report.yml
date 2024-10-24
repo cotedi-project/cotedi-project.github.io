@@ -1,6 +1,7 @@
 --- 
 name: Evaluation Report
-description: Use this form to report about an evaluation event, that will be added to the news section and in the overall reporting.
+description: Use this form to report about an evaluation event, that will be added to the news section and in the overall reporting. Evaluation events are school visits, workshops, and other events that engage with pupils in schools.
+
 title: "[Evaluation Report]"
 projects: 
   - cotedi-project/1
