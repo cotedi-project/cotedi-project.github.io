@@ -45,7 +45,7 @@ body:
     attributes:
       label: End Date
       description: For multi day events, add the last date of the event (YYYY-MM-DD), e.g., 2024-01-06
-=  - type: input
+  - type: input
     id: url
     attributes:
       label: Main Link of the Event
