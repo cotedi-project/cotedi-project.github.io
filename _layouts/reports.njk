@@ -3,7 +3,7 @@ layout: index
 ---
 <div class="container rsf-text">
         <h1>{{ title }}</h1>
-      {% set posts = collections.post | reverse %}
+      {% set posts = collections.report | reverse %}
      
       {% if limit %}
         {% set posts = posts | entryLimit(limit) %}
@@ -20,17 +20,19 @@ layout: index
             </div>
             {% endif %}
             <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
-            <p><time datetime="{{ page.date | htmlDateString }}">{{ post.date | readableDate }}</time> by {%- for partner in allpartners -%}
+            <p class="meta"><time datetime="{{ page.date | htmlDateString }}">{{ post.date | readableDate }}</time> by {%- for partner in allpartners -%}
             {%- for member in partner.team -%}
             {%- if member.login == post.data.author -%}            
         {{ " " }}<span class="author">{{ member.name }}</span>
              {%- elif member.name == post.data.author -%}
-             {{ " " }}<span class="author">{{ post.data.author }}</span>
+             {{ " " }}<span class="author">{{  member.name }}</span>
+              {%- elif member.alias == post.data.author -%}
+             {{ " " }}<span class="author">{{  member.name }}</span>
             {%- endif -%}
             {%- endfor -%}
-        {%- endfor -%}
-        
-         {%- for collaborator in post.data.partner -%}
+            {%- endfor -%}
+
+            {%- for collaborator in post.data.partner -%}
             {%- for partner in allpartners -%}
             {%- for member in partner.team -%}
             {%- if member.login == collaborator -%}            
@@ -42,15 +44,13 @@ layout: index
             {%- endif -%}
             {%- endfor -%}
             {%- endfor -%}
-            {%- endfor -%}</p>       
-          
-            <p>{{ post.data.description | safe }}  <a class="bi bi-box-arrow-up-right" href="{{ post.url | url }}"> Read more</a></p>
+            {%- endfor -%}
+            </p>
+            <p>{{ post.data.description | safe }} {{" "}} <a class="bi bi-box-arrow-up-right" href="{{ post.url | url }}"> Read more</a></p>
         </article>
       {% endfor %}
 
-      {% if limit and posts | length > limit %}
-        <p><a href="{{ '/archive' | url }}">More posts...</a></p>        
-      {% endif %}
+   
 
 </div>
       
