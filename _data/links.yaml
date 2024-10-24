@@ -29,8 +29,8 @@ Resources:
 #   url: /pages/for-parents/
 # - name: For Developers
 #   url: /pages/for-developers/
-# - name: Reports
-#   url: /pages/reports/
+- name: Reports
+  url: /reports/
 
 Project:
 - name: Contact
