@@ -37,12 +37,6 @@ body:
     attributes:
       label: Embed code of a mediaplayer 
       description: the link to the source (optional)
-  - type: input
-    id: mediaurl  
-    attributes:
-      label: Media URL
-      description: the link to the source media (will build a separate media player)
-      placeholder: Link to the source media (optional)
   - type: dropdown
     id: language
     attributes:
