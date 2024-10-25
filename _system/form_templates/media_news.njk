@@ -9,12 +9,13 @@ link: {{ external_url }}
 partner: {% for partner in partners %}
 - {{ partner }}{% endfor %}
 language: {{ language }}
-mediaurl: {{ mediaurl }}
-description: "{{ description }}"
+{% if mediaplayer | length %}
+mediaurl: | 
+  {{ mediaplayer }}
+{% endif %}
+description: |
+  {{ description }}
 ---
 
-{{ body }} 
+{{ body }}
 
-{% if mediaplayer | length %}
-{{ mediaplayer }}
-{% endif %}

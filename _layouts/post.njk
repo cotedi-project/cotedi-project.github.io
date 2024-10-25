@@ -44,13 +44,32 @@ layout: index
         </p>
 
         <p class="lead">{{ description | safe }}</p>
+
+        {% if  mediaurl %}
+        <p class="lead">
+            {{ mediaurl | safe}}
+        </p>
+        {% endif %}
+
+        {% if  link %}
         <p class="lead-link">
             <a class="bi bi-box-arrow-up-right" href="{{ link }}" target="_blank"> Related Link</a>
         </p>
-        
+        {% endif %}
+
         <div class="content">
         {{ content | safe }}
         </div>
+
+        {% if  link %}
+        <div class="content"> 
+            <h4>External Links</h4>
+            <p>
+                <a class="bi bi-box-arrow-up-right" href="{{ link }}" target="_blank"> Related Link</a>
+            </p>
+        </div>
+        {% endif %}
+        
         <div class="tags">
           <ul>
             {% for tag in tags %}

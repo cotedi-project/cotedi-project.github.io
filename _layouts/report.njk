@@ -73,6 +73,14 @@ layout: index
     {{ content | safe }}
 </div>
 
+{% if  link %}
+    <div class="container"> 
+        <h4>External Links</h4>
+        <p>
+            <a class="bi bi-box-arrow-up-right" href="{{ link }}" target="_blank">Related Link</a>
+        </p>
+    </div>
+{% endif %}
 
 <div class="container stats">
    <h4>Indicator Numbers</p>
