@@ -22,7 +22,7 @@ body:
 
   - type: textarea
     attributes:
-      label: Announcemenbt
+      label: Announcement
       placeholder: |
         Please place the announcement of the media file here
         Add any images here, too.
