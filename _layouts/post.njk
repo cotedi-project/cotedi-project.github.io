@@ -12,8 +12,15 @@ layout: index
 
       <div class="container rsf-text">
         <article>
-        <h1>{{ title }}</h1>
+        <h1> {{ title }} </h1>
         <p class="meta">
+        {%- if language != 'English'-%}{{ " " }} <span class="badge text-bg-warning">{%if language == 'Spanish' -%} 🇪🇸
+        {%- elif language == 'Portuguese' -%}🇵🇹
+        {%- elif language == 'German' -%}🇩🇪
+        {%- elif language == 'Dutch' -%}🇳🇱
+        {%- elif language == 'Swedish' -%}🇸🇪
+        {%- endif %} {{ " " }} {{language}} Content</span>{%- endif %}
+        
           <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
           
         {% for partner in allpartners -%}
