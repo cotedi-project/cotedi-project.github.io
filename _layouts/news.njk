@@ -3,7 +3,7 @@ layout: index
 ---
 <div class="container rsf-text">
         <h1>{{ title }}</h1>
-      {% set posts = collections.post | reverse %}
+      {% set posts = collections.news | reverse %}
      
       {% if limit %}
         {% set posts = posts | entryLimit(limit) %}
