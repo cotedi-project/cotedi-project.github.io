@@ -2,6 +2,7 @@ extra:
   tags: 
   - evaluation
   - report
+  - news
 prefix: "[Evaluation Report] "
 body:
 - id: event_id

@@ -2,6 +2,7 @@ extra:
   tags: 
   - event
   - report
+  - news
 prefix: "[Event Report] "
 body:
 - id: event_id

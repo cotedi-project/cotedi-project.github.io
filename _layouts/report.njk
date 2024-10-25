@@ -11,7 +11,7 @@ layout: index
 {% set mtags = [] %}
 
 {% for tag in tags %}
-    {% if tag != 'report' %}
+    {% if not(tag in ['report', 'news']) %}
         {% set mtags = mtags.concat(tag | capitalize) %}
     {% endif %}
 {% endfor %}
