@@ -406,7 +406,7 @@ main {
                 content: ", ";
             }
 
-            .author:last-child::before {
+            .author:last-child:not(:only-child)::before {
                 content: " and ";
             }
         }
@@ -576,12 +576,16 @@ main {
     }
 }
 
-.container.stats table{
-    td, th {
-        font-size: .7em;
+.container.stats {
+    table{
+        td, th {
+            font-size: .7em;
 
-        &.number {
-            text-align: center;
+            &.number {
+                text-align: center;
+            }
         }   
     }
+    overflow-x: scroll;
+    overflow-y: auto;
 }

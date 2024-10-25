@@ -20,7 +20,7 @@ layout: index
             </div>
             {% endif %}
             <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
-            <p>
+            <p class="meta">
                     {%- if post.data.language != 'English'-%}{{ " " }} 
                     <span class="badge text-bg-warning">{%if post.data.language == 'Spanish' -%} 🇪🇸
         {%- elif post.data.language == 'Portuguese' -%}🇵🇹
@@ -28,7 +28,10 @@ layout: index
         {%- elif post.data.language == 'Dutch' -%}🇳🇱
         {%- elif post.data.language == 'Swedish' -%}🇸🇪
         {%- endif %} {{ " " }} {{post.data.language}} Content</span>{%- endif %}
-            <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time> by {%- for partner in allpartners -%}
+            <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time> by 
+            
+            <span>
+        {%- for partner in allpartners -%}
             {%- for member in partner.team -%}
             {%- if member.login == post.data.author -%}            
         {{ " " }}<span class="author">{{ member.name }}</span>
@@ -50,7 +53,8 @@ layout: index
             {%- endif -%}
             {%- endfor -%}
             {%- endfor -%}
-            {%- endfor -%}</p>       
+            {%- endfor -%}
+            </span></p>       
           
             <p>{{ post.data.description | safe }}  <a class="bi bi-box-arrow-up-right" href="{{ post.url | url }}"> Read more</a></p>
         </article>

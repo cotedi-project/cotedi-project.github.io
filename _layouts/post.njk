@@ -22,7 +22,7 @@ layout: index
         {%- endif %} {{ " " }} {{language}} Content</span>{%- endif %}
         
           <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
-          
+          <span>
         {% for partner in allpartners -%}
             {% for member in partner.team -%}
             {% if member.login == author -%}            
@@ -48,6 +48,7 @@ layout: index
             {%- endfor %}
         {%- endfor %}
         {%- endfor %}
+        </span>
         </p>
 
         <p class="lead">{{ description | safe }}</p>
