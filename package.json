@@ -10,6 +10,7 @@
     "lint": "eslint src/ --no-error-on-unmatched-pattern; stylelint scss/*.scss",
     "lint:fix": "eslint src/ --fix --no-error-on-unmatched-pattern; stylelint scss/*.scss --fix",
     "css:compile": "sass --silence-deprecation mixed-decls --silence-deprecation color-functions --silence-deprecation import --silence-deprecation global-builtin --load-path node_modules --style compressed --source-map scss:assets/css/",
+    "css:check": "sass --load-path node_modules --style compressed --source-map scss:assets/css/",
     "css:prefix": "postcss --replace assets/css/main.css --use autoprefixer --map",
     "css": "npm-run-all css:compile css:prefix",
     "css:fonts": "mkdir -p assets/css/fonts && cp -r node_modules/bootstrap-icons/font/fonts assets/css/",
