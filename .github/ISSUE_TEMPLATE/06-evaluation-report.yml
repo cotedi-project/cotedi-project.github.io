@@ -14,12 +14,6 @@ body:
       label: Banner Image
       description: The image that will be displayed on top of the news page
 
-  - type: input
-    id: eventlink
-    attributes:
-      label: Number of the Event Announcement
-      description: Will reuse the information about the event.
-
   - type: textarea
     attributes:
       label: Description
