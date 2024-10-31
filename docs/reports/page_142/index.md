@@ -1,22 +1,26 @@
 ---
-title: Test test
+title: Temporary report
 author: phish108
 date: 2024-10-23
 tags: 
-- news
 - event
 - report
 hero: 
-link: 
+description: "This is a short note on the report with some key findings and a 
+
+line break"
+link: https://foo.bar
 partner: 
+- Maria Zapata
+- Roland Klemke
 language: English
 country: The Netherlands
 location: Heerlen
 eventtype: Conference
 internal: no
-startdate: 
+startdate: 2024-10-01
+enddate: 2024-10-03
 
-description: ""
 statistics: 
 - 
   Country: Total
@@ -129,3 +133,5 @@ statistics:
 ---
 
 some text that will be part of the actual report.
+
+more text
