@@ -6,6 +6,8 @@ prefix: "[In the Media] "
 body:
 - label: Announcement
   id: body
+- label: Description
+  id: description
 - id: heroimage
   label: Banner Image
   type: image
@@ -20,5 +22,3 @@ body:
 - id: partners
   label: Project partners
   type: list
-- label: Description
-  id: body
