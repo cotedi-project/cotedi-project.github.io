@@ -221,6 +221,10 @@ main {
 
         .lead-link {
             text-align: right;
+
+            &:has(a.media) {
+                text-align: center;
+            }
         }
 
         a {
@@ -249,6 +253,10 @@ main {
             &:hover {
                 text-decoration: none;
             }
+        }
+
+        &.media h1 a::before, &.media h2 a::before {
+            content: "\F4F0";
         }
 
         img {
