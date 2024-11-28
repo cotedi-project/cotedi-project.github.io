@@ -13,7 +13,7 @@ layout: index
       {% set allpartners = allpartners.concat(partners.schools) %}
 
       {% for post in posts %}
-        <article>
+        <article class="{{ post.data.type }}">
             {% if post.data.hero %}
             <div class="heroimage"><a href="{{ post.url | url }}">
             <img src="{{ post.url | url }}{{ post.data.hero | url }}" alt="{{ post.data.title }} teaser image" sizes="200w,400w,800w,1920w,2400w"></a>
@@ -21,7 +21,7 @@ layout: index
             {% endif %}
             <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
             <p class="meta">
-                    {%- if post.data.language != 'English'-%}{{ " " }} 
+                    {%- if post.data.language and post.data.language != 'English'-%}{{ " " }} 
                     <span class="badge text-bg-warning">{%if post.data.language == 'Spanish' -%} 🇪🇸
         {%- elif post.data.language == 'Portuguese' -%}🇵🇹
         {%- elif post.data.language == 'German' -%}🇩🇪
@@ -56,7 +56,11 @@ layout: index
             {%- endfor -%}
             </span></p>       
           
-            <p>{{ post.data.description | safe }}  <a class="bi bi-box-arrow-up-right" href="{{ post.url | url }}"> Read more</a></p>
+            <p>
+                {{ post.data.description | safe }}
+
+                <a class="bi bi-box-arrow-up-right" href="{{ post.url | url }}"> Read more</a>
+            </p>
         </article>
       {% endfor %}
 

@@ -11,7 +11,7 @@ layout: index
     {% set allpartners = allpartners.concat(partners.schools) %}
 
       <div class="container rsf-text">
-        <article>
+        <article class="{{ type }}">
         <h1> {{ title }} </h1>
         <p class="meta">
         {%- if language != 'English'-%}{{ " " }} <span class="badge text-bg-warning">{%if language == 'Spanish' -%} 🇪🇸
@@ -61,7 +61,12 @@ layout: index
 
         {% if  link %}
         <p class="lead-link">
-            <a class="bi bi-box-arrow-up-right" href="{{ link }}" target="_blank"> Related Link</a>
+            {% if type == 'media' %}
+                <a class="bi bi-play-btn-fill btn btn-lg btn-primary media text-white" href="{{ post.data.link }}" target="_blank"> Watch now</a>
+
+            {% else %}
+                <a class="bi bi-box-arrow-up-right" href="{{ link | url }}"> Read more</a>
+            {% endif %}
         </p>
         {% endif %}
 
@@ -81,7 +86,7 @@ layout: index
         <div class="tags">
           <ul>
             {% for tag in tags %}
-                {% if tag != 'post' %}
+                {% if tag != 'post' and tag != 'media' and tag != 'news' and tag != 'report' %}
               <li><a href="{{ '/tags/' + tag | slug }}">{{ tag }}</a></li>
                 {% endif %}
             {% endfor %}
