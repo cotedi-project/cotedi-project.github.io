@@ -2,6 +2,7 @@
 title: María Zapata Explains Computational Thinking on Onda Cero
 author: emburjc
 date: 2024-11-12
+type: media
 tags: 
 - news
 - media
