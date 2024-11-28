@@ -18,7 +18,7 @@ body:
 - id: mediaurl
   label: Media URL
 - id: language
-  label: Language
+  label: Language of the media?
 - id: partners
   label: Project partners
   type: list
