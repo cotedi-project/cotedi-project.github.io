@@ -8,7 +8,7 @@ tags:
 hero: 2024-02-Picture-OndaCero-MadridSur.jpeg
 link: https://www.ondaceromadridsur.es/todos-podcasts/16369
 partner: 
-language: 
+language: Spanish
 
 description: |
   María Zapata participated in a 10-minute podcast on Onda Cero - Madrid Sur. She was talking about how computational thinking is  included in our daily lives.
