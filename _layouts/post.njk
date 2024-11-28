@@ -14,7 +14,7 @@ layout: index
         <article class="{{ type }}">
         <h1> {{ title }} </h1>
         <p class="meta">
-        {%- if language != 'English'-%}{{ " " }} <span class="badge text-bg-warning">{%if language == 'Spanish' -%} 🇪🇸
+        {%- if language and language != 'English'-%}{{ " " }} <span class="badge text-bg-warning">{%if language == 'Spanish' -%} 🇪🇸
         {%- elif language == 'Portuguese' -%}🇵🇹
         {%- elif language == 'German' -%}🇩🇪
         {%- elif language == 'Dutch' -%}🇳🇱
