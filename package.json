@@ -15,7 +15,7 @@
     "css": "npm-run-all css:compile css:prefix",
     "css:fonts": "mkdir -p assets/css/fonts && cp -r node_modules/bootstrap-icons/font/fonts assets/css/",
     "build": "eleventy",
-    "watch:css": "sass --watch --load-path node_modules --style compressed --source-map scss:assets/css/",
+    "watch:css": "sass --silence-deprecation mixed-decls --silence-deprecation color-functions --silence-deprecation import --silence-deprecation global-builtin --watch --load-path node_modules --style compressed --source-map scss:assets/css/",
     "watch:web": "eleventy --serve --watch",
     "watch:all": "npm-run-all -p watch:css watch:web",
     "all": "npm-run-all css css:fonts build",
