@@ -19,7 +19,7 @@ description: "{{ description }}"
 pupils: {% for row in pupilstats %}
 - {% for label, value in row %}
   {{ label }}: {{ value }}{% endfor %}{% endfor %}
-statistics: {% for row in stats %}
+statistics: {% for row in statistics %}
 - {% for label, value in row %}
   {{ label }}: {{ value }}{% endfor %}{% endfor %}
 ---
