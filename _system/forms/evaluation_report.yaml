@@ -53,9 +53,9 @@ body:
 # report statistics
 
 - id: pupilstats
-  label: Pupil Statistics
+  label: PupilStatistics
   type: table
 
 - id: statistics
-  label: Adult Statistics
+  label: EduStatistics
   type: table
