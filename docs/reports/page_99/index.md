@@ -39,6 +39,28 @@ pupils:
   max age: 11
   mean age: 10
 statistics: 
+- 
+  Country: Total
+  total: 6
+  teachers: 3
+  educators/child care: 0
+  parents: 0
+  researchers: 1
+  developers: 1
+  policymakers: 1
+  students: 0
+  other: 0
+- 
+  Country: Spain
+  total: 6
+  teachers: 3
+  educators/child care: 0
+  parents: 0
+  researchers: 1
+  developers: 1
+  policymakers: 1
+  students: 0
+  other: 0
 ---
 
 This activity consisted of explaining the concept of **algorithms** to **primary school children**. After the explanation, they worked on it through **drawings** in working groups of a maximum of 4 people. Each group had to write the algorithm to draw the character they had been assigned. Afterwards, another group followed this algorithm and tried to draw the character on the blackboard.
