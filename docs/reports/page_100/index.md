@@ -6,7 +6,7 @@ tags:
 - evaluation
 - report
 - news
-hero: 1 (1
+hero: image1.jpeg
 link: https://laclasedelosmarcianitos.blogspot.com/2024/02/taller-con-bee-bots.html
 partner: 
 - CEIP Pedro Duque, URJC
