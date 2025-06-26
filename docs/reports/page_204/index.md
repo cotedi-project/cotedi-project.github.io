@@ -6,7 +6,7 @@ tags:
 - event
 - report
 - news
-hero: Grove_Zero at ETHZ.jpeg
+hero: Grove_Zero_at_ETHZ.jpeg
 link: https://abz.inf.ethz.ch/stiu/
 partner: 
 language: German
@@ -74,11 +74,11 @@ statistics:
 
 CoTEDI was present with a booth at the STIU mini conference and [national Bebras finals](https://www.informatik-biber.ch/).  We offered a hands conceptual presentation as well as hands on experiences of our principles using the ZHAW Act-up module using the Grove Zero modular robot. This provided good experiences for, both, teachers and students to learn about computational thinking and robots. 
 
-![STIU Banner at the ETHZ main building](STIU_Banner at the ETHZ main building.jpeg)
+![STIU Banner at the ETHZ main building](STIU_Banner_at_the_ETHZ_main_building.jpeg)
 
 The modular format of the robot attracted many teachers. Similar to students in classrooms, they were asked to touch and handle the robot themselves and collect their own experiences of the concepts. They showed interest in the mobile digital life science lab and the complementary educational material we currently develop in the project. One important aspect that teachers expressed was the importance of having expert support when integrating such concepts into their own teaching and educational experiences. 
 
-![Teachers engaging with ZHAWs Grove Zero robot](Teachers_engaging with ZHAWs Grove Zero robot.jpeg)
+![Teachers engaging with ZHAWs Grove Zero robot](Teachers_engaging_with_ZHAWs_Grove_Zero_robot.jpeg)
 
 Of course most students present were finalists in the Bebras competition and were already fluent in many of the core concepts we target in the project. Still the experience proved to be a nice counter part to the formal program of the day. The students of all age groups actively explored sensors and actuators for contextual programming using pens and paper.
 
