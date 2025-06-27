@@ -17,11 +17,11 @@ startdate: {{ startdate.date }}
 {% if enddate.date | length %}enddate: {{ enddate.date }}{% endif %}
 description: {{ description | safe }}
 pupils: {% for row in pupilstats %}
-- {% for label, value in row %}
-  {{ label | trim }}: {{ value | safe }}{% endfor %}{% endfor %}
+- {% for label, value in row %}{{ label | trim }}: {{ value | safe | trim }}
+{% endfor %}{% endfor %}
 statistics: {% for row in statistics %}
-- {% for label, value in row %}
-  {{ label | trim }}: {{ value | safe }}{% endfor %}{% endfor %}
+- {% for label, value in row %}{{ label | trim }}: {{ value | safe | trim}}
+{% endfor %}{% endfor %}
 ---
 
 {{ body }}
