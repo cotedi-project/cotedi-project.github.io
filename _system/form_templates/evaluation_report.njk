@@ -18,7 +18,7 @@ startdate: {{ startdate.date }}
 description: "{{ description | safe}}"
 pupils: {% for row in pupilstats %}
 - {% for label, value in row %}
-  {{ label | trim }}: {{ value | safe }}{-% endfor %}{-% endfor %}
+  {{ label | trim }}: {{ value | safe }}{% endfor %}{% endfor %}
 statistics: {% for row in statistics %}
 - {% for label, value in row %}
   {{ label | trim }}: {{ value | safe}}{% endfor %}{% endfor %}
