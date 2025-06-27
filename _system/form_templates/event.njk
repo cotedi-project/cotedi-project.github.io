@@ -1,5 +1,5 @@
 ---
-title: "{{ title }}"
+title: "{{ title | safe }}"
 author: {{ author }}
 date: {{ date }}
 tags: {% for tag in tags %}
@@ -15,7 +15,7 @@ eventtype: {{ eventtype }}
 internal: {% if is_internal.flag == "X"%}yes{% else %}no{% endif %}
 startdate: {{ startdate.date }}
 {% if enddate.date | length %}enddate: {{ enddate.date }}{% endif %}
-description: "{{ description }}"
+description: "{{ description | safe}}"
 ---
 
 {{ body }}
