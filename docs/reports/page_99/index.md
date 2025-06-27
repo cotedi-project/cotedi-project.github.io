@@ -25,85 +25,48 @@ school children. After the explanation, they worked on it through drawings in
 working groups of a maximum of 4 people.
 
 pupils: 
-- 
-  ID/Class: "-"
-  Country: Total
+- ID/Class: "-"
+Country: Total
+total: "70"
+socially disadvantaged: "3"
+cognitive disabilites: yes
+physical disabilities: "0"
+min age: "9"
+max age: "11"
+mean age: "10"
 
-  total: "70"
-
-  socially disadvantaged: "3"
-
-  cognitive disabilites: yes
-
-  physical disabilities: "0"
-
-  min age: "9"
-
-  max age: "11"
-
-  mean age: "10"
-
-- 
-  ID/Class: "1"
-
-  Country: Spain
-
-  total: "70"
-
-  socially disadvantaged: "3"
-
-  cognitive disabilites: yes
-
-  physical disabilities: "0"
-
-  min age: "9"
-
-  max age: "11"
-
-  mean age: "10"
+- ID/Class: "1"
+Country: Spain
+total: "70"
+socially disadvantaged: "3"
+cognitive disabilites: yes
+physical disabilities: "0"
+min age: "9"
+max age: "11"
+mean age: "10"
 
 statistics: 
-- 
-  Country: Total
+- Country: Total
+total: "6"
+teachers: "3"
+educators/child care: "0"
+parents: "0"
+researchers: "1"
+developers: "1"
+policymakers: "1"
+students: "0"
+other: "0"
 
-  total: "6"
-
-  teachers: "3"
-
-  educators/child care: "0"
-
-  parents: "0"
-
-  researchers: "1"
-
-  developers: "1"
-
-  policymakers: "1"
-
-  students: "0"
-
-  other: "0"
-
-- 
-  Country: Spain
-
-  total: "6"
-
-  teachers: "3"
-
-  educators/child care: "0"
-
-  parents: "0"
-
-  researchers: "1"
-
-  developers: "1"
-
-  policymakers: "1"
-
-  students: "0"
-
-  other: "0"
+- Country: Spain
+total: "6"
+teachers: "3"
+educators/child care: "0"
+parents: "0"
+researchers: "1"
+developers: "1"
+policymakers: "1"
+students: "0"
+other: "0"
 
 ---
 
