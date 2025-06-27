@@ -75,6 +75,6 @@ This activity consisted of explaining the concept of nodes and graphs to primary
 Each children design her own electric card with a battery, a LED and electricity conducting strips. 
 This activity lasted one hour and 35 children from 2 different classes of CEIP Los Almendros (Madrid, Spain) participated. 
 The activity took place during the week of 11 February (International Day of Women and Girls in Science). 
-![IMG-20240206-WA0006](https://github.com/cotedi-project/cotedi-project.github.io/assets/85990345/f1dc5df7-f6ad-4077-b847-fcbde55bf1e3)
-![IMG-20240206-WA0011](https://github.com/cotedi-project/cotedi-project.github.io/assets/85990345/dfc1be49-e80e-4ce0-b825-58323cdb83ca)
-![IMG-20240206-WA0012](https://github.com/cotedi-project/cotedi-project.github.io/assets/85990345/e0b543fd-6415-49c6-96a8-35802f779e1b)
+![IMG-20240206-WA0006](IMG-20240206-WA0006.jpeg)
+![IMG-20240206-WA0011](IMG-20240206-WA0011.jpeg)
+![IMG-20240206-WA0012](IMG-20240206-WA0012.jpeg)
