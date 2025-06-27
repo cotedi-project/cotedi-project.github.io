@@ -1,5 +1,5 @@
 ---
-title: {{ title }}
+title: {{ title | safe  }}
 author: {{ author }}
 date: {{ date }}
 tags: {% for tag in tags %}
