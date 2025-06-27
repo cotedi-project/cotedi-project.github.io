@@ -8,6 +8,7 @@ body:
   id: body
 - label: Description
   id: description
+  indent: 2
 - id: heroimage
   label: Banner Image
   type: image
