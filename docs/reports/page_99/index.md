@@ -20,7 +20,8 @@ eventtype: Other
 internal: no
 startdate: 
 
-description: This activity consisted of explaining the concept of algorithms to primary
+description: |
+  This activity consisted of explaining the concept of algorithms to primary
 school children. After the explanation, they worked on it through drawings in
 working groups of a maximum of 4 people.
 
