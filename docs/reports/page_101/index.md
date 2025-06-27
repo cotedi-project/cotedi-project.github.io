@@ -1,5 +1,6 @@
 ---
 title: "11F: Electric cards - 3rd grade of Primary School"
+
 author: emburjc
 date: 2024-11-12
 tags: 
@@ -10,58 +11,64 @@ hero: 344426242-dfc1be49-e80e-4ce0-b825-58323cdb83ca.jpeg
 link: 
 partner: 
 - URJC
+
 language: Spanish
+
 country: Spain
+
 location: CEIP Los Almendros
+
 eventtype: Other
+
 internal: no
 startdate: 
 
-description: "This activity consisted of explaining the concept of nodes and graphs to primary school children. After the explanation, they worked on it through electric cards in working groups."
+description: |
+  This activity consisted of explaining the concept of nodes and graphs to primary school children. After the explanation, they worked on it through electric cards in working groups.
 pupils: 
-- 
-  ID/Class: -
+- ID/Class: "-"
   Country: Total
-  total: 35
-  socially disadvantaged: 10
-  cognitive disabilites: 0
-  physical disabilities: 0
-  min age: 8
-  max age: 9
-  mean age: 9
-- 
-  ID/Class: 1
+  total: "35"
+  socially disadvantaged: "10"
+  cognitive disabilites: "0"
+  physical disabilities: "0"
+  min age: "8"
+  max age: "9"
+  mean age: "9"
+  
+- ID/Class: "1"
   Country: Spain
-  total: 35
-  socially disadvantaged: 10
-  cognitive disabilites: 0
-  physical disabilities: 0
-  min age: 8
-  max age: 9
-  mean age: 9
+  total: "35"
+  socially disadvantaged: "10"
+  cognitive disabilites: "0"
+  physical disabilities: "0"
+  min age: "8"
+  max age: "9"
+  mean age: "9"
+  
 statistics: 
-- 
-  Country: Total
-  total: 4
-  teachers: 2
-  educators/child care: 0
-  parents: 0
-  researchers: 1
-  developers: 0
-  policymakers: 1
-  students: 0
-  other: 0
-- 
-  Country: Spain
-  total: 4
-  teachers: 2
-  educators/child care: 0
-  parents: 0
-  researchers: 1
-  developers: 0
-  policymakers: 1
-  students: 0
-  other: 0
+- Country: Total
+  total: "4"
+  teachers: "2"
+  educators/child care: "0"
+  parents: "0"
+  researchers: "1"
+  developers: "0"
+  policymakers: "1"
+  students: "0"
+  other: "0"
+  
+- Country: Spain
+  total: "4"
+  teachers: "2"
+  educators/child care: "0"
+  parents: "0"
+  researchers: "1"
+  developers: "0"
+  policymakers: "1"
+  students: "0"
+  other: "0"
+  
 ---
 
 This activity consisted of explaining the concept of nodes and graphs to primary school children. After the explanation, they worked on it through electric cards in working groups. 
