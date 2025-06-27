@@ -1,7 +1,7 @@
 ---
 title: VELON Conference - An innovative approach to a new pedagogical teaching concept for PABO students in STEM by CoTEDI EP 
 author: Nardie1970
-date: 2025-06-26
+date: 2025-02-06
 tags: 
 - event
 - report
