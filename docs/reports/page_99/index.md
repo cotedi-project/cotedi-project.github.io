@@ -20,58 +20,58 @@ description: "This activity consisted of explaining the concept of algorithms to
 pupils: 
 - 
   ID/Class
-: &quot;-&quot;
+: "-"
   Country
 : Total
 
   total
-: &quot;70&quot;
+: "70"
 
   socially disadvantaged
-: &quot;3&quot;
+: "3"
 
   cognitive disabilites
 : yes
 
   physical disabilities
-: &quot;0&quot;
+: "0"
 
   min age
-: &quot;9&quot;
+: "9"
 
   max age
-: &quot;11&quot;
+: "11"
 
   mean age
-: &quot;10&quot;
+: "10"
 
 - 
   ID/Class
-: &quot;1&quot;
+: "1"
 
   Country
 : Spain
 
   total
-: &quot;70&quot;
+: "70"
 
   socially disadvantaged
-: &quot;3&quot;
+: "3"
 
   cognitive disabilites
 : yes
 
   physical disabilities
-: &quot;0&quot;
+: "0"
 
   min age
-: &quot;9&quot;
+: "9"
 
   max age
-: &quot;11&quot;
+: "11"
 
   mean age
-: &quot;10&quot;
+: "10"
 
 statistics: 
 - 
@@ -79,62 +79,62 @@ statistics:
 : Total
 
   total
-: &quot;6&quot;
+: "6"
 
   teachers
-: &quot;3&quot;
+: "3"
 
   educators/child care
-: &quot;0&quot;
+: "0"
 
   parents
-: &quot;0&quot;
+: "0"
 
   researchers
-: &quot;1&quot;
+: "1"
 
   developers
-: &quot;1&quot;
+: "1"
 
   policymakers
-: &quot;1&quot;
+: "1"
 
   students
-: &quot;0&quot;
+: "0"
 
   other
-: &quot;0&quot;
+: "0"
 
 - 
   Country
 : Spain
 
   total
-: &quot;6&quot;
+: "6"
 
   teachers
-: &quot;3&quot;
+: "3"
 
   educators/child care
-: &quot;0&quot;
+: "0"
 
   parents
-: &quot;0&quot;
+: "0"
 
   researchers
-: &quot;1&quot;
+: "1"
 
   developers
-: &quot;1&quot;
+: "1"
 
   policymakers
-: &quot;1&quot;
+: "1"
 
   students
-: &quot;0&quot;
+: "0"
 
   other
-: &quot;0&quot;
+: "0"
 
 ---
 
