@@ -1,7 +1,7 @@
 ---
 title: Activity on computational thinking in 4th grade of primary school
 author: emburjc
-date: 2025-06-26
+date: 2024-06-29
 tags: 
 - evaluation
 - report
