@@ -1,7 +1,5 @@
 ---
-title: VELON Conference - An innovative approach to a new pedagogical teaching concept
-for PABO students in STEM by CoTEDI EP
-
+title: VELON Conference - An innovative approach to a new pedagogical teaching concept for PABO students in STEM by CoTEDI EP 
 author: Nardie1970
 date: 2025-06-26
 tags: 
@@ -9,17 +7,12 @@ tags:
 - report
 - news
 hero: Image.jpeg
-link: https://velon.nl/velon-congres-2024-welkom-in-utrecht/
-
+link: https://velon.nl/velon-congres-2024-welkom-in-utrecht/ 
 partner: 
-language: Dutch
-
-country: The Netherlands
-
-location: Utrecht
-
-eventtype: Conference
-
+language: Dutch 
+country: The Netherlands 
+location: Utrecht 
+eventtype: Conference 
 internal: no
 startdate: 
 
