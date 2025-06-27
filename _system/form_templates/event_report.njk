@@ -1,5 +1,5 @@
 ---
-title: "{{ title | safe }}"
+title: {{ title | safe }}
 author: {{ author }}
 date: {{ date }}
 tags: {% for tag in tags %}
@@ -18,7 +18,7 @@ startdate: {{ startdate.date }}
 description: "{{ description | safe }}"
 statistics: {% for row in stats %}
 - {% for label, value in row %}
-  {{ label }}: {{ value | safe }}{% endfor %}{% endfor %}
+  {{ label | trim }}: {{ value | safe }}{-% endfor %}{-% endfor %}
 ---
 
 {{ body }}
