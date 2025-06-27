@@ -1,6 +1,6 @@
 ---
-title: &quot;11F: Buying at delicatessen shop - Activity with children 3 years old and
-beebots&quot;
+title: "11F: Buying at delicatessen shop - Activity with children 3 years old and
+beebots"
 
 author: emburjc
 date: 2024-11-19
