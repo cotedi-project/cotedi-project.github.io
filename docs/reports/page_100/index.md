@@ -8,7 +8,7 @@ tags:
 - evaluation
 - report
 - news
-hero: https://github.com/cotedi-project/cotedi-project.github.io/assets/85990345/1f108e6a-2ca1-4fef-ac67-3a190ffa2645
+hero: image1.jpeg
 link: https://laclasedelosmarcianitos.blogspot.com/2024/02/taller-con-bee-bots.html
 
 partner: 

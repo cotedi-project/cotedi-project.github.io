@@ -6,7 +6,7 @@ tags:
 - evaluation
 - report
 - news
-hero: https://github.com/cotedi-project/cotedi-project.github.io/assets/85990345/91c4d129-dc3c-4c17-9af0-848b6550a521
+hero: IMG-20240220-WA0006.jpeg
 link: 
 partner: 
 language: Spanish
@@ -72,4 +72,4 @@ This activity consisted of explaining the concept of **algorithms** to **primary
 This activity lasted one hour and **70 children** from 3 different classes of CEIP Pedro Duque (Madrid, Spain) participated. 
 The activity took place during the week of 11 February (International Day of Women and Girls in Science).
 
-![IMG-20240220-WA0007](https://github.com/cotedi-project/cotedi-project.github.io/assets/85990345/b0808cf2-990d-41de-982f-5d5e5ad7d4d5)
+![IMG-20240220-WA0007](IMG-20240220-WA0006.jpeg)
