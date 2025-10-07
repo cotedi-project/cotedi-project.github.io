@@ -41,7 +41,7 @@
     "yaml": "2.7.1"
   },
   "dependencies": {
-    "bootstrap": "5.3.3",
+    "bootstrap": "5.3.8",
     "bootstrap-icons": "1.13.1",
     "markdown-it-attrs": "4.3.1"
   }
