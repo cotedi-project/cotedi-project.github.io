@@ -6,7 +6,7 @@ tags:
 - event
 - report
 - news
-hero: Image.jpeg
+hero: velon.jpeg
 link: https://velon.nl/velon-congres-2024-welkom-in-utrecht/ 
 partner: 
 language: Dutch 
