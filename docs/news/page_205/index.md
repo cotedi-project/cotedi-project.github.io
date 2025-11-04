@@ -5,7 +5,7 @@ date: 2025-10-07
 type: text
 tags: 
 - news
-hero: Banner.png
+hero: Banner-vs-ku.png
 link: 
 partner: 
 - mariazapatac 
