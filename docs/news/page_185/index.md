@@ -6,7 +6,7 @@ date: 2025-02-06
 type: text
 tags: 
 - news
-hero: Image.jpeg
+hero: inted25-teaser.jpeg
 link: https://iated.org/inted/
 
 partner: 
