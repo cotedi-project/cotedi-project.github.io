@@ -5,7 +5,7 @@ date: 2025-10-08
 type: text
 tags: 
 - news
-hero: Image.jpeg
+hero: edurobotx-lisa.jpeg
 link: https://ea-tel.eu/sig/edurobotx/edurobotx2025 
 partner: 
 language: English 
