@@ -14,3 +14,5 @@ docs/news/news2024-02-10-a/index.md
 .devcontainer/
 docs/notes/
 
+# venv
+.venv
