@@ -21,29 +21,17 @@ from wp_api.auth import ApplicationPasswordAuth
 from pathlib import Path
 import re
 
-# Simple HTML stripper 
-class HTMLStripper(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.text = []
-    def handle_data(self, data):
-        self.text.append(data)
-    def get_text(self):
-        return ''.join(self.text).strip()
-# removes the Elementor HTML tags for plain text for the description/body
-def strip_html(html):
-    stripper = HTMLStripper()
-    stripper.feed(html)
-    return stripper.get_text()
+# Authenticate with WordPress using application password
 auth = ApplicationPasswordAuth(username="noirin", app_password="WmX5 IHp8 5XYN jByj vqD4 nPLN")
 client = WPClient(base_url="https://imaginatic.es", auth=auth)
 
 # Get published posts
-posts = client.posts.list(status="publish", per_page=1, page=1, orderby="date")
+posts = client.posts.list(status="publish", per_page=1, page=2, orderby="date")
 
 # Get published media items
 media_items = client.media.list(media_type="image", per_page=100, page=1)
 
+# Loop through the posts and save them to Markdown files
 for post in posts:
     post_id   = post['id']
     title     = post['title']['rendered']
@@ -61,8 +49,10 @@ for post in posts:
     media_items = []
 
 
-
+    # Set path for saving the post
     docs_dir = Path(__file__).resolve().parent.parent / "docs/news"
+
+    # Determine the next page number based on existing directories
     page_numbers = [
             int(match.group(1))
             for path in docs_dir.glob("page_wp_*")
@@ -74,6 +64,7 @@ for post in posts:
     page_dir = docs_dir / f"page_wp_{next_page_number}"
     page_dir.mkdir(parents=True, exist_ok=False)
 
+    # Create the Markdown content
     page_content = f"""---
 title: {title}
 author: {author_name}
@@ -90,6 +81,6 @@ description: |
 ---
 {content}
 """
-
+    # Save the Markdown file
     (page_dir / "index.md").write_text(page_content, encoding="utf-8")
     print(f"Saved post to {page_dir / 'index.md'}")
