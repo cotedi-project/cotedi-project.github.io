@@ -26,5 +26,5 @@ jobs:
       shell: bash
     - name: Get content of website
       id: get-content
-      run: python3 test_wp_api.py
+      run: python3 scr/test_wp_api.py
       shell: bash
