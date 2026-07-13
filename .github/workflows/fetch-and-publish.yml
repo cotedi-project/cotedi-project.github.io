@@ -2,7 +2,11 @@
 
 name: Python application
 
-on: [push]
+on:
+  push:
+    branches:
+      - fetch_wp_content
+  workflow_dispatch:
 
 permissions:
   contents: write
