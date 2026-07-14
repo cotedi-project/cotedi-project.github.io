@@ -18,9 +18,14 @@ from html.parser import HTMLParser
 from wp_api.auth import ApplicationPasswordAuth
 from pathlib import Path
 import re
+import os
+
+# https://stackoverflow.com/questions/76390320/how-do-i-include-github-secrets-in-a-python-script
+username = os.environ.get("WP_USERNAME")
+password = os.environ.get("WP_PASSWORD")
 
 # Authenticate with WordPress using application password
-auth = ApplicationPasswordAuth(username="noirin", app_password="WmX5 IHp8 5XYN jByj vqD4 nPLN")
+auth = ApplicationPasswordAuth(username=username, app_password=password)
 client = WPClient(base_url="https://imaginatic.es", auth=auth)
 
 # Get published posts
@@ -28,6 +33,7 @@ posts = client.posts.list(status="publish", per_page=2, page=1, orderby="date")
 
 # Get published media items
 media_items = client.media.list(media_type="image", per_page=100, page=1)
+
 
 # Loop through the posts and save them to Markdown files
 # YAML ausgeben 
@@ -50,24 +56,12 @@ for post in posts:
     media_items = []
 
 
-    # Create a directory for the post in the docs/news folder
+    # Create a directory for the post in the docs/news folder with id_number
 
     docs_dir = Path(__file__).resolve().parent.parent / "docs/news"
 
-    # Determine the next page number based on existing directories
-    # Why? 
-    # use this re.fullmatch(r"page_wp_(\d+)
-    # TO DO: max(int(m_o[1]), 0) + 1
-    # page_numbers = [
-    #         int(match.group(1)) # int(m_o[1])
-    #         for path in docs_dir.glob("page_wp_*")
-    #             if path.is_dir()
-    #                 if (match := re.fullmatch(r"page_wp_(\d+)", path.name))
-    # ]
-    # next_page_number = max(page_numbers, default=0) + 1
-
     page_dir = docs_dir / f"page_wp_{post_id}"  # Use post ID for unique directory name
-    page_dir.mkdir(parents=True) #exist_ok=False)
+    page_dir.mkdir(parents=True)
 
     # Create the Markdown content yaml preamble
     page_content = f"""---
