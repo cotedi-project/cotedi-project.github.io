@@ -18,11 +18,18 @@ jobs:
     name: Get content of website
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
+    - name: Get GitHub secrets
+      env:
+        WP_USERNAME: ${{ secrets.WP_USERNAME }}
+        WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
+      run: echo "GitHub secrets are available"
+      shell: bash
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -35,14 +42,4 @@ jobs:
     # GitHub Actions already provides a built-in token for writing back to this repo.
     # No manual GitHub username or password is needed.
     - name: Publish generated content back to the repo
-      run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add docs/news
-        if git diff --cached --quiet; then
-          echo "No generated changes to commit"
-          exit 0
-        fi
-        git commit -m "Add generated news content [skip ci]"
-        git push origin HEAD:${{ github.ref_name }}
-      shell: bash
+      uses: stefanzweifel/git-auto-commit-action@v7

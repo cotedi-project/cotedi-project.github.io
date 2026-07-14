@@ -11,6 +11,7 @@ for post in posts:
 # TODO: hero, language and partner fields are not available in the API, so we need to find a way to get them. 
 # TODO: Use same description body as the website
 # TODO: Automatically generate the YAML front matter for each post, including the hero image, language, and partner fields.
+# TODO: SAX parser
 
 from wp_api import WPClient
 from html.parser import HTMLParser
@@ -29,6 +30,7 @@ posts = client.posts.list(status="publish", per_page=2, page=1, orderby="date")
 media_items = client.media.list(media_type="image", per_page=100, page=1)
 
 # Loop through the posts and save them to Markdown files
+# YAML ausgeben 
 for post in posts:
     post_id   = post['id']
     title     = post['title']['rendered']
@@ -48,22 +50,26 @@ for post in posts:
     media_items = []
 
 
-    # Set path for saving the post
+    # Create a directory for the post in the docs/news folder
+
     docs_dir = Path(__file__).resolve().parent.parent / "docs/news"
 
     # Determine the next page number based on existing directories
-    page_numbers = [
-            int(match.group(1))
-            for path in docs_dir.glob("page_wp_*")
-            if path.is_dir()
-            if (match := re.fullmatch(r"page_wp_(\d+)", path.name))
-    ]
-    next_page_number = max(page_numbers, default=0) + 1
+    # Why? 
+    # use this re.fullmatch(r"page_wp_(\d+)
+    # TO DO: max(int(m_o[1]), 0) + 1
+    # page_numbers = [
+    #         int(match.group(1)) # int(m_o[1])
+    #         for path in docs_dir.glob("page_wp_*")
+    #             if path.is_dir()
+    #                 if (match := re.fullmatch(r"page_wp_(\d+)", path.name))
+    # ]
+    # next_page_number = max(page_numbers, default=0) + 1
 
-    page_dir = docs_dir / f"page_wp_{next_page_number}"
-    page_dir.mkdir(parents=True, exist_ok=False)
+    page_dir = docs_dir / f"page_wp_{post_id}"  # Use post ID for unique directory name
+    page_dir.mkdir(parents=True) #exist_ok=False)
 
-    # Create the Markdown content
+    # Create the Markdown content yaml preamble
     page_content = f"""---
 title: {title}
 author: {author_name}
