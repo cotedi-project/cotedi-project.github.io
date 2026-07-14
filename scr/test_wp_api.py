@@ -23,7 +23,7 @@ auth = ApplicationPasswordAuth(username="noirin", app_password="WmX5 IHp8 5XYN j
 client = WPClient(base_url="https://imaginatic.es", auth=auth)
 
 # Get published posts
-posts = client.posts.list(status="publish", per_page=5, page=1, orderby="date")
+posts = client.posts.list(status="publish", per_page=2, page=1, orderby="date")
 
 # Get published media items
 media_items = client.media.list(media_type="image", per_page=100, page=1)
@@ -35,6 +35,7 @@ for post in posts:
     date      = post['date'][:10]  # just the YYYY-MM-DD part
     content   = post['content']['rendered']
     link      = post['link']
+    type      = post['type']
     # language  = post['language']
 
     # Fetch author name
@@ -66,7 +67,7 @@ for post in posts:
 title: {title}
 author: {author_name}
 date: {date}
-type: news
+type: {type}
 tags:
 - news
 hero: {media_items if media_items else 'No image available'}
