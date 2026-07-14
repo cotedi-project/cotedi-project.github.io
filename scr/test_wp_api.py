@@ -36,6 +36,7 @@ for post in posts:
     content   = post['content']['rendered']
     link      = post['link']
     type      = post['type']
+    tags      = post['tags']
     # language  = post['language']
 
     # Fetch author name
@@ -68,8 +69,7 @@ title: {title}
 author: {author_name}
 date: {date}
 type: {type}
-tags:
-- news
+tags: {tags}
 hero: {media_items if media_items else 'No image available'}
 link: {link}
 partner:
