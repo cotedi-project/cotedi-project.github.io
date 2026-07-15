@@ -92,10 +92,7 @@ type: {type}
 tags: {tags}
 hero: {media_items if media_items else 'No image available'}
 link: {link}
-partner:
-language:
-description: |
-    {content[:200]}...
+...
 ---
 {content}
 """
