@@ -39,6 +39,21 @@ media_items = client.media.list(media_type="image", per_page=100, page=1)
 # for post in posts:
 #     print(post)
 
+# Simple HTML stripper
+class HTMLStripper(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.text = []
+    def handle_data(self, data):
+        self.text.append(data)
+    def get_text(self):
+        return ''.join(self.text).strip()
+
+def strip_html(html):
+    stripper = HTMLStripper()
+    stripper.feed(html)
+    return stripper.get_text()
+
 
 # # Loop through the posts and save them to Markdown files
 # # YAML ausgeben 
@@ -46,8 +61,8 @@ for post in posts:
     post_id   = post['id']
     title     = post['title']['rendered']
     date      = post['date'][:10]  # just the YYYY-MM-DD part
-    content   = post['content']
-    # description = post['content']['class="wp-block-paragraph"']
+    content   = strip_html(post['content']['rendered'])
+    # description = strip_html(post['description']['rendered'])  # Use the description field
     link      = post['link']
     type      = post['type']
     tags      = post['tags']
