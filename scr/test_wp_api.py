@@ -29,19 +29,25 @@ auth = ApplicationPasswordAuth(username=username, app_password=password)
 client = WPClient(base_url="https://imaginatic.es", auth=auth)
 
 # Get published posts
-posts = client.posts.list(status="publish", per_page=2, page=1, orderby="date")
+posts = client.posts.list(status="publish", per_page=5, page=1, orderby="date")
 
 # Get published media items
 media_items = client.media.list(media_type="image", per_page=100, page=1)
 
+# Raw YAML output for debugging
+# print("Raw YAML output:")
+# for post in posts:
+#     print(post)
 
-# Loop through the posts and save them to Markdown files
-# YAML ausgeben 
+
+# # Loop through the posts and save them to Markdown files
+# # YAML ausgeben 
 for post in posts:
     post_id   = post['id']
     title     = post['title']['rendered']
     date      = post['date'][:10]  # just the YYYY-MM-DD part
-    content   = post['content']['rendered']
+    content   = post['content']
+    # description = post['content']['class="wp-block-paragraph"']
     link      = post['link']
     type      = post['type']
     tags      = post['tags']
@@ -55,8 +61,7 @@ for post in posts:
     # Fetch media items for the post
     media_items = []
 
-
-    # Create a directory for the post in the docs/news folder with id_number
+     # Create a directory for the post in the docs/news folder with id_number
 
     docs_dir = Path(__file__).resolve().parent.parent / "docs/news"
 
