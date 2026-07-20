@@ -33,14 +33,14 @@ client = WPClient(base_url="https://imaginatic.es", auth=auth)
 posts = client.posts.list(status="publish", per_page=5, page=1, orderby="date")
 
 # print all keys
-print(list(posts[0].keys()))
-print(post['yoast_head_json'])
+# print(list(posts[0].keys()))
+# print(post['yoast_head_json'])
 
 # Get published media items
 media_items = client.media.list(media_type="image", per_page=100, page=1)
 
 # print all media items
-print(list(media_items[0].keys()))
+# print(list(media_items[0].keys()))
 
 # Raw YAML output for debugging
 # print("Raw YAML output:")
