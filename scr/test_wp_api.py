@@ -34,7 +34,8 @@ posts = client.posts.list(status="publish", per_page=5, page=1, orderby="date")
 
 # print all keys
 # print(list(posts[0].keys()))
-# print(post['yoast_head_json'])
+# # Find language in the yoast_head_json field
+# print(posts['yoast_head_json'])
 
 # Get published media items
 media_items = client.media.list(media_type="image", per_page=100, page=1)
@@ -69,6 +70,15 @@ def strip_html(html):
 #     stripper.feed(html) # run the parser on the HTML
 #     return ''.join(stripper.text).strip() # combine the collected text and clean it up
 
+def get_all_images(html_content):
+    """
+    Find every <img> tag in the post's HTML content and return a list
+    of their src URLs (the actual images used, in the order they appear).
+    """
+    soup = BeautifulSoup(html_content, "html.parser")
+    images = [img['src'] for img in soup.find_all('img') if img.get('src')]
+    return images
+
 # Loop through media items and get urls for hero images
 for media in media_items:
     media_id = media['id']
@@ -89,12 +99,14 @@ for post in posts:
     link      = post['link']
     type      = post['type']
     tags      = post['tags']
+
     featured_media_id = post['featured_media'] # This is the media ID
     hero = "No image available" # Default value if no featured media is found
     if featured_media_id: # Check if there is a featured media ID
         media = client.media.get(featured_media_id) # Fetch the media item using the ID
         hero = media['source_url'] # Get the URL of the media item
-    # TODO: Fetches only one image, but some posts have multiple images. 
+    # Get every image embedded in the post body (in addition to the featured/hero image)
+    gallery_images = get_all_images(post['content']['rendered'])
     
     language = post['yoast_head_json'].get('og_locale', None)
     # Fetch author name
@@ -117,6 +129,7 @@ date: {date}
 type: {type}
 tags: {tags}
 hero: {hero}
+gallery: {gallery_images}
 link: {link}
 language: {language}
 description: {description}
