@@ -8,10 +8,9 @@ for post in posts:
     print(post['id'], post['title']['rendered'], post['date'][:10], post['content']['rendered'], post['link'], post['author'])  # Print first 100 characters of content """
 
 
-# TODO: hero, language and partner fields are not available in the API, so we need to find a way to get them. 
-# TODO: Use same description body as the website
+
 # TODO: Automatically generate the YAML front matter for each post, including the hero image, language, and partner fields.
-# TODO: SAX parser
+
 
 from wp_api import WPClient
 from html.parser import HTMLParser
@@ -19,6 +18,7 @@ from wp_api.auth import ApplicationPasswordAuth
 from pathlib import Path
 import re
 import os
+from bs4 import BeautifulSoup
 
 # https://stackoverflow.com/questions/76390320/how-do-i-include-github-secrets-in-a-python-script
 username = os.environ.get("WP_USERNAME")
@@ -28,31 +28,54 @@ password = os.environ.get("WP_PASSWORD")
 auth = ApplicationPasswordAuth(username=username, app_password=password)
 client = WPClient(base_url="https://imaginatic.es", auth=auth)
 
+
 # Get published posts
 posts = client.posts.list(status="publish", per_page=5, page=1, orderby="date")
 
+# print all keys
+print(list(posts[0].keys()))
+print(post['yoast_head_json'])
+
 # Get published media items
 media_items = client.media.list(media_type="image", per_page=100, page=1)
+
+# print all media items
+print(list(media_items[0].keys()))
 
 # Raw YAML output for debugging
 # print("Raw YAML output:")
 # for post in posts:
 #     print(post)
 
-# Simple HTML stripper
-class HTMLStripper(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.text = []
-    def handle_data(self, data):
-        self.text.append(data)
-    def get_text(self):
-        return ''.join(self.text).strip()
-
+# Uses BeautifulSoup (bs4) to parse HTML into a navigable tree (DOM-style),
+# then extracts and returns only the plain text content, stripped of all tags. 
 def strip_html(html):
-    stripper = HTMLStripper()
-    stripper.feed(html)
-    return stripper.get_text()
+    return BeautifulSoup(html, "html.parser").get_text().strip()
+
+# SAX is more memory-efficient for large documents.
+# Is event-driven and does not build a tree structure in memory.
+# https://docs.python.org/3/library/html.parser.html
+# class HTMLStripper(HTMLParser):
+#     # set up parser to handle data and store it in a empty list
+#     def __init__(self):
+#         super().__init__()
+#         self.text = []
+#     # This method is called to process arbitrary data
+#     def handle_data(self, data):
+#         self.text.append(data)
+
+# def strip_html(html):
+#     stripper = HTMLStripper()# make a new "bucket" to hold the text
+#     stripper.feed(html) # run the parser on the HTML
+#     return ''.join(stripper.text).strip() # combine the collected text and clean it up
+
+# Loop through media items and get urls for hero images
+for media in media_items:
+    media_id = media['id']
+    media_url = media['source_url']
+
+    # print(f"Media ID: {media_id}, URL: {media_url}")
+
 
 
 # # Loop through the posts and save them to Markdown files
@@ -62,19 +85,22 @@ for post in posts:
     title     = post['title']['rendered']
     date      = post['date'][:10]  # just the YYYY-MM-DD part
     content   = strip_html(post['content']['rendered'])
-    # description = strip_html(post['description']['rendered'])  # Use the description field
+    description = strip_html(post['excerpt']['rendered'])  # Use the description field
     link      = post['link']
     type      = post['type']
     tags      = post['tags']
-    # language  = post['language']
-
+    featured_media_id = post['featured_media'] # This is the media ID
+    hero = "No image available" # Default value if no featured media is found
+    if featured_media_id: # Check if there is a featured media ID
+        media = client.media.get(featured_media_id) # Fetch the media item using the ID
+        hero = media['source_url'] # Get the URL of the media item
+    # TODO: Fetches only one image, but some posts have multiple images. 
+    
+    language = post['yoast_head_json'].get('og_locale', None)
     # Fetch author name
     author_id = post['author']
     author    = client.users.get(author_id)
     author_name = author['name']
-
-    # Fetch media items for the post
-    media_items = []
 
      # Create a directory for the post in the docs/news folder with id_number
 
@@ -90,8 +116,10 @@ author: {author_name}
 date: {date}
 type: {type}
 tags: {tags}
-hero: {media_items if media_items else 'No image available'}
+hero: {hero}
 link: {link}
+language: {language}
+description: {description}
 ...
 ---
 {content}
