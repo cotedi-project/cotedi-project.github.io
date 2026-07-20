@@ -30,7 +30,7 @@ client = WPClient(base_url="https://imaginatic.es", auth=auth)
 
 
 # Get published posts
-posts = client.posts.list(status="publish", per_page=5, page=1, orderby="date")
+posts = client.posts.list(status="publish", per_page=10, page=1, orderby="date")
 
 # print all keys
 # print(list(posts[0].keys()))
@@ -94,6 +94,7 @@ for post in posts:
     post_id   = post['id']
     title     = post['title']['rendered']
     date      = post['date'][:10]  # just the YYYY-MM-DD part
+    category  = post['categories']  # This is a list of category IDs
     content   = strip_html(post['content']['rendered'])
     description = strip_html(post['excerpt']['rendered'])  # Use the description field
     link      = post['link']
@@ -127,6 +128,7 @@ title: {title}
 author: {author_name}
 date: {date}
 type: {type}
+categories: {category}
 tags: {tags}
 hero: {hero}
 gallery: {gallery_images}
