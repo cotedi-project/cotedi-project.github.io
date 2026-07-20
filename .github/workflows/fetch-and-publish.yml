@@ -19,9 +19,9 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v7
     - name: Set up Python 3.10
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v7
       with:
         python-version: "3.10"
     - name: Get GitHub secrets
@@ -39,7 +39,5 @@ jobs:
       id: get-content
       run: python3 scr/test_wp_api.py
       shell: bash
-    # GitHub Actions already provides a built-in token for writing back to this repo.
-    # No manual GitHub username or password is needed.
     - name: Publish generated content back to the repo
       uses: stefanzweifel/git-auto-commit-action@v7
