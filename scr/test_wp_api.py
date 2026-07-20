@@ -117,10 +117,17 @@ for post in posts:
 
      # Create a directory for the post in the docs/news folder with id_number
 
-    docs_dir = Path(__file__).resolve().parent.parent / "docs/news"
+    if 56 in category:
+        folder = "docs/events"
+    elif all(cat in category for cat in (42, 68)):
+        folder = "docs/publications"
+    else:
+        folder = "docs/news"
+
+    docs_dir = Path(__file__).resolve().parent.parent / folder
 
     page_dir = docs_dir / f"page_wp_{post_id}"  # Use post ID for unique directory name
-    page_dir.mkdir(parents=True)
+    page_dir.mkdir(parents=True, exist_ok=True)  # Create the directory if it doesn't exist
 
     # Create the Markdown content yaml preamble
     page_content = f"""---
