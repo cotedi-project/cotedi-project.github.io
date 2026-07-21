@@ -54,7 +54,25 @@ def get_all_images(html_content):
 def html_to_markdown(html):
     return md(html, heading_style="ATX").strip() # heading_style="ATX" controls how HTML headings get converted uses #
 
+# Load category_rules.yaml to map category IDs to names
+with open("category_rules.yaml") as f:
+    config = yaml.safe_load(f)
+category_rules = config["category_rules"]
 
+def resolve_folder(category, rules):
+    """
+    Given a post's category ID list and the loaded rule set,
+    return the matching output folder, or None if no rule matches.
+    """
+    for rule in rules:
+        cats = rule["category"]
+        if rule["match"] == "all":
+            if all(cat in category for cat in cats):
+                return rule["folder"]
+        else:  # "any"
+            if any(cat in category for cat in cats):
+                return rule["folder"]
+    return None
 
 # # Loop through the posts and save them to Markdown files
 # # YAML ausgeben 
@@ -107,21 +125,13 @@ for post in posts:
         allow_unicode=True,
         default_flow_style=False,
         )
-    print("---- YAML BLOCK ----")
-    print(yaml_block)
-    print("---------------------")
 
 
-     # Create a directory for the post in the docs/news folder with id_number
+     
 
-     #TODO: Create YAML file to map category IDs to folder names, so we don't have to hardcode them here.
-    if 56 in category:
-        folder = "docs/events"
-    elif all(cat in category for cat in (42, 68)):
-        folder = "docs/publications"
-    elif any(cat in category for cat in (38, 70)):
-        folder = "docs/news"
-    else:
+    folder = resolve_folder(category, category_rules)
+
+    if folder is None:
         print(f"Warning: Post {post_id} has an unrecognized category {category}.")
         continue
               

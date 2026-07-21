@@ -1,0 +1,13 @@
+# category_rules.yaml
+category_rules:
+  - match: any
+    category: [56]
+    folder: docs/events
+
+  - match: all
+    category: [42, 68]
+    folder: docs/publications
+
+  - match: any
+    category: [38, 70]
+    folder: docs/news
