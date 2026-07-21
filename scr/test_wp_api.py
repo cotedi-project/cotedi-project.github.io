@@ -5,6 +5,7 @@ from pathlib import Path
 import re
 import os
 from bs4 import BeautifulSoup
+import yaml
 from markdownify import markdownify as md # https://pypi.org/project/markdownify/
 
 # https://stackoverflow.com/questions/76390320/how-do-i-include-github-secrets-in-a-python-script
@@ -16,7 +17,7 @@ auth = ApplicationPasswordAuth(username=username, app_password=password)
 client = WPClient(base_url="https://imaginatic.es", auth=auth)
 
 # Get published posts
-posts = client.posts.list(status="publish", per_page=100, page=1, orderby="date")
+posts = client.posts.list(status="publish", per_page=2, page=1, orderby="date")
 
 # Get published media items
 media_items = client.media.list(media_type="image", per_page=100, page=1)
@@ -36,36 +37,7 @@ media_items = client.media.list(media_type="image", per_page=100, page=1)
 # for post in posts:
 #     print(post)
 
-
-
-
-# Uses BeautifulSoup (bs4) to parse HTML into a navigable tree (DOM-style),
-# then extracts and returns only the plain text content, stripped of all tags. 
-def strip_html(html):
-    return BeautifulSoup(html, "html.parser").get_text().strip() # get_text() extracts all the text from the HTML, and strip() removes leading/trailing whitespace.
-
-# Use markdownify to convert HTML to Markdown format
-def html_to_markdown(html):
-    return md(html, heading_style="ATX").strip() # heading_style="ATX" controls how HTML headings get converted uses #
-
-
-# SAX is more memory-efficient for large documents.
-# Is event-driven and does not build a tree structure in memory.
-# https://docs.python.org/3/library/html.parser.html
-# class HTMLStripper(HTMLParser):
-#     # set up parser to handle data and store it in a empty list
-#     def __init__(self):
-#         super().__init__()
-#         self.text = []
-#     # This method is called to process arbitrary data
-#     def handle_data(self, data):
-#         self.text.append(data)
-
-# def strip_html(html):
-#     stripper = HTMLStripper()# make a new "bucket" to hold the text
-#     stripper.feed(html) # run the parser on the HTML
-#     return ''.join(stripper.text).strip() # combine the collected text and clean it up
-
+# Uses BeautifulSoup (bs4) to parse HTML into a navigable tree (DOM-style), 
 # Find every <img> tag in the post's HTML content and return a list of their src URLs (the actual images used, in the order they appear).
 # https://beautiful-soup-4.readthedocs.io/en/latest/
 
@@ -74,12 +46,13 @@ def get_all_images(html_content):
     images = [img['src'] for img in soup.find_all('img') if img.get('src')]
     return images
 
-# Loop through media items and get urls for hero images
-for media in media_items:
-    media_id = media['id']
-    media_url = media['source_url']
+# Use markdownify instead
+# def strip_html(html):
+#     return BeautifulSoup(html, "html.parser").get_text().strip() # get_text() extracts all the text from the HTML, and strip() removes leading/trailing whitespace.
 
-    # print(f"Media ID: {media_id}, URL: {media_url}")
+# Use markdownify to convert HTML to Markdown format
+def html_to_markdown(html):
+    return md(html, heading_style="ATX").strip() # heading_style="ATX" controls how HTML headings get converted uses #
 
 
 
@@ -91,7 +64,7 @@ for post in posts:
     date      = post['date'][:10]  # just the YYYY-MM-DD part
     category  = post['categories']  # This is a list of category IDs
     content   = html_to_markdown(post['content']['rendered'])
-    description = strip_html(post['excerpt']['rendered'])  # Use the description field
+    description = html_to_markdown(post['excerpt']['rendered'])  # Use the description field
     link      = post['link']
     type      = post['type']
     tags      = post['tags']
@@ -111,14 +84,47 @@ for post in posts:
     author    = client.users.get(author_id)
     author_name = author['name']
 
+    # Collect all the data into a dictionary for easier handling
+    post_data = {
+        "id": post_id,
+        "title": title,
+        "date": date,
+        "category": category,
+        "description": description,
+        "link": link,
+        "type": type,
+        "tags": tags,
+        "hero": hero,
+        "gallery_images": gallery_images,
+        "language": language,
+        "author_name": author_name,
+    }
+
+    # Render YAML block from dictionary
+    yaml_block = yaml.safe_dump(
+        post_data,
+        sort_keys=False,
+        allow_unicode=True,
+        default_flow_style=False,
+        )
+    print("---- YAML BLOCK ----")
+    print(yaml_block)
+    print("---------------------")
+
+
      # Create a directory for the post in the docs/news folder with id_number
 
+     #TODO: Create YAML file to map category IDs to folder names, so we don't have to hardcode them here.
     if 56 in category:
         folder = "docs/events"
     elif all(cat in category for cat in (42, 68)):
         folder = "docs/publications"
     elif any(cat in category for cat in (38, 70)):
         folder = "docs/news"
+    else:
+        print(f"Warning: Post {post_id} has an unrecognized category {category}.")
+        continue
+              
 
     docs_dir = Path(__file__).resolve().parent.parent / folder
 
@@ -126,22 +132,10 @@ for post in posts:
     page_dir.mkdir(parents=True, exist_ok=True)  # Create the directory if it doesn't exist
 
     # Create the Markdown content yaml preamble
-    page_content = f"""---
-title: {title}
-author: {author_name}
-date: {date}
-type: {type}
-categories: {category}
-tags: {tags}
-hero: {hero}
-gallery: {gallery_images}
-link: {link}
-language: {language}
-description: {description}
-...
----
-{content}
-"""
+    # Dictionary erstellen auf den post 
+    # YAML Renderer verwendne gebe Dictionary zu erstellen
+    page_content = f"---\n{yaml_block}---\n{content}\n"
+
     # Save the Markdown file
     (page_dir / "index.md").write_text(page_content, encoding="utf-8")
     print(f"Saved post to {page_dir / 'index.md'}")
