@@ -42,11 +42,11 @@ media_items = client.media.list(media_type="image", per_page=100, page=1)
 # Uses BeautifulSoup (bs4) to parse HTML into a navigable tree (DOM-style),
 # then extracts and returns only the plain text content, stripped of all tags. 
 def strip_html(html):
-    return BeautifulSoup(html, "html.parser").get_text().strip()
+    return BeautifulSoup(html, "html.parser").get_text().strip() # get_text() extracts all the text from the HTML, and strip() removes leading/trailing whitespace.
 
 # Use markdownify to convert HTML to Markdown format
 def html_to_markdown(html):
-    return md(html, heading_style="ATX").strip()
+    return md(html, heading_style="ATX").strip() # heading_style="ATX" controls how HTML headings get converted uses #
 
 
 # SAX is more memory-efficient for large documents.
