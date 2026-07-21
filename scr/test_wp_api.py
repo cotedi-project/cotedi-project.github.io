@@ -111,7 +111,7 @@ for post in posts:
         folder = "docs/events"
     elif all(cat in category for cat in (42, 68)):
         folder = "docs/publications"
-    else:
+    elif any(cat in category for cat in (38, 70)):
         folder = "docs/news"
 
     docs_dir = Path(__file__).resolve().parent.parent / folder
