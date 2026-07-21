@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 import yaml
 from markdownify import markdownify as md # https://pypi.org/project/markdownify/
 
+
 # https://stackoverflow.com/questions/76390320/how-do-i-include-github-secrets-in-a-python-script
 username = os.environ.get("WP_USERNAME")
 password = os.environ.get("WP_PASSWORD")
@@ -92,7 +93,7 @@ for post in posts:
         allow_unicode=True,
         default_flow_style=False,
         )
-
+    #TODO: Use YAML category_rules.yaml to determine the folder based on category IDs
     if 56 in category:
         folder = "docs/events"
     elif all(cat in category for cat in (42, 68)):
