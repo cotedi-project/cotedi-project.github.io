@@ -5,6 +5,7 @@ from pathlib import Path
 import re
 import os
 from bs4 import BeautifulSoup
+from markdownify import markdownify as md # https://pypi.org/project/markdownify/
 
 # https://stackoverflow.com/questions/76390320/how-do-i-include-github-secrets-in-a-python-script
 username = os.environ.get("WP_USERNAME")
@@ -42,6 +43,11 @@ media_items = client.media.list(media_type="image", per_page=100, page=1)
 # then extracts and returns only the plain text content, stripped of all tags. 
 def strip_html(html):
     return BeautifulSoup(html, "html.parser").get_text().strip()
+
+# Use markdownify to convert HTML to Markdown format
+def html_to_markdown(html):
+    return md(html, heading_style="ATX").strip()
+
 
 # SAX is more memory-efficient for large documents.
 # Is event-driven and does not build a tree structure in memory.
@@ -84,7 +90,7 @@ for post in posts:
     title     = post['title']['rendered']
     date      = post['date'][:10]  # just the YYYY-MM-DD part
     category  = post['categories']  # This is a list of category IDs
-    content   = strip_html(post['content']['rendered'])
+    content   = html_to_markdown(post['content']['rendered'])
     description = strip_html(post['excerpt']['rendered'])  # Use the description field
     link      = post['link']
     type      = post['type']
