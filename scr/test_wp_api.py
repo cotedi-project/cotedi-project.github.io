@@ -1,17 +1,3 @@
-"""from wp_api import WPClient
-
-client = WPClient(base_url="https://imaginatic.es")
-
-# List published posts, number of post here 5, chose page 1 or 2, orderby
-posts = client.posts.list(status="publish", per_page=1, page=1, orderby="date")
-for post in posts:
-    print(post['id'], post['title']['rendered'], post['date'][:10], post['content']['rendered'], post['link'], post['author'])  # Print first 100 characters of content """
-
-
-
-# TODO: Automatically generate the YAML front matter for each post, including the hero image, language, and partner fields.
-
-
 from wp_api import WPClient
 from html.parser import HTMLParser
 from wp_api.auth import ApplicationPasswordAuth
@@ -28,25 +14,29 @@ password = os.environ.get("WP_PASSWORD")
 auth = ApplicationPasswordAuth(username=username, app_password=password)
 client = WPClient(base_url="https://imaginatic.es", auth=auth)
 
-
 # Get published posts
-posts = client.posts.list(status="publish", per_page=10, page=1, orderby="date")
-
-# print all keys
-# print(list(posts[0].keys()))
-# # Find language in the yoast_head_json field
-# print(posts['yoast_head_json'])
+posts = client.posts.list(status="publish", per_page=100, page=1, orderby="date")
 
 # Get published media items
 media_items = client.media.list(media_type="image", per_page=100, page=1)
 
+
+# print all keys
+# print(list(posts[0].keys()))
+
 # print all media items
 # print(list(media_items[0].keys()))
+
+# Find language in the yoast_head_json field
+# print(posts['yoast_head_json'])
 
 # Raw YAML output for debugging
 # print("Raw YAML output:")
 # for post in posts:
 #     print(post)
+
+
+
 
 # Uses BeautifulSoup (bs4) to parse HTML into a navigable tree (DOM-style),
 # then extracts and returns only the plain text content, stripped of all tags. 
@@ -70,11 +60,10 @@ def strip_html(html):
 #     stripper.feed(html) # run the parser on the HTML
 #     return ''.join(stripper.text).strip() # combine the collected text and clean it up
 
+# Find every <img> tag in the post's HTML content and return a list of their src URLs (the actual images used, in the order they appear).
+# https://beautiful-soup-4.readthedocs.io/en/latest/
+
 def get_all_images(html_content):
-    """
-    Find every <img> tag in the post's HTML content and return a list
-    of their src URLs (the actual images used, in the order they appear).
-    """
     soup = BeautifulSoup(html_content, "html.parser")
     images = [img['src'] for img in soup.find_all('img') if img.get('src')]
     return images
@@ -106,6 +95,7 @@ for post in posts:
     if featured_media_id: # Check if there is a featured media ID
         media = client.media.get(featured_media_id) # Fetch the media item using the ID
         hero = media['source_url'] # Get the URL of the media item
+
     # Get every image embedded in the post body (in addition to the featured/hero image)
     gallery_images = get_all_images(post['content']['rendered'])
     
