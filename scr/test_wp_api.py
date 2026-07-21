@@ -22,21 +22,6 @@ posts = client.posts.list(status="publish", per_page=2, page=1, orderby="date")
 # Get published media items
 media_items = client.media.list(media_type="image", per_page=100, page=1)
 
-
-# print all keys
-# print(list(posts[0].keys()))
-
-# print all media items
-# print(list(media_items[0].keys()))
-
-# Find language in the yoast_head_json field
-# print(posts['yoast_head_json'])
-
-# Raw YAML output for debugging
-# print("Raw YAML output:")
-# for post in posts:
-#     print(post)
-
 # Uses BeautifulSoup (bs4) to parse HTML into a navigable tree (DOM-style), 
 # Find every <img> tag in the post's HTML content and return a list of their src URLs (the actual images used, in the order they appear).
 # https://beautiful-soup-4.readthedocs.io/en/latest/
@@ -54,25 +39,7 @@ def get_all_images(html_content):
 def html_to_markdown(html):
     return md(html, heading_style="ATX").strip() # heading_style="ATX" controls how HTML headings get converted uses #
 
-# Load category_rules.yaml to map category IDs to names
-with open("category_rules.yaml") as f:
-    config = yaml.safe_load(f)
-category_rules = config["category_rules"]
 
-def resolve_folder(category, rules):
-    """
-    Given a post's category ID list and the loaded rule set,
-    return the matching output folder, or None if no rule matches.
-    """
-    for rule in rules:
-        cats = rule["category"]
-        if rule["match"] == "all":
-            if all(cat in category for cat in cats):
-                return rule["folder"]
-        else:  # "any"
-            if any(cat in category for cat in cats):
-                return rule["folder"]
-    return None
 
 # # Loop through the posts and save them to Markdown files
 # # YAML ausgeben 
@@ -126,12 +93,13 @@ for post in posts:
         default_flow_style=False,
         )
 
-
-     
-
-    folder = resolve_folder(category, category_rules)
-
-    if folder is None:
+    if 56 in category:
+        folder = "docs/events"
+    elif all(cat in category for cat in (42, 68)):
+        folder = "docs/publications"
+    elif any(cat in category for cat in (38, 70)):
+        folder = "docs/news"
+    else:
         print(f"Warning: Post {post_id} has an unrecognized category {category}.")
         continue
               
