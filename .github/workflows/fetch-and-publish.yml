@@ -28,6 +28,7 @@ jobs:
       env:
         WP_USERNAME: ${{ secrets.WP_USERNAME }}
         WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
+        CATEGORY_RULE: ${{github.workspace}}/forms/category_rule.json
       run: echo "GitHub secrets are available"
       shell: bash
     - name: Install dependencies

@@ -13,6 +13,14 @@ from markdownify import markdownify as md # https://pypi.org/project/markdownify
 username = os.environ.get("WP_USERNAME")
 password = os.environ.get("WP_PASSWORD")
 
+# Load path to category_rule.yaml from environment variable
+config_path = os.environ.get("CATEGORY_RULE", "forms/category_rule.yaml") # Read from environment variable, default to "forms/category_rule.yaml" if not set
+
+with open(config_path) as f: # Open the YAML file and load its contents into a Python dictionary
+    config = yaml.safe_load(f) # 
+
+category_rules = config["category_rules"] # Pull the list of category rules from the loaded configuration
+
 # Authenticate with WordPress using application password
 auth = ApplicationPasswordAuth(username=username, app_password=password)
 client = WPClient(base_url="https://imaginatic.es", auth=auth)
@@ -40,7 +48,20 @@ def get_all_images(html_content):
 def html_to_markdown(html):
     return md(html, heading_style="ATX").strip() # heading_style="ATX" controls how HTML headings get converted uses #
 
-
+def resolve_folder(category, rules):
+    """
+    Given a post's category ID list and the loaded rule set,
+    return the matching output folder, or None if no rule matches.
+    """
+    for rule in rules:
+        cats = rule["category"]
+        if rule["match"] == "all":
+            if all(cat in category for cat in cats):
+                return rule["folder"]
+        else:  # "any"
+            if any(cat in category for cat in cats):
+                return rule["folder"]
+    return None
 
 # # Loop through the posts and save them to Markdown files
 # # YAML ausgeben 
@@ -93,17 +114,13 @@ for post in posts:
         allow_unicode=True,
         default_flow_style=False,
         )
-    #TODO: Use YAML category_rules.yaml to determine the folder based on category IDs
-    if 56 in category:
-        folder = "docs/events"
-    elif all(cat in category for cat in (42, 68)):
-        folder = "docs/publications"
-    elif any(cat in category for cat in (38, 70)):
-        folder = "docs/news"
-    else:
+    
+    # Determine the output folder based on the post's category and the loaded rules
+    folder = resolve_folder(category, category_rules)
+
+    if folder is None:
         print(f"Warning: Post {post_id} has an unrecognized category {category}.")
         continue
-              
 
     docs_dir = Path(__file__).resolve().parent.parent / folder
 
