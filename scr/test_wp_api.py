@@ -26,7 +26,7 @@ auth = ApplicationPasswordAuth(username=username, app_password=password)
 client = WPClient(base_url="https://imaginatic.es", auth=auth)
 
 # Get published posts
-posts = client.posts.list(status="publish", per_page=2, page=1, orderby="date")
+posts = client.posts.list(status="publish", per_page=50, page=1, orderby="date")
 
 # Get published media items
 media_items = client.media.list(media_type="image", per_page=100, page=1)
