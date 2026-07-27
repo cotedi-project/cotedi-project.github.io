@@ -14,7 +14,7 @@ username = os.environ.get("WP_USERNAME")
 password = os.environ.get("WP_PASSWORD")
 
 # Load path to category_rule.yaml from environment variable
-config_path = os.environ.get("FORMHINTS", "_system/forms/category_rule.yaml") # Read from environment variable, default to "forms/category_rule.yaml" if not set
+config_path = os.environ.get("FORMHINTS") # Read from environment variable, default to "forms/category_rule.yaml" if not set
 
 with open(config_path) as f: # Open the YAML file and load its contents into a Python dictionary
     config = yaml.safe_load(f) # 
