@@ -130,5 +130,5 @@ def main():
         (page_dir / "index.md").write_text(page_content, encoding="utf-8")
         print(f"Saved post to {page_dir / 'index.md'}")
 
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
