@@ -1,6 +1,7 @@
 from wp_api import WPClient
 from html.parser import HTMLParser
 from wp_api.auth import ApplicationPasswordAuth
+from wp_api.exceptions import WPAPIBadRequestError
 from pathlib import Path
 import re
 import os
@@ -35,7 +36,40 @@ def resolve_folder(category, rules):
         else:  # "any"
             if any(cat in category for cat in cats):
                 return rule["folder"]
-    return None
+    return None 
+
+def fetch_all_posts(client):
+    """Fetch every published post across all pages, not just the first one."""
+    all_posts = []
+    page = 1
+    while True:
+        try:
+            batch = client.posts.list(status="publish", per_page=100, page=page, orderby="date")
+        except WPAPIBadRequestError:
+            # WordPress returns a 400 error (not an empty list) once you go past the last page
+            break
+        if not batch:
+            break
+        all_posts.extend(batch)
+        page += 1
+    return all_posts
+
+def get_existing_post_ids(docs_root):
+    """
+    Scan all output folders under docs_root for existing page_wp_{id} folders
+    and return the set of post IDs already saved.
+    """
+    existing_ids = set()
+    for folder in docs_root.glob("**/page_wp_*"):
+        if folder.is_dir():
+            try:
+                post_id = int(folder.name.replace("page_wp_", ""))
+                existing_ids.add(post_id)
+            except ValueError:
+                continue  # skip anything that doesn't match the expected naming pattern
+    return existing_ids
+
+
 
 # Main function to fetch posts, process them, and save as Markdown files with YAML front matter
 def main():
@@ -56,12 +90,23 @@ def main():
 
     category_rules = config["category_rules"] # Pull the list of category rules from the loaded configuration
 
+    # --- Block 1: scan what's already saved locally ---
+    docs_root = Path(__file__).resolve().parent.parent / "docs"
+    print("Scanning:", docs_root, "| exists:", docs_root.exists())
 
-    # Get published posts
-    posts = client.posts.list(status="publish", per_page=50, page=1, orderby="date")
+    existing_ids = get_existing_post_ids(docs_root)
+    print(f"Found {len(existing_ids)} posts already saved locally.")
+    print("IDs found:", sorted(existing_ids))
+
+    # --- Block 2: fetch everything from WordPress ---
+    posts = fetch_all_posts(client)
+    print(f"Fetched {len(posts)} published posts from WordPress.")
+    
     
     for post in posts:
         post_id   = post['id']
+        if post_id in existing_ids:
+            continue  # Skip posts that are already saved locally
         title     = post['title']['rendered']
         date      = post['date'][:10]  # just the YYYY-MM-DD part
         category  = post['categories']  # This is a list of category IDs
@@ -85,6 +130,8 @@ def main():
         author_id = post['author']
         author    = client.users.get(author_id)
         author_name = author['name']
+
+        
 
         # Collect all the data into a dictionary for easier handling
         post_data = {
@@ -113,6 +160,7 @@ def main():
         # Determine the output folder based on the post's category and the loaded rules
         folder = resolve_folder(category, category_rules)
 
+        
         if folder is None:
             print(f"Warning: Post {post_id} has an unrecognized category {category}.")
             continue
