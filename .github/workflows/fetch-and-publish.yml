@@ -1,0 +1,41 @@
+# This workflow will run the test_wp_api.py script to fetch content from the WordPress API and save it to a Markdown file. It will then commit and push the changes to the repository.
+
+name: Python application
+
+on:
+  push:
+    branches:
+      - fetch_wp_content
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  get-content:
+
+    runs-on: ubuntu-latest
+    env:
+        WP_USERNAME: ${{ secrets.WP_USERNAME }}
+        WP_PASSWORD: ${{ secrets.WP_PASSWORD }}
+        CATEGORY_RULE: ${{ github.workspace }}/_system/forms/category_rules.yaml
+    name: Get content of website
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v7
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v7
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+      shell: bash
+    - name: Get content of website
+      id: get-content
+      run: python3 scr/collect_data_wp.py
+      shell: bash
+    - name: Publish generated content back to the repo
+      uses: stefanzweifel/git-auto-commit-action@v7
