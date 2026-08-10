@@ -3,11 +3,46 @@ from html.parser import HTMLParser
 from wp_api.auth import ApplicationPasswordAuth
 from wp_api.exceptions import WPAPIBadRequestError
 from pathlib import Path
-import re
+from urllib.parse import urlparse
 import os
+import requests
 from bs4 import BeautifulSoup
 import yaml
+import requests # https://www.geeksforgeeks.org/python/how-to-download-an-image-from-a-url-in-python/
 from markdownify import markdownify as md # https://pypi.org/project/markdownify/
+
+
+def download_image(url, dest_dir):
+    """
+    Download an image from `url` and save it into `dest_dir`, using the
+    filename from the URL itself.
+
+    Returns the saved filename on success, or None if the download failed
+    (e.g. bad status code or a network/timeout error) - the caller can then
+    decide to fall back to the remote URL instead.
+    """
+    if not url:
+        return None
+
+    try:
+        response = requests.get(url, timeout=20)
+    except requests.RequestException as e:
+        print(f"  [image] FAILED to fetch {url}: {e}")
+        return None
+
+    if response.status_code != 200:
+        print(f"  [image] FAILED ({response.status_code}) fetching {url}")
+        return None
+
+    filename = os.path.basename(urlparse(url).path)
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    filepath = dest_dir / filename
+
+    with open(filepath, "wb") as f:
+        f.write(response.content)
+
+    print(f"  [image] saved {filepath}")
+    return filename
 
 
 # Uses BeautifulSoup (bs4) to parse HTML into a navigable tree (DOM-style), 
@@ -117,13 +152,13 @@ def main():
         tags      = post['tags']
 
         featured_media_id = post['featured_media'] # This is the media ID
-        hero = "No image available" # Default value if no featured media is found
+        hero_url = None
         if featured_media_id: # Check if there is a featured media ID
             media = client.media.get(featured_media_id) # Fetch the media item using the ID
-            hero = media['source_url'] # Get the URL of the media item
+            hero_url = media['source_url'] # Get the URL of the media item
 
         # Get every image embedded in the post body (in addition to the featured/hero image)
-        gallery_images = get_all_images(post['content']['rendered'])
+        gallery_image_urls = get_all_images(post['content']['rendered'])
         
         language = post['yoast_head_json'].get('og_locale', None)
         # Fetch author name
@@ -131,7 +166,40 @@ def main():
         author    = client.users.get(author_id)
         author_name = author['name']
 
-        
+        # Determine the output folder based on the post's category and the loaded rules
+        folder = resolve_folder(category, category_rules)
+
+        if folder is None:
+            print(f"Warning: Post {post_id} has an unrecognized category {category}.")
+            continue
+
+        # Create the output directory based on the resolved folder and the post ID
+        docs_dir = Path(__file__).resolve().parent.parent / folder
+
+        page_dir = docs_dir / f"page_wp_{post_id}"  # Use post ID for unique directory name
+        page_dir.mkdir(parents=True, exist_ok=True)  # Create the directory if it doesn't exist
+
+        # --- Download the hero image locally, falling back to the remote
+        # URL if the download fails so we don't lose the reference entirely.
+        # Saved directly in page_dir, alongside index.md (no subfolder).
+        hero = "No image available"
+        if hero_url:
+            local_name = download_image(hero_url, page_dir)
+            hero = local_name if local_name else hero_url
+
+        # --- Download every gallery image locally too, and rewrite any
+        # occurrence of the original remote URL inside the markdown body
+        # so the post content references the local copy instead.
+        gallery_images = []
+        for img_url in gallery_image_urls:
+            local_name = download_image(img_url, page_dir)
+            if local_name:
+                content = content.replace(img_url, local_name)
+                gallery_images.append(local_name)
+            else:
+                # Couldn't download it - keep the remote URL as a fallback
+                # rather than silently dropping the image.
+                gallery_images.append(img_url)
 
         # Collect all the data into a dictionary for easier handling
         post_data = {
@@ -156,20 +224,6 @@ def main():
             allow_unicode=True, # Allow Unicode characters in the output
             default_flow_style=False, # Block style throughout
             )
-        
-        # Determine the output folder based on the post's category and the loaded rules
-        folder = resolve_folder(category, category_rules)
-
-        
-        if folder is None:
-            print(f"Warning: Post {post_id} has an unrecognized category {category}.")
-            continue
-
-        # Create the output directory based on the resolved folder and the post ID
-        docs_dir = Path(__file__).resolve().parent.parent / folder
-
-        page_dir = docs_dir / f"page_wp_{post_id}"  # Use post ID for unique directory name
-        page_dir.mkdir(parents=True, exist_ok=True)  # Create the directory if it doesn't exist
 
         # Create the Markdown content with rendered YAML front matter and the post content
         page_content = f"---\n{yaml_block}---\n{content}\n"
