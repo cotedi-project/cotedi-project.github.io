@@ -29,5 +29,18 @@ jobs:
         run: npm ci
       - name: lint JS and CSS
         run: npm run lint
+      - name: Debug remote images
+        run: |
+          for url in \
+            "https://imaginatic.es/wp-content/uploads/2025/07/Captura-de-pantalla-2025-07-29-132633.png" \
+            "https://imaginatic.es/wp-content/uploads/2025/07/Captura-de-pantalla-2025-07-29-181429-1-1024x568.png" \
+            "https://imaginatic.es/wp-content/uploads/2025/06/2025-EnhancingComputationalThinkingSkillsInEarlyEducation.jpg" \
+            "https://imaginatic.es/wp-content/uploads/2025/07/Captura-de-pantalla-2025-07-29-134622-1024x390.png" \
+            "https://imaginatic.es/wp-content/uploads/2025/07/Captura-de-pantalla-2025-07-29-175357.png" \
+            "https://imaginatic.es/wp-content/uploads/2025/07/Captura-de-pantalla-2025-07-29-180136-2.png"
+          do
+            echo "== $url =="
+            curl -s -o /dev/null -w "status=%{http_code} type=%{content_type}\n" "$url"
+          done
       - name: Build site assets
         run: npm run all
