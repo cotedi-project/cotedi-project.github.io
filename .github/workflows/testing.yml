@@ -2,6 +2,9 @@
 name: Check if PR is ready for review
 
 on:
+  push:
+    branches:
+      - debug
   pull_request:
     types:
     - opened
