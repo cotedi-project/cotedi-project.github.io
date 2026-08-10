@@ -56,10 +56,10 @@ module.exports = (eleventyConfig) => {
         defaultAttributes: {
             loading: "lazy",
             decoding: "async",
-            sizes: [200, 400, 800, 1260, 1920, 2400, "auto"]
+            sizes: [200, 400, 800, 1260, 1920, 2400, "auto"],
 
         // Don't crash the whole build if one image fails to process, just log the error and continue
-        failOnError: false
+        failOnError: false,
 
         // Force strictly sequential processing of images
         // to see which image is causing problems. This is slower, but can be useful for debugging.
