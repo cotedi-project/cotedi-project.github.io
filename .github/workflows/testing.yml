@@ -51,5 +51,11 @@ jobs:
             head -c 200 "$out" | strings | head -5
             echo "---"
           done
+      - name: Debug sharp install
+        run: |
+          node -e "console.log(process.platform, process.arch)"
+          npm ls sharp
+          node -e "const sharp = require('sharp'); console.log(sharp.versions)"
+          ls -la node_modules/@img/ 2>/dev/null || echo "no @img dir found"
       - name: Build site assets
         run: npm run all
