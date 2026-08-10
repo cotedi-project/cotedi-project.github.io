@@ -57,5 +57,9 @@ jobs:
           npm ls sharp
           node -e "const sharp = require('sharp'); console.log(sharp.versions)"
           ls -la node_modules/@img/ 2>/dev/null || echo "no @img dir found"
+      - name: Clear eleventy-img/eleventy-fetch cache
+        run: |
+          find . -type d -name ".cache" -not -path "*/node_modules/*"
+          rm -rf .cache
       - name: Build site assets
         run: npm run all
