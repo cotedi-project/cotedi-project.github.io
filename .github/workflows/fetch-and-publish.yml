@@ -5,7 +5,7 @@ name: Python application
 on:
   push:
     branches:
-      - fetch_data_WP
+      - debug
   workflow_dispatch:
 
 permissions:
