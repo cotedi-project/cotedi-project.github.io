@@ -8,7 +8,6 @@ import os
 import requests
 from bs4 import BeautifulSoup
 import yaml
-import requests # https://www.geeksforgeeks.org/python/how-to-download-an-image-from-a-url-in-python/
 from markdownify import markdownify as md # https://pypi.org/project/markdownify/
 
 
@@ -43,6 +42,46 @@ def download_image(url, dest_dir):
 
     print(f"  [image] saved {filepath}")
     return filename
+
+
+def download_and_localize_images(html_content, dest_dir, url_prefix):
+    """
+    Parse `html_content`, download every <img> found, and rewrite that
+    image's `src` attribute IN THE HTML ITSELF to point at the local file
+    (as a site-rooted path: f"{url_prefix}/{filename}").
+
+    Doing the rewrite at the HTML/DOM level - rather than converting to
+    markdown first and then string-searching for the original URL - avoids
+    a subtle bug: markdownify doesn't always preserve the exact URL string
+    from the HTML (it can normalize entities, resolve relative URLs, pick a
+    different size from srcset, etc.), so a later `content.replace(url, ...)`
+    can silently fail to match anything and leave the bare/original
+    reference in place.
+
+    Returns:
+      - the modified HTML as a string (safe to pass into html_to_markdown)
+      - a list of image references, in document order (local site-rooted
+        path on success, original remote URL as a fallback on failure)
+    """
+    soup = BeautifulSoup(html_content, "html.parser")
+    image_refs = []
+
+    for img in soup.find_all("img"):
+        src = img.get("src")
+        if not src:
+            continue
+
+        local_name = download_image(src, dest_dir)
+        if local_name:
+            local_ref = f"{url_prefix}/{local_name}"
+            img["src"] = local_ref  # rewrite directly in the parsed HTML
+            image_refs.append(local_ref)
+        else:
+            # Couldn't download it - leave the original URL as-is in the
+            # HTML (and as the fallback reference) rather than dropping it.
+            image_refs.append(src)
+
+    return str(soup), image_refs
 
 
 # Uses BeautifulSoup (bs4) to parse HTML into a navigable tree (DOM-style), 
@@ -145,7 +184,6 @@ def main():
         title     = post['title']['rendered']
         date      = post['date'][:10]  # just the YYYY-MM-DD part
         category  = post['categories']  # This is a list of category IDs
-        content   = html_to_markdown(post['content']['rendered'])
         description = html_to_markdown(post['excerpt']['rendered'])  # Use the description field
         link      = post['link']
         type      = post['type']
@@ -157,9 +195,6 @@ def main():
             media = client.media.get(featured_media_id) # Fetch the media item using the ID
             hero_url = media['source_url'] # Get the URL of the media item
 
-        # Get every image embedded in the post body (in addition to the featured/hero image)
-        gallery_image_urls = get_all_images(post['content']['rendered'])
-        
         language = post['yoast_head_json'].get('og_locale', None)
         # Fetch author name
         author_id = post['author']
@@ -179,27 +214,32 @@ def main():
         page_dir = docs_dir / f"page_wp_{post_id}"  # Use post ID for unique directory name
         page_dir.mkdir(parents=True, exist_ok=True)  # Create the directory if it doesn't exist
 
+        # Path to this post's folder, relative to docs/ root, with a leading
+        # slash (e.g. "/publications/page_wp_1888"). Eleventy's image
+        # transform resolves a leading-slash path relative to the site's
+        # input directory (docs/), regardless of which template renders it -
+        # unlike a bare filename, which resolves relative to whatever
+        # template is currently being rendered and breaks when that's a
+        # different page (e.g. a listing page looping over posts).
+        image_url_prefix = "/" + page_dir.relative_to(docs_root).as_posix()
+
         # --- Download the hero image locally, falling back to the remote
         # URL if the download fails so we don't lose the reference entirely.
         # Saved directly in page_dir, alongside index.md (no subfolder).
         hero = "No image available"
         if hero_url:
             local_name = download_image(hero_url, page_dir)
-            hero = local_name if local_name else hero_url
+            hero = f"{image_url_prefix}/{local_name}" if local_name else hero_url
 
-        # --- Download every gallery image locally too, and rewrite any
-        # occurrence of the original remote URL inside the markdown body
-        # so the post content references the local copy instead.
-        gallery_images = []
-        for img_url in gallery_image_urls:
-            local_name = download_image(img_url, page_dir)
-            if local_name:
-                content = content.replace(img_url, local_name)
-                gallery_images.append(local_name)
-            else:
-                # Couldn't download it - keep the remote URL as a fallback
-                # rather than silently dropping the image.
-                gallery_images.append(img_url)
+        # --- Download every image embedded in the post body and rewrite its
+        # src attribute directly in the HTML (before markdown conversion),
+        # so the markdown ends up with the correct local reference
+        # unconditionally - no string-matching against markdownify's output
+        # required.
+        localized_html, gallery_images = download_and_localize_images(
+            post['content']['rendered'], page_dir, image_url_prefix
+        )
+        content = html_to_markdown(localized_html)
 
         # Collect all the data into a dictionary for easier handling
         post_data = {
