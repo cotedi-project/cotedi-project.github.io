@@ -4,6 +4,8 @@ const { DateTime } = require("luxon");
 const path = require("node:path");
 const Image = require("@11ty/eleventy-img");
 
+Image.concurrency = 1; // don't process multiple images at once, to avoid memory issues
+
 const markdownit = require("markdown-it");
 
 // markdown-it-attrs uses commonJs modules and is a showstopper for modernizing the codebase
@@ -60,10 +62,6 @@ module.exports = (eleventyConfig) => {
 
         // Don't crash the whole build if one image fails to process, just log the error and continue
         failOnError: false,
-
-        // Force strictly sequential processing of images
-        // to see which image is causing problems. This is slower, but can be useful for debugging.
-        concurrency: 1
         },
 
         filenameFormat: function (id, src, width, format, options) {
