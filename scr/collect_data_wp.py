@@ -243,18 +243,17 @@ def main():
 
         # Collect all the data into a dictionary for easier handling
         post_data = {
-            "id": post_id,
             "title": title,
+            "author_name": author_name,
             "date": date,
+            "tags": tags,
+            "type": type,
+            "hero": hero,
+            "link": link,
+            "language": language,
             "category": category,
             "description": description,
-            "link": link,
-            "type": type,
-            "tags": tags,
-            "hero": hero,
             "gallery_images": gallery_images,
-            "language": language,
-            "author_name": author_name,
         }
 
         # Render YAML block from dictionary
