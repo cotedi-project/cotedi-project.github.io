@@ -3,10 +3,14 @@
 name: Python application
 
 on:
-  push:
+  pull_request:
+    types:
+    - opened
+    - edited
+    - synchronize
+    - ready_for_review
     branches:
-      - main
-  workflow_dispatch:
+    - main
 
 permissions:
   contents: write
