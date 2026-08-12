@@ -2,9 +2,6 @@
 name: Check if PR is ready for review
 
 on:
-  push:
-    branches:
-      - debug
   pull_request:
     types:
     - opened
@@ -24,57 +21,13 @@ jobs:
     
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+        uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
       - name: setup dependencies
         run: npm ci
-      - name: Isolate double-read bug
-        run: |
-          node -e '
-          const sharp = require("sharp");
-          const file = "./docs/news/page_185/inted25-teaser.jpeg";
-
-          (async () => {
-            try {
-              const m1 = await sharp(file).metadata();
-              console.log("FIRST read OK:", m1.format, m1.width, "x", m1.height);
-            } catch (e) {
-              console.log("FIRST read FAILED:", e.message);
-            }
-
-            try {
-              const m2 = await sharp(file).metadata();
-              console.log("SECOND read OK:", m2.format, m2.width, "x", m2.height);
-            } catch (e) {
-              console.log("SECOND read FAILED:", e.message);
-            }
-          })();
-          ' 
       - name: lint JS and CSS
         run: npm run lint
-      - name: Debug sharp install
-        run: |
-          node -e "console.log(process.platform, process.arch)"
-          npm ls sharp
-          node -e "const sharp = require('sharp'); console.log(sharp.versions)"
-          ls -la node_modules/@img/ 2>/dev/null || echo "no @img dir found"
-      - name: Clear eleventy-img/eleventy-fetch cache
-        run: |
-          find . -type d -name ".cache" -not -path "*/node_modules/*"
-          rm -rf .cache
-      - name: Build with debug logging
-        run: npm run all > build-debug.log 2>&1 || true
-        env:
-          DEBUG: "Eleventy*,EleventyImg*"
-
-      - name: Show relevant debug lines
-        run: grep -i -B5 -A5 "inted25-teaser" build-debug.log || echo "no matches found"
-
-      - name: Upload full debug log as artifact
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-debug-log
-          path: build-debug.log
+      - name: Build site assets
+        run: npm run all

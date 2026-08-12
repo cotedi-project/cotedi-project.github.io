@@ -3,15 +3,6 @@ const { DateTime } = require("luxon");
 
 const path = require("node:path");
 const Image = require("@11ty/eleventy-img");
-const sharp = require("sharp");
-
-// Disable sharp/libvips's own internal operation cache and thread pool,
-// which operate independently of eleventy-img's queue concurrency and can
-// cause corrupted reads when multiple images are processed close together.
-sharp.cache(false);
-sharp.concurrency(1);
-
-Image.concurrency = 1; // don't process multiple images at once, to avoid memory issues
 
 const markdownit = require("markdown-it");
 
@@ -65,10 +56,7 @@ module.exports = (eleventyConfig) => {
         defaultAttributes: {
             loading: "lazy",
             decoding: "async",
-            sizes: [200, 400, 800, 1260, 1920, 2400, "auto"],
-
-        // Don't crash the whole build if one image fails to process, just log the error and continue
-        failOnError: false,
+            sizes: [200, 400, 800, 1260, 1920, 2400, "auto"]
         },
 
         filenameFormat: function (id, src, width, format, options) {
