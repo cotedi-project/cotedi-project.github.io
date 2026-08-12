@@ -54,28 +54,6 @@ jobs:
           ' 
       - name: lint JS and CSS
         run: npm run lint
-      - name: Debug remote images
-        run: |
-          mkdir -p /tmp/imgcheck
-          urls=(
-            "https://imaginatic.es/wp-content/uploads/2025/07/Captura-de-pantalla-2025-07-29-132633.png"
-            "https://imaginatic.es/wp-content/uploads/2025/07/Captura-de-pantalla-2025-07-29-181429-1-1024x568.png"
-            "https://imaginatic.es/wp-content/uploads/2025/06/2025-EnhancingComputationalThinkingSkillsInEarlyEducation.jpg"
-            "https://imaginatic.es/wp-content/uploads/2025/07/Captura-de-pantalla-2025-07-29-134622-1024x390.png"
-            "https://imaginatic.es/wp-content/uploads/2025/07/Captura-de-pantalla-2025-07-29-175357.png"
-            "https://imaginatic.es/wp-content/uploads/2025/07/Captura-de-pantalla-2025-07-29-180136-2.png"
-          )
-          i=0
-          for url in "${urls[@]}"; do
-            i=$((i+1))
-            out="/tmp/imgcheck/img$i"
-            echo "== $url =="
-            curl -sL "$url" -o "$out"
-            echo "size: $(stat -c%s "$out") bytes"
-            file "$out"
-            head -c 200 "$out" | strings | head -5
-            echo "---"
-          done
       - name: Debug sharp install
         run: |
           node -e "console.log(process.platform, process.arch)"
@@ -86,5 +64,17 @@ jobs:
         run: |
           find . -type d -name ".cache" -not -path "*/node_modules/*"
           rm -rf .cache
-      - name: Build site assets
-        run: npm run all
+      - name: Build with debug logging
+        run: npm run all > build-debug.log 2>&1 || true
+        env:
+          DEBUG: "Eleventy*,EleventyImg*"
+
+      - name: Show relevant debug lines
+        run: grep -i -B5 -A5 "inted25-teaser" build-debug.log || echo "no matches found"
+
+      - name: Upload full debug log as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-debug-log
+          path: build-debug.log
