@@ -30,6 +30,28 @@ jobs:
           node-version: 20
       - name: setup dependencies
         run: npm ci
+      - name: Isolate double-read bug
+        run: |
+          node -e '
+          const sharp = require("sharp");
+          const file = "./docs/news/page_185/inted25-teaser.jpeg";
+
+          (async () => {
+            try {
+              const m1 = await sharp(file).metadata();
+              console.log("FIRST read OK:", m1.format, m1.width, "x", m1.height);
+            } catch (e) {
+              console.log("FIRST read FAILED:", e.message);
+            }
+
+            try {
+              const m2 = await sharp(file).metadata();
+              console.log("SECOND read OK:", m2.format, m2.width, "x", m2.height);
+            } catch (e) {
+              console.log("SECOND read FAILED:", e.message);
+            }
+          })();
+          ' 
       - name: lint JS and CSS
         run: npm run lint
       - name: Debug remote images
