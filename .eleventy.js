@@ -3,6 +3,13 @@ const { DateTime } = require("luxon");
 
 const path = require("node:path");
 const Image = require("@11ty/eleventy-img");
+const sharp = require("sharp");
+
+// Disable sharp/libvips's own internal operation cache and thread pool,
+// which operate independently of eleventy-img's queue concurrency and can
+// cause corrupted reads when multiple images are processed close together.
+sharp.cache(false);
+sharp.concurrency(1);
 
 Image.concurrency = 1; // don't process multiple images at once, to avoid memory issues
 
