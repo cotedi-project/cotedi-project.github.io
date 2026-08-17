@@ -8,6 +8,10 @@ category_rules:
     category: [42, 68]
     folder: docs/publications
 
-  - match: any
-    category: [38, 70]
+  - match: all
+    category: [38]
     folder: docs/news
+
+  - match: all
+    category: [70]
+    folder: docs/materials
