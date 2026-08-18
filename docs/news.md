@@ -1,6 +1,10 @@
 --- 
 layout: news.njk
 title: Project News
-limit: 10
+pagination:
+  data: collections.news
+  size: 10
+  reverse: true
+  alias: posts
 --- 
 

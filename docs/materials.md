@@ -1,5 +1,9 @@
 ---
 layout: materials.njk
 title: Teaching Materials
-limit: 10
+pagination:
+  data: collections.material
+  size: 10
+  reverse: true
+  alias: posts
 ---
