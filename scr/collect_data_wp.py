@@ -44,7 +44,7 @@ def download_image(url, dest_dir):
     return filename
 
 
-def download_and_localize_images(html_content, dest_dir, url_prefix):
+def download_and_localize_images(html_content, dest_dir):
     """
     Parse `html_content`, download every <img> found, and rewrite that
     image's `src` attribute IN THE HTML ITSELF to point at the local file
