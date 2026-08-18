@@ -213,22 +213,17 @@ def main():
         page_dir = docs_dir / f"page_wp_{post_id}"  # Use post ID for unique directory name
         page_dir.mkdir(parents=True, exist_ok=True)  # Create the directory if it doesn't exist
 
-        # Path to this post's folder, relative to docs/ root, with a leading
-        # slash (e.g. "/publications/page_wp_1888"). Eleventy's image
-        # transform resolves a leading-slash path relative to the site's
-        # input directory (docs/), regardless of which template renders it -
-        # unlike a bare filename, which resolves relative to whatever
-        # template is currently being rendered and breaks when that's a
-        # different page (e.g. a listing page looping over posts).
-        image_url_prefix = "/" + page_dir.relative_to(docs_root).as_posix()
-
-        # --- Download the hero image locally, falling back to the remote
-        # URL if the download fails so we don't lose the reference entirely.
         # Saved directly in page_dir, alongside index.md (no subfolder).
+        # Hero and gallery images are referenced by BARE FILENAME in the
+        # markdown/front matter — not a path. Eleventy's post.njk detail
+        # page uses the filename as-is (resolves relative to the post's own
+        # folder), and listing templates like news.njk/materials.njk prepend
+        # post.url themselves before the filename. Baking the folder path in
+        # here would double up with that prepend on listing pages.
         hero = "No image available"
         if hero_url:
             local_name = download_image(hero_url, page_dir)
-            hero = f"{image_url_prefix}/{local_name}" if local_name else hero_url
+            hero = local_name if local_name else hero_url
 
         # --- Download every image embedded in the post body and rewrite its
         # src attribute directly in the HTML (before markdown conversion),
@@ -236,7 +231,7 @@ def main():
         # unconditionally - no string-matching against markdownify's output
         # required.
         localized_html, gallery_images = download_and_localize_images(
-            post['content']['rendered'], page_dir, image_url_prefix
+            post['content']['rendered'], page_dir
         )
         content = html_to_markdown(localized_html)
 
