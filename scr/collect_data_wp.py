@@ -73,9 +73,8 @@ def download_and_localize_images(html_content, dest_dir, url_prefix):
 
         local_name = download_image(src, dest_dir)
         if local_name:
-            local_ref = f"{url_prefix}/{local_name}"
-            img["src"] = local_ref  # rewrite directly in the parsed HTML
-            image_refs.append(local_ref)
+            img["src"] = local_name  # rewrite directly in the parsed HTML
+            image_refs.append(local_name)
         else:
             # Couldn't download it - leave the original URL as-is in the
             # HTML (and as the fallback reference) rather than dropping it.
