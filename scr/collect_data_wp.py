@@ -95,11 +95,11 @@ def resolve_folder(category, rules):
         cats = rule["category"]
         if rule["match"] == "all":
             if all(cat in category for cat in cats):
-                return rule["folder"]
+                return rule["folder"], rule.get("tags", [])
         else:  # "any"
             if any(cat in category for cat in cats):
-                return rule["folder"]
-    return None 
+                return rule["folder"], rule.get("tags", [])
+    return None, None
 
 def fetch_all_posts(client):
     """Fetch every published post across all pages, not just the first one."""
@@ -176,7 +176,7 @@ def main():
         description = html_to_markdown(post['excerpt']['rendered'])  # Use the description field
         link      = post['link']
         type      = post['type']
-        tags      = post['tags']
+        
 
         featured_media_id = post['featured_media'] # This is the media ID
         hero_url = None
@@ -191,7 +191,7 @@ def main():
         author_name = author['name']
 
         # Determine the output folder based on the post's category and the loaded rules
-        folder = resolve_folder(category, category_rules)
+        folder, site_tags = resolve_folder(category, category_rules)
 
         if folder is None:
             print(f"Warning: Post {post_id} has an unrecognized category {category}.")
@@ -232,7 +232,7 @@ def main():
             "title": title,
             "author_name": author_name,
             "date": date,
-            "tags": tags,
+            "tags": site_tags,
             "type": type,
             "hero": hero,
             "link": link,
