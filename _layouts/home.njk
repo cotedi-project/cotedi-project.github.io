@@ -5,13 +5,14 @@ layout: index
     <div style="background-image: url({{ hero | url }});" class="heroimage text-center"></div>
 {% endif %}
 
-{% include "blocks/audience_cta.njk" %}
+
 
 
 <div class="container rsf-text">
     {{ content | safe }}
 </div>
 
+{% include "blocks/audience_cta.njk" %}
 {% include "blocks/home_teasers.njk" %}
 
 <section id="highlights" class="container py-1 mb-2">
