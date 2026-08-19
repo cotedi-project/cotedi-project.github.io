@@ -3,7 +3,7 @@ layout: reports.njk
 title: Reports
 pagination:
   data: collections.report
-  size: 10
+  size: 5
   reverse: true
   alias: posts
 --- 

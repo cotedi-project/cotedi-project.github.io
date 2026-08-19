@@ -3,7 +3,9 @@ layout: index
 ---
 <div class="container rsf-text">
         <h1>{{ title }}</h1>
-      {% set posts = pagination.pages if pagination else (collections.news | reverse) %}
+      {% if not pagination %}
+        {% set posts = collections.news | reverse %}
+      {% endif %}
 
       {% set allpartners = partners.research %}
       {% set allpartners = allpartners.concat(partners.schools) %}

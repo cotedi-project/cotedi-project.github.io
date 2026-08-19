@@ -3,7 +3,7 @@ layout: materials.njk
 title: Teaching Materials
 pagination:
   data: collections.material
-  size: 10
+  size: 5
   reverse: true
   alias: posts
 ---

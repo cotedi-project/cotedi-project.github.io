@@ -3,10 +3,8 @@ layout: index
 ---
 <div class="container rsf-text">
         <h1>{{ title }}</h1>
-      {% set posts = collections.report | reverse %}
-     
-      {% if limit %}
-        {% set posts = posts | entryLimit(limit) %}
+      {% if not pagination %}
+        {% set posts = collections.report | reverse %}
       {% endif %}
 
       {% set allpartners = partners.research %}
@@ -61,7 +59,24 @@ layout: index
         </article>
       {% endfor %}
 
-   
+      {% if pagination and pagination.hrefs.length > 1 %}
+      <nav aria-label="Reports pagination">
+        <ul class="pagination justify-content-center">
+          {% if pagination.href.previous %}
+            <li class="page-item"><a class="page-link" href="{{ pagination.href.previous | url }}">Previous</a></li>
+          {% endif %}
+          {% for href in pagination.hrefs %}
+            <li class="page-item {% if loop.index0 == pagination.pageNumber %}active{% endif %}">
+              <a class="page-link" href="{{ href | url }}">{{ loop.index }}</a>
+            </li>
+          {% endfor %}
+          {% if pagination.href.next %}
+            <li class="page-item"><a class="page-link" href="{{ pagination.href.next | url }}">Next</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+      {% endif %}
 
 </div>
+
       
