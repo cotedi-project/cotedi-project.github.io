@@ -65,6 +65,15 @@
     {% endfor %}
     </ul>    
 </div>
+
+<div class="col-md-4  col-sm-12">
+    <h3>Impressum</h3>
+    <ul>
+    {% for link in links.Project %}
+    <li><a class="{{ link.logo }}" href="{{ link.url }}" {%if link.target %}target="{{ link.target }}"{% endif %}>{{ link.name }}</a></li>
+    {% endfor %}
+    </ul>    
+</div>
 </div>
 </div>
 </footer>
