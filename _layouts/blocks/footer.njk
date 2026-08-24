@@ -35,3 +35,36 @@
 </div>
 </footer>
 
+
+<footer class="contact">
+<div class="container">
+<div class="row">
+<div class="col-md-4 col-sm-12">
+    <h3>Community</h3>
+    <ul>
+    {% for link in links.Community %}
+    <li><a class="{{ link.logo }}" href="{{ link.url }}" {%if link.target %}target="{{ link.target }}"{% endif %}>{{ link.name }}</a></li>
+    {% endfor %}
+    </ul>    
+</div>
+
+<div class="col-md-4  col-sm-12">
+    <h3>Resources</h3>
+    <ul>
+    {% for link in links.Resources %}
+    <li><a class="{{ link.logo }}" href="{{ link.url }}" {%if link.target %}target="{{ link.target }}"{% endif %}>{{ link.name }}</a></li>
+    {% endfor %}
+    </ul>    
+</div>
+
+<div class="col-md-4  col-sm-12">
+    <h3>Project</h3>
+    <ul>
+    {% for link in links.Project %}
+    <li><a class="{{ link.logo }}" href="{{ link.url }}" {%if link.target %}target="{{ link.target }}"{% endif %}>{{ link.name }}</a></li>
+    {% endfor %}
+    </ul>    
+</div>
+</div>
+</div>
+</footer>

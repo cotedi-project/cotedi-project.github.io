@@ -10,33 +10,15 @@
   <nav class="top-dropdown-nav-bar">
   <div class="container">
     <ul class="list-unstyled d-flex gap-4 mb-0">
-      <li>
+            <li>
         <details>
-          <summary>Community</summary>
+          <summary>Explore</summary>
           <ul class="list-unstyled">
-          {% for link in links.Community %}
-            <li><a class="{{ link.logo }}" href="{{ link.url }}" {%if link.target %}target="{{ link.target }}"{% endif %}>{{ link.name }}</a></li>
-          {% endfor %}
-          </ul>
-        </details>
-      </li>
-      <li>
-        <details>
-          <summary>Resources</summary>
-          <ul class="list-unstyled">
-          {% for link in links.Resources %}
-            <li><a class="{{ link.logo }}" href="{{ link.url }}" {%if link.target %}target="{{ link.target }}"{% endif %}>{{ link.name }}</a></li>
-          {% endfor %}
-          </ul>
-        </details>
-      </li>
-      <li>
-        <details>
-          <summary>Project</summary>
-          <ul class="list-unstyled">
-          {% for link in links.Project %}
-            <li><a class="{{ link.logo }}" href="{{ link.url }}" {%if link.target %}target="{{ link.target }}"{% endif %}>{{ link.name }}</a></li>
-          {% endfor %}
+            <li><a href="{{ '/events/' | url }}">Events</a></li>
+            <li><a href="{{ '/news/' | url }}">News</a></li>
+            <li><a href="{{ '/materials/' | url }}">Teaching Materials</a></li>
+            <li><a href="{{ '/reports/' | url }}">Reports</a></li>
+            <li><a href="{{ '/publications/' | url }}">Publications</a></li>
           </ul>
         </details>
       </li>
