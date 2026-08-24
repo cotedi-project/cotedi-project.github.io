@@ -11,7 +11,7 @@ layout: index
       {% set allpartners = allpartners.concat(partners.schools) %}
 
       {% for post in posts %}
-        <article>
+        <article class="{{ post.data.type }}">
             {% if post.data.hero %}
             <div class="heroimage"><a href="{{ post.url | url }}">
             <img src="{{ post.url | url }}{{ post.data.hero | url }}" alt="{{ post.data.title }} teaser image" sizes="200w,400w,800w,1920w,2400w"></a>
@@ -19,16 +19,20 @@ layout: index
             {% endif %}
             <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
             <p class="meta">
-            
-                    {%- if post.data.language and post.data.language != 'English'-%}{{ " " }} 
+                    {%- if post.data.language and post.data.language != 'English'-%}{{ " " }}
+                    {%- set display_language = post.data.language -%}
+                    {%- if post.data.language == 'es_ES' -%}
+                      {%- set display_language = 'Spanish' -%}
+                    {%- endif -%}
                     <span class="badge text-bg-warning">{%if post.data.language == 'Spanish' -%} 🇪🇸
+        {%- elif post.data.language == 'es_ES' -%}🇪🇸
         {%- elif post.data.language == 'Portuguese' -%}🇵🇹
         {%- elif post.data.language == 'German' -%}🇩🇪
         {%- elif post.data.language == 'Dutch' -%}🇳🇱
         {%- elif post.data.language == 'Swedish' -%}🇸🇪
-        {%- endif %} {{ " " }} {{post.data.language}} Content</span>{%- endif %}
-
-            <time datetime="{{ page.date | htmlDateString }}">{{ post.date | readableDate }}</time> by 
+        {%- endif %} {{ " " }} {{ display_language }} Content</span>{%- endif %}
+            <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time> by
+        
             <span>
         {%- for partner in allpartners -%}
             {%- for member in partner.team -%}

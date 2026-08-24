@@ -21,14 +21,19 @@ layout: index
             {% endif %}
             <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
             <p class="meta">
-                    {%- if post.data.language and post.data.language != 'English'-%}{{ " " }} 
+                    {%- if post.data.language and post.data.language != 'English'-%}{{ " " }}
+                    {%- set display_language = post.data.language -%}
+                    {%- if post.data.language == 'es_ES' -%}
+                      {%- set display_language = 'Spanish' -%}
+                    {%- endif -%}
                     <span class="badge text-bg-warning">{%if post.data.language == 'Spanish' -%} 🇪🇸
+        {%- elif post.data.language == 'es_ES' -%}🇪🇸
         {%- elif post.data.language == 'Portuguese' -%}🇵🇹
         {%- elif post.data.language == 'German' -%}🇩🇪
         {%- elif post.data.language == 'Dutch' -%}🇳🇱
         {%- elif post.data.language == 'Swedish' -%}🇸🇪
-        {%- endif %} {{ " " }} {{post.data.language}} Content</span>{%- endif %}
-            <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time> by 
+        {%- endif %} {{ " " }} {{ display_language }} Content</span>{%- endif %}
+            <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time> by
             
             <span>
         {%- for partner in allpartners -%}
@@ -62,10 +67,6 @@ layout: index
                 <a class="bi bi-box-arrow-up-right" href="{{ post.url | url }}"> Read more</a>
             </p>
         </article>
-      {% endfor %}
-
-      {% if limit and posts | length > limit %}
-        <p><a href="{{ '/archive' | url }}">More posts...</a></p>        
       {% endfor %}
 
       {% if pagination and pagination.hrefs.length > 1 %}

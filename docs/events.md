@@ -1,7 +1,11 @@
 --- 
-layout: page
+layout: event
 title: Upcoming Events
-limit: 10
+pagination:
+  data: collections.event
+  size: 10
+  reverse: true
+  alias: posts
 --- 
 {% set presentDate %}{% thisDate %}{% endset %}
 
@@ -14,4 +18,3 @@ limit: 10
     </li>
     {%- endif %}
 {%- endfor %}</ul>
-
