@@ -7,7 +7,7 @@ tags:
 - evaluation
 - report
 - news
-hero:
+hero: Image-music-prog.jpg
 link: https://www.mdpi.com/2227-7102/14/12/1380
 
 partner: 

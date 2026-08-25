@@ -13,7 +13,7 @@ title: Impressum / Legal Notice
 
 ## Funding
 
-This project is co-funded by the Erasmus+ Programme of the European Union.
+This project is co-funded by the Erasmus+ Programme of the European Union and MovETIA (Switzerland).
 
 The European Commission support for the production of this publication does not constitute an endorsement of the contents which reflects the views only of the authors, and the Commission cannot be held responsible for any use which may be made of the information contained therein.
 
@@ -26,6 +26,9 @@ The European Commission support for the production of this publication does not 
 ## Data Protection
 
 For information about how we process personal data, please see our [Privacy Statement](/pages/privacy/).
+
+## License
+Unless otherwise stated, the content on this website is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
 
 ## Disclaimer
 
