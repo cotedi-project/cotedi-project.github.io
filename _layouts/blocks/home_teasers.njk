@@ -1,51 +1,25 @@
-{% set latestMaterial = (collections.material | reverse | entryLimit(1))[0] %}
-{% set latestReport = (collections.report | reverse | entryLimit(1))[0] %}
-{% set latestNewsItem = (collections.news | reverse | entryLimit(1))[0] %}
+{% set latestNews = collections.news | reverse | entryLimit(3) %}
 
-<section id="highlights" class="container py-4">
-  <div class="row g-4">
-
-    <div class="col-md-4">
-      <h2 class="h5">Teaching Materials</h2>
-      {% if latestMaterial %}
-      <div class="card h-100 shadow-sm">
-        {% if latestMaterial.data.hero and latestMaterial.data.hero != "No image available" %}
-        <img src="{{ latestMaterial.url | url }}{{ latestMaterial.data.hero | url }}" class="card-img-top" alt="{{ latestMaterial.data.title }}" style="height:160px; object-fit:cover;">
-        {% endif %}
-        <div class="card-body">
-          <h3 class="card-title h6"><a class="stretched-link text-decoration-none" href="{{ latestMaterial.url | url }}">{{ latestMaterial.data.title }}</a></h3>
-        </div>
-      </div>
-      {% endif %}
-      <a href="{{ '/materials/' | url }}" class="d-inline-block mt-2">All materials »</a>
-    </div>
-
-    <div class="col-md-4">
-      <h2 class="h5">Project Results</h2>
-      {% if latestReport %}
-      <div class="card h-100 shadow-sm">
-        <div class="card-body">
-          <h3 class="card-title h6"><a class="stretched-link text-decoration-none" href="{{ latestReport.url | url }}">{{ latestReport.data.title }}</a></h3>
-        </div>
-      </div>
-      {% endif %}
-      <a href="{{ '/reports/' | url }}" class="d-inline-block mt-2">All results & reports »</a>
-    </div>
-
-    <div class="col-md-4">
-      <h2 class="h5">History</h2>
-      {% if latestNewsItem %}
-      <div class="card h-100 shadow-sm">
-        {% if latestNewsItem.data.hero %}
-        <img src="{{ latestNewsItem.url | url }}{{ latestNewsItem.data.hero | url }}" class="card-img-top" alt="{{ latestNewsItem.data.title }}" style="height:160px; object-fit:cover;">
-        {% endif %}
-        <div class="card-body">
-          <h3 class="card-title h6"><a class="stretched-link text-decoration-none" href="{{ latestNewsItem.url | url }}">{{ latestNewsItem.data.title }}</a></h3>
-        </div>
-      </div>
-      {% endif %}
-      <a href="{{ '/news/' | url }}" class="d-inline-block mt-2">All news »</a>
-    </div>
-
+<section id="highlights" class="container home-teasers" aria-labelledby="teasers-heading">
+  <div class="teasers-head">
+    <h2 id="teasers-heading" class="h4">Latest news</h2>
+    <a href="{{ '/news/' | url }}">All news »</a>
   </div>
+
+  <div class="row g-4">
+    {% for item in latestNews %}
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        {% if item.data.hero and item.data.hero != "No image available" %}
+        <img src="{{ item.url | url }}{{ item.data.hero | url }}" class="card-img-top" alt="{{ item.data.title }}">
+        {% endif %}
+        <div class="card-body">
+          <h3 class="card-title h6"><a class="stretched-link text-decoration-none" href="{{ item.url | url }}">{{ item.data.title }}</a></h3>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <p class="teasers-extra"><a href="{{ '/events/' | url }}">Upcoming events »</a></p>
 </section>

@@ -1,38 +1,50 @@
 <!-- skiplinks -->
-<a href="#main" class="visually-hidden-focusable">Skip to main content</a>
+<a href="#main" class="visually-hidden-focusable skip-link">Skip to main content</a>
 
 <div class="container py-4">
   <header class="title">
-    <a href="{{ '/' | url }}" class="d-flex align-items-center text-dark text-decoration-none">
-          <img src="{{ site.logo_large | url }}" alt="logo {{ site.title }}" class="img-fluid" style="margin-right: 2em; width: 120px; height: 65px;" eleventy:ignore> <span class="fs-4">{{ site.long_title }}</span>
+    <a href="{{ '/' | url }}" class="site-brand d-flex align-items-center text-dark text-decoration-none">
+      <img src="{{ site.logo_large | url }}" alt="logo {{ site.title }}" class="brand-logo img-fluid" eleventy:ignore>
+      <span class="brand-title">{{ site.long_title }}</span>
     </a>
   </header>
-  <nav class="top-dropdown-nav-bar">
-  <div class="container">
-    <ul class="list-unstyled d-flex gap-4 mb-0">
-            <li>
-        <details>
-          <summary>Explore</summary>
-          <ul class="list-unstyled">
-            <li><a href="{{ '/events/' | url }}">Events</a></li>
-            <li><a href="{{ '/news/' | url }}">News</a></li>
-            <li><a href="{{ '/materials/' | url }}">Teaching Materials</a></li>
-            <li><a href="{{ '/reports/' | url }}">Reports</a></li>
-            <li><a href="{{ '/publications/' | url }}">Publications</a></li>
-          </ul>
-        </details>
-      </li>
-    </ul>
-  </div>
 
-  <div class="wave-bottom" aria-hidden="true">
-    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path class="wave-layer-1" d="M0,50 C360,10 1080,80 1440,50 L1440,100 L0,100 Z"></path>
-      <path class="wave-layer-2" d="M0,60 C360,90 1080,30 1440,60 L1440,100 L0,100 Z"></path>
-      <path class="wave-layer-3" d="M0,70 C360,40 1080,100 1440,70 L1440,100 L0,100 Z"></path>
-    </svg>
-  </div>
-</nav>
+  <nav class="top-dropdown-nav-bar" aria-label="Main navigation">
+    <div class="container">
+      <ul class="list-unstyled main-nav mb-0">
+        <li><a href="{{ '/' | url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>Home</a></li>
+        <li><a href="{{ '/materials/' | url }}" {% if '/materials/' in page.url %}aria-current="page"{% endif %}>Teaching Materials</a></li>
+        <li><a href="{{ '/reports/' | url }}" {% if '/reports/' in page.url %}aria-current="page"{% endif %}>Results</a></li>
+        <li><a href="{{ '/pages/about/' | url }}" {% if '/pages/about/' in page.url %}aria-current="page"{% endif %}>About</a></li>
+        <li><a href="{{ '/events/' | url }}" {% if '/events/' in page.url %}aria-current="page"{% endif %}>Events</a></li>
+        <li><a href="{{ '/news/' | url }}" {% if '/news/' in page.url %}aria-current="page"{% endif %}>News</a></li>
+        <li><a href="{{ '/publications/' | url }}" {% if '/publications/' in page.url %}aria-current="page"{% endif %}>Publications</a></li>
+      </ul>
+
+      <ul class="list-unstyled compact-nav mb-0">
+        <li>
+          <details>
+            <summary>Explore</summary>
+            <ul class="list-unstyled">
+              <li><a href="{{ '/' | url }}">Home</a></li>
+              <li><a href="{{ '/materials/' | url }}">Teaching Materials</a></li>
+              <li><a href="{{ '/reports/' | url }}">Results</a></li>
+              <li><a href="{{ '/pages/about/' | url }}">About</a></li>
+              <li><a href="{{ '/events/' | url }}">Events</a></li>
+              <li><a href="{{ '/news/' | url }}">News</a></li>
+              <li><a href="{{ '/publications/' | url }}">Publications</a></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </div>
+
+    <div class="wave-bottom" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="wave-layer-1" d="M0,50 C360,10 1080,80 1440,50 L1440,100 L0,100 Z"></path>
+        <path class="wave-layer-2" d="M0,60 C360,90 1080,30 1440,60 L1440,100 L0,100 Z"></path>
+        <path class="wave-layer-3" d="M0,70 C360,40 1080,100 1440,70 L1440,100 L0,100 Z"></path>
+      </svg>
+    </div>
+  </nav>
 </div>
-
-

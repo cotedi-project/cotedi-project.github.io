@@ -5,14 +5,16 @@ layout: index
     <div style="background-image: url({{ hero | url }});" class="heroimage text-center"></div>
 {% endif %}
 
+<section class="container home-intro">
+  <p class="home-lead">Computational thinking for every classroom &mdash; inclusive teaching materials and project results from 16 institutions in six European countries.</p>
+</section>
 
+{% include "blocks/home_primary.njk" %}
+{% include "blocks/home_about.njk" %}
+{% include "blocks/home_teasers.njk" %}
 
-
+{% if content %}
 <div class="container rsf-text">
     {{ content | safe }}
 </div>
-
-{% include "blocks/audience_cta.njk" %}
-{% include "blocks/home_teasers.njk" %}
-
-<section id="highlights" class="container py-1 mb-2">
+{% endif %}

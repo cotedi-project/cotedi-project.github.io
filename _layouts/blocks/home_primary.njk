@@ -1,0 +1,43 @@
+{% set latestMaterials = collections.material | reverse | entryLimit(3) %}
+{% set latestReports = collections.report | reverse | entryLimit(3) %}
+
+<section id="primary" class="container home-primary" aria-labelledby="primary-heading">
+  <h2 id="primary-heading" class="visually-hidden">Teaching materials and project results</h2>
+
+  <div class="row g-4">
+    <div class="col-lg-6">
+      <div class="primary-panel">
+        <div class="primary-panel-head">
+          <h3>Teaching Materials</h3>
+          <p>Ready-to-use activities, guides and prototypes for computational thinking in inclusive classrooms.</p>
+          <a class="btn btn-primary" href="{{ '/materials/' | url }}">Browse all materials</a>
+        </div>
+        {% if latestMaterials | length %}
+        <ul class="primary-list list-unstyled">
+          {% for item in latestMaterials %}
+          <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="primary-panel">
+        <div class="primary-panel-head">
+          <h3>Project Results</h3>
+          <p>Deliverables, evaluation reports and publications documenting the outcomes of the project.</p>
+          <a class="btn btn-primary" href="{{ '/reports/' | url }}">View all results</a>
+        </div>
+        {% if latestReports | length %}
+        <ul class="primary-list list-unstyled">
+          {% for item in latestReports %}
+          <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        <p class="primary-extra"><a href="{{ '/publications/' | url }}">Academic publications »</a></p>
+      </div>
+    </div>
+  </div>
+</section>
