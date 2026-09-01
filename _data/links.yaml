@@ -18,9 +18,6 @@ Community:
 - name: GitHub
   url: https://github.com/cotedi-project
   target: _blank
-- name: More is coming soon
-  url: https://reimagined-capybara-q7vxv47v659r3466v-8080.app.github.dev/events/
-  target: _blank
 
 Resources:
 - name: News Archive
@@ -41,8 +38,6 @@ Project:
   url: /pages/contact/
 - name: Partners
   url: /pages/partners/
-- name: Roadmap
-  url: /pages/roadmap/
 - name: Project Results
   url: https://ec.europa.eu/programmes/erasmus-plus/projects/eplus-projects-compendium/
   target: _blank
