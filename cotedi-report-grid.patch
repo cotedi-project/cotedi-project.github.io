@@ -1,0 +1,33 @@
+diff --git a/_layouts/report.njk b/_layouts/report.njk
+index e041904..c1adda0 100644
+--- a/_layouts/report.njk
++++ b/_layouts/report.njk
+@@ -3,9 +3,6 @@ layout: index
+ ---
+ 
+ 
+-{% if hero %}
+-    <div style="background-image: url({{ hero | url }});" class="heroimage text-center"></div>
+-{% endif %}
+ 
+ 
+ {% set mtags = [] %}
+@@ -21,6 +18,11 @@ layout: index
+ 
+ {% if title -%}
+ <div class="container rsf-text">
++        {% if hero %}
++            <div class="heroimage text-center">
++            <img src="{{ hero | url }}" alt="{{ title }} cover image" sizes="200w,400w,800w,1920w,2400w">
++            </div>
++        {% endif %}
+         <p class="badge bg-primary rounded-pill">{{ mtags }} Report</p>
+         <h1>{{ title or meta.title }}</h1>
+ 
+@@ -133,4 +135,4 @@ layout: index
+ 
+ <div class="back">
+           <a type="button" class="btn btn-primary" href="{{ '/reports/' | url }}">Get more reports</a>
+-</div>
+\ No newline at end of file
++</div>

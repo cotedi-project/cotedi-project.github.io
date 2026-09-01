@@ -695,7 +695,6 @@ main {
    Layout/spacing/typography refinements. Colours reuse the variables above.
    ========================================================================== */
 
-$measure: 68ch;
 $radius-card: 0.75rem;
 
 :root {
@@ -818,17 +817,7 @@ main {
         margin-bottom: 1rem;
     }
 
-    /* comfortable line length for body copy */
     .rsf-text {
-        > p,
-        > ul,
-        > ol,
-        > blockquote,
-        article > p,
-        article > ul {
-            max-width: $measure;
-        }
-
         li, p {
             font-size: clamp(1rem, .95rem + .25vw, 1.15rem);
         }
@@ -895,11 +884,6 @@ main article {
         color: darken($footer-grey-400, 45%);
         font-size: .95rem;
         margin-bottom: .5rem;
-    }
-
-    /* keep teaser text readable */
-    > p {
-        max-width: $measure;
     }
 }
 
