@@ -1,0 +1,24 @@
+{% set latestEvent = (collections.event | reverse)[0] %}
+
+{% if latestEvent %}
+<div class="container">
+  <section class="featured-event-banner">
+    <div class="featured-event-content">
+      <div class="featured-event-badge">Upcoming Event</div>
+      <h2>{{ latestEvent.data.title }}</h2>
+      <div class="featured-event-details">
+        <p>
+          <strong>When:</strong> 
+          <time datetime="{{ latestEvent.date | htmlDateString }}">
+            {{ latestEvent.date | readableDate }}
+          </time>
+        </p>
+        <p>
+          <strong>Where:</strong> {{ latestEvent.data.location }}
+        </p>
+      </div>
+      <a href="{{ latestEvent.url | url }}" class="btn btn-primary btn-lg">View Event Details</a>
+    </div>
+  </section>
+</div>
+{% endif %}
