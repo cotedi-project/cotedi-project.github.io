@@ -11,7 +11,7 @@
     <div class="col-md-4">
       <div class="card h-100 shadow-sm">
         {% if item.data.hero and item.data.hero != "No image available" %}
-        <img src="{{ item.url | url }}{{ item.data.hero | url }}" class="card-img-top" alt="{{ item.data.title }}">
+        <img src="{{ item.url | url }}{{ item.data.hero | url }}" class="card-img-top" alt="{{ item.data.title }}" sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" decoding="async">
         {% endif %}
         <div class="card-body">
           <h3 class="card-title h6"><a class="stretched-link text-decoration-none" href="{{ item.url | url }}">{{ item.data.title }}</a></h3>

@@ -1,0 +1,352 @@
+diff --git a/.eleventy.js b/.eleventy.js
+index a8502b6..7dfe943 100644
+--- a/.eleventy.js
++++ b/.eleventy.js
+@@ -56,7 +56,7 @@ module.exports = (eleventyConfig) => {
+         defaultAttributes: {
+             loading: "lazy",
+             decoding: "async",
+-            sizes: [200, 400, 800, 1260, 1920, 2400, "auto"]
++            sizes: "(max-width: 576px) 100vw, (max-width: 992px) 92vw, 1140px"
+         },
+ 
+         filenameFormat: function (id, src, width, format, options) {
+diff --git a/_layouts/blocks/featured_event.njk b/_layouts/blocks/featured_event.njk
+index 771d707..f2289a4 100644
+--- a/_layouts/blocks/featured_event.njk
++++ b/_layouts/blocks/featured_event.njk
+@@ -5,7 +5,7 @@
+   <section class="featured-event-banner">
+     <div class="featured-event-content">
+       <div class="featured-event-badge">Upcoming Event</div>
+-      <h2>{{ latestEvent.data.title }}</h2>
++      <h2>{{ latestEvent.data.title | safe }}</h2>
+       <div class="featured-event-details">
+         <p>
+           <strong>When:</strong> 
+@@ -13,9 +13,11 @@
+             {{ latestEvent.date | readableDate }}
+           </time>
+         </p>
++        {% if latestEvent.data.location %}
+         <p>
+           <strong>Where:</strong> {{ latestEvent.data.location }}
+         </p>
++        {% endif %}
+       </div>
+       <a href="{{ latestEvent.url | url }}" class="btn btn-primary btn-lg">View Event Details</a>
+     </div>
+diff --git a/_layouts/blocks/home_teasers.njk b/_layouts/blocks/home_teasers.njk
+index d0397a4..aebf1d2 100644
+--- a/_layouts/blocks/home_teasers.njk
++++ b/_layouts/blocks/home_teasers.njk
+@@ -11,7 +11,7 @@
+     <div class="col-md-4">
+       <div class="card h-100 shadow-sm">
+         {% if item.data.hero and item.data.hero != "No image available" %}
+-        <img src="{{ item.url | url }}{{ item.data.hero | url }}" class="card-img-top" alt="{{ item.data.title }}">
++        <img src="{{ item.url | url }}{{ item.data.hero | url }}" class="card-img-top" alt="{{ item.data.title }}" sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" decoding="async">
+         {% endif %}
+         <div class="card-body">
+           <h3 class="card-title h6"><a class="stretched-link text-decoration-none" href="{{ item.url | url }}">{{ item.data.title }}</a></h3>
+diff --git a/_layouts/event.njk b/_layouts/event.njk
+index 168da62..10dcd0a 100644
+--- a/_layouts/event.njk
++++ b/_layouts/event.njk
+@@ -4,7 +4,7 @@ layout: index
+     <div class="container rsf-text">
+       {% if hero %}
+           <div class="heroimage text-center">
+-          <img src="{{ hero | url }}" alt="{{ title }} cover image" sizes="200w,400w,800w,1920w,2400w">
++          <img src="{{ hero | url }}" alt="{{ title }} cover image" sizes="(max-width: 576px) 100vw, (max-width: 992px) 92vw, 1140px" loading="eager" fetchpriority="high" decoding="async">
+           </div>
+       {% endif %}
+         <h1>{{ title }}</h1>
+diff --git a/_layouts/home.njk b/_layouts/home.njk
+index c0d697c..d464c42 100644
+--- a/_layouts/home.njk
++++ b/_layouts/home.njk
+@@ -2,7 +2,11 @@
+ layout: index
+ ---
+ {% if hero %}
+-    <div style="background-image: url({{ hero | url }});" class="heroimage text-center"></div>
++<div class="container rsf-text">
++    <div class="heroimage text-center">
++    <img src="{{ hero | url }}" alt="CoTEDI project cover image" sizes="(max-width: 576px) 100vw, (max-width: 992px) 92vw, 1140px" loading="eager" fetchpriority="high" decoding="async">
++    </div>
++</div>
+ {% endif %}
+ 
+ <section class="container home-intro">
+diff --git a/_layouts/materials.njk b/_layouts/materials.njk
+index df17ab9..ef17d2b 100644
+--- a/_layouts/materials.njk
++++ b/_layouts/materials.njk
+@@ -16,7 +16,7 @@ layout: index
+         <article class="{{ post.data.type }}">
+             {% if post.data.hero %}
+             <div class="heroimage"><a href="{{ post.url | url }}">
+-            <img src="{{ post.url | url }}{{ post.data.hero | url }}" alt="{{ post.data.title }} teaser image" sizes="200w,400w,800w,1920w,2400w"></a>
++            <img src="{{ post.url | url }}{{ post.data.hero | url }}" alt="{{ post.data.title }} teaser image" sizes="(max-width: 576px) 100vw, (max-width: 992px) 92vw, 1140px" loading="lazy" decoding="async"></a>
+             </div>
+             {% endif %}
+             <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
+diff --git a/_layouts/news.njk b/_layouts/news.njk
+index 4ba847a..eac63ac 100644
+--- a/_layouts/news.njk
++++ b/_layouts/news.njk
+@@ -14,7 +14,7 @@ layout: index
+         <article class="{{ post.data.type }}">
+             {% if post.data.hero %}
+             <div class="heroimage"><a href="{{ post.url | url }}">
+-            <img src="{{ post.url | url }}{{ post.data.hero | url }}" alt="{{ post.data.title }} teaser image" sizes="200w,400w,800w,1920w,2400w"></a>
++            <img src="{{ post.url | url }}{{ post.data.hero | url }}" alt="{{ post.data.title }} teaser image" sizes="(max-width: 576px) 100vw, (max-width: 992px) 92vw, 1140px" loading="lazy" decoding="async"></a>
+             </div>
+             {% endif %}
+             <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
+diff --git a/_layouts/page.njk b/_layouts/page.njk
+index d2e6a0a..de5f4fd 100644
+--- a/_layouts/page.njk
++++ b/_layouts/page.njk
+@@ -2,7 +2,11 @@
+ layout: index
+ ---
+ {% if hero %}
+-    <div style="background-image: url({{ hero | url }});" class="heroimage text-center"></div>
++<div class="container rsf-text">
++    <div class="heroimage text-center">
++    <img src="{{ hero | url }}" alt="{{ title or meta.title }} cover image" sizes="(max-width: 576px) 100vw, (max-width: 992px) 92vw, 1140px" loading="eager" fetchpriority="high" decoding="async">
++    </div>
++</div>
+ {% endif %}
+ {% if title -%}
+ <div class="container rsf-text">
+diff --git a/_layouts/post.njk b/_layouts/post.njk
+index 0642190..95bdf56 100644
+--- a/_layouts/post.njk
++++ b/_layouts/post.njk
+@@ -5,9 +5,9 @@ layout: index
+     {% set allpartners = allpartners.concat(partners.schools) %}
+ 
+       <div class="container rsf-text">
+-        {% if hero %}
++        {% if hero and hero not in content %}
+             <div class="heroimage text-center">
+-            <img src="{{ hero }}" alt="{{ title }} teaser image" sizes="200w,400w,800w,1920w,2400w">
++            <img src="{{ hero }}" alt="{{ title }} teaser image" sizes="(max-width: 576px) 100vw, (max-width: 992px) 92vw, 1140px" loading="eager" fetchpriority="high" decoding="async">
+             </div>
+         {% endif %}
+         <article class="{{ type }}">
+diff --git a/_layouts/publication.njk b/_layouts/publication.njk
+index a7d6de2..9c17bc9 100644
+--- a/_layouts/publication.njk
++++ b/_layouts/publication.njk
+@@ -1,16 +1,14 @@
+ ---
+ layout: index
+ ---
+-    {% if hero %}
++      <div class="container rsf-text">
++        {% if hero %}
+         <div class="heroimage text-center">
+-        <img src="/images/stock/bookshelf.png" alt="publication teaser image" sizes="200w,400w,800w,1920w,2400w">
++        <img src="/images/stock/bookshelf.png" alt="Bookshelf representing CoTEDI publications" sizes="(max-width: 576px) 100vw, (max-width: 992px) 92vw, 1140px" loading="eager" fetchpriority="high" decoding="async">
+         </div>
+-    {% endif %}
+-
+-
+-      <div class="container rsf-text">
++        {% endif %}
+         <article>
+-        <p class="pubtype">{{ page.type }}</h1>
++        <p class="pubtype">{{ page.type }}</p>
+ 
+         <p class="lead">{{ content | safe }}</p>
+         <p class="lead-link">
+diff --git a/_layouts/report.njk b/_layouts/report.njk
+index c1adda0..bea2473 100644
+--- a/_layouts/report.njk
++++ b/_layouts/report.njk
+@@ -18,9 +18,9 @@ layout: index
+ 
+ {% if title -%}
+ <div class="container rsf-text">
+-        {% if hero %}
++        {% if hero and hero not in content %}
+             <div class="heroimage text-center">
+-            <img src="{{ hero | url }}" alt="{{ title }} cover image" sizes="200w,400w,800w,1920w,2400w">
++            <img src="{{ hero | url }}" alt="{{ title }} cover image" sizes="(max-width: 576px) 100vw, (max-width: 992px) 92vw, 1140px" loading="eager" fetchpriority="high" decoding="async">
+             </div>
+         {% endif %}
+         <p class="badge bg-primary rounded-pill">{{ mtags }} Report</p>
+@@ -55,17 +55,18 @@ layout: index
+         {%- endfor %}
+         </p>
+ 
+-        <p class="meta">
++        {% if location %}<p class="meta">
+           <b>Location</b>: {{ location }}
+-        </p><p class="meta">
++        </p>{% endif %}
++        {% if country %}<p class="meta">
+           <b>Country</b>: {{ country }}
+-        </p>  
+-        <p class="meta">
++        </p>{% endif %}
++        {% if startdate %}<p class="meta">
+           <b>Date</b>: <time datetime="{{ startdate | htmlDateString }}">{{ startdate | readableDate }}</time>
+           {% if enddate -%}
+             - <time datetime="{{ enddate | htmlDateString }}">{{ enddate | readableDate }}</time>
+           {%- endif %}
+-        </p>
++        </p>{% endif %}
+ </div>
+ {%- endif %}
+ 
+diff --git a/_layouts/reports.njk b/_layouts/reports.njk
+index d796fa8..6a050c7 100644
+--- a/_layouts/reports.njk
++++ b/_layouts/reports.njk
+@@ -14,7 +14,7 @@ layout: index
+         <article class="{{ post.data.type }}">
+             {% if post.data.hero %}
+             <div class="heroimage"><a href="{{ post.url | url }}">
+-            <img src="{{ post.url | url }}{{ post.data.hero | url }}" alt="{{ post.data.title }} teaser image" sizes="200w,400w,800w,1920w,2400w"></a>
++            <img src="{{ post.url | url }}{{ post.data.hero | url }}" alt="{{ post.data.title }} teaser image" sizes="(max-width: 576px) 100vw, (max-width: 992px) 92vw, 1140px" loading="lazy" decoding="async"></a>
+             </div>
+             {% endif %}
+             <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
+diff --git a/scss/main.scss b/scss/main.scss
+index 60a1e6d..d8f9e39 100644
+--- a/scss/main.scss
++++ b/scss/main.scss
+@@ -2,7 +2,8 @@
+ @import "bootstrap/scss/functions";
+ @import "bootstrap/scss/variables";
+ 
+-$primary: #39B54A;
++$primary: #237A33; // darkened from #39B54A for WCAG AA contrast (5.38:1 on white)
++$brand-green: #39B54A; // decorative use only, never for text
+ $theme-colors: map-merge($theme-colors, (
+   "primary": $primary
+ ));
+@@ -11,9 +12,9 @@ $theme-colors: map-merge($theme-colors, (
+ 
+ $primary-color: $primary;
+ $primary-fg-color: #ffffff;
+-$secondary-color: #3966b5;
+-$tertiary-color: #B539A4;
+-$quaternary-color: #B58839;
++$secondary-color: #2b4f8c;
++$tertiary-color: #8c2d80;
++$quaternary-color: #7a5b21;
+ $footer-grey-400: #f8f9fa;
+ $footer-grey-600: darken($color: $footer-grey-400, $amount: 5%);
+ 
+@@ -1165,7 +1166,6 @@ footer.legal {
+   padding: 2rem 0 2rem 3rem;
+   margin: 2rem 0;
+   border-radius: 0.5rem;
+-
+   color: $primary-fg-color;
+ 
+   .featured-event-badge {
+@@ -1196,4 +1196,95 @@ footer.legal {
+   .btn {
+     margin-top: 0.5cm;
+   }
+-}
+\ No newline at end of file
++}
++
++// ---- Accessibility & media polish (final glow-up) ----
++
++// Links in running text: underline so meaning does not rely on color alone
++main .rsf-text a:not(.btn, .page-link),
++main article a:not(.btn),
++main .content a:not(.btn) {
++    text-decoration: underline;
++    text-underline-offset: 0.15em;
++}
++
++// Strong, visible keyboard focus indicator
++a:focus-visible,
++button:focus-visible,
++.btn:focus-visible,
++.page-link:focus-visible {
++    outline: 3px solid #000000;
++    outline-offset: 2px;
++    box-shadow: 0 0 0 5px #ffffff;
++}
++
++// Warning badge (language flags): readable contrast + border cue
++.badge.text-bg-warning {
++    color: #1a1a1a !important;
++    background-color: #ffd24d !important;
++    border: 1px solid #8a6d00;
++}
++
++// Muted/meta text contrast
++.meta,
++.text-muted {
++    color: #4b5563 !important;
++}
++
++// Table borders: structure must not depend on striping color alone
++.table {
++    border: 1px solid #6b7280;
++
++    th,
++    td {
++        border: 1px solid #9ca3af;
++    }
++}
++
++// Current page in the navigation: underline + bold, not color alone
++.navbar .nav-link.active,
++.navbar .nav-link[aria-current="page"] {
++    font-weight: 700;
++    text-decoration: underline;
++    text-underline-offset: 0.25em;
++}
++
++// Consistent hero / media treatment everywhere
++.heroimage img {
++    width: 100%;
++    height: auto;
++    max-height: 70vh;
++    object-fit: cover;
++    border-radius: 0.5rem;
++}
++
++// Images inside article bodies (markdown content)
++main .rsf-text img,
++main article img,
++main .content img {
++    max-width: 100%;
++    height: auto;
++    border-radius: 0.5rem;
++}
++
++main .rsf-text figure,
++main article figure {
++    margin: 1.5rem 0;
++}
++
++main .rsf-text figcaption,
++main article figcaption {
++    margin-top: 0.5rem;
++    font-size: 0.9rem;
++    color: #4b5563;
++}
++
++// Card thumbnails
++.card-img-top {
++    object-fit: cover;
++}
++
++// About page outline button contrast
++.btn-outline-primary {
++    border-width: 2px;
++}

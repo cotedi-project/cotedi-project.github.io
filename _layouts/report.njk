@@ -18,9 +18,9 @@ layout: index
 
 {% if title -%}
 <div class="container rsf-text">
-        {% if hero %}
+        {% if hero and hero not in content %}
             <div class="heroimage text-center">
-            <img src="{{ hero | url }}" alt="{{ title }} cover image" sizes="200w,400w,800w,1920w,2400w">
+            <img src="{{ hero | url }}" alt="{{ title }} cover image" sizes="(max-width: 576px) 100vw, (max-width: 992px) 92vw, 1140px" loading="eager" fetchpriority="high" decoding="async">
             </div>
         {% endif %}
         <p class="badge bg-primary rounded-pill">{{ mtags }} Report</p>
@@ -55,17 +55,18 @@ layout: index
         {%- endfor %}
         </p>
 
-        <p class="meta">
+        {% if location %}<p class="meta">
           <b>Location</b>: {{ location }}
-        </p><p class="meta">
+        </p>{% endif %}
+        {% if country %}<p class="meta">
           <b>Country</b>: {{ country }}
-        </p>  
-        <p class="meta">
+        </p>{% endif %}
+        {% if startdate %}<p class="meta">
           <b>Date</b>: <time datetime="{{ startdate | htmlDateString }}">{{ startdate | readableDate }}</time>
           {% if enddate -%}
             - <time datetime="{{ enddate | htmlDateString }}">{{ enddate | readableDate }}</time>
           {%- endif %}
-        </p>
+        </p>{% endif %}
 </div>
 {%- endif %}
 

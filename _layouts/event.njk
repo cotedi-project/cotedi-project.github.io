@@ -4,7 +4,7 @@ layout: index
     <div class="container rsf-text">
       {% if hero %}
           <div class="heroimage text-center">
-          <img src="{{ hero | url }}" alt="{{ title }} cover image" sizes="200w,400w,800w,1920w,2400w">
+          <img src="{{ hero | url }}" alt="{{ title }} cover image" sizes="(max-width: 576px) 100vw, (max-width: 992px) 92vw, 1140px" loading="eager" fetchpriority="high" decoding="async">
           </div>
       {% endif %}
         <h1>{{ title }}</h1>

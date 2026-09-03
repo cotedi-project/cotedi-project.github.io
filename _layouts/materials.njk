@@ -16,7 +16,7 @@ layout: index
         <article class="{{ post.data.type }}">
             {% if post.data.hero %}
             <div class="heroimage"><a href="{{ post.url | url }}">
-            <img src="{{ post.url | url }}{{ post.data.hero | url }}" alt="{{ post.data.title }} teaser image" sizes="200w,400w,800w,1920w,2400w"></a>
+            <img src="{{ post.url | url }}{{ post.data.hero | url }}" alt="{{ post.data.title }} teaser image" sizes="(max-width: 576px) 100vw, (max-width: 992px) 92vw, 1140px" loading="lazy" decoding="async"></a>
             </div>
             {% endif %}
             <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>

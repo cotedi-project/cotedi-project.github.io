@@ -56,7 +56,7 @@ module.exports = (eleventyConfig) => {
         defaultAttributes: {
             loading: "lazy",
             decoding: "async",
-            sizes: [200, 400, 800, 1260, 1920, 2400, "auto"]
+            sizes: "(max-width: 576px) 100vw, (max-width: 992px) 92vw, 1140px"
         },
 
         filenameFormat: function (id, src, width, format, options) {

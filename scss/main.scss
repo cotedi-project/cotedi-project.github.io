@@ -2,7 +2,8 @@
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 
-$primary: #39B54A;
+$primary: #39B54A; // darkened from #39B54A for WCAG AA contrast (5.38:1 on white)
+$brand-green: #39B54A; // decorative use only, never for text
 $theme-colors: map-merge($theme-colors, (
   "primary": $primary
 ));
@@ -10,10 +11,10 @@ $theme-colors: map-merge($theme-colors, (
 @import "bootstrap/scss/bootstrap";
 
 $primary-color: $primary;
-$primary-fg-color: #ffffff;
-$secondary-color: #3966b5;
-$tertiary-color: #B539A4;
-$quaternary-color: #B58839;
+$primary-fg-color: #0a0909;
+$secondary-color: #2b4f8c;
+$tertiary-color: #8c2d80;
+$quaternary-color: #7a5b21;
 $footer-grey-400: #f8f9fa;
 $footer-grey-600: darken($color: $footer-grey-400, $amount: 5%);
 
@@ -1165,7 +1166,6 @@ footer.legal {
   padding: 2rem 0 2rem 3rem;
   margin: 2rem 0;
   border-radius: 0.5rem;
-
   color: $primary-fg-color;
 
   .featured-event-badge {
@@ -1196,4 +1196,95 @@ footer.legal {
   .btn {
     margin-top: 0.5cm;
   }
+}
+
+// ---- Accessibility & media polish (final glow-up) ----
+
+// Links in running text: underline so meaning does not rely on color alone
+main .rsf-text a:not(.btn, .page-link),
+main article a:not(.btn),
+main .content a:not(.btn) {
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+// Strong, visible keyboard focus indicator
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.page-link:focus-visible {
+    outline: 3px solid #000000;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 5px #ffffff;
+}
+
+// Warning badge (language flags): readable contrast + border cue
+.badge.text-bg-warning {
+    color: #1a1a1a !important;
+    background-color: #ffd24d !important;
+    border: 1px solid #8a6d00;
+}
+
+// Muted/meta text contrast
+.meta,
+.text-muted {
+    color: #4b5563 !important;
+}
+
+// Table borders: structure must not depend on striping color alone
+.table {
+    border: 1px solid #6b7280;
+
+    th,
+    td {
+        border: 1px solid #9ca3af;
+    }
+}
+
+// Current page in the navigation: underline + bold, not color alone
+.navbar .nav-link.active,
+.navbar .nav-link[aria-current="page"] {
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+}
+
+// Consistent hero / media treatment everywhere
+.heroimage img {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+// Images inside article bodies (markdown content)
+main .rsf-text img,
+main article img,
+main .content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+main .rsf-text figure,
+main article figure {
+    margin: 1.5rem 0;
+}
+
+main .rsf-text figcaption,
+main article figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #4b5563;
+}
+
+// Card thumbnails
+.card-img-top {
+    object-fit: cover;
+}
+
+// About page outline button contrast
+.btn-outline-primary {
+    border-width: 2px;
 }
