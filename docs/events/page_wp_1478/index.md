@@ -3,6 +3,7 @@ title: Transnational project meeting in Portugal
 author_name: María Zapata Cáceres
 date: 2025-02-24
 endDate: 2025-02-25
+location: Instituto Superior Técnico (IST) and Agrupamento de Escolas Professor Armando de Lucena (Malveira)
 tags:
 - event
 type: post
@@ -25,8 +26,5 @@ The visit to Agrupamento de Escolas de Carnaxide-Portela included a tour of the 
 In parallel, the partners finalized the structure of the international teacher feedback survey and planned its implementation. Additionally, the team coordinated the next Multiplier event to be held in Spain, and worked on strategies to disseminate the project’s results and ensure their sustainability after the project’s conclusion.
 
 The meeting was highly productive and provided a valuable opportunity for collaborative reflection, planning, and exchange. The excellent organization by the Portuguese team and the warm atmosphere further strengthened the project’s partnerships.
-
-📅 **Dates**: February 24–25, 2025  
-📍 **Location**: Instituto Superior Técnico (IST) and Agrupamento de Escolas Professor Armando de Lucena (Malveira)
 
 ![](/events/page_wp_1478/cotedi_lisbon_meeting_composite-1-1024x254.jpg)

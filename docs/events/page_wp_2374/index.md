@@ -1,6 +1,8 @@
 ---
 title: Multiplier event in Spain
 author_name: María Zapata Cáceres
+location: Universidad Rey Juan Carlos, Madrid
+
 date: 2025-12-02
 endDate: 2025-12-03
 tags:
@@ -26,8 +28,6 @@ The event also features the CoTEDI Challenge: Computational Thinking in the Clas
 
 This Multiplier Event serves to disseminate the project’s outcomes and to strengthen a collaborative network of educators committed to advancing computational thinking through inclusive and innovative practices. Registration is free.
 
-📅 **Dates**: December 02-03, 2025  
-📍 **Location**: Universidad Rey Juan Carlos, Madrid
 
 [More information: https://eventos.urjc.es/user/myevents.html](https://eventos.urjc.es/user/myevents.html)
 

@@ -2,9 +2,11 @@
 title: KickOff event – CoTEDI Project Begins in the Netherlands
 author_name: María Zapata Cáceres
 date: 2024-02-28
+endDate: 2024-02-29
+location: Discovery Museum Kerkrade, The Netherlands
 tags:
 - event
-type: event
+type: post
 hero: kick.jpg
 link: https://imaginatic.es/kickoff-event-the-netherlands/
 language: es_ES
@@ -14,6 +16,8 @@ description: The Netherlands
 gallery_images:
 - /events/page_wp_1530/composite_kickoff_corrected-1024x256.jpg
 ---
+
+This event is on invitation, only. {.alert .alert-warning}
 
 The Erasmus+ CoTEDI project officially started with a three-day kick-off meeting held in the Netherlands, bringing together all partner institutions to align goals, share visions, and plan the path ahead.
 
