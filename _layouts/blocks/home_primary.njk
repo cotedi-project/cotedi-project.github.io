@@ -10,7 +10,6 @@
         <div class="primary-panel-head">
           <h3>Teaching Materials</h3>
           <p>Ready-to-use activities, guides and prototypes for computational thinking in inclusive classrooms.</p>
-          <a class="btn btn-primary" href="{{ '/materials/' | url }}">Browse all materials</a>
         </div>
         {% if latestMaterials | length %}
         <ul class="primary-list list-unstyled">
@@ -19,6 +18,7 @@
           {% endfor %}
         </ul>
         {% endif %}
+        <p class="cardbuttons"><a class="btn btn-outline-primary" href="{{ '/materials/' | url }}">Browse all materials</a></p>
       </div>
     </div>
 
@@ -27,7 +27,7 @@
         <div class="primary-panel-head">
           <h3>Project Results</h3>
           <p>Deliverables, evaluation reports and publications documenting the outcomes of the project.</p>
-          <a class="btn btn-primary" href="{{ '/reports/' | url }}">View all results</a>
+          
         </div>
         {% if latestReports | length %}
         <ul class="primary-list list-unstyled">
@@ -36,7 +36,9 @@
           {% endfor %}
         </ul>
         {% endif %}
-        <p class="primary-extra"><a href="{{ '/publications/' | url }}">Academic publications »</a></p>
+        <p class="cardbuttons">
+        <a class="btn btn-outline-primary" href="{{ '/reports/' | url }}">View all results</a>
+        <a class="btn btn-outline-primary" href="{{ '/publications/' | url }}">Scientific publications »</a></p>
       </div>
     </div>
   </div>
