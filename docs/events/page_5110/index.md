@@ -1,8 +1,8 @@
 ---
 title: Project multiplier event; Lisbon, Portugal
 author_name: Noirin Graham
-date: '2026-10-22'
-endDate: '2026-10-23'
+date: 2026-10-22
+endDate: 2026-10-23
 tags:
 - event
 type: post

@@ -1,7 +1,8 @@
 ---
-title: Transnational project meeting &#8211; Portugal
+title: Transnational project meeting in Portugal
 author_name: María Zapata Cáceres
-date: '2025-02-24'
+date: 2025-02-24
+endDate: 2025-02-25
 tags:
 - event
 type: post
@@ -14,9 +15,6 @@ description: The Netherlands
 gallery_images:
 - /events/page_wp_1478/cotedi_lisbon_meeting_composite-1-1024x254.jpg
 ---
-# 
-
-# Transnational Meeting in Lisbon (Portugal)
 
 The transnational meeting of the Erasmus+ CoTEDI project (Computational Thinking for Education with Diversity and Inclusion) was held in Lisbon, Portugal, on February 24–25, 2025. This two-day event gathered partners from Spain, the Netherlands, Portugal, Germany, Sweden and Switzerland to advance the collaborative development of inclusive computational thinking strategies in education. The sessions took place at two main venues: Instituto Superior Técnico (IST), a prestigious engineering university in Lisbon, and Agrupamento de Escolas de Carnaxide-Portela, an important partner school.
 

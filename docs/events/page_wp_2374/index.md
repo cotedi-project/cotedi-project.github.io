@@ -1,7 +1,8 @@
 ---
-title: Multiplier event &#8211; Spain
+title: Multiplier event in Spain
 author_name: María Zapata Cáceres
-date: '2025-11-30'
+date: 2025-12-02
+endDate: 2025-12-03
 tags:
 - event
 type: post
@@ -14,9 +15,6 @@ description: The Netherlands
 gallery_images:
 - /events/page_wp_2374/cartel_evento_cotedi_011_grandeFinal_paraEvento_conEulist-copia-1024x576.jpg
 ---
-# 
-
-# CoTEDI Multiplier Event in Spain
 
 The Multiplier Event in Madrid (Spain) on 2 December 2025 brings together teachers, researchers, and professionals interested in computational thinking as part of the Erasmus+ CoTEDI project. Hosted by the Spanish partner at Universidad Rey Juan Carlos (URJC), the event provides a space for sharing practical approaches to integrating computational thinking in educational settings.
 
