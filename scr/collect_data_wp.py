@@ -214,9 +214,16 @@ def main():
         # folder), and listing templates like news.njk/materials.njk prepend
         # post.url themselves before the filename. Baking the folder path in
         # here would double up with that prepend on listing pages.
+        # Hero and gallery images are referenced by BARE FILENAME in the
+        # markdown/front matter — not a path. Eleventy's post.njk detail
+        # page uses the filename as-is (resolves relative to the post's own
+        # folder), and listing templates like news.njk/materials.njk prepend
+        # post.url themselves before the filename. Baking the folder path in
+        # here would double up with that prepend on listing pages.
         hero = "No image available"
         if hero_url:
             local_name = download_image(hero_url, page_dir)
+            hero = local_name if local_name else hero_url
             hero = local_name if local_name else hero_url
 
         # --- Download every image embedded in the post body and rewrite its
@@ -225,7 +232,7 @@ def main():
         # unconditionally - no string-matching against markdownify's output
         # required.
         localized_html, gallery_images = download_and_localize_images(
-            post['content']['rendered'], page_dir, image_url_prefix
+            post['content']['rendered'], page_dir
         )
         content = html_to_markdown(localized_html)
 
