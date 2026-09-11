@@ -635,6 +635,14 @@ h1, h2, h3, h4 {
     text-align: center;
 }
 
+.featured-event-content {
+    .btn-primary {
+        background-color: $footer-grey-400;
+        border: 3px solid darken($primary-color, 12%);
+        color: darken($primary-color, 12%);
+    }
+}
+
 /* Visible keyboard focus everywhere */
 a:focus-visible,
 button:focus-visible,
