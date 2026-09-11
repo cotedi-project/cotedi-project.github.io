@@ -11,7 +11,8 @@ $theme-colors: map-merge($theme-colors, (
 @import "bootstrap/scss/bootstrap";
 
 $primary-color: $primary;
-$primary-fg-color: #0a0909;
+$primary-fg-color: #f8f9fa;
+// $primary-fg-color: #0a0909;
 $secondary-color: #2b4f8c;
 $tertiary-color: #8c2d80;
 $quaternary-color: #7a5b21;
@@ -35,89 +36,6 @@ header.news {
             &:hover {
                 color: $primary-fg-color;
                 text-decoration: underline;
-            }
-        }
-    }
-}
-
-.top-dropdown-nav-bar {
-    position: relative;
-    background-color: rgba($primary-color, 0.65);
-    padding: 0.75rem 0 2.5rem; // extra bottom padding reserves room for the wave
-
-    ul {
-        margin: 0;
-    }
-
-    .wave-bottom {
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-        width: 100%;
-        line-height: 0;
-
-        svg {
-            display: block;
-            width: 100%;
-            height: 50px;
-        }
-
-        .wave-layer-1 {
-            fill: lighten($primary-color, 35%);
-        }
-
-        .wave-layer-2 {
-            fill: $primary-color;
-        }
-
-        .wave-layer-3 {
-            fill: darken($primary-color, 12%);
-        }
-    }
-
-    details {
-        position: relative;
-
-        summary {
-            cursor: pointer;
-            list-style: none;
-            font-weight: 500;
-            font-size: 1.4rem;
-            color: $primary-fg-color;
-
-            &::-webkit-details-marker {
-                display: none;
-            }
-
-            &::after {
-                content: "▾";
-                margin-left: 0.35em;
-            }
-        }
-
-        ul {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #ffffff;
-            border: 1px solid rgb(0 0 0 / 15%);
-            border-radius: 0.375rem;
-            box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 10%);
-            padding: 0.5rem 0;
-            min-width: 200px;
-            z-index: 1000;
-
-            li a {
-                display: block;
-                padding: 0.5rem 1.25rem;
-                font-size: 1.05rem;
-                color: #212529;
-                background-color: transparent;
-                text-decoration: none;
-
-                &:hover {
-                    background-color: $footer-grey-400;
-                }
             }
         }
     }
@@ -754,11 +672,133 @@ summary:focus-visible,
 
 /* ---------- Navigation ---------- */
 
-.top-dropdown-nav-bar {
-    background-color: $primary-color;
-    border-radius: 0.5rem 0.5rem 0 0;
-    margin-top: 1.25rem;
 
+.top-dropdown-nav-bar-x {
+    position: relative;
+    background-color: rgba($primary-color, 0.65);
+    padding: 0.75rem 0 1rem; // extra bottom padding reserves room for the wave
+
+
+    ul {
+        margin: 0;
+    }
+
+    .wave-bottom {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        line-height: 0;
+
+        svg {
+            display: block;
+            width: 100%;
+            height: 50px;
+        }
+
+        .wave-layer-1 {
+            fill: lighten($primary-color, 35%);
+        }   
+
+        .wave-layer-2 {
+            fill: $primary-color;
+        }
+
+        .wave-layer-3 {
+            fill: darken($primary-color, 12%);
+        }
+    }
+
+    details {
+        position: relative;
+
+        summary {
+            cursor: pointer;
+            list-style: none;
+            font-weight: 500;
+            font-size: 1.4rem;
+            color: $primary-fg-color;
+
+            &::-webkit-details-marker {
+                display: none;
+            }
+
+            &::after {
+                content: "▾";
+                margin-left: 0.35em;
+            }
+        }
+
+        ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #ffffff;
+            border: 1px solid rgb(0 0 0 / 15%);
+            border-radius: 0.375rem;
+            box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 10%);
+            padding: 0.5rem 0;
+            min-width: 200px;
+            z-index: 1000;
+
+            li a {
+                display: block;
+                padding: 0.5rem 1.25rem;
+                font-size: 1.05rem;
+                color: #212529;
+                background-color: transparent;
+                text-decoration: none;
+
+                &:hover {
+                    background-color: $footer-grey-400;
+                }
+            }
+        }
+    }
+}
+
+
+.top-dropdown-nav-bar {
+    position: relative;
+
+    background-color: $primary-color;
+    // border-radius: 0.5rem 0.5rem 0 0;
+    border-radius: 0.5rem;
+    margin-top: 1.25rem;
+    padding: 0.75rem 0 1rem; // extra bottom padding reserves room for the wave
+
+    .wave-bottom {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        line-height: 0;
+        border-radius: 0.5rem;
+
+        svg {
+            display: block;
+            width: 100%;
+            height: 50%;
+            border-radius: 0.5rem;
+        }
+
+        .wave-layer-1 {
+            fill: lighten($primary-color, 35%);
+        }   
+
+        .wave-layer-2 {
+            fill: $primary-color;
+        }
+
+        .wave-layer-3 {
+            fill: darken($primary-color, 12%);
+        }
+    }
+
+    // .container {
+    //     position: relative;
+    //     z-index: 2;
+    // }
     .main-nav {
         display: none;
     }
