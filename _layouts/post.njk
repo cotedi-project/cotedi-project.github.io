@@ -62,9 +62,6 @@ layout: index
         <p class="lead-link">
             {% if type == 'media' %}
                 <a class="bi bi-play-btn-fill btn btn-lg btn-primary media text-white" href="{{ post.data.link }}" target="_blank"> Watch now</a>
-
-            {% else %}
-                <a class="bi bi-box-arrow-up-right" href="{{ link | url }}"> Read more</a>
             {% endif %}
         </p>
         {% endif %}
