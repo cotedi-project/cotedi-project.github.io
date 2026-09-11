@@ -1,6 +1,6 @@
 ---
-layout: event
-title: Upcoming Events
+layout: events
+title: Project Events
 pagination:
   data: collections.event
   size: 10
