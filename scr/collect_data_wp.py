@@ -44,7 +44,7 @@ def download_image(url, dest_dir):
     return filename
 
 
-def download_and_localize_images(html_content, dest_dir, url_prefix):
+def download_and_localize_images(html_content, dest_dir):
     """
     Parse `html_content`, download every <img> found, and rewrite that
     image's `src` attribute to an absolute, site-rooted path
@@ -64,9 +64,8 @@ def download_and_localize_images(html_content, dest_dir, url_prefix):
 
         local_name = download_image(src, dest_dir)
         if local_name:
-            local_ref = f"{url_prefix}/{local_name}"
-            img["src"] = local_ref
-            image_refs.append(local_ref)
+            img["src"] = local_name
+            image_refs.append(local_name)
         else:
             image_refs.append(src)
 
