@@ -1,0 +1,709 @@
+diff --git a/_layouts/blocks/header.njk b/_layouts/blocks/header.njk
+index 2203644..d342f3b 100644
+--- a/_layouts/blocks/header.njk
++++ b/_layouts/blocks/header.njk
+@@ -1,38 +1,50 @@
+ <!-- skiplinks -->
+-<a href="#main" class="visually-hidden-focusable">Skip to main content</a>
++<a href="#main" class="visually-hidden-focusable skip-link">Skip to main content</a>
+ 
+ <div class="container py-4">
+   <header class="title">
+-    <a href="{{ '/' | url }}" class="d-flex align-items-center text-dark text-decoration-none">
+-          <img src="{{ site.logo_large | url }}" alt="logo {{ site.title }}" class="img-fluid" style="margin-right: 2em; width: 120px; height: 65px;" eleventy:ignore> <span class="fs-4">{{ site.long_title }}</span>
++    <a href="{{ '/' | url }}" class="site-brand d-flex align-items-center text-dark text-decoration-none">
++      <img src="{{ site.logo_large | url }}" alt="logo {{ site.title }}" class="brand-logo img-fluid" eleventy:ignore>
++      <span class="brand-title">{{ site.long_title }}</span>
+     </a>
+   </header>
+-  <nav class="top-dropdown-nav-bar">
+-  <div class="container">
+-    <ul class="list-unstyled d-flex gap-4 mb-0">
+-            <li>
+-        <details>
+-          <summary>Explore</summary>
+-          <ul class="list-unstyled">
+-            <li><a href="{{ '/events/' | url }}">Events</a></li>
+-            <li><a href="{{ '/news/' | url }}">News</a></li>
+-            <li><a href="{{ '/materials/' | url }}">Teaching Materials</a></li>
+-            <li><a href="{{ '/reports/' | url }}">Reports</a></li>
+-            <li><a href="{{ '/publications/' | url }}">Publications</a></li>
+-          </ul>
+-        </details>
+-      </li>
+-    </ul>
+-  </div>
+ 
+-  <div class="wave-bottom" aria-hidden="true">
+-    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+-      <path class="wave-layer-1" d="M0,50 C360,10 1080,80 1440,50 L1440,100 L0,100 Z"></path>
+-      <path class="wave-layer-2" d="M0,60 C360,90 1080,30 1440,60 L1440,100 L0,100 Z"></path>
+-      <path class="wave-layer-3" d="M0,70 C360,40 1080,100 1440,70 L1440,100 L0,100 Z"></path>
+-    </svg>
+-  </div>
+-</nav>
+-</div>
++  <nav class="top-dropdown-nav-bar" aria-label="Main navigation">
++    <div class="container">
++      <ul class="list-unstyled main-nav mb-0">
++        <li><a href="{{ '/' | url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>Home</a></li>
++        <li><a href="{{ '/materials/' | url }}" {% if '/materials/' in page.url %}aria-current="page"{% endif %}>Teaching Materials</a></li>
++        <li><a href="{{ '/reports/' | url }}" {% if '/reports/' in page.url %}aria-current="page"{% endif %}>Results</a></li>
++        <li><a href="{{ '/pages/about/' | url }}" {% if '/pages/about/' in page.url %}aria-current="page"{% endif %}>About</a></li>
++        <li><a href="{{ '/events/' | url }}" {% if '/events/' in page.url %}aria-current="page"{% endif %}>Events</a></li>
++        <li><a href="{{ '/news/' | url }}" {% if '/news/' in page.url %}aria-current="page"{% endif %}>News</a></li>
++        <li><a href="{{ '/publications/' | url }}" {% if '/publications/' in page.url %}aria-current="page"{% endif %}>Publications</a></li>
++      </ul>
+ 
++      <ul class="list-unstyled compact-nav mb-0">
++        <li>
++          <details>
++            <summary>Explore</summary>
++            <ul class="list-unstyled">
++              <li><a href="{{ '/' | url }}">Home</a></li>
++              <li><a href="{{ '/materials/' | url }}">Teaching Materials</a></li>
++              <li><a href="{{ '/reports/' | url }}">Results</a></li>
++              <li><a href="{{ '/pages/about/' | url }}">About</a></li>
++              <li><a href="{{ '/events/' | url }}">Events</a></li>
++              <li><a href="{{ '/news/' | url }}">News</a></li>
++              <li><a href="{{ '/publications/' | url }}">Publications</a></li>
++            </ul>
++          </details>
++        </li>
++      </ul>
++    </div>
+ 
++    <div class="wave-bottom" aria-hidden="true">
++      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
++        <path class="wave-layer-1" d="M0,50 C360,10 1080,80 1440,50 L1440,100 L0,100 Z"></path>
++        <path class="wave-layer-2" d="M0,60 C360,90 1080,30 1440,60 L1440,100 L0,100 Z"></path>
++        <path class="wave-layer-3" d="M0,70 C360,40 1080,100 1440,70 L1440,100 L0,100 Z"></path>
++      </svg>
++    </div>
++  </nav>
++</div>
+diff --git a/_layouts/blocks/home_teasers.njk b/_layouts/blocks/home_teasers.njk
+index 81da712..d0397a4 100644
+--- a/_layouts/blocks/home_teasers.njk
++++ b/_layouts/blocks/home_teasers.njk
+@@ -1,51 +1,25 @@
+-{% set latestMaterial = (collections.material | reverse | entryLimit(1))[0] %}
+-{% set latestReport = (collections.report | reverse | entryLimit(1))[0] %}
+-{% set latestNewsItem = (collections.news | reverse | entryLimit(1))[0] %}
++{% set latestNews = collections.news | reverse | entryLimit(3) %}
+ 
+-<section id="highlights" class="container py-4">
+-  <div class="row g-4">
+-
+-    <div class="col-md-4">
+-      <h2 class="h5">Teaching Materials</h2>
+-      {% if latestMaterial %}
+-      <div class="card h-100 shadow-sm">
+-        {% if latestMaterial.data.hero and latestMaterial.data.hero != "No image available" %}
+-        <img src="{{ latestMaterial.url | url }}{{ latestMaterial.data.hero | url }}" class="card-img-top" alt="{{ latestMaterial.data.title }}" style="height:160px; object-fit:cover;">
+-        {% endif %}
+-        <div class="card-body">
+-          <h3 class="card-title h6"><a class="stretched-link text-decoration-none" href="{{ latestMaterial.url | url }}">{{ latestMaterial.data.title }}</a></h3>
+-        </div>
+-      </div>
+-      {% endif %}
+-      <a href="{{ '/materials/' | url }}" class="d-inline-block mt-2">All materials »</a>
+-    </div>
+-
+-    <div class="col-md-4">
+-      <h2 class="h5">Project Results</h2>
+-      {% if latestReport %}
+-      <div class="card h-100 shadow-sm">
+-        <div class="card-body">
+-          <h3 class="card-title h6"><a class="stretched-link text-decoration-none" href="{{ latestReport.url | url }}">{{ latestReport.data.title }}</a></h3>
+-        </div>
+-      </div>
+-      {% endif %}
+-      <a href="{{ '/reports/' | url }}" class="d-inline-block mt-2">All results & reports »</a>
+-    </div>
++<section id="highlights" class="container home-teasers" aria-labelledby="teasers-heading">
++  <div class="teasers-head">
++    <h2 id="teasers-heading" class="h4">Latest news</h2>
++    <a href="{{ '/news/' | url }}">All news »</a>
++  </div>
+ 
++  <div class="row g-4">
++    {% for item in latestNews %}
+     <div class="col-md-4">
+-      <h2 class="h5">History</h2>
+-      {% if latestNewsItem %}
+       <div class="card h-100 shadow-sm">
+-        {% if latestNewsItem.data.hero %}
+-        <img src="{{ latestNewsItem.url | url }}{{ latestNewsItem.data.hero | url }}" class="card-img-top" alt="{{ latestNewsItem.data.title }}" style="height:160px; object-fit:cover;">
++        {% if item.data.hero and item.data.hero != "No image available" %}
++        <img src="{{ item.url | url }}{{ item.data.hero | url }}" class="card-img-top" alt="{{ item.data.title }}">
+         {% endif %}
+         <div class="card-body">
+-          <h3 class="card-title h6"><a class="stretched-link text-decoration-none" href="{{ latestNewsItem.url | url }}">{{ latestNewsItem.data.title }}</a></h3>
++          <h3 class="card-title h6"><a class="stretched-link text-decoration-none" href="{{ item.url | url }}">{{ item.data.title }}</a></h3>
+         </div>
+       </div>
+-      {% endif %}
+-      <a href="{{ '/news/' | url }}" class="d-inline-block mt-2">All news »</a>
+     </div>
+-
++    {% endfor %}
+   </div>
++
++  <p class="teasers-extra"><a href="{{ '/events/' | url }}">Upcoming events »</a></p>
+ </section>
+diff --git a/_layouts/home.njk b/_layouts/home.njk
+index 9ef617f..d9669bd 100644
+--- a/_layouts/home.njk
++++ b/_layouts/home.njk
+@@ -5,14 +5,16 @@ layout: index
+     <div style="background-image: url({{ hero | url }});" class="heroimage text-center"></div>
+ {% endif %}
+ 
++<section class="container home-intro">
++  <p class="home-lead">Computational thinking for every classroom &mdash; inclusive teaching materials and project results from 16 institutions in six European countries.</p>
++</section>
+ 
++{% include "blocks/home_primary.njk" %}
++{% include "blocks/home_about.njk" %}
++{% include "blocks/home_teasers.njk" %}
+ 
+-
++{% if content %}
+ <div class="container rsf-text">
+     {{ content | safe }}
+ </div>
+-
+-{% include "blocks/audience_cta.njk" %}
+-{% include "blocks/home_teasers.njk" %}
+-
+-<section id="highlights" class="container py-1 mb-2">
+\ No newline at end of file
++{% endif %}
+diff --git a/docs/index.md b/docs/index.md
+index 6d4b4d7..aaa2cef 100644
+--- a/docs/index.md
++++ b/docs/index.md
+@@ -1,9 +1,3 @@
+ --- 
+ layout: home
+ --- 
+-
+-CoTEDI aims to identify, develop and implement a new common methodology for the application of computational thinking (CT) in a variety of educational settings with a focus on teacher professionalisation and student empowerment. Special attention will be paid to inclusion criteria, special educational needs and diversity issues, viewing differences in (special) educational needs, capacities and (im)possibilities as a focused opportunity and a rich starting point. 
+-
+-To create different learning activities, guides, apps and materials for CT learning and assessment in the form of prototypes. Learning activities will be both plugged-in, unplugged, and technology enhanced activities considering the diversity of each country, the needs of students and also related to inclusion and diversity criteria. Examples of such activities may include (video)games, educational robotics, programming environments for children, simulations, teaching resources, smart games, hackatons, etc.
+-
+-CoTEDI is a cooperation between schools and research centres that uses eTwinning for exchaning ideas and practices. 
+diff --git a/scss/main.scss b/scss/main.scss
+index a5f35e5..8f3a1d3 100644
+--- a/scss/main.scss
++++ b/scss/main.scss
+@@ -98,10 +98,10 @@ header.news {
+             position: absolute;
+             top: 100%;
+             left: 0;
+-            background: #fff;
+-            border: 1px solid rgba(0,0,0,0.15);
++            background: #ffffff;
++            border: 1px solid rgb(0 0 0 / 15%);
+             border-radius: 0.375rem;
+-            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
++            box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 10%);
+             padding: 0.5rem 0;
+             min-width: 200px;
+             z-index: 1000;
+@@ -686,4 +686,492 @@ main {
+     }
+ 
+     overflow: scroll auto;
+-}
+\ No newline at end of file
++}
++/* stylelint-disable no-duplicate-selectors -- refinements intentionally
++   layer on top of the base rules above */
++
++/* ==========================================================================
++   Readability & polish layer
++   Layout/spacing/typography refinements. Colours reuse the variables above.
++   ========================================================================== */
++
++$measure: 68ch;
++$radius-card: 0.75rem;
++
++:root {
++    scroll-behavior: smooth;
++}
++
++body {
++    line-height: 1.65;
++    text-wrap: pretty;
++}
++
++h1, h2, h3, h4 {
++    text-wrap: balance;
++    line-height: 1.2;
++}
++
++/* Visible keyboard focus everywhere */
++a:focus-visible,
++button:focus-visible,
++summary:focus-visible,
++.btn:focus-visible {
++    outline: 3px solid darken($primary-color, 12%);
++    outline-offset: 2px;
++    border-radius: 3px;
++}
++
++.skip-link:focus {
++    display: inline-block;
++    margin: .5rem;
++    padding: .5rem 1rem;
++    background: #ffffff;
++    border-radius: 0.375rem;
++}
++
++/* ---------- Brand / header ---------- */
++
++.site-brand {
++    gap: 1.25rem;
++
++    .brand-logo {
++        width: 120px;
++        height: 65px;
++        flex: 0 0 auto;
++    }
++
++    .brand-title {
++        font-size: clamp(1.05rem, 1.6vw + .6rem, 1.6rem);
++        font-weight: 600;
++        line-height: 1.25;
++    }
++
++    &:hover .brand-title {
++        color: darken($primary-color, 10%);
++    }
++}
++
++/* ---------- Navigation ---------- */
++
++.top-dropdown-nav-bar {
++    background-color: $primary-color;
++    border-radius: 0.5rem 0.5rem 0 0;
++    margin-top: 1.25rem;
++
++    .main-nav {
++        display: none;
++    }
++
++    .compact-nav {
++        display: block;
++    }
++
++    ul.main-nav li a {
++        display: inline-block;
++        padding: .35rem .85rem;
++        color: $primary-fg-color;
++        font-weight: 500;
++        font-size: 1.05rem;
++        text-decoration: none;
++        border-radius: 999px;
++        transition: background-color .15s ease-in-out;
++
++        &:hover {
++            background-color: rgb(255 255 255 / 22%);
++        }
++
++        &[aria-current="page"] {
++            background-color: #ffffff;
++            color: darken($primary-color, 18%);
++        }
++    }
++
++    details summary {
++        font-size: 1.2rem;
++    }
++}
++
++@include media-breakpoint-up(lg) {
++    .top-dropdown-nav-bar {
++        .main-nav {
++            display: flex;
++            flex-wrap: wrap;
++            gap: .25rem;
++        }
++
++        .compact-nav {
++            display: none;
++        }
++    }
++}
++
++/* ---------- Main content rhythm ---------- */
++
++main {
++    .container {
++        margin-top: 1.5rem;
++    }
++
++    h1 {
++        font-size: clamp(1.9rem, 1.2rem + 2vw, 2.75rem);
++        margin-bottom: 1rem;
++    }
++
++    /* comfortable line length for body copy */
++    .rsf-text {
++        > p,
++        > ul,
++        > ol,
++        > blockquote,
++        article > p,
++        article > ul {
++            max-width: $measure;
++        }
++
++        li, p {
++            font-size: clamp(1rem, .95rem + .25vw, 1.15rem);
++        }
++    }
++
++    /* remove the decorative icon noise in front of every heading link */
++    article {
++        h1::before,
++        h2 a::before,
++        h1 a::before {
++            content: none;
++        }
++    }
++}
++
++@include media-breakpoint-up(md) {
++    main .rsf-text {
++        li, p {
++            font-size: clamp(1rem, .95rem + .25vw, 1.15rem);
++        }
++    }
++}
++
++/* ---------- Article teasers (news, materials, reports) ---------- */
++
++main article {
++    padding: 1.25rem 1.25rem 1rem;
++    margin-bottom: 1.75rem;
++    background: #ffffff;
++    border: 1px solid rgb(0 0 0 / 8%);
++    border-radius: $radius-card;
++    box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
++    transition: box-shadow .18s ease-in-out, transform .18s ease-in-out;
++
++    &:not(:last-of-type) {
++        border-bottom: 1px solid rgb(0 0 0 / 8%);
++    }
++
++    &:hover {
++        box-shadow: 0 .5rem 1.5rem rgb(0 0 0 / 9%);
++        transform: translateY(-2px);
++    }
++
++    h2 {
++        font-size: clamp(1.25rem, 1.05rem + .7vw, 1.6rem);
++        margin-bottom: .35rem;
++    }
++
++    .heroimage {
++        height: auto;
++        margin-bottom: 1rem;
++        border-radius: calc(#{$radius-card} - .25rem);
++        overflow: hidden;
++
++        img {
++            width: 100%;
++            max-height: 280px;
++            object-fit: cover;
++            object-position: center;
++        }
++    }
++
++    p.meta {
++        color: darken($footer-grey-400, 45%);
++        font-size: .95rem;
++        margin-bottom: .5rem;
++    }
++
++    /* keep teaser text readable */
++    > p {
++        max-width: $measure;
++    }
++}
++
++/* ---------- Home hero & call to action ---------- */
++
++.heroimage {
++    border-radius: $radius-card;
++    overflow: hidden;
++    height: clamp(12rem, 28vw, 22rem);
++}
++
++.audience-split {
++    margin-top: 2.5rem;
++    margin-bottom: .5rem;
++
++    .row {
++        row-gap: 1rem;
++    }
++
++    .audience-card {
++        display: flex;
++        flex-direction: column;
++        gap: .5rem;
++        align-items: flex-start;
++
++        h2 {
++            font-size: clamp(1.35rem, 1.1rem + .8vw, 1.75rem);
++            margin-bottom: 0;
++        }
++
++        p {
++            margin-bottom: .5rem;
++            max-width: 40ch;
++        }
++
++        .btn {
++            padding: .6rem 1.15rem;
++            font-weight: 500;
++            border-radius: 999px;
++        }
++    }
++}
++
++@include media-breakpoint-up(md) {
++    .audience-split .audience-card + .audience-card {
++        border-left: 1px solid rgb(0 0 0 / 8%);
++        padding-left: 2rem;
++    }
++}
++
++/* ---------- Home teaser cards ---------- */
++
++#highlights {
++    .col-md-4 {
++        display: flex;
++        flex-direction: column;
++    }
++
++    h2.h5 {
++        font-size: 1.05rem;
++        letter-spacing: .04em;
++        text-transform: uppercase;
++        color: darken($footer-grey-400, 45%);
++        margin-bottom: .6rem;
++    }
++
++    .card {
++        flex: 1 1 auto;
++        border: 1px solid rgb(0 0 0 / 8%);
++        border-radius: $radius-card;
++        overflow: hidden;
++        transition: box-shadow .18s ease-in-out, transform .18s ease-in-out;
++
++        &:hover {
++            box-shadow: 0 .5rem 1.5rem rgb(0 0 0 / 10%);
++            transform: translateY(-2px);
++        }
++
++        .card-body {
++            display: flex;
++            align-items: flex-start;
++        }
++
++        .card-title {
++            font-size: 1.05rem;
++            line-height: 1.35;
++            margin-bottom: 0;
++        }
++    }
++
++    > .row > div > a:last-child {
++        margin-top: .75rem;
++        font-weight: 500;
++        color: darken($primary-color, 10%);
++        text-decoration: none;
++
++        &:hover {
++            text-decoration: underline;
++        }
++    }
++}
++
++/* ---------- Pagination ---------- */
++
++.pagination {
++    margin-top: 2rem;
++
++    .page-link {
++        color: darken($primary-color, 12%);
++    }
++
++    .page-item.active .page-link {
++        background-color: $primary-color;
++        border-color: $primary-color;
++        color: $primary-fg-color;
++    }
++}
++
++/* ---------- Footers ---------- */
++
++footer.sponsors,
++footer.partners {
++    li {
++        margin-right: 1.5rem;
++        margin-bottom: .75rem;
++        vertical-align: middle;
++    }
++
++    p {
++        text-transform: uppercase;
++        letter-spacing: .06em;
++        font-size: .85rem;
++        margin-bottom: .75rem;
++    }
++}
++
++footer.contact {
++    h3 {
++        text-transform: uppercase;
++        letter-spacing: .05em;
++        font-size: .9rem;
++        margin-bottom: .75rem;
++    }
++}
++
++footer.legal {
++    background-color: $footer-grey-600;
++    padding: 1rem 0 1.5rem;
++    font-size: .9rem;
++
++    a {
++        color: darken($primary-color, 12%);
++        text-decoration: none;
++
++        &:hover {
++            text-decoration: underline;
++        }
++    }
++}
++
++/* Respect reduced-motion preferences */
++@media (prefers-reduced-motion: reduce) {
++    :root {
++        scroll-behavior: auto;
++    }
++
++    * {
++        transition: none !important;
++    }
++
++    main article:hover,
++    #highlights .card:hover {
++        transform: none;
++    }
++}
++
++/* Extra breathing room between stacked CTA blocks on small screens */
++.audience-split .audience-card + .audience-card {
++    margin-top: 1.5rem;
++}
++
++@include media-breakpoint-up(md) {
++    .audience-split .audience-card + .audience-card {
++        margin-top: 0;
++    }
++}
++
++/* ------------------------------------------------------------------ */
++
++/* Landing page structure: primary actions, about, teasers            */
++
++/* ------------------------------------------------------------------ */
++
++.home-intro {
++    padding-block: 1.5rem 0.5rem;
++}
++
++.home-lead {
++    max-width: 60ch;
++    font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.35rem);
++    line-height: 1.5;
++}
++
++.home-primary {
++    padding-block: 1.5rem 2rem;
++}
++
++.primary-panel {
++    display: flex;
++    flex-direction: column;
++    height: 100%;
++    padding: 1.5rem;
++    border: 1px solid rgb(0 0 0 / 8%);
++    border-radius: 0.75rem;
++    background-color: #ffffff;
++    box-shadow: 0 2px 10px rgb(0 0 0 / 6%);
++}
++
++.primary-panel h3 {
++    margin-bottom: 0.5rem;
++    font-size: clamp(1.3rem, 1.1rem + 0.7vw, 1.75rem);
++}
++
++.primary-panel-head p {
++    max-width: 46ch;
++    margin-bottom: 1rem;
++}
++
++.primary-list {
++    margin-top: 1.25rem;
++    margin-bottom: 0;
++    border-top: 1px solid rgb(0 0 0 / 8%);
++}
++
++.primary-list li {
++    padding-block: 0.55rem;
++    border-bottom: 1px solid rgb(0 0 0 / 6%);
++}
++
++.primary-extra {
++    margin-top: 0.75rem;
++    margin-bottom: 0;
++}
++
++.home-about {
++    padding-block: 2rem;
++    background-color: rgb(0 0 0 / 3%);
++}
++
++.home-about h2 {
++    margin-bottom: 1rem;
++}
++
++.home-teasers {
++    padding-block: 2rem;
++}
++
++.teasers-head {
++    display: flex;
++    flex-wrap: wrap;
++    gap: 0.5rem 1rem;
++    align-items: baseline;
++    justify-content: space-between;
++    margin-bottom: 1rem;
++}
++
++.home-teasers .card-img-top {
++    height: 160px;
++    object-fit: cover;
++}
++
++.teasers-extra {
++    margin-top: 1.25rem;
++    margin-bottom: 0;
++}

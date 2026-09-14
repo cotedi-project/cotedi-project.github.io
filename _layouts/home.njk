@@ -1,0 +1,25 @@
+---
+layout: index
+---
+{% if hero %}
+<div class="container rsf-text">
+    <div class="heroimage text-center">
+    <img src="{{ hero | url }}" alt="CoTEDI project cover image" sizes="(max-width: 576px) 100vw, (max-width: 992px) 92vw, 1140px" loading="eager" fetchpriority="high" decoding="async">
+    </div>
+</div>
+{% endif %}
+
+<section class="container home-intro">
+  <p class="home-lead">Computational thinking for every classroom &mdash; inclusive teaching materials and project results from 16 institutions in six European countries.</p>
+</section>
+
+{% include "blocks/featured_event.njk" %}
+{% include "blocks/home_primary.njk" %}
+{% include "blocks/home_about.njk" %}
+{% include "blocks/home_teasers.njk" %}
+
+{% if content %}
+<div class="container rsf-text">
+    {{ content | safe }}
+</div>
+{% endif %}

@@ -1,13 +1,19 @@
 ---
 layout: index
 ---
-{% if hero %}
-    <div style="background-image: url({{ hero | url }});" class="heroimage text-center"></div>
-{% endif %}
     <div class="container rsf-text">
+      {% if hero %}
+          <div class="heroimage text-center">
+          <img src="{{ hero | url }}" alt="{{ title }} cover image" sizes="(max-width: 576px) 100vw, (max-width: 992px) 92vw, 1140px" loading="eager" fetchpriority="high" decoding="async">
+          </div>
+      {% endif %}
         <h1>{{ title }}</h1>
         <p class="meta">
           When: <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+          {% if endDate -%}
+          -
+          <time datetime="{{ endDate | htmlDateString }}">{{ endDate | readableDate }}</time>
+          {%- endif %}
         </p>
         <p class="meta">
           Where: {{ location }}

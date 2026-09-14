@@ -3,15 +3,19 @@ category_rules:
   - match: any
     category: [56]
     folder: docs/events
+    tags: [event]
 
   - match: all
     category: [42, 68]
     folder: docs/publications
+    tags: [publication]
 
   - match: all
     category: [38]
     folder: docs/news
+    tags: [news]
 
   - match: all
     category: [70]
     folder: docs/materials
+    tags: [material]

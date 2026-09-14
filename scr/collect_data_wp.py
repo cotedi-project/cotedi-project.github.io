@@ -47,21 +47,7 @@ def download_image(url, dest_dir):
 def download_and_localize_images(html_content, dest_dir, url_prefix):
     """
     Parse `html_content`, download every <img> found, and rewrite that
-    image's `src` attribute IN THE HTML ITSELF to point at the local file
-    (as a site-rooted path: f"{url_prefix}/{filename}").
-
-    Doing the rewrite at the HTML/DOM level - rather than converting to
-    markdown first and then string-searching for the original URL - avoids
-    a subtle bug: markdownify doesn't always preserve the exact URL string
-    from the HTML (it can normalize entities, resolve relative URLs, pick a
-    different size from srcset, etc.), so a later `content.replace(url, ...)`
-    can silently fail to match anything and leave the bare/original
-    reference in place.
-
-    Returns:
-      - the modified HTML as a string (safe to pass into html_to_markdown)
-      - a list of image references, in document order (local site-rooted
-        path on success, original remote URL as a fallback on failure)
+    image's `src` attribute to an absolute, site-rooted path.
     """
     soup = BeautifulSoup(html_content, "html.parser")
     image_refs = []
@@ -73,11 +59,10 @@ def download_and_localize_images(html_content, dest_dir, url_prefix):
 
         local_name = download_image(src, dest_dir)
         if local_name:
-            img["src"] = local_name  # rewrite directly in the parsed HTML
-            image_refs.append(local_name)
+            local_ref = f"{url_prefix}/{local_name}"
+            img["src"] = local_ref
+            image_refs.append(local_ref)
         else:
-            # Couldn't download it - leave the original URL as-is in the
-            # HTML (and as the fallback reference) rather than dropping it.
             image_refs.append(src)
 
     return str(soup), image_refs
@@ -105,11 +90,11 @@ def resolve_folder(category, rules):
         cats = rule["category"]
         if rule["match"] == "all":
             if all(cat in category for cat in cats):
-                return rule["folder"]
+                return rule["folder"], rule.get("tags", [])
         else:  # "any"
             if any(cat in category for cat in cats):
-                return rule["folder"]
-    return None 
+                return rule["folder"], rule.get("tags", [])
+    return None, None
 
 def fetch_all_posts(client):
     """Fetch every published post across all pages, not just the first one."""
@@ -178,6 +163,8 @@ def main():
     
     for post in posts:
         post_id   = post['id']
+        if post_id == 1464:
+            continue  # Skip post with ID 1464
         if post_id in existing_ids:
             continue  # Skip posts that are already saved locally
         title     = post['title']['rendered']
@@ -186,7 +173,7 @@ def main():
         description = html_to_markdown(post['excerpt']['rendered'])  # Use the description field
         link      = post['link']
         type      = post['type']
-        tags      = post['tags']
+        
 
         featured_media_id = post['featured_media'] # This is the media ID
         hero_url = None
@@ -201,7 +188,7 @@ def main():
         author_name = author['name']
 
         # Determine the output folder based on the post's category and the loaded rules
-        folder = resolve_folder(category, category_rules)
+        folder, site_tags = resolve_folder(category, category_rules)
 
         if folder is None:
             print(f"Warning: Post {post_id} has an unrecognized category {category}.")
@@ -213,7 +200,15 @@ def main():
         page_dir = docs_dir / f"page_wp_{post_id}"  # Use post ID for unique directory name
         page_dir.mkdir(parents=True, exist_ok=True)  # Create the directory if it doesn't exist
 
+        image_url_prefix = "/" + page_dir.relative_to(docs_root).as_posix()
+
         # Saved directly in page_dir, alongside index.md (no subfolder).
+        # Hero and gallery images are referenced by BARE FILENAME in the
+        # markdown/front matter — not a path. Eleventy's post.njk detail
+        # page uses the filename as-is (resolves relative to the post's own
+        # folder), and listing templates like news.njk/materials.njk prepend
+        # post.url themselves before the filename. Baking the folder path in
+        # here would double up with that prepend on listing pages.
         # Hero and gallery images are referenced by BARE FILENAME in the
         # markdown/front matter — not a path. Eleventy's post.njk detail
         # page uses the filename as-is (resolves relative to the post's own
@@ -231,7 +226,7 @@ def main():
         # unconditionally - no string-matching against markdownify's output
         # required.
         localized_html, gallery_images = download_and_localize_images(
-            post['content']['rendered'], page_dir
+            post['content']['rendered'], page_dir, image_url_prefix
         )
         content = html_to_markdown(localized_html)
 
@@ -240,7 +235,7 @@ def main():
             "title": title,
             "author_name": author_name,
             "date": date,
-            "tags": tags,
+            "tags": site_tags,
             "type": type,
             "hero": hero,
             "link": link,

@@ -1,16 +1,15 @@
 ---
 layout: index
 ---
-    {% if hero %}
-        <div class="heroimage text-center">
-        <img src="{{ hero }}" alt="{{ title }} teaser image" sizes="200w,400w,800w,1920w,2400w">
-        </div>
-    {% endif %}
-
     {% set allpartners = partners.research %}
     {% set allpartners = allpartners.concat(partners.schools) %}
 
       <div class="container rsf-text">
+        {% if hero and hero not in content %}
+            <div class="heroimage text-center">
+            <img src="{{ hero }}" alt="{{ title }} teaser image" sizes="(max-width: 576px) 100vw, (max-width: 992px) 92vw, 1140px" loading="eager" fetchpriority="high" decoding="async">
+            </div>
+        {% endif %}
         <article class="{{ type }}">
         <h1> {{ title }} </h1>
         <p class="meta">
@@ -63,9 +62,6 @@ layout: index
         <p class="lead-link">
             {% if type == 'media' %}
                 <a class="bi bi-play-btn-fill btn btn-lg btn-primary media text-white" href="{{ post.data.link }}" target="_blank"> Watch now</a>
-
-            {% else %}
-                <a class="bi bi-box-arrow-up-right" href="{{ link | url }}"> Read more</a>
             {% endif %}
         </p>
         {% endif %}

@@ -2,7 +2,11 @@
 layout: index
 ---
 {% if hero %}
-    <div style="background-image: url({{ hero | url }});" class="heroimage text-center"></div>
+<div class="container rsf-text">
+    <div class="heroimage text-center">
+    <img src="{{ hero | url }}" alt="{{ title or meta.title }} cover image" sizes="(max-width: 576px) 100vw, (max-width: 992px) 92vw, 1140px" loading="eager" fetchpriority="high" decoding="async">
+    </div>
+</div>
 {% endif %}
 {% if title -%}
 <div class="container rsf-text">

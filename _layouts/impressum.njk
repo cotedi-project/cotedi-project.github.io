@@ -1,0 +1,79 @@
+---
+layout: index
+---
+<div class="container rsf-text">
+  <h1>{{ title }}</h1>
+  
+  <div class="impressum-content">
+    <section class="impressum-section">
+      <h2>Project Information</h2>
+      <p><strong>Project Name:</strong> Computational Thinking Education for Diversity and Inclusion (CoTEDI)</p>
+      
+      {%- set projectLead = null -%}
+      {%- for partner in partners.research -%}
+        {%- if partner.lead -%}
+          {%- set projectLead = partner -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if not projectLead -%}
+        {%- for partner in partners.schools -%}
+          {%- if partner.lead -%}
+            {%- set projectLead = partner -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+      
+      {% if projectLead %}
+        <p><strong>Project Coordinator:</strong> {{ projectLead.name }} ({{ projectLead.country }})</p>
+        {% if projectLead.email %}
+          <p><strong>Contact Email:</strong> <a href="mailto:{{ projectLead.email }}">{{ projectLead.email }}</a></p>
+        {% endif %}
+      {% endif %}
+    </section>
+
+    <section class="impressum-section">
+    <h2>Funding</h2>
+    <p>This project is co-funded by:</p>
+    <ul>
+    {%- for sponsor in sponsors -%}
+        {%- if sponsor.funding -%}
+        <li>{{ sponsor.funding }}</li>
+        {%- endif -%}
+    {%- endfor -%}
+    </ul>
+    <p>The European Commission support for the production of this publication does not constitute an endorsement of the contents which reflects the views only of the authors, and the Commission cannot be held responsible for any use which may be made of the information contained therein.</p>
+    </section>
+
+    <section class="impressum-section">
+    <h2>Sponsors & Partners</h2>
+    <ul>
+    {%- for sponsor in sponsors -%}
+        <li>
+        <a href="{{ sponsor.url }}" target="_blank">{{ sponsor.name }}</a>
+        </li>
+    {%- endfor -%}
+    </ul>
+    </section>
+
+    <section class="impressum-section">
+      <h2>Data Protection</h2>
+      <p>For information about how we process personal data, please see our <a href="{{ '/pages/privacy/' | url }}">Privacy Statement</a>.</p>
+    </section>
+
+    <section class="impressum-section">
+      <h2>License</h2>
+      <p>Unless otherwise stated, the content on this website is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</p>
+    </section>
+
+    <section class="impressum-section">
+      <h2>Disclaimer</h2>
+      <p>The information provided on this website is for informational purposes only. While we strive to ensure accuracy, we make no warranties regarding the completeness or accuracy of the content.</p>
+    </section>
+
+    <section class="impressum-section">
+      <h2>Changes to This Page</h2>
+      <p>We reserve the right to modify this Impressum at any time. Changes take effect immediately upon posting to the website.</p>
+      <p><em>Last updated: {{ thisDate }}</em></p>
+    </section>
+  </div>
+</div>

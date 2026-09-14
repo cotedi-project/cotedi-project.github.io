@@ -6,6 +6,10 @@ const Image = require("@11ty/eleventy-img");
 
 const markdownit = require("markdown-it");
 
+const sass = require("sass");
+const browserslist = require("browserslist");
+const { transform, browserslistToTargets } = require("lightningcss");
+
 // markdown-it-attrs uses commonJs modules and is a showstopper for modernizing the codebase
 const markdownItAttrs = require("markdown-it-attrs");
 
@@ -22,10 +26,15 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.ignores.add("_system/**");
     eleventyConfig.ignores.add(".devcontainer/**");
     eleventyConfig.ignores.add("**/node_modules/**");
-    eleventyConfig.ignores.add("**/scss/**");
     eleventyConfig.ignores.add("_site/**");
 
-    eleventyConfig.addPassthroughCopy("assets/**");
+    // eleventyConfig.ignores.add("src/**");
+    // eleventyConfig.ignores.add("scr/**");
+    eleventyConfig.ignores.add("**/*.py");
+
+    // eleventyConfig.ignores.add("**/scss/**");
+
+    // eleventyConfig.addPassthroughCopy("assets/**");
     eleventyConfig.addPassthroughCopy("docs/images/**");
 
     eleventyConfig.addPassthroughCopy("docs/**/*.jpg");
@@ -36,7 +45,57 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addPassthroughCopy("docs/**/*.webp");
     eleventyConfig.addPassthroughCopy("docs/**/*.ico");
     eleventyConfig.addPassthroughCopy("docs/**/*.zip");
+    eleventyConfig.addPassthroughCopy("docs/**/*.woff");
+    eleventyConfig.addPassthroughCopy("docs/**/*.woff2");
 
+    eleventyConfig.addWatchTarget("**.scss");
+    eleventyConfig.addTemplateFormats("scss");
+
+    // Compile Sass without extra CLI logic.
+    eleventyConfig.addExtension("scss", {
+        outputFileExtension: "css",
+        // useLayouts: false,
+
+        compile: async function (inputContent, inputPath) {
+            // Skip files like _fileName.scss
+            let parsed = path.parse(inputPath);
+
+            if (parsed.name.startsWith("_")) {
+                return;
+            }
+
+            // Run file content through Sass
+            let result = sass.compileString(inputContent, {
+                loadPaths: [
+                    parsed.dir || ".",
+                    this.config.dir.includes,
+                    "node_modules" 
+                ],
+                // sourceMap: true, // or true, your choice!
+            });
+
+            // Allow included files from @use or @import to
+            // trigger rebuilds when using --incremental
+            this.addDependencies(inputPath, result.loadedUrls);
+
+            // let targets = browserslistToTargets(browserslist("> 0.2% and not dead"));
+
+            // return async () => {
+            //     let { code } = await transform({
+            //         code: Buffer.from(result.css),
+            //         minify: true,
+            //         sourceMap: false,
+            //         targets
+            //     });
+
+            //     return code;
+            // };
+
+            return async () => result.css;
+        },
+    });
+
+    /* exclude this part for layouting without images */
     eleventyConfig.addPlugin(Image.eleventyImageTransformPlugin, {
         // which file extensions to process
         extensions: "html",
@@ -56,7 +115,7 @@ module.exports = (eleventyConfig) => {
         defaultAttributes: {
             loading: "lazy",
             decoding: "async",
-            sizes: [200, 400, 800, 1260, 1920, 2400, "auto"]
+            sizes: "(max-width: 576px) 100vw, (max-width: 992px) 92vw, 1140px"
         },
 
         filenameFormat: function (id, src, width, format, options) {

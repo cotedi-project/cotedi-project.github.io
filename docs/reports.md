@@ -1,6 +1,10 @@
 --- 
 layout: reports.njk
 title: Reports
-limit: 50
+pagination:
+  data: collections.report
+  size: 5
+  reverse: true
+  alias: posts
 --- 
 
