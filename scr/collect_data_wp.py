@@ -44,15 +44,10 @@ def download_image(url, dest_dir):
     return filename
 
 
-def download_and_localize_images(html_content, dest_dir):
+def download_and_localize_images(html_content, dest_dir, url_prefix):
     """
     Parse `html_content`, download every <img> found, and rewrite that
-    image's `src` attribute to an absolute, site-rooted path
-    (f"{url_prefix}/{filename}"). This must be absolute (not a bare
-    filename) because body content gets re-embedded verbatim on other
-    pages (e.g. publications.njk embeds full post.content into the
-    publications listing page) - a bare filename would only resolve
-    correctly on the post's own detail page.
+    image's `src` attribute to an absolute, site-rooted path.
     """
     soup = BeautifulSoup(html_content, "html.parser")
     image_refs = []
@@ -64,8 +59,9 @@ def download_and_localize_images(html_content, dest_dir):
 
         local_name = download_image(src, dest_dir)
         if local_name:
-            img["src"] = local_name
-            image_refs.append(local_name)
+            local_ref = f"{url_prefix}/{local_name}"
+            img["src"] = local_ref
+            image_refs.append(local_ref)
         else:
             image_refs.append(src)
 
@@ -223,7 +219,6 @@ def main():
         if hero_url:
             local_name = download_image(hero_url, page_dir)
             hero = local_name if local_name else hero_url
-            hero = local_name if local_name else hero_url
 
         # --- Download every image embedded in the post body and rewrite its
         # src attribute directly in the HTML (before markdown conversion),
@@ -231,7 +226,7 @@ def main():
         # unconditionally - no string-matching against markdownify's output
         # required.
         localized_html, gallery_images = download_and_localize_images(
-            post['content']['rendered'], page_dir
+            post['content']['rendered'], page_dir, image_url_prefix
         )
         content = html_to_markdown(localized_html)
 
