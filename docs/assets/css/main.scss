@@ -46,21 +46,6 @@ img {
     height: auto;
 }
 
-.heroimage {
-    width: 100%;
-    height: 25em;
-    margin-bottom: 1.5em;
-    background-size: cover;
-    background-position: center;
-
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
-}
-
 footer {
     background-color: $footer-grey-600;
     font-size: 1.2rem; // calc(1.2rem + 1vw);
@@ -877,20 +862,6 @@ main article {
         margin-bottom: .35rem;
     }
 
-    .heroimage {
-        height: auto;
-        margin-bottom: 1rem;
-        border-radius: calc(#{$radius-card} - .25rem);
-        overflow: hidden;
-
-        img {
-            width: 100%;
-            max-height: 280px;
-            object-fit: cover;
-            object-position: center;
-        }
-    }
-
     p.meta {
         color: darken($footer-grey-400, 45%);
         font-size: .95rem;
@@ -899,12 +870,6 @@ main article {
 }
 
 /* ---------- Home hero & call to action ---------- */
-
-.heroimage {
-    border-radius: $radius-card;
-    overflow: hidden;
-    height: clamp(12rem, 28vw, 22rem);
-}
 
 .audience-split {
     margin-top: 2.5rem;
@@ -1259,13 +1224,76 @@ button:focus-visible,
     text-underline-offset: 0.25em;
 }
 
-// Consistent hero / media treatment everywhere
-.heroimage img {
-    width: 100%;
+// ==========================================================================
+// Hero / teaser images (news, materials, reports, events, posts)
+// There are two contexts for `.heroimage`:
+//   1. Full hero, on individual news/event/post pages — one big image.
+//   2. Compact teaser, inside `main article` on list pages (news, materials,
+//      reports) — a shorter crop so several cards fit on screen.
+// `.materials-thumb` is a separate, uncropped style for the low-resolution
+// legacy screenshots used as materials thumbnails (see main site docs).
+// ==========================================================================
+
+// 1. Full hero (single page)
+.heroimage {
+    border-radius: $radius-card;
+    overflow: hidden;
+    height: clamp(12rem, 28vw, 22rem);
+
+    img {
+        width: 100%;
+        height: auto;
+        max-height: 70vh;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 0.5rem;
+    }
+}
+
+// 2. Compact teaser (list/card view)
+main article .heroimage {
     height: auto;
-    max-height: 70vh;
-    object-fit: cover;
-    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: calc(#{$radius-card} - .25rem);
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        max-height: 280px;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+// 3. Materials thumbnails: many are small, low-resolution legacy screenshots.
+// Show them uncropped and never stretch them past their native size.
+.materials-thumb {
+    max-width: 500px;
+    margin: 0 auto 1.5em;
+    border-radius: $radius-card;
+    overflow: hidden;
+    background: $footer-grey-400;
+
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        max-height: 22rem;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+// 4. Same story for images embedded in a material's body text: they're the
+// same small legacy screenshots, so cap and center them instead of letting
+// them stretch to the full article text-column width.
+.content.content-material img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 1.5rem auto;
 }
 
 // Images inside article bodies (markdown content)

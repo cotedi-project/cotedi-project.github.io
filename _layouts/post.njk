@@ -6,9 +6,15 @@ layout: index
 
       <div class="container rsf-text">
         {% if hero and hero not in content %}
-            <div class="heroimage text-center">
-            <img src="{{ hero }}" alt="{{ title }} teaser image" loading="lazy" decoding="async">
+          {% if 'material' in tags %}
+            <div class="materials-thumb text-center">
+            <img src="{{ hero }}" alt="{{ title }} teaser image" loading="eager" fetchpriority="high" decoding="async">
             </div>
+          {% else %}
+            <div class="heroimage text-center">
+            <img src="{{ hero }}" alt="{{ title }} teaser image" loading="eager" fetchpriority="high" decoding="async">
+            </div>
+          {% endif %}
         {% endif %}
         <article class="{{ type }}">
         <h1> {{ title }} </h1>
@@ -66,7 +72,7 @@ layout: index
         </p>
         {% endif %}
 
-        <div class="content">
+        <div class="content{% if 'material' in tags %} content-material{% endif %}">
         {{ content | safe }}
         </div>
 

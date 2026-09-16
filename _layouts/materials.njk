@@ -15,7 +15,7 @@ layout: index
       {% for post in posts %}
         <article class="{{ post.data.type }}">
             {% if post.data.hero %}
-            <div class="heroimage"><a href="{{ post.url | url }}">
+            <div class="materials-thumb"><a href="{{ post.url | url }}">
             <img src="{{ post.url | url }}{{ post.data.hero | url }}" alt="{{ post.data.title }} teaser image" loading="lazy" decoding="async"></a>
             </div>
             {% endif %}
