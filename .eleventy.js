@@ -104,7 +104,7 @@ module.exports = (eleventyConfig) => {
 
         // optional, output image formats
         // formats: ["webp", "jpeg","svg"],
-        formats: ["auto"],
+        formats: ["avif", "webp", "auto"],
 
         svgShortCircuit: "size",
 
