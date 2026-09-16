@@ -43,28 +43,16 @@ In the first session, students will work on mathematical concepts such as prime 
 
 *[Dowload Educational Programme](https://imaginatic.es/wp-content/uploads/2025/06/12.-MultiplesCalculator-LauraGuijorro-English.pdf)*
 
-Introduction 
-
-
-Activity design 
-
-
-Implementation 
-
-
-Results 
-
-
-Conclusions 
-
-
-Activity Sheet
+### Introduction
 
 Would you like to teach your students hands-on concepts about prime and composite numbers, multiples, and divisors? What if we connect these ideas with programming an educational board using Makey Makey connections and create a calculator that computes multiples? Then this is the perfect activity for you. In this guided, step-by-step project, you’ll find everything you need to implement it in your classroom. 
 
 I propose several playful activities through which students will explore and understand key mathematical concepts. A prime number is represented by a single Lego piece, while a composite number is formed by combining multiple pieces whose values multiply together. Multiples are built by creating a number with Lego pieces and then adding more pieces that represent the multiplication process. Divisors are the values or pieces into which a number can be evenly separated. 
 
 After exploring these concepts hands-on using Lego blocks, students will move on to creating a multiples calculator using Echidna boards connected via Makey Makey. In the second session, students will learn how to work with the board and how to make the necessary connections. Finally, in the third session, they will apply their knowledge and use programming variables to develop their own multiples calculator.
+
+
+### Activity design
 
 This activity is designed for students from the third cycle of Primary Education, starting at age 10 or from 5th grade. It can be carried out in the regular classroom if laptops are available; otherwise, it may need to be conducted in a computer lab.
 
@@ -252,6 +240,8 @@ Figure 10 shows an example of the final result, where students have successfully
 
 *Figure 10. Multiples. Session 3. Example of the multiples calculator*
 
+### Implementation
+
 The activity was carried out at CEIP Pedro Duque (Madrid) with students from the 3rd cycle of Primary Education (5th and 6th grade). Approximately 150 students participated in total (3 classes per grade). The methodology used was game-based learning in the first session and a mix of traditional teaching and “learning by doing” methodologies in the second and third sessions.
 
 Figure 11 shows on the left how the explanation of the activity with Lego blocks was carried out, and on the right, it shows students working with the blocks and using dice to create the first five multiples of the number rolled.
@@ -278,6 +268,10 @@ In Figure 14, two examples of programs created by different students are shown, 
 
 *Figure 14. Session 3 implementation: Multiples calculator. Projects created*
 
+
+
+### Results
+
 After completing the activity, we observed that students are motivated to engage with and understand all the content, even if they had no prior experience with technological topics such as board programming or circuit connections. However, caution is needed, as students sometimes confuse basic concepts, for example, classifying screens as input devices instead of output devices, or incorrectly connecting crocodile clips by inserting them into holes instead of pinching the metal ring.
 
 Regarding the math session, students enjoy it and improve their understanding of concepts like prime and composite numbers, multiples, and divisors. Working cooperatively, they help and correct each other when mistakes are noticed. In the Kahoot activity, however, care is needed because some students were more focused on being the first to answer rather than answering correctly or taking time to understand the questions. Despite the questions being simple and supported by images with hints, there were quite a few careless mistakes made in the rush to be first.
@@ -286,6 +280,7 @@ When setting up the boards, it’s important to note that computers do not come 
 
 Another point to keep in mind is that the boards have a switch to select between sensor mode or Makey Makey mode. It must be set to Makey Makey, not sensors. Students sometimes change this setting while using the boards, which can cause errors when running the program.
 
+## Conclusion
 I conclude by sharing my opinion after observing that this activity is one in which students both enjoy themselves and learn mathematics in a playful and hands-on way. Through challenges, they begin to program and understand concepts related to technology, such as electrical circuits, connections, and programming educational boards.
 
 Finally, I encourage teachers to implement activities like this in the classroom, as they also present challenges for us as educators, sometimes pushing us out of our comfort zones and helping us grow in our own learning.
@@ -311,6 +306,8 @@ Herreros, D., & Sanz, M. T. (2020). Estadística en educación primaria a travé
 Lobo, J., Pujol, J. & Rosas, X. (2021). Primaria – Echidna Educación. Echidna Educación. <https://echidna.es/didactica/primaria/>
 
 Matesenelinsti (2011) Múltiplos y divisores con piezas de Lego. Disponible en: <https://www.youtube.com/watch?v=owCgyHbCF1c>.
+
+### Activity Sheet
 
 |  |  |
 | --- | --- |

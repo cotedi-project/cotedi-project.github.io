@@ -52,19 +52,7 @@ Based on the results obtained, it is concluded that the proposal constitutes a r
 
 This educational program is derived from the Master’s Final Project (TFM) by Belén Orihuela Pantoja.
 
-Introduction 
-
-
-Activity design 
-
-
-Implementation 
-
-
-Results 
-
-
-Conclusions
+### Introduction 
 
 The development of **Computational Thinking (CT)** has gained significant relevance in the educational field. As Wing (2006) points out, CT is considered a higher-order cognitive skill that facilitates problem-solving through abilities such as **decomposition, pattern identification, abstraction, algorithmic thinking, debugging, and solution validation**. Thanks to these skills, it is possible to automate the solution to a problem by defining ordered steps through an algorithm.
 
@@ -184,6 +172,7 @@ Each of the project activities allows for working on the curricular contents of 
 
 In short, this **educational programme** offers an interdisciplinary proposal that responds to the demands of current educational legislation, combining the study of History with the acquisition of digital and computational competencies through active, collaborative, and motivating methodologies.
 
+### Activity Design
 This educational program is designed with the hypothesis that integrating **Computational Thinking (CT)** through active and collaborative methodologies in the History curriculum, along with the use of digital tools, will significantly enhance historical knowledge in 5th-grade primary students while simultaneously developing CT skills.
 
 Our main objective is to strengthen historical knowledge and CT skills in 5th-grade students through engaging activities centered on the **Ages of History**. These activities blend **«plugged» experiences** using educational robots with **«unplugged» activities** that do not require electronic devices. Within this framework, we have set the following specific objectives:
@@ -319,6 +308,8 @@ Data analysis will combine **quantitative and qualitative approaches**. Quantita
 
 To ensure **reliability and validity**, the same instruments will be used across all groups and centers, and alphanumeric identifiers will be used for students’ tests to maintain confidentiality.
 
+### Implementation
+
 This section details the implementation of the educational program, providing context on the educational environment and the participating schools. It outlines group organization, coordination with involved teachers, and the sequencing of classroom activities. This offers insight into the real-world conditions of the project, allowing for an assessment of its applicability and potential adaptations to other educational settings.
 
 ##### Educational Context
@@ -428,12 +419,15 @@ Finally, on Monday, June 16, activities resumed at School 1 with Class 1, comple
 The final mission presentations could not be carried out at either school due to time constraints. However, a brief summary of activities was conducted at the beginning of each session, reinforcing learned concepts. Furthermore, the simultaneous development of activities allowed students to indirectly learn about missions from other periods. By working in parallel, students shared ideas, observed other groups’ progress, and often collaborated with peers from other missions once they finished their own. This dynamic fostered peer learning and broadened their knowledge of different eras beyond what was assigned to their specific group
 
 ---
+### Results
 
 ##### Evaluation Instruments
 
 We collected data to assess both the **initial and final levels of historical knowledge and CT skills** (planning, abstraction, decomposition, debugging, and pattern recognition). Our three main instruments were a **mini-test on historical content**, a **final evaluation form**, and a **CT test adapted from Román-González (2015)**. We also reviewed group **Padlets** (links in Annex 6) to check how well historical knowledge and practiced skills were integrated.
 
 Our data analysis combines **quantitative and qualitative approaches**. Quantitative results (CT test, History mini-test, and final evaluation form) were compared between initial and final values to identify potential improvements and areas of difficulty. Qualitative data from Padlet entries were examined, assessing the audiovisual evidence students created throughout the project. It’s worth noting that we couldn’t use final mission presentations due to time constraints. All instruments were applied uniformly across all participating groups and schools.
+
+### Conclusions
 
 Based on the collected and analyzed data, it can be concluded that the objectives set in the proposal design were **satisfactorily met**. Students successfully strengthened their historical knowledge of different Ages and, at the same time, acquired basic **Computational Thinking (CT) skills**, such as sequencing instructions, problem-solving, and debugging errors. The combination of «plugged» activities, using technological resources and educational robots, and «unplugged» activities allowed for addressing different learning styles and facilitating content comprehension.
 

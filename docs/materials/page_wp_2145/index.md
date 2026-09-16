@@ -42,28 +42,15 @@ A quantitative experimental design with a pre-test and post-test was employed at
 
 [*Dowload Educational Programme*](https://imaginatic.es/wp-content/uploads/2025/07/21.-Sec-mBot2-AlesioSanchez.Def-Ingles.pdf)
 
-Introduction 
-
-
-Activity design 
-
-
-Implementation 
-
-
-Results 
-
-
-Conclusions 
-
-
-Activity Sheet
+### Introduction 
 
 In the current educational context, Computational Thinking (CT) has proven to be an essential skill, with tangible benefits for students’ academic development (Zapata-Ros, 2015; Lee et al., 2011). Numerous studies support the idea that CT enhances students’ competencies, helping them to succeed in their subjects and achieve better results across various disciplines (Bocconi et al., 2016; Zapata-Cáceres & Martín-Barroso, 2021).
 
 While academic literature has explored the impact of CT on students with high intellectual abilities and those with special educational needs separately, there remains a significant gap in understanding how this skill influences the development of students with special needs (learning difficulties, disabilities or gifted students). Therefore, it is crucial to design inclusive educational experiences that address the diversity of students found in classrooms (Buitrago et al., 2022; Frutos et al., 2012; Hontangas & de la Puente, 2010).
 
 A practical experience was conducted to explore the relationship between CT, implemented through robotics activities, and diversity support in secondary school students. This experience encompassed a broad spectrum of students with specific educational support needs, aiming to identify the impact of CT across different levels within this spectrum. The significance of this research lies not only in understanding how CT influences students’ skill development but also in examining the variations in its impact on students with special needs.
+
+### Activity Design
 
 The activity was designed to be implemented over multiple sessions with secondary school students, using mBot2 educational robots. It targeted students in Years 9, 10, and 11 (2nd, 3rd, and 4th of ESO). The necessary resources included computers with the mBlock5[[1]](#_ftn1) program or the mLink2[[2]](#_ftn2) connector, mBot2[[3]](#_ftn3) robots, and additional materials such as printed circuits for line-following tasks. The methodology followed a quasi-experimental design, employing pre-test and post-test assessments to measure the impact of the robotics sessions on the development of Computational Thinking (CT).
 
@@ -166,11 +153,15 @@ Table 5 – Fifth Activity – Line Following.
 | **Solution** | | |
 | Figure 11 shows a simple solution for this activity. Typically, students start by making small 1° turns for the curves and then check again. This causes the robot to spin in place, giving no sense of forward motion in the curves. Once this is achieved, they can be asked to make the curves smoother, allowing the robot to maintain its sense of forward progress. Finally, they could do it at a higher speed and perform some action upon detecting a color on the line.    Figure 11 – Solution to Activity 5: Line Following. | | |
 
+### Implementation
+
 The experience was carried out at the IES Domenico Scarlatti in Aranjuez, Madrid, during the 2023/2024 academic year, with the participation of 201 students. The students were divided into control and experimental groups, with the experimental group carrying out the robotics sessions. The sessions took place in classrooms equipped for this purpose and were conducted in collaborative work groups. The student population included students with specific educational support needs.
 
 The control group consisted of 84 participants from 2nd and 3rd year of Secondary Education (ESO), while the experimental group included 117 participants from 2nd, 3rd, and 4th year of ESO. The classes belonging to the control and experimental groups were the students’ natural classes and were selected by the educational center itself.
 
 As the participants were minors, explicit consent was obtained through signed permission from the students’ parents or guardians to conduct the study. Furthermore, this study has been authorized by the Research Ethics Committee of the Rey Juan Carlos University, with registration number 281120234182023
+
+### Results
 
 The main results of the activity showed that the experimental group experienced meaningful learning in computer skills, particularly among girls (Wilcoxon test; p = 0.0003031), who showed significant improvements compared to their male peers and the control group (boys in the experimental group: p = 0.8316; boys in the control group: p = 0.7588; girls in the control group: p = 0.8644). These findings suggest that meaningful learning in the experimental group occurred primarily among the girls. Figure 12 visually displays these results, where the means of the control and experimental groups, segmented by gender, can be observed in the pre- and post-tests of the experience.
 
@@ -183,6 +174,8 @@ In the analysis of the NEAE subgroup, consisting of 10 students in the control g
 The results indicate that no significant improvements were observed in the performance of special needs students in either group (p = 0.4136 in the experimental group and p = 0.7907 in the control group). These findings suggest the need for a more in-depth analysis to identify potential patterns or effects that might not be evident through conventional statistical tests. An additional approach could reveal subtle influences that, although not statistically significant, may have pedagogical relevance.
 
 These conclusions support the integration of computer skills activities into school curricula as an essential tool for improving students’ competencies.
+
+### Conclusion
 
 The activity demonstrated that robotics sessions can be effective in developing computer skills in Secondary Education (ESO) students, particularly among girls. Although no significant improvements were found in students with special needs, the activity provides a solid foundation for future research and adjustments in the design of activities to enhance their inclusion and effectiveness. It is essential to continue exploring and adapting these activities to ensure that all students can benefit from them.
 
@@ -213,6 +206,8 @@ Román-González, M., Pérez-González, J., & Jiménez-Fernández, C. (2017). Wh
 Zapata-Cáceres, M., & Martín, E. (2021). Applying Game Learning Analytics to a Voluntary Video Game: Intrinsic Motivation, Persistence, and Rewards in Learning to Program at an Early Age. IEEE Access, 9, pp. 123588-123602. DOI: 10.1109/access.2021.3110475
 
 Zapata-Ros, M. (2015). Pensamiento computacional: Una nueva alfabetización digital. RED. Revista de Educación a Distancia, 46. DOI: 10.6018/red/46/4
+
+### Activity Sheet
 
 |  |  |
 | --- | --- |
