@@ -4,7 +4,7 @@ author: grahanoi
 date: 2026-09-14
 tags: 
 - event
-hero: 
+hero: Ponte_25_de_Abril.jpg
 link: 
 partner: 
 language: English, Portuguese 
@@ -36,4 +36,6 @@ The preliminary program is as follows:
 
 The event is free of charge and registration takes place on site.
 
-#
+### Banner Image
+
+The banner image is licensed under [CC 4.0 BY-SA](https://creativecommons.org/licenses/by-sa/4.0/deed.en) by [Gerrit Sonka via Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ponte_25_de_Abril_(Lisbon,_Portugal).jpg)
