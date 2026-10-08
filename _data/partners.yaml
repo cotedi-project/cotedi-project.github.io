@@ -5,13 +5,18 @@ research:
     url: https://www.ou.nl/
     logo: 
     - OUNL_logo.svg
+    lead: true
     team: 
-    - name: Dr. Nardie Fanchamps
-      url: https://research.ou.nl/en/persons/nardie-fanchamps-2
+    - name: Dr. Heike Gerger 
+      url: https://research.ou.nl/en/persons/heike-gerger/
+      alias: Heike Gerger
+    - name: Dr. Roland Klemke
+      url: https://research.ou.nl/en/persons/roland-klemke-2
+      alias: Roland Klemke
+    - name: Dr. Nardie Fanchamps (retired)
+      url: 
       login: Nardie1970
       alias: Nardie Fanchamps
-      
-    lead: true
 
   - name: University Rey Juan Carlos
     acronym: URJC
@@ -37,17 +42,13 @@ research:
     - logo_th.svg
     url: https://www.colognegamelab.de/
     team:
-    - name: Prof. Roland Klemke
-      alias: Roland Klemke
-      url: https://colognegamelab.de/about/faculty-staff/professors/prof-dr-roland-klemke/
-      login: rklemke
     - name: Daniel Majonica
       login: daniel-majonica
-      url: https://colognegamelab.de/about/faculty-staff/lecturers-researchers/daniel-majonica/
-    - name: Khaleel Asyraaf Mat Sanusi
+      url: https://colognegamelab.de/about/faculty-staff/researchers/daniel-majonica/
+    - name: Dr. Khaleel Asyraaf Mat Sanusi
       alias: Khaleel Asyraaf
       login: khaleelasyraaf
-      url: https://colognegamelab.de/about/faculty-staff/lecturers-researchers/khaleel-asyraaf/
+      url: https://colognegamelab.de/about/faculty-staff/researchers/khaleel-asyraaf/
 
   - name: Linnéuniversitetet
     acronym: LNU
@@ -62,6 +63,8 @@ research:
       url: https://lnu.se/en/staff/marcelo.milrad/
     - name: Katrin Lindwall
       login: KatrinLnu
+    - name: Ali Hamidi
+    - name: Sepide Tavajoh
     
   - name: treetree2 
     acronym: treetree2
@@ -70,9 +73,11 @@ research:
     - treetree2_logo.webp
     url: https://www.treetree2.org/
     team:
+    - name: João Rico
+      url: https://www.treetree2.org/
     - name: Pedro Marcelino
       url: https://www.treetree2.org/
-    - name: João Rico
+    - name: Sara Santos  
       url: https://www.treetree2.org/
 
   - name: Zurich University of Applied Sciences
@@ -86,6 +91,9 @@ research:
       alias: Christian Glahn
       url: https://www.zhaw.ch/en/about-us/person/glah/
       login: phish108
+    - name: Noirin Graham
+      login: grahanoi
+      url: https://www.zhaw.ch/en/about-us/person/grhh/
 
 schools:
   - name: CP Pedro Duque
