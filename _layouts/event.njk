@@ -9,14 +9,14 @@ layout: index
       {% endif %}
         <h1>{{ title }}</h1>
         <p class="meta">
-          When: <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+          <strong>When</strong>: <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
           {% if endDate -%}
           -
           <time datetime="{{ endDate | htmlDateString }}">{{ endDate | readableDate }}</time>
           {%- endif %}
         </p>
         <p class="meta">
-          Where: {{ location }}
+          <strong>Where</strong>: {{ location }}
         </p>
         <div class="content">
         {{ content | safe }}

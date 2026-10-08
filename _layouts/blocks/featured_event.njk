@@ -18,9 +18,17 @@
           <strong>Where:</strong> {{ latestEvent.data.location }}
         </p>
         {% endif %}
+        <p>
+        {{ latestEvent.data.description | safe }}
+        </p>
       </div>
       <a href="{{ latestEvent.url | url }}" class="btn btn-primary">More Details</a>
     </div>
+   {% if latestEvent.data.hero %}
+    <div class="featured-event heroimage text-center">
+        <img src="{{ [ latestEvent.url, latestEvent.data.hero ] | join("/") | url }}" alt="Cover Image: {{ latestEvent.data.herolicense }}" loading="lazy" decoding="async">
+    </div>
+    {% endif %}
   </section>
 </div>
 {% endif %}

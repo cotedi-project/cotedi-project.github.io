@@ -620,14 +620,6 @@ h1, h2, h3, h4 {
     text-align: center;
 }
 
-.featured-event-content {
-    .btn-primary {
-        background-color: $footer-grey-400;
-        border: 3px solid darken($primary-color, 12%);
-        color: darken($primary-color, 12%);
-    }
-}
-
 /* Visible keyboard focus everywhere */
 a:focus-visible,
 button:focus-visible,
@@ -1138,10 +1130,50 @@ footer.legal {
 
 .featured-event-banner {
   background: linear-gradient(135deg, rgba($primary-color, 0.9), rgba($primary-color, 0.7));
-  padding: 2rem 0 2rem 3rem;
-  margin: 2rem 0;
+  // padding: 2rem 0 2rem 3rem;
+  padding: 0;
+  margin: 0rem 0;
   border-radius: 0.5rem;
   color: $primary-fg-color;
+  vertical-align: top;
+
+  display: flex;
+  align-items: center;
+
+  .featured-event-content {
+    box-sizing: border-box;
+    margin: 0;
+    width: 50%;
+    height: 100%;
+    // padding: 0 2rem 2rem 0;
+    padding-left: 2rem;
+    // padding-top: 2rem;
+    // padding-bottom: 2rem;
+    
+    .btn-primary {
+        background-color: $footer-grey-400;
+        border: 3px solid darken($primary-color, 12%);
+        color: darken($primary-color, 12%);
+    }
+}
+
+.featured-event.heroimage {
+    margin: 0;
+    object-fit: cover;
+    object-position: 50% 50%;
+
+    border-radius: 0 .5rem .5rem 0;
+    box-sizing: border-box;
+    width: 50%;
+    height: 100%;
+
+    picture,img {
+        border-radius: 0 .5rem .5rem 0;
+        // border-radius: 0;
+        height: 100%;
+        width: 100%;
+    }
+}
 
   .featured-event-badge {
     display: inline-block;
@@ -1235,18 +1267,22 @@ button:focus-visible,
 // ==========================================================================
 
 // 1. Full hero (single page)
-.heroimage {
-    border-radius: $radius-card;
+main .rsf-text .heroimage {
+    border-radius: .75rem;
     overflow: hidden;
     height: clamp(12rem, 28vw, 22rem);
+    margin-bottom: 2rem;
+    // object-fit: cover;
+    // object-position: 50% 50%;
 
-    img {
-        width: 100%;
-        height: auto;
-        max-height: 70vh;
+    picture,img {
+         width: 100%;
+         height: 100%;
+    //     // height: auto;
+    //     // max-height: 70vh;
         object-fit: cover;
-        object-position: center;
-        border-radius: 0.5rem;
+        object-position:  50% 50%;
+    //     // border-radius: 0.5rem;
     }
 }
 
