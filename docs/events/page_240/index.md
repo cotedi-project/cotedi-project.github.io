@@ -6,7 +6,7 @@ tags:
 - event
 hero: Ponte_25_de_Abril.jpg
 herolicense:  CC 4.0 BY-SA, by Gerrit Sonka via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Ponte_25_de_Abril_(Lisbon,_Portugal).jpg
-link: 
+link: cotedi-lisboa-20261016-programa-cotedi-lisboa-23-outubro-2026-v2.pdf
 partner: 
 language: English, Portuguese 
 country: Portugal 
