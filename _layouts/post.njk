@@ -75,27 +75,4 @@ layout: index
         <div class="content{% if 'material' in tags %} content-material{% endif %}">
         {{ content | safe }}
         </div>
-
-        {% if  link %}
-        <div class="content"> 
-            <h4>External Links</h4>
-            <p>
-                <a class="bi bi-box-arrow-up-right" href="{{ link }}" target="_blank"> Related Link</a>
-            </p>
-        </div>
-        {% endif %}
-        
-        <div class="tags">
-          <ul>
-            {% for tag in tags %}
-                {% if tag != 'post' and tag != 'media' and tag != 'news' and tag != 'report' %}
-              <li><a href="{{ '/tags/' + tag | slug }}">{{ tag }}</a></li>
-                {% endif %}
-            {% endfor %}
-          </ul>
-        </div>
-        </article>
-        <div class="back">
-          <a type="button" class="btn btn-primary" href="{{ '/news/' | url }}">Read more news</a>
-        </div>
       </div>
