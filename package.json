@@ -25,7 +25,7 @@
     "@11ty/eleventy": "3.1.6",
     "@11ty/eleventy-img": "7.0.0",
     "@eslint/js": "9.37.0",
-    "browserslist": "^4.28.9",
+    "browserslist": "^4.29.4",
     "eslint": "9.37.0",
     "globals": "16.4.0",
     "lightningcss": "^1.33.0",
