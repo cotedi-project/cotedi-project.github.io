@@ -85,54 +85,6 @@ layout: index
     </div>
 {% endif %}
 
-<div class="container stats">
-   <h4>Indicator Numbers</p>
-
-    {% if pupilstats %}
-   <h5>Pupils</h5>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-            {% for col in kpi.pupils.Columns %}
-                <th scope="col" class="{{ col.type }}">{{ col.title }}</th>
-            {% endfor %}
-            </tr>
-        </thead>
-        <tbody>
-            {% for stat in pupilstats %}
-                <tr>
-                {% for col in kpi.pupils.Columns %}
-                    <td class="{{ col.type }}">{{ stat[col.id] }}</td>
-                {% endfor %}
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-   {% endif %}
-
-   {% if statistics %}
-   <h5>Participants</h5>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-            {% for col in kpi.participants.Columns %}
-                <th scope="col" class="{{ col.type }}">{{ col.title }}</th>
-            {% endfor %}
-            </tr>
-        </thead>
-        <tbody>
-            {% for stat in statistics %}
-                <tr>
-                {% for col in kpi.participants.Columns %}
-                    <td class="{{ col.type }}">{{ stat[col.id] }}</td>
-                {% endfor %}
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-   {% endif %}
-</div>
-
 
 <div class="back">
           <a type="button" class="btn btn-primary" href="{{ '/reports/' | url }}">Get more reports</a>
