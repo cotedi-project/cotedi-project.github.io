@@ -14,6 +14,7 @@
       <ul class="list-unstyled main-nav mb-0">
         <li><a href="{{ '/' | url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>Home</a></li>
         <li><a href="{{ '/materials/' | url }}" {% if '/materials/' in page.url %}aria-current="page"{% endif %}>Teaching Materials</a></li>
+        <li><a href="{{ '/games/' | url }}" {% if '/games/' in page.url %}aria-current="page"{% endif %}>Games</a></li>
         <li><a href="{{ '/reports/' | url }}" {% if '/reports/' in page.url %}aria-current="page"{% endif %}>Results</a></li>
         <li><a href="{{ '/publications/' | url }}" {% if '/publications/' in page.url %}aria-current="page"{% endif %}>Publications</a></li>
         <li><a href="{{ '/events/' | url }}" {% if '/events/' in page.url %}aria-current="page"{% endif %}>Events</a></li>
@@ -32,6 +33,7 @@
             <ul class="list-unstyled">
               <li><a href="{{ '/' | url }}">Home</a></li>
               <li><a href="{{ '/materials/' | url }}">Teaching Materials</a></li>
+              <li><a href="{{ '/games/' | url }}">Games</a></li>
               <li><a href="{{ '/reports/' | url }}">Results</a></li>
               <li><a href="{{ '/publications/' | url }}">Publications</a></li>
               <li><a href="{{ '/events/' | url }}">Events</a></li>

@@ -1,0 +1,21 @@
+gamejam:
+  name: International CoTeDi GameJam 2026
+  url: https://itch.io/jam/international-cotedi-gamejam-2026/entries
+  description: >-
+    Teams from different countries built games around computational
+    thinking. Here are the three winning entries.
+  podium:
+    - place: 1
+      title: Nobody Is Left Behind
+      url: https://mr-sae.itch.io/nobody-is-left-behind
+    - place: 2
+      title: Shaped
+      url: https://eldeiibid.itch.io/shaped
+    - place: 3
+      title: Crosspaws
+      url: https://nuriia.itch.io/crosspaws
+
+cokogames:
+  name: Coko Games
+  url: https://www.cokogames.com/tag/computational-thinking-games/
+  description: More free browser games for practising computational thinking.

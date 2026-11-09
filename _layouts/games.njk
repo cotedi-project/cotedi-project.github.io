@@ -1,0 +1,41 @@
+---
+layout: index
+---
+
+<div class="container rsf-text">
+  <h1>{{ title }}</h1>
+
+  <div class="games-content">
+    <section class="games-section">
+      <h2>{{ games.gamejam.name }}</h2>
+      <p>{{ games.gamejam.description }}</p>
+
+      <h3>Winners</h3>
+      <ol class="games-podium">
+        {%- for game in games.gamejam.podium -%}
+          <li class="games-podium-item place-{{ game.place }}">
+            <span class="games-medal">
+              {%- if game.place == 1 -%}🥇
+              {%- elif game.place == 2 -%}🥈
+              {%- else -%}🥉
+              {%- endif -%}
+            </span>
+            <a href="{{ game.url }}" target="_blank" rel="noopener">{{ game.title }}</a>
+          </li>
+        {%- endfor -%}
+      </ol>
+
+      <p>
+        <a href="{{ games.gamejam.url }}" target="_blank" rel="noopener">See all GameJam entries on itch.io</a>
+      </p>
+    </section>
+
+    <section class="games-section">
+      <h2>More Games</h2>
+      <p>{{ games.cokogames.description }}</p>
+      <p>
+        <a href="{{ games.cokogames.url }}" target="_blank" rel="noopener">Computational thinking games on {{ games.cokogames.name }}</a>
+      </p>
+    </section>
+  </div>
+</div>
