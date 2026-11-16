@@ -1,6 +1,6 @@
 ---
 layout: materials.njk
-title: Teaching Materials
+title: Educational Programmes
 pagination:
   data: collections.material
   size: 5
