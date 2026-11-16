@@ -10,6 +10,14 @@ link: https://imaginatic.es/multiples-calculator/
 language: es_ES
 category:
 - 70
+age range: 10 - 12
+grade level: Primary School
+educational context:
+- Classroom or Computer Lab
+resources:
+- WiFi, Tablets, Computers, Echidna ML
+- Echidna Shield with Arduino Uno or Echidna Black
+- 4 crocodile clip cables per board
 description: The «Multiples Calculator» activity combines mathematical concepts with
   programming using circuit boards, electrical circuits, and their connections. This
   activity is designed for students aged 10 and above, specifically those in the third

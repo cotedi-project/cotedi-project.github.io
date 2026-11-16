@@ -1,6 +1,10 @@
 ---
 layout: index
 ---
+{%- macro metaBadge(label, value, color) -%}
+  <span class="meta-badge meta-badge--{{ color }}"><span class="meta-badge__label">{{ label }}</span><span class="meta-badge__value">{{ value }}</span></span>
+{%- endmacro -%}
+
 <div class="container rsf-text">
   <h1>{{ title }}</h1>
 
@@ -69,6 +73,27 @@ layout: index
           </p>
 
           <div class="card-text">{{ post.data.description | safe }}</div>
+
+          {%- set m = post.data -%}
+          {%- set contexts = m["educational context"] -%}
+          {%- if contexts is string -%}{%- set contexts = [contexts] -%}{%- endif -%}
+          {%- set resources = m.resources -%}
+          {%- if resources is string -%}{%- set resources = [resources] -%}{%- endif -%}
+
+          <div class="meta-badges mt-3">
+            {%- if m["age range"] -%}
+              {{ metaBadge("Age", m["age range"], "blue") }}
+            {%- endif -%}
+            {%- if m["grade level"] -%}
+              {{ metaBadge("Grade", m["grade level"], "purple") }}
+            {%- endif -%}
+            {%- for ctx in contexts -%}
+              {{ metaBadge("Context", ctx, "orange") }}
+            {%- endfor -%}
+            {%- for res in resources -%}
+              {{ metaBadge("Resource", res, "green") }}
+            {%- endfor -%}
+          </div>
         </div>
 
         <div class="card-footer bg-transparent border-0 pt-0 pb-3">

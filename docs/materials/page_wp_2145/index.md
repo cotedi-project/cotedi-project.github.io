@@ -10,6 +10,11 @@ link: https://imaginatic.es/5-robot-programming-challenges/
 language: es_ES
 category:
 - 70
+age range: 12-15
+grade level: ESO (secondary education)
+educational context: Computer room with computers
+resources:
+- WiFi, Computers
 description: The study examines the importance of Computational Thinking (CT) in the
   educational context, particularly in developing competencies among secondary school
   students. It highlights how CT can help overcome educational barriers and promote

@@ -1390,3 +1390,16 @@ main article figcaption {
 .btn-outline-primary {
     border-width: 2px;
 }
+
+// Material cards: metadata badges
+.meta-badges { display: flex; flex-wrap: wrap; gap: .3rem; }
+.meta-badge {
+  display: inline-flex; font-size: .72rem; line-height: 1.7;
+  border-radius: 4px; overflow: hidden; color: #fff;
+}
+.meta-badge__label { background: #555; padding: 0 .5rem; }
+.meta-badge__value { background: var(--badge-color); padding: 0 .5rem; }
+.meta-badge--blue   { --badge-color: #1f6feb; }
+.meta-badge--purple { --badge-color: #8250df; }
+.meta-badge--orange { --badge-color: #bc4c00; }
+.meta-badge--green  { --badge-color: #1a7f37; }

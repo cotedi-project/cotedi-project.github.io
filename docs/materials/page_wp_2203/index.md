@@ -10,6 +10,13 @@ link: https://imaginatic.es/time-travellers/
 language: es_ES
 category:
 - 70
+age range: 10 - 11
+grade level: Primary School
+educational context: 
+- Classroom 
+resources:
+- Tablets, QR-Codes, 
+- MatataStudio Coding Set, MatataCode App
 description: Computational Thinking should be progressively developed from the earliest
   stages of education, promoting its integration into different curriculum areas.
   In this context, the present teaching proposal is framed within the third cycle
