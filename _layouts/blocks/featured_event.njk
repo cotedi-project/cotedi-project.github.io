@@ -4,22 +4,26 @@
 <div class="container">
   <section class="featured-event-banner">
     <div class="featured-event-content">
-      <div class="featured-event-badge">Upcoming Event</div>
+      <div class="featured-event-badge">Last Event</div> {# was: Upcoming Event #}
       <h2>{{ latestEvent.data.title | safe }}</h2>
       <div class="featured-event-details">
         <p>
-          <strong>When:</strong> 
+          <strong>Date:</strong> {# was: When #}
           <time datetime="{{ latestEvent.date | htmlDateString }}">
             {{ latestEvent.date | readableDate }}
           </time>
         </p>
         {% if latestEvent.data.location %}
         <p>
-          <strong>Where:</strong> {{ latestEvent.data.location }}
+          <strong>Location:</strong> {{ latestEvent.data.location }} {# was: Where #}
         </p>
         {% endif %}
         <p>
         {{ latestEvent.data.description | safe }}
+        </p>
+        {# new: tells visitors the project has ended #}
+        <p class="featured-event-note">
+          <em>The CoTEDI project has been completed. No further events are planned.</em>
         </p>
       </div>
       <a href="{{ latestEvent.url | url }}" class="btn btn-primary">More Details</a>

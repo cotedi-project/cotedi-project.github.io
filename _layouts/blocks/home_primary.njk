@@ -2,13 +2,13 @@
 {% set latestReports = collections.report | reverse | entryLimit(3) %}
 
 <section id="primary" class="container home-primary" aria-labelledby="primary-heading">
-  <h2 id="primary-heading" class="visually-hidden">Teaching materials and project results</h2>
+  <h2 id="primary-heading" class="visually-hidden">Educational Programmes and project results</h2>
 
   <div class="row g-4">
     <div class="col-lg-6">
       <div class="primary-panel">
         <div class="primary-panel-head">
-          <h3>Teaching Materials</h3>
+          <h3>Educational Programmes</h3>
           <p>Ready-to-use activities, guides and prototypes for computational thinking in inclusive classrooms.</p>
         </div>
         {% if latestMaterials | length %}
