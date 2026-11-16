@@ -18,8 +18,21 @@ layout: index
         {% endif %}
         <article class="{{ type }}">
         <h1> {{ title }} </h1>
+
+        {% if link and 'material' in tags %}
+        <p class="original-source">
+          <a class="bi bi-box-arrow-up-right" href="{{ link }}" target="_blank" rel="noopener"> View the original source</a>
+        </p>
+        {% endif %}
+
         <p class="meta">
-        {%- if language and language != 'English'-%}{{ " " }} <span class="badge text-bg-warning">{%if language == 'Spanish' -%} 🇪🇸
+        {%- if language and language != 'English'-%}{{ " " }}
+          {%- set display_language = language -%}
+          {%- if language == 'es_ES' -%}
+            {%- set display_language = 'Spanish' -%}
+          {%- endif -%}
+          <span class="badge text-bg-warning">
+            {%- if language == 'Spanish' or language == 'es_ES' -%}🇪🇸
         {%- elif language == 'Portuguese' -%}🇵🇹
         {%- elif language == 'German' -%}🇩🇪
         {%- elif language == 'Dutch' -%}🇳🇱
@@ -64,15 +77,14 @@ layout: index
         </p>
         {% endif %}
 
-        {% if  link %}
+        {% if link and type == 'media' %}
         <p class="lead-link">
-            {% if type == 'media' %}
-                <a class="bi bi-play-btn-fill btn btn-lg btn-primary media text-white" href="{{ post.data.link }}" target="_blank"> Watch now</a>
-            {% endif %}
+            <a class="bi bi-play-btn-fill btn btn-lg btn-primary media text-white" href="{{ link }}" target="_blank" rel="noopener"> Watch now</a>
         </p>
         {% endif %}
 
         <div class="content{% if 'material' in tags %} content-material{% endif %}">
         {{ content | safe }}
         </div>
+        </article>
       </div>
