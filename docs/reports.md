@@ -1,6 +1,6 @@
 --- 
 layout: reports.njk
-title: Reports
+title: Teacher training
 pagination:
   data: collections.report
   size: 5
