@@ -19,3 +19,8 @@ category_rules:
     category: [70]
     folder: docs/materials
     tags: [material]
+
+  - match: all
+    category: [none]
+    folder: docs/reports
+    tags: [report]

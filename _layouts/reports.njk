@@ -3,6 +3,9 @@ layout: index
 ---
 <div class="container rsf-text">
         <h1>{{ title }}</h1>
+        {% if description %}
+          <p class="page-description">{{ description }}</p>
+        {% endif %}
       {% if not pagination %}
         {% set posts = collections.report | reverse %}
       {% endif %}
