@@ -8,12 +8,18 @@ gamejam:
     - place: 1
       title: Nobody Is Left Behind
       url: https://mr-sae.itch.io/nobody-is-left-behind
+      image: /games/first.png
+      alt: Screenshot of Nobody Is Left Behind
     - place: 2
       title: Shaped
       url: https://eldeiibid.itch.io/shaped
+      image: /games/second.png
+      alt: Screenshot of Shaped
     - place: 3
       title: Crosspaws
       url: https://nuriia.itch.io/crosspaws
+      image: /games/third.png
+      alt: Screenshot of Crosspaws
 
 cokogames:
   name: Coko Games

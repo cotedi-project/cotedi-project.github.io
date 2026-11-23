@@ -1403,3 +1403,59 @@ main article figcaption {
 .meta-badge--purple { --badge-color: #8250df; }
 .meta-badge--orange { --badge-color: #bc4c00; }
 .meta-badge--green  { --badge-color: #1a7f37; }
+
+// Game Podium
+
+.games-section { margin-bottom: 3rem; }
+
+.podium-card {
+  position: relative;
+  overflow: hidden;
+  border: 0;
+  border-top: 5px solid var(--rank-color, #ccc);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.podium-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 .75rem 1.5rem rgba(0, 0, 0, .15) !important;
+}
+
+.podium-img {
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  object-fit: cover;
+}
+
+.podium-rank {
+  position: absolute;
+  top: .75rem;
+  left: .75rem;
+  z-index: 1;
+  padding: .25rem .7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .95);
+  color: #222;
+  font-weight: 700;
+  font-size: .9rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .25);
+}
+
+.podium-col.place-1 { --rank-color: #d4af37; }
+.podium-col.place-2 { --rank-color: #a8b0b8; }
+.podium-col.place-3 { --rank-color: #cd7f32; }
+
+// Podium order on larger screens: 2nd, 1st, 3rd; winner is larger
+@media (min-width: 768px) {
+  .podium-col.place-1 { order: 2; }
+  .podium-col.place-2 { order: 1; }
+  .podium-col.place-3 { order: 3; }
+  .podium-col.place-1 .podium-card { transform: scale(1.06); }
+  .podium-col.place-1 .podium-card:hover { transform: scale(1.06) translateY(-4px); }
+}
+
+.games-more {
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  background: var(--bs-light, #f5f5f5);
+  border-left: 5px solid var(--bs-primary);
+}
