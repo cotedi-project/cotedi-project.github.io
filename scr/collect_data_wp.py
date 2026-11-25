@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 import yaml
 from markdownify import markdownify as md # https://pypi.org/project/markdownify/
 
-
+# test
 def download_image(url, dest_dir):
     """
     Download an image from `url` and save it into `dest_dir`, using the
