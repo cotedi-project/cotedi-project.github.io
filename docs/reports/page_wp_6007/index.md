@@ -16,7 +16,7 @@ gallery_images:
 ---
 # Conference: CHALLENGES 2024: Resources, Practices, Curriculum and Policies
 
-![](/news/page_wp_1510/composite_challenges2024_final-1024x254.jpg)
+![](/reports/page_wp_6007/composite_challenges2024_final-1024x254.jpg)
 
 **Date: 09–10/05/2024**
 

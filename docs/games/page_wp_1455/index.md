@@ -3,7 +3,7 @@ title: Designed activities
 author_name: María Zapata Cáceres
 date: '2025-06-08'
 tags:
-- news
+- unplugged_designed
 type: post
 hero: monstruos1.jpg
 link: https://imaginatic.es/designed-activities/
@@ -17,9 +17,9 @@ description: These Designed Activities are innovative, ready-to-use computationa
   challenges, hands-on projects, or digital explorations, these modules offer flexible,
   scalable ways to engage students in CT concepts and spark creative problem-solving.
 gallery_images:
-- /news/page_wp_1455/composite_emy-1024x267.jpg
-- /news/page_wp_1455/monstruos_algoritmos_composite-1024x175.jpg
-- /news/page_wp_1455/pedroduque_population_activity_composite_blurred2-1024x251.jpg
+- /games/page_wp_1455/composite_emy-1024x267.jpg
+- /games/page_wp_1455/monstruos_algoritmos_composite-1024x175.jpg
+- /games/page_wp_1455/pedroduque_population_activity_composite_blurred2-1024x251.jpg
 ---
 # 
 
@@ -65,7 +65,7 @@ The following are selected examples of designed activities included in the book 
 
 Creating Stories and Learning Letters and Numbers with Cubetto
 
-![](/news/page_wp_1455/composite_emy-1024x267.jpg)
+![](/games/page_wp_1455/composite_emy-1024x267.jpg)
 
 Hermelinda Quintanar Ferreira. Speech and Language Teacher of Comunidad de Madrid. Collaborator at Universidad Rey Juan Carlos
 
@@ -81,7 +81,7 @@ You can download the full activity description from the following link. It inclu
 
 Algorithms for Drawing
 
-![](/news/page_wp_1455/monstruos_algoritmos_composite-1024x175.jpg)
+![](/games/page_wp_1455/monstruos_algoritmos_composite-1024x175.jpg)
 
 María Zapata Cáceres y Estefanía Martín Barroso. CoTEDI Team.
 
@@ -99,7 +99,7 @@ The main objective of the activity is to improve understanding of instruction se
 
 Teaching the Distribution of Spanish Population with LEGO® Bricks
 
-![](/news/page_wp_1455/pedroduque_population_activity_composite_blurred2-1024x251.jpg)
+![](/games/page_wp_1455/pedroduque_population_activity_composite_blurred2-1024x251.jpg)
 
 Pablo A. Haya Coll. Universidad Autónoma de Madrid. CoTEDI Collaborator.
 

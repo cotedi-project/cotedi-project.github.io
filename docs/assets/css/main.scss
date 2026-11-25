@@ -1459,3 +1459,23 @@ main article figcaption {
   background: var(--bs-light, #f5f5f5);
   border-left: 5px solid var(--bs-primary);
 }
+
+.unplugged-box {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: var(--bs-light, #f5f5f5);
+  border-left: 5px solid var(--bs-primary);
+}
+
+.unplugged-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+.unplugged-cards > .card {
+  flex: 1;
+}
