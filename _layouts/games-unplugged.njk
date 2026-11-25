@@ -21,32 +21,48 @@ layout: index
   <h1>{{ title }}</h1>
 
   <div class="games-content">
-    <section class="games-section unplugged-games">
-      <div class="row g-4">
 
-        <div class="col-12 col-lg-6">
-          <div class="unplugged-box h-100">
-            <h2 class="h3">Activities in Schools</h2>
-            <div class="unplugged-cards">
-              {%- for post in collections.unplugged_school | reverse -%}
-                {{ newsCard(post) }}
-              {%- endfor -%}
+    <section class="games-section">
+      <div class="unplugged-box">
+        <h2 class="h3">Designed Activities</h2>
+        {%- for post in collections.unplugged_designed | reverse -%}
+          <article class="card shadow-sm">
+            <div class="row g-0">
+              {%- if post.data.hero and post.data.hero != "No image available" -%}
+                <div class="col-md-4">
+                  <img class="w-100 h-100 object-fit-cover" src="{{ post.url | url }}{{ post.data.hero | url }}" alt="{{ post.data.title }} teaser image" loading="lazy" decoding="async">
+                </div>
+              {%- endif -%}
+              <div class="col">
+                <div class="card-body d-flex flex-column h-100">
+                  <h3 class="card-title h5">{{ post.data.title }}</h3>
+                  <p class="card-text">{{ post.data.description | striptags | truncate(300) }}</p>
+                  <a class="btn btn-primary mt-auto align-self-start bi bi-box-arrow-up-right" href="{{ post.url | url }}"> Open the activities</a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-lg-6">
-          <div class="unplugged-box h-100">
-            <h2 class="h3">Designed Activities</h2>
-            <div class="unplugged-cards">
-              {%- for post in collections.unplugged_designed | reverse -%}
-                {{ newsCard(post) }}
-              {%- endfor -%}
-            </div>
-          </div>
-        </div>
-
+          </article>
+        {%- endfor -%}
       </div>
     </section>
+
+    <section class="games-section">
+      <div class="unplugged-box">
+        <h2 class="h3">Activities in Schools</h2>
+        As part of the Erasmus+ CoTEDI project, we visit schools to carry out hands-on activities with children. These sessions allow us to test and validate educational programmes designed to foster the development of computational thinking. Working directly in classroom settings helps us ensure that our proposals are age-appropriate, engaging, and effective in real educational contexts.
+        Many of these activities are included in the book [Laboratorio de Pensamiento Computacional. Ideas y actividades en el aula](https://burjcdigital.urjc.es/bitstreams/2863c4f0-8853-4785-acc4-cbff78fe2f29/download), which provides step-by-step instructions for teachers to easily implement them in their own lessons.
+        {%- for post in collections.unplugged_school_overview -%}
+          <p>{{ post.data.description | striptags }}</p>
+        {%- endfor -%}
+        <div class="row g-4">
+          {%- for post in collections.unplugged_school | reverse -%}
+            <div class="col-12 col-md-6 col-lg-4">
+              {{ newsCard(post) }}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+
   </div>
 </div>
