@@ -1479,3 +1479,22 @@ main article figcaption {
 .unplugged-cards > .card {
   flex: 1;
 }
+
+
+.hub-card {
+  border: 0;
+  border-top: 5px solid var(--bs-primary);
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .1);
+  color: inherit;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.hub-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 .75rem 1.5rem rgba(0, 0, 0, .18);
+  color: inherit;
+}
+.hub-icon {
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--bs-primary);
+}

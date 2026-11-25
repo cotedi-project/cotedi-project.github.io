@@ -1,0 +1,52 @@
+---
+layout: index
+---
+{%- macro newsCard(post) -%}
+  <article class="card h-100 shadow-sm">
+    {%- if post.data.hero and post.data.hero != "No image available" -%}
+      <a href="{{ post.url | url }}" tabindex="-1" aria-hidden="true">
+        <img class="card-img-top podium-img" src="{{ post.url | url }}{{ post.data.hero | url }}" alt="{{ post.data.title }} teaser image" loading="lazy" decoding="async">
+      </a>
+    {%- endif -%}
+    <div class="card-body d-flex flex-column">
+      <h3 class="card-title h5">{{ post.data.title }}</h3>
+      <p class="card-text">{{ post.data.description | striptags | truncate(160) }}</p>
+      <a class="btn btn-outline-primary mt-auto align-self-start bi bi-box-arrow-up-right" href="{{ post.url | url }}"> Read more</a>
+    </div>
+  </article>
+{%- endmacro -%}
+
+<div class="container rsf-text">
+  <p class="mb-2"><a class="bi bi-arrow-left" href="{{ '/games/' | url }}"> All games</a></p>
+  <h1>{{ title }}</h1>
+
+  <div class="games-content">
+    <section class="games-section unplugged-games">
+      <div class="row g-4">
+
+        <div class="col-12 col-lg-6">
+          <div class="unplugged-box h-100">
+            <h2 class="h3">Activities in Schools</h2>
+            <div class="unplugged-cards">
+              {%- for post in collections.unplugged_school | reverse -%}
+                {{ newsCard(post) }}
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="unplugged-box h-100">
+            <h2 class="h3">Designed Activities</h2>
+            <div class="unplugged-cards">
+              {%- for post in collections.unplugged_designed | reverse -%}
+                {{ newsCard(post) }}
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+</div>

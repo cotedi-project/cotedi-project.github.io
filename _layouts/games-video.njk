@@ -1,0 +1,50 @@
+---
+layout: index
+---
+<div class="container rsf-text">
+  <p class="mb-2"><a class="bi bi-arrow-left" href="{{ '/games/' | url }}"> All games</a></p>
+  <h1>{{ title }}</h1>
+
+  <div class="games-content">
+    <section class="games-section">
+      <h2>{{ games.gamejam.name }}</h2>
+      <p class="lead">{{ games.gamejam.description }}</p>
+
+      <div class="row g-4 games-podium align-items-end">
+        {%- for game in games.gamejam.podium -%}
+          <div class="col-12 col-md-4 podium-col place-{{ game.place }}">
+            <article class="card h-100 shadow-sm podium-card">
+              <span class="podium-rank" aria-label="Place {{ game.place }}">
+                {%- if game.place == 1 -%}🥇 1st
+                {%- elif game.place == 2 -%}🥈 2nd
+                {%- else -%}🥉 3rd
+                {%- endif -%}
+              </span>
+
+              {%- if game.image -%}
+                <a href="{{ game.url }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                  <img class="card-img-top podium-img" src="{{ game.image | url }}" alt="{{ game.alt or game.title }}" loading="lazy" decoding="async">
+                </a>
+              {%- endif -%}
+
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5">{{ game.title }}</h3>
+                <a class="btn btn-primary mt-auto align-self-start bi bi-play-fill" href="{{ game.url }}" target="_blank" rel="noopener"> Play on itch.io</a>
+              </div>
+            </article>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <p class="mt-4">
+        <a class="bi bi-box-arrow-up-right" href="{{ games.gamejam.url }}" target="_blank" rel="noopener"> See all GameJam entries on itch.io</a>
+      </p>
+    </section>
+
+    <section class="games-section games-more">
+      <h2>More Video Games</h2>
+      <p>{{ games.cokogames.description }}</p>
+      <a class="btn btn-outline-primary bi bi-controller" href="{{ games.cokogames.url }}" target="_blank" rel="noopener"> Computational thinking games on {{ games.cokogames.name }}</a>
+    </section>
+  </div>
+</div>

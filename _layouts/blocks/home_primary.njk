@@ -1,12 +1,22 @@
+{# Set to true when the Robots page is ready #}
+{% set showRobots = false %}
+
 {% set latestMaterials = collections.material | reverse | entryLimit(3) %}
 {% set latestReports = collections.report | reverse | entryLimit(3) %}
 
 <section id="primary" class="container home-primary" aria-labelledby="primary-heading">
-  <h2 id="primary-heading" class="visually-hidden">Educational Programmes and project results</h2>
+  <h2 id="primary-heading" class="visually-hidden">
+    {%- if showRobots -%}
+      Educational Programmes, Games, Project results and Robots
+    {%- else -%}
+      Educational Programmes, Games and Project results
+    {%- endif -%}
+  </h2>
 
   <div class="row g-4">
+
     <div class="col-lg-6">
-      <div class="primary-panel">
+      <div class="primary-panel h-100">
         <div class="primary-panel-head">
           <h3>Educational Programmes</h3>
           <p>Ready-to-use activities, guides and prototypes for computational thinking in inclusive classrooms.</p>
@@ -23,11 +33,24 @@
     </div>
 
     <div class="col-lg-6">
-      <div class="primary-panel">
+      <div class="primary-panel h-100">
+        <div class="primary-panel-head">
+          <h3>Games</h3>
+          <p>Video games from the international GameJam and unplugged activities that teach computational thinking without a computer.</p>
+        </div>
+        <ul class="primary-list list-unstyled">
+          <li><a href="{{ '/games/video/' | url }}">Video Games</a></li>
+          <li><a href="{{ '/games/unplugged/' | url }}">Unplugged Games</a></li>
+        </ul>
+        <p class="cardbuttons"><a class="btn btn-outline-primary" href="{{ '/games/' | url }}">Explore all games</a></p>
+      </div>
+    </div>
+
+    <div class="{% if showRobots %}col-lg-6{% else %}col-12{% endif %}">
+      <div class="primary-panel h-100">
         <div class="primary-panel-head">
           <h3>Project Results</h3>
           <p>Deliverables, evaluation reports and publications documenting the outcomes of the project.</p>
-          
         </div>
         {% if latestReports | length %}
         <ul class="primary-list list-unstyled">
@@ -37,9 +60,23 @@
         </ul>
         {% endif %}
         <p class="cardbuttons">
-        <a class="btn btn-outline-primary" href="{{ '/reports/' | url }}">View all results</a>
-        <a class="btn btn-outline-primary" href="{{ '/publications/' | url }}">Scientific publications »</a></p>
+          <a class="btn btn-outline-primary" href="{{ '/reports/' | url }}">View all results</a>
+          <a class="btn btn-outline-primary" href="{{ '/publications/' | url }}">Scientific publications »</a>
+        </p>
       </div>
     </div>
+
+    {% if showRobots %}
+    <div class="col-lg-6">
+      <div class="primary-panel h-100">
+        <div class="primary-panel-head">
+          <h3>Robots</h3>
+          <p>Short description of the robots section goes here.</p>
+        </div>
+        <p class="cardbuttons"><a class="btn btn-outline-primary" href="{{ '/robots/' | url }}">Discover the robots</a></p>
+      </div>
+    </div>
+    {% endif %}
+
   </div>
 </section>

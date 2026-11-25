@@ -1,98 +1,30 @@
 ---
 layout: index
-title: Games  
 ---
-{%- macro newsCard(post) -%}
-  <article class="card h-100 shadow-sm">
-    {%- if post.data.hero and post.data.hero != "No image available" -%}
-      <a href="{{ post.url | url }}" tabindex="-1" aria-hidden="true">
-        <img class="card-img-top podium-img" src="{{ post.url | url }}{{ post.data.hero | url }}" alt="{{ post.data.title }} teaser image" loading="lazy" decoding="async">
-      </a>
-    {%- endif -%}
-    <div class="card-body d-flex flex-column">
-      <h4 class="card-title h5">{{ post.data.title }}</h4>
-      <p class="card-text">{{ post.data.description | striptags | truncate(160) }}</p>
-      <a class="btn btn-outline-primary mt-auto align-self-start bi bi-box-arrow-up-right" href="{{ post.url | url }}"> Read more</a>
-    </div>
-  </article>
-{%- endmacro -%}
-
 <div class="container rsf-text">
-  <h1>{{ title1 }}</h1>
+  <h1>{{ title }}</h1>
 
-  <div class="games-content">
-  <h2>Video Games</h2>
-    <section class="games-section">
-      <h3>{{ games.gamejam.name }}</h3>
-      <p class="lead">{{ games.gamejam.description }}</p>
-
-      <div class="row g-4 games-podium align-items-end">
-        {%- for game in games.gamejam.podium -%}
-          <div class="col-12 col-md-4 podium-col place-{{ game.place }}">
-            <article class="card h-100 shadow-sm podium-card">
-              <span class="podium-rank" aria-label="Place {{ game.place }}">
-                {%- if game.place == 1 -%}🥇 1st
-                {%- elif game.place == 2 -%}🥈 2nd
-                {%- else -%}🥉 3rd
-                {%- endif -%}
-              </span>
-
-              {%- if game.image -%}
-                <a href="{{ game.url }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-                  <img class="card-img-top podium-img" src="{{ game.image | url }}" alt="{{ game.alt or game.title }}" loading="lazy" decoding="async">
-                </a>
-              {%- endif -%}
-
-              <div class="card-body d-flex flex-column">
-                <h3 class="card-title h5">{{ game.title }}</h3>
-                <a class="btn btn-primary mt-auto align-self-start bi bi-play-fill" href="{{ game.url }}" target="_blank" rel="noopener"> Play on itch.io</a>
-              </div>
-            </article>
-          </div>
-        {%- endfor -%}
-      </div>
-
-      <p class="mt-4">
-        <a class="bi bi-box-arrow-up-right" href="{{ games.gamejam.url }}" target="_blank" rel="noopener"> See all GameJam entries on itch.io</a>
-      </p>
-    </section>
-
-
-    <section class="games-section games-more">
-      <h2>More Video Games</h2>
-      <p>{{ games.cokogames.description }}</p>
-      <a class="btn btn-outline-primary bi bi-controller" href="{{ games.cokogames.url }}" target="_blank" rel="noopener"> Computational thinking games on {{ games.cokogames.name }}</a>
-    </section>
-
-
-
-    <h2>Unplugged Games</h2>
-    <section class="games-section unplugged-games">
-      <div class="row g-4">
-
-        <div class="col-12 col-lg-6">
-          <div class="unplugged-box h-100">
-            <h3>Activities in Schools</h3>
-            <div class="unplugged-cards">
-              {%- for post in collections.unplugged_school | reverse -%}
-                {{ newsCard(post) }}
-              {%- endfor -%}
-            </div>
-          </div>
+  <div class="row g-4 games-hub">
+    <div class="col-12 col-md-6">
+      <a class="card h-100 hub-card text-decoration-none" href="{{ '/games/video/' | url }}">
+        <div class="card-body text-center p-4 p-lg-5">
+          <i class="bi bi-controller hub-icon" aria-hidden="true"></i>
+          <h2 class="h3 mt-3">Video Games</h2>
+          <p>The winning games of the international CoTeDi GameJam and more games for practising computational thinking.</p>
+          <span class="btn btn-primary">Explore video games</span>
         </div>
+      </a>
+    </div>
 
-        <div class="col-12 col-lg-6">
-          <div class="unplugged-box h-100">
-            <h3>Designed Activities</h3>
-            <div class="unplugged-cards">
-              {%- for post in collections.unplugged_designed | reverse -%}
-                {{ newsCard(post) }}
-              {%- endfor -%}
-            </div>
-          </div>
+    <div class="col-12 col-md-6">
+      <a class="card h-100 hub-card text-decoration-none" href="{{ '/games/unplugged/' | url }}">
+        <div class="card-body text-center p-4 p-lg-5">
+          <i class="bi bi-puzzle-fill hub-icon" aria-hidden="true"></i>
+          <h2 class="h3 mt-3">Unplugged Games</h2>
+          <p>Activities from schools and designed activities that teach computational thinking without a computer.</p>
+          <span class="btn btn-primary">Explore unplugged games</span>
         </div>
-
-      </div>
-    </section>
+      </a>
+    </div>
   </div>
 </div>
